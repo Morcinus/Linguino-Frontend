@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Link from "@mui/material/Link";
 
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 // Material UI
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -13,6 +15,7 @@ import Container from "@mui/material/Container";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { FormHelperText } from "@mui/material";
+import { useTranslation } from "next-i18next";
 
 // API
 import useAuth from "../util/useAuth";
@@ -33,6 +36,7 @@ function Signup() {
     formState: { errors },
   } = useForm<InputTypes>();
   const { signUp, loading } = useAuth();
+  const { t } = useTranslation("form");
 
   const onSubmit = (data: {
     username: string;
@@ -49,7 +53,7 @@ function Signup() {
           <Card sx={{ p: 3, textAlign: "center" }}>
             <Stack direction="column" justifyContent="center" spacing={2}>
               <Typography variant="h3" sx={{ mb: 2 }}>
-                Registrace
+                {t("auth.registration")}
               </Typography>
               <Stack
                 direction="column"
@@ -63,10 +67,10 @@ function Signup() {
                 <TextField
                   id="username"
                   type="text"
-                  label="Uživatelské jméno"
+                  label={t("auth.username")}
                   helperText={
                     errors.username?.type === "required" &&
-                    "Toto pole je povinné!"
+                    t("error.field-is-required")
                   }
                   error={errors.username !== undefined}
                   {...register("username", {
@@ -78,12 +82,12 @@ function Signup() {
                 <TextField
                   id="email"
                   type="email"
-                  label="Emailová adresa"
+                  label={t("auth.email")}
                   helperText={
                     errors.email?.type === "required"
-                      ? "Toto pole je povinné!"
+                      ? t("error.field-is-required")
                       : errors.email?.type === "pattern" &&
-                        "Neplatná emailová adresa!"
+                        t("error.invalid-email-address")
                   }
                   error={errors.email !== undefined}
                   {...register("email", {
@@ -96,12 +100,12 @@ function Signup() {
                 <TextField
                   id="password"
                   type="password"
-                  label="Heslo"
+                  label={t("auth.password")}
                   helperText={
                     errors.password?.type === "required"
-                      ? "Toto pole je povinné!"
+                      ? t("error.field-is-required")
                       : errors.password?.type === "minLength" &&
-                        "Heslo musí být dlouhé alespoň 6 znaků!"
+                        t("error.password-too-short")
                   }
                   error={errors.password !== undefined}
                   {...register("password", {
@@ -117,19 +121,19 @@ function Signup() {
                   }
                   label={
                     <Typography variant="body2" sx={{ textAlign: "left" }}>
-                      Souhlasím s{" "}
+                      {t("auth.i-agree-with")}{" "}
                       <Link
                         target="blank_"
                         href="https://www.pandulino.com/vseobecne-obchodni-podminky/"
                       >
-                        Obchodními podmínkami
+                        {t("auth.terms-of-trade")}
                       </Link>{" "}
-                      a{" "}
+                      {t("auth.and")}{" "}
                       <Link
                         target="blank_"
                         href="https://www.pandulino.com/ochrana-osobnich-udaju/"
                       >
-                        Zpracováním osobních údajů
+                        {t("auth.processing-of-personal-data")}
                       </Link>
                       .
                     </Typography>
@@ -140,7 +144,7 @@ function Signup() {
                   sx={{ textAlign: "center" }}
                 >
                   {errors.checked?.type === "required" &&
-                    "Musíte souhlasit s podmínkami!"}
+                    t("error.you-have-to-agree-with-terms")}
                 </FormHelperText>
                 <Box>
                   <LoadingButton
@@ -150,12 +154,13 @@ function Signup() {
                     disabled={loading}
                     loading={loading}
                   >
-                    Registrovat
+                    {t("auth.signup")}
                   </LoadingButton>
                 </Box>
               </Stack>
               <Typography variant="body2">
-                Máte účet? Přihlaste se <Link href="/login">zde</Link>.
+                {t("auth.have-an-account-?-login")}{" "}
+                <Link href="/login">{t("auth.here")}</Link>.
               </Typography>
             </Stack>
           </Card>
@@ -163,6 +168,15 @@ function Signup() {
       </Container>
     </div>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["form", "snack"])),
+      // Will be passed to the page component as props
+    },
+  };
 }
 
 export default Signup;

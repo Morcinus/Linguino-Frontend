@@ -9,6 +9,7 @@ import React, {
 import { useRouter } from "next/router";
 import { AuthAPI, User } from "../api/AuthAPI";
 import { useSnackbar } from "notistack";
+import { useTranslation } from "next-i18next";
 
 interface AuthContextType {
   user?: User;
@@ -32,6 +33,7 @@ export function AuthProvider({
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingInitial, setLoadingInitial] = useState<boolean>(true);
   const { enqueueSnackbar } = useSnackbar();
+  const { t } = useTranslation("snack");
 
   const router = useRouter();
 
@@ -57,7 +59,7 @@ export function AuthProvider({
         setUser(user);
         router.push("/");
       })
-      .catch((error) => handleError(error))
+      .catch(() => handleError())
       .finally(() => setLoading(false));
   }
 
@@ -69,8 +71,8 @@ export function AuthProvider({
         setUser(user);
         router.push("/");
       })
-      .catch((error) => {
-        handleError(error);
+      .catch(() => {
+        handleError();
       })
       .finally(() => setLoading(false));
   }
@@ -80,8 +82,8 @@ export function AuthProvider({
     setUser(undefined);
   }
 
-  function handleError(error) {
-    enqueueSnackbar("Nastala chyba, zkuste to prosím později.", {
+  function handleError() {
+    enqueueSnackbar(t("general-error-message"), {
       variant: "error",
     });
   }

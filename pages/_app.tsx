@@ -8,6 +8,9 @@ import { AuthProvider } from "../util/useAuth";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 import { SnackbarProvider } from "notistack";
+import { appWithTranslation } from "next-i18next";
+// import nextI18nConfig from "../next-i18next.config";
+// import "../util/i18n";
 
 axios.defaults.baseURL = publicRuntimeConfig.API_URL;
 
@@ -29,4 +32,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
