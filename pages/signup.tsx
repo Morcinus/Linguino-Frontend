@@ -32,7 +32,6 @@ function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm<InputTypes>();
-  //const [loading, setLoading] = useState(false);
   const { signUp, loading } = useAuth();
 
   const onSubmit = (data: {

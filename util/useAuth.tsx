@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import { useRouter } from "next/router";
 import { AuthAPI, User } from "../api/AuthAPI";
+import { useSnackbar } from "notistack";
 
 interface AuthContextType {
   user?: User;
@@ -30,6 +31,7 @@ export function AuthProvider({
   const [error, setError] = useState<any>();
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingInitial, setLoadingInitial] = useState<boolean>(true);
+  const { enqueueSnackbar } = useSnackbar();
 
   const router = useRouter();
 
@@ -41,7 +43,9 @@ export function AuthProvider({
   useEffect(() => {
     AuthAPI.getCurrentUser()
       .then((user) => setUser(user))
-      .catch((_error) => {})
+      .catch((error) => {
+        /* There is no user*/
+      })
       .finally(() => setLoadingInitial(false));
   }, []);
 
@@ -53,7 +57,7 @@ export function AuthProvider({
         setUser(user);
         router.push("/");
       })
-      .catch((error) => setError(error))
+      .catch((error) => handleError(error))
       .finally(() => setLoading(false));
   }
 
@@ -65,13 +69,21 @@ export function AuthProvider({
         setUser(user);
         router.push("/");
       })
-      .catch((error) => setError(error))
+      .catch((error) => {
+        handleError(error);
+      })
       .finally(() => setLoading(false));
   }
 
   function logout() {
     AuthAPI.logout();
     setUser(undefined);
+  }
+
+  function handleError(error) {
+    enqueueSnackbar("Nastala chyba, zkuste to prosím později.", {
+      variant: "error",
+    });
   }
 
   const memoedValue = useMemo(
