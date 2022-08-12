@@ -1,0 +1,11 @@
+{
+  "importOrder": [
+    "^react(.*)$",
+    "^next(.*)$",
+    "^@mui/(.*)$",
+    "^components/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
