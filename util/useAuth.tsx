@@ -1,20 +1,23 @@
+import { useSnackbar } from "notistack";
+
 import React, {
-  createContext,
   ReactNode,
+  createContext,
   useContext,
   useEffect,
   useMemo,
   useState,
 } from "react";
-import { useRouter } from "next/router";
-import { AuthAPI, User } from "../api/AuthAPI";
-import { useSnackbar } from "notistack";
+
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+
+import { AuthAPI, User } from "../api/AuthAPI";
 
 interface AuthContextType {
   user?: User;
   loading: boolean;
-  error?: any;
+  errors?: string[];
   login: (email: string, password: string) => void;
   signUp: (username: string, email: string, password: string) => void;
   logout: () => void;
@@ -29,9 +32,8 @@ export function AuthProvider({
   children: ReactNode;
 }): JSX.Element {
   const [user, setUser] = useState<User>();
-  const [error, setError] = useState<any>();
+  const [errors, setError] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [loadingInitial, setLoadingInitial] = useState<boolean>(true);
   const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation("snack");
 
@@ -39,7 +41,7 @@ export function AuthProvider({
 
   // If page changes, reset error state
   useEffect(() => {
-    if (error) setError(null);
+    if (errors) setError([]);
   }, [router.pathname]);
 
   useEffect(() => {
@@ -47,63 +49,76 @@ export function AuthProvider({
       .then((user) => setUser(user))
       .catch((error) => {
         /* There is no user*/
-      })
-      .finally(() => setLoadingInitial(false));
+      });
   }, []);
 
   function login(email: string, password: string) {
     setLoading(true);
+    setError([]);
 
     AuthAPI.login({ email, password })
       .then((user) => {
         setUser(user);
         router.push("/");
       })
-      .catch(() => handleError())
-      .finally(() => setLoading(false));
+      .catch((res) => {
+        handleError(res.response.data.error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   function signUp(username: string, email: string, password: string) {
     setLoading(true);
+    setError([]);
 
     AuthAPI.signUp({ username, email, password })
       .then((user) => {
         setUser(user);
         router.push("/");
       })
-      .catch(() => {
-        handleError();
+      .catch((res) => {
+        handleError(res.response.data.error);
       })
       .finally(() => setLoading(false));
   }
 
   function logout() {
+    setError([]);
     AuthAPI.logout();
     setUser(undefined);
   }
 
-  function handleError() {
-    enqueueSnackbar(t("general-error-message"), {
-      variant: "error",
-    });
+  function handleError(error: string) {
+    console.log("Error", error);
+    switch (error) {
+      case "WRONG_EMAIL_OR_PASSWORD":
+        setError([...errors, "WRONG_EMAIL_OR_PASSWORD"]);
+        break;
+
+      default:
+        enqueueSnackbar(t("general-error-message"), {
+          variant: "error",
+        });
+        break;
+    }
   }
 
   const memoedValue = useMemo(
     () => ({
       user,
       loading,
-      error,
+      errors,
       login,
       signUp,
       logout,
     }),
-    [user, loading, error]
+    [user, loading, errors]
   );
 
   return (
-    <AuthContext.Provider value={memoedValue}>
-      {!loadingInitial && children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>
   );
 }
 
