@@ -13,6 +13,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 import { AuthAPI, User } from "../api/AuthAPI";
+import config from "../config/config";
 
 interface AuthContextType {
   user?: User;
@@ -36,12 +37,16 @@ export function AuthProvider({
   const [loading, setLoading] = useState<boolean>(false);
   const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation("snack");
+  const [initialLoading, setInitialLoading] = useState<boolean>(true);
 
   const router = useRouter();
 
-  // If page changes, reset error state
+  // If page changes
   useEffect(() => {
+    // Reset error state
     if (errors) setError((arr) => []);
+
+    authCheck();
   }, [router.pathname]);
 
   useEffect(() => {
@@ -49,6 +54,9 @@ export function AuthProvider({
       .then((user) => setUser(user))
       .catch((error) => {
         /* There is no user*/
+      })
+      .finally(() => {
+        authCheck();
       });
   }, []);
 
@@ -90,6 +98,16 @@ export function AuthProvider({
     setUser(undefined);
   }
 
+  function authCheck() {
+    if (!user && !config.publicRoutes.includes(router.pathname))
+      router.push("/login").then(() => {
+        setInitialLoading(false);
+      });
+    else {
+      setInitialLoading(false);
+    }
+  }
+
   function handleError(error: string) {
     switch (error) {
       case "WRONG_EMAIL_OR_PASSWORD":
@@ -122,7 +140,9 @@ export function AuthProvider({
   );
 
   return (
-    <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={memoedValue}>
+      {!initialLoading && children}
+    </AuthContext.Provider>
   );
 }
 
