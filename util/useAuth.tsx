@@ -41,7 +41,7 @@ export function AuthProvider({
 
   // If page changes, reset error state
   useEffect(() => {
-    if (errors) setError([]);
+    if (errors) setError((arr) => []);
   }, [router.pathname]);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export function AuthProvider({
 
   function login(email: string, password: string) {
     setLoading(true);
-    setError([]);
+    setError((arr) => []);
 
     AuthAPI.login({ email, password })
       .then((user) => {
@@ -71,7 +71,7 @@ export function AuthProvider({
 
   function signUp(username: string, email: string, password: string) {
     setLoading(true);
-    setError([]);
+    setError((arr) => []);
 
     AuthAPI.signUp({ username, email, password })
       .then((user) => {
@@ -85,18 +85,22 @@ export function AuthProvider({
   }
 
   function logout() {
-    setError([]);
+    setError((arr) => []);
     AuthAPI.logout();
     setUser(undefined);
   }
 
   function handleError(error: string) {
-    console.log("Error", error);
     switch (error) {
       case "WRONG_EMAIL_OR_PASSWORD":
-        setError([...errors, "WRONG_EMAIL_OR_PASSWORD"]);
+        setError((errors) => [...errors, "WRONG_EMAIL_OR_PASSWORD"]);
         break;
-
+      case "USERNAME_TAKEN":
+        setError((errors) => [...errors, "USERNAME_TAKEN"]);
+        break;
+      case "EMAIL_ADDDRESS_TAKEN":
+        setError((errors) => [...errors, "EMAIL_ADDDRESS_TAKEN"]);
+        break;
       default:
         enqueueSnackbar(t("general-error-message"), {
           variant: "error",

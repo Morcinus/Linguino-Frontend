@@ -1,23 +1,22 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Link from "@mui/material/Link";
 
+import { GetServerSideProps } from "next";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-// Material UI
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
-import Card from "@mui/material/Card";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Container from "@mui/material/Container";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { FormHelperText } from "@mui/material";
-import { useTranslation } from "next-i18next";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Checkbox from "@mui/material/Checkbox";
+import Container from "@mui/material/Container";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
-// API
 import useAuth from "../util/useAuth";
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
@@ -35,7 +34,7 @@ function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm<InputTypes>();
-  const { signUp, loading } = useAuth();
+  const { signUp, loading, errors: authErrors } = useAuth();
   const { t } = useTranslation("form");
 
   const onSubmit = (data: {
@@ -69,10 +68,14 @@ function Signup() {
                   type="text"
                   label={t("auth.username")}
                   helperText={
-                    errors.username?.type === "required" &&
-                    t("error.field-is-required")
+                    errors.username?.type === "required"
+                      ? t("error.field-is-required")
+                      : authErrors?.includes("USERNAME_TAKEN") && "USERNAME1"
                   }
-                  error={errors.username !== undefined}
+                  error={
+                    errors.username !== undefined ||
+                    authErrors?.includes("USERNAME_TAKEN")
+                  }
                   {...register("username", {
                     required: true,
                   })}
@@ -86,10 +89,14 @@ function Signup() {
                   helperText={
                     errors.email?.type === "required"
                       ? t("error.field-is-required")
-                      : errors.email?.type === "pattern" &&
-                        t("error.invalid-email-address")
+                      : errors.email?.type === "pattern"
+                      ? t("error.invalid-email-address")
+                      : authErrors?.includes("EMAIL_ADDDRESS_TAKEN") && "EMAIL1"
                   }
-                  error={errors.email !== undefined}
+                  error={
+                    errors.email !== undefined ||
+                    authErrors?.includes("EMAIL_ADDDRESS_TAKEN")
+                  }
                   {...register("email", {
                     required: true,
                     pattern: EMAIL_REGEX,
@@ -170,13 +177,10 @@ function Signup() {
   );
 }
 
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["form", "snack"])),
-      // Will be passed to the page component as props
-    },
-  };
-}
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale as string, ["form", "snack"])),
+  },
+});
 
 export default Signup;
