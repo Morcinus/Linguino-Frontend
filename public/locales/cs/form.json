@@ -1,26 +1,30 @@
 {
   "auth": {
     "login-header": "Přihlášení",
-    "registration": "Registrace",
+    "signup-header": "Registrace",
     "signup": "Registrovat",
     "login": "Přihlásit",
     "username": "Uživatelské jméno",
     "email": "Emailová adresa",
     "password": "Heslo",
-    "i-agree-with": "Souhlasím s",
-    "terms-of-trade": "obchodními podmínkami",
-    "and": "a",
-    "processing-of-personal-data": "zpracováním osobních údajů",
-    "have-an-account-?-login": "Máte účet? Přihlaste se",
-    "here": "zde",
+    "terms": [
+      "Souhlasím s",
+      "obchodními podmínkami",
+      "a",
+      "zpracováním osobních údajů"
+    ],
+    "have-an-account": "Máte účet? Přihlaste se",
     "dont-have-account": "Nemáte účet? Zaregistrujte se",
+    "here": "zde",
     "forgot-password": "Zapomněli jste heslo?"
   },
   "error": {
-    "you-have-to-agree-with-terms": "Musíte souhlasit s podmínkami!",
+    "agree-with-terms": "Musíte souhlasit s podmínkami!",
     "field-is-required": "Toto pole je povinné!",
     "password-too-short": "Heslo musí být dlouhé alespoň 6 znaků!",
     "invalid-email-address": "Neplatná emailová adresa!",
-    "wrong-email-or-password": "Zadali jste nesprávný email nebo heslo."
+    "wrong-email-or-password": "Zadali jste nesprávný email nebo heslo.",
+    "username-taken": "Toto jméno už někdo používá!",
+    "email-taken": "Tento email už někdo používá!"
   }
 }

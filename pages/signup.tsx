@@ -52,7 +52,7 @@ function Signup() {
           <Card sx={{ p: 3, textAlign: "center" }}>
             <Stack direction="column" justifyContent="center" spacing={2}>
               <Typography variant="h3" sx={{ mb: 2 }}>
-                {t("auth.registration")}
+                {t("auth.signup-header")}
               </Typography>
               <Stack
                 direction="column"
@@ -70,7 +70,8 @@ function Signup() {
                   helperText={
                     errors.username?.type === "required"
                       ? t("error.field-is-required")
-                      : authErrors?.includes("USERNAME_TAKEN") && "USERNAME1"
+                      : authErrors?.includes("USERNAME_TAKEN") &&
+                        t("error.username-taken")
                   }
                   error={
                     errors.username !== undefined ||
@@ -91,7 +92,8 @@ function Signup() {
                       ? t("error.field-is-required")
                       : errors.email?.type === "pattern"
                       ? t("error.invalid-email-address")
-                      : authErrors?.includes("EMAIL_ADDDRESS_TAKEN") && "EMAIL1"
+                      : authErrors?.includes("EMAIL_ADDDRESS_TAKEN") &&
+                        t("error.email-taken")
                   }
                   error={
                     errors.email !== undefined ||
@@ -128,19 +130,19 @@ function Signup() {
                   }
                   label={
                     <Typography variant="body2" sx={{ textAlign: "left" }}>
-                      {t("auth.i-agree-with")}{" "}
+                      {t("auth.terms.0")}{" "}
                       <Link
                         target="blank_"
                         href="https://www.pandulino.com/vseobecne-obchodni-podminky/"
                       >
-                        {t("auth.terms-of-trade")}
+                        {t("auth.terms.1")}
                       </Link>{" "}
-                      {t("auth.and")}{" "}
+                      {t("auth.terms.2")}{" "}
                       <Link
                         target="blank_"
                         href="https://www.pandulino.com/ochrana-osobnich-udaju/"
                       >
-                        {t("auth.processing-of-personal-data")}
+                        {t("auth.terms.3")}
                       </Link>
                       .
                     </Typography>
@@ -151,7 +153,7 @@ function Signup() {
                   sx={{ textAlign: "center" }}
                 >
                   {errors.checked?.type === "required" &&
-                    t("error.you-have-to-agree-with-terms")}
+                    t("error.agree-with-terms")}
                 </FormHelperText>
                 <Box>
                   <LoadingButton
@@ -166,7 +168,7 @@ function Signup() {
                 </Box>
               </Stack>
               <Typography variant="body2">
-                {t("auth.have-an-account-?-login")}{" "}
+                {t("auth.have-an-account")}{" "}
                 <Link href="/login">{t("auth.here")}</Link>.
               </Typography>
             </Stack>
