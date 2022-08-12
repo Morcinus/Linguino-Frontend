@@ -1,7 +1,7 @@
 import axios from "axios";
+import jwtDecode from "jwt-decode";
 
 import { LocalStorageManager } from "../util/LocalStorageManager";
-import jwtDecode from "jwt-decode";
 
 export const AuthAPI = {
   signUp(data: {
@@ -42,7 +42,7 @@ export const AuthAPI = {
   refreshIDToken(): Promise<void> {
     return axios
       .post(
-        "https://securetoken.googleapis.com/v1/token?key=AIzaSyDws82Zg6zK8pQQT2JydDVDY3ZVJla7D58",
+        `${process.env.NEXT_PUBLIC_FIREBASE_TOKEN_API_URL}token?key=${process.env.NEXT_PUBLIC_FIREBASE_TOKEN_API_KEY}`,
         {
           grant_type: "refresh_token",
           refresh_token: LocalStorageManager.getRefreshToken(),
