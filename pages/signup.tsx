@@ -1,9 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import LoadingButton from "@mui/lab/LoadingButton";
 import { FormHelperText } from "@mui/material";
@@ -178,11 +176,5 @@ function Signup() {
     </div>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale as string, ["form", "snack"])),
-  },
-});
 
 export default Signup;

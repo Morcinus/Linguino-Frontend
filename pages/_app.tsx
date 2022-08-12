@@ -1,16 +1,18 @@
-import "../styles/globals.css";
+import axios from "axios";
+import { SnackbarProvider } from "notistack";
+
+import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
+import getConfig from "next/config";
 
 import { ThemeProvider } from "@mui/material/styles";
+
+import nextI18nConfig from "../next-i18next.config";
+import "../styles/globals.css";
 import theme from "../styles/theme";
-import axios from "axios";
 import { AuthProvider } from "../util/useAuth";
-import getConfig from "next/config";
+
 const { publicRuntimeConfig } = getConfig();
-import { SnackbarProvider } from "notistack";
-import { appWithTranslation } from "next-i18next";
-// import nextI18nConfig from "../next-i18next.config";
-// import "../util/i18n";
 
 axios.defaults.baseURL = publicRuntimeConfig.API_URL;
 
@@ -32,4 +34,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, nextI18nConfig);
