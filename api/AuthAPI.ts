@@ -52,7 +52,6 @@ export const AuthAPI = {
         LocalStorageManager.setAuthorizationHeader(res.data.idToken);
         LocalStorageManager.setIdToken(res.data.idToken);
         LocalStorageManager.setRefreshToken(res.data.refreshToken);
-        LocalStorageManager.setUser(res.data.user);
       })
       .catch((err) => {
         // Refresh token is expired, user needs to log in again
