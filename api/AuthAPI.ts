@@ -59,11 +59,13 @@ export const AuthAPI = {
 
   getCurrentUser(): Promise<User> {
     return new Promise(async (resolve, reject) => {
-      const decodedToken = jwtDecode<DecodedToken>(
-        LocalStorageManager.getIdToken()
-      );
-      // If ID token is expired
-      if (decodedToken.exp * 1000 < Date.now()) await this.refreshIDToken();
+      let token = LocalStorageManager.getIdToken();
+
+      if (token) {
+        const decodedToken = jwtDecode<DecodedToken>(token);
+        // If ID token is expired
+        if (decodedToken.exp * 1000 < Date.now()) await this.refreshIDToken();
+      } else this.logout();
 
       if (LocalStorageManager.userExists())
         resolve(LocalStorageManager.getUser());
@@ -75,6 +77,7 @@ export const AuthAPI = {
 export interface User {
   username: string;
   email: string;
+  completedDailyGoal?: boolean;
 }
 
 interface DecodedToken {
