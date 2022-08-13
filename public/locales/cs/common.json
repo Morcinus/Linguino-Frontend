@@ -4,5 +4,7 @@
   "help": "Nápověda",
   "settings": "Nastavení",
   "logout": "Odhlásit",
-  "open-menu": "Otevřít menu"
+  "open-menu": "Otevřít menu",
+  "login": "Přihlášení",
+  "signup": "Registrace"
 }
