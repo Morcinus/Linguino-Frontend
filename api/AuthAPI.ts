@@ -10,8 +10,6 @@ export const AuthAPI = {
     password: string;
   }): Promise<User> {
     return axios.post("/signup", data).then((res) => {
-      console.log(res);
-      console.log(res.data.idToken);
       LocalStorageManager.setAuthorizationHeader(res.data.idToken);
       LocalStorageManager.setIdToken(res.data.idToken);
       LocalStorageManager.setRefreshToken(res.data.refreshToken);
@@ -60,14 +58,16 @@ export const AuthAPI = {
   },
 
   getCurrentUser(): Promise<User> {
-    return new Promise(() => {
+    return new Promise(async (resolve, reject) => {
       const decodedToken = jwtDecode<DecodedToken>(
         LocalStorageManager.getIdToken()
       );
       // If ID token is expired
-      if (decodedToken.exp * 1000 < Date.now()) return this.refreshIDToken();
+      if (decodedToken.exp * 1000 < Date.now()) await this.refreshIDToken();
 
-      return LocalStorageManager.getUser();
+      if (LocalStorageManager.userExists())
+        resolve(LocalStorageManager.getUser());
+      else reject(null);
     });
   },
 };

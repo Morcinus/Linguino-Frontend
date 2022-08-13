@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 
 import { AuthAPI, User } from "../api/AuthAPI";
 import config from "../config/config";
+import { LocalStorageManager } from "./LocalStorageManager";
 
 interface AuthContextType {
   user?: User;
@@ -51,8 +52,10 @@ export function AuthProvider({
 
   useEffect(() => {
     AuthAPI.getCurrentUser()
-      .then((user) => setUser(user))
-      .catch((error) => {
+      .then(async (user) => {
+        setUser(user);
+      })
+      .catch(() => {
         /* There is no user*/
       })
       .finally(() => {
@@ -99,7 +102,11 @@ export function AuthProvider({
   }
 
   function authCheck() {
-    if (!user && !config.publicRoutes.includes(router.pathname))
+    if (
+      !user &&
+      !config.publicRoutes.includes(router.pathname) &&
+      !LocalStorageManager.userExists()
+    )
       router.push("/login").then(() => {
         setInitialLoading(false);
       });

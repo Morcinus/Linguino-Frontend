@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { User } from "../api/AuthAPI";
 
 export const LocalStorageManager = {
@@ -41,6 +42,10 @@ export const LocalStorageManager = {
 
   getUser(): User {
     return JSON.parse(localStorage.User);
+  },
+
+  userExists(): boolean {
+    return localStorage.getItem("User") !== null;
   },
 
   removeUser(): void {
