@@ -42,6 +42,11 @@ const theme = createTheme({
         root: { boxShadow: "0px 1px 3px 2px rgba(0, 0, 0, .06)" },
       },
     },
+    MuiAppBar: {
+      styleOverrides: {
+        root: { boxShadow: "0px 1px 3px 2px rgba(0, 0, 0, .1)" },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
