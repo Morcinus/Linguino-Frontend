@@ -11,7 +11,7 @@ export default function NavBarUnauthenticated() {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
 
-      <AppBar position="fixed">
+      <AppBar position="fixed" color="neutral">
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
             Unuthenticated

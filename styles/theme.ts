@@ -6,15 +6,19 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#ffffff",
-      light: "#ffffff",
-      dark: "#cccccc",
-      contrastText: "#000000",
-    },
-    secondary: {
       main: "#62B048",
       light: "#94e277",
       dark: "#2f8019",
+      contrastText: "#000000",
+    },
+    secondary: {
+      main: "#f29800",
+      light: "#ffc947",
+      dark: "#ba6a00",
+      contrastText: "#000000",
+    },
+    neutral: {
+      main: "#ffffff",
       contrastText: "#000000",
     },
     background: {
@@ -58,5 +62,23 @@ const theme = createTheme({
     },
   },
 });
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    neutral: Palette["primary"];
+  }
+
+  // allow configuration using `createTheme`
+  interface PaletteOptions {
+    neutral?: PaletteOptions["primary"];
+  }
+}
+
+// Update the Button's color prop options
+declare module "@mui/material/AppBar" {
+  interface AppBarPropsColorOverrides {
+    neutral: true;
+  }
+}
 
 export default theme;

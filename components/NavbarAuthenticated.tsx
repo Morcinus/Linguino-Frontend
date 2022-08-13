@@ -17,6 +17,7 @@ export default function NavBarAuthenticated() {
 
       <AppBar
         position="fixed"
+        color="neutral"
         sx={{
           width: `calc(100% - ${drawerWidth}px)`,
           ml: `${drawerWidth}px`,
