@@ -3,7 +3,6 @@ import { SnackbarProvider } from "notistack";
 
 import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
-import getConfig from "next/config";
 
 import { ThemeProvider } from "@mui/material/styles";
 
@@ -12,9 +11,7 @@ import "../styles/globals.css";
 import theme from "../styles/theme";
 import { AuthProvider } from "../util/useAuth";
 
-const { publicRuntimeConfig } = getConfig();
-
-axios.defaults.baseURL = publicRuntimeConfig.API_URL;
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
