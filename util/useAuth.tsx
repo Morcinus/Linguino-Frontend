@@ -99,6 +99,7 @@ export function AuthProvider({
     setError((arr) => []);
     AuthAPI.logout();
     setUser(undefined);
+    router.push("/login");
   }
 
   function authCheck() {

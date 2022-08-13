@@ -1,1 +1,8 @@
-{}
+{
+  "my-profile": "Můj profil",
+  "subscription": "Předplatné",
+  "help": "Nápověda",
+  "settings": "Nastavení",
+  "logout": "Odhlásit",
+  "open-menu": "Otevřít menu"
+}
