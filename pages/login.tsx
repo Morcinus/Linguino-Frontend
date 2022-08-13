@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 import LoadingButton from "@mui/lab/LoadingButton";
 import { FormHelperText } from "@mui/material";
@@ -28,12 +29,17 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm<InputTypes>();
-  const { login, loading, errors: authErrors } = useAuth();
+  const { login, loading, errors: authErrors, user } = useAuth();
   const { t } = useTranslation("form");
+  const router = useRouter();
 
   const onSubmit = (data: { email: string; password: string }) => {
     login(data.email, data.password);
   };
+
+  useEffect(() => {
+    if (user) router.push("/");
+  }, [user]);
 
   return (
     <div>
