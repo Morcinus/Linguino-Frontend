@@ -73,31 +73,31 @@ export default function NavbarMenu() {
         <Link href="/profile">
           <MenuItem onClick={handleClose}>
             <FaceIcon style={{ marginRight: 10 }} />
-            {t("my-profile")}
+            {t("other.my-profile")}
           </MenuItem>
         </Link>
         <Link href="/extend-subscription">
           <MenuItem onClick={handleClose}>
             <AccountBalanceWalletIcon style={{ marginRight: 10 }} />
-            {t("subscription")}
+            {t("other.subscription")}
           </MenuItem>
         </Link>
         <Divider />
         <Link href="/help">
           <MenuItem onClick={handleClose}>
             <HelpOutlineIcon style={{ marginRight: 10 }} />
-            {t("help")}
+            {t("other.help")}
           </MenuItem>
         </Link>
         <Link href="/settings">
           <MenuItem onClick={handleClose}>
             <SettingsIcon style={{ marginRight: 10 }} />
-            {t("settings")}
+            {t("other.settings")}
           </MenuItem>
         </Link>
         <MenuItem onClick={logout}>
           <ExitToAppIcon style={{ marginRight: 10 }} />
-          {t("logout")}
+          {t("other.logout")}
         </MenuItem>
       </Menu>
     </>

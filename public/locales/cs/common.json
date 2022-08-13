@@ -1,10 +1,31 @@
 {
-  "my-profile": "Můj profil",
-  "subscription": "Předplatné",
-  "help": "Nápověda",
-  "settings": "Nastavení",
-  "logout": "Odhlásit",
+  "project-name": "Linguino English",
+
   "open-menu": "Otevřít menu",
   "login": "Přihlášení",
-  "signup": "Registrace"
+  "signup": "Registrace",
+
+  "menu": "Menu",
+  "home": "Domů",
+  "groups": "Skupiny",
+
+  "studying": {
+    "studying": "Učení",
+    "speaking": "Mluvení",
+    "pronunciation": "Výslovnost",
+    "vocabulary": "Slovíčka",
+    "grammar": "Gramatika",
+    "reading": "Čtení",
+    "listening": "Poslech"
+  },
+
+  "other": {
+    "other": "Ostatní",
+    "subscription": "Předplatné",
+    "help": "Nápověda",
+    "news": "Novinky",
+    "settings": "Nastavení",
+    "my-profile": "Můj profil",
+    "logout": "Odhlásit"
+  }
 }
