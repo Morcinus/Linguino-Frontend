@@ -71,6 +71,7 @@ function Signup() {
                   id="username"
                   type="text"
                   label={t("auth.username")}
+                  color="secondary"
                   helperText={
                     errors.username?.type === "required"
                       ? t("error.field-is-required")
@@ -91,6 +92,7 @@ function Signup() {
                   id="email"
                   type="email"
                   label={t("auth.email")}
+                  color="secondary"
                   helperText={
                     errors.email?.type === "required"
                       ? t("error.field-is-required")
@@ -114,6 +116,7 @@ function Signup() {
                   id="password"
                   type="password"
                   label={t("auth.password")}
+                  color="secondary"
                   helperText={
                     errors.password?.type === "required"
                       ? t("error.field-is-required")
