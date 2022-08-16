@@ -6,6 +6,7 @@ import type { AppProps } from "next/app";
 
 import { ThemeProvider } from "@mui/material/styles";
 
+import ContentContainer from "../components/ContentContainer";
 import Navigation from "../components/Navigation";
 import nextI18nConfig from "../next-i18next.config";
 import "../styles/globals.css";
@@ -26,7 +27,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <AuthProvider>
           <Navigation />
-          <Component {...pageProps} />
+          <ContentContainer>
+            <Component {...pageProps} />
+          </ContentContainer>
         </AuthProvider>
       </SnackbarProvider>
     </ThemeProvider>

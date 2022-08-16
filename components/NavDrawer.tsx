@@ -30,7 +30,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 
-const drawerWidth = 240;
+export const drawerWidth = 240;
 
 export default function NavDrawer() {
   const router = useRouter();
