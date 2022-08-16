@@ -17,7 +17,7 @@ import UserAvatar from "./UserAvatar";
 
 export default function NavbarMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const open = Boolean(anchorEl);
   const { t } = useTranslation("common");
 
@@ -30,7 +30,13 @@ export default function NavbarMenu() {
 
   return (
     <>
-      <Tooltip title={t("open-menu")}>
+      <Tooltip
+        title={
+          user?.completedDailyGoal
+            ? t("user-avatar-circle-tooltip")
+            : t("open-menu")
+        }
+      >
         <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
           <UserAvatar />
         </IconButton>
