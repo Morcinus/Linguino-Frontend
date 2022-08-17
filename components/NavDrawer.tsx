@@ -76,7 +76,7 @@ export default function NavDrawer() {
       >
         <ListItem disablePadding>
           <Link href="/">
-            <ListItemButton selected={router.asPath === "/"}>
+            <ListItemButton selected={router.pathname === "/"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <HomeIcon sx={{ color: "#818181" }} />
@@ -95,7 +95,7 @@ export default function NavDrawer() {
         </ListItem>
         <ListItem disablePadding>
           <Link href="/groups">
-            <ListItemButton selected={router.asPath === "/groups"}>
+            <ListItemButton selected={router.pathname === "/groups"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <GroupIcon sx={{ color: "#818181" }} />
@@ -145,7 +145,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/speaking">
-            <ListItemButton selected={router.asPath === "/speaking"}>
+            <ListItemButton selected={router.pathname === "/speaking"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#fbc02d" }}>
                   <RecordVoiceOverIcon sx={{ color: "#fff9c4" }} />
@@ -173,7 +173,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/pronunciation">
-            <ListItemButton selected={router.asPath === "/pronunciation"}>
+            <ListItemButton selected={router.pathname === "/pronunciation"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#ED9526" }}>
                   <TranslateIcon sx={{ color: "#FBE5C9" }} />
@@ -200,7 +200,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/vocabulary">
-            <ListItemButton selected={router.asPath === "/vocabulary"}>
+            <ListItemButton selected={router.pathname === "/vocabulary"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#2AB930" }}>
                   <ExtensionIcon sx={{ color: "#C5F2C7" }} />
@@ -228,7 +228,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/grammar">
-            <ListItemButton selected={router.asPath === "/grammar"}>
+            <ListItemButton selected={router.pathname === "/grammar"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#1672EC" }}>
                   <CategoryIcon sx={{ color: "#C5DCFA" }} />
@@ -255,7 +255,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/reading">
-            <ListItemButton selected={router.asPath === "/reading"}>
+            <ListItemButton selected={router.pathname === "/reading"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#3f51b5" }}>
                   <AutoStoriesIcon sx={{ color: "#c5cae9" }} />
@@ -282,7 +282,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/listening">
-            <ListItemButton selected={router.asPath === "/listening"}>
+            <ListItemButton selected={router.pathname === "/listening"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#9A0FBF" }}>
                   <HeadphonesIcon sx={{ color: "#ECB9F9" }} />
@@ -324,7 +324,9 @@ export default function NavDrawer() {
       >
         <ListItem disablePadding>
           <Link href="/extend-subscription">
-            <ListItemButton selected={router.asPath === "/extend-subscription"}>
+            <ListItemButton
+              selected={router.pathname === "/extend-subscription"}
+            >
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <AccountBalanceWalletIcon sx={{ color: "#818181" }} />
@@ -343,7 +345,7 @@ export default function NavDrawer() {
         </ListItem>
         <ListItem disablePadding>
           <Link href="/help">
-            <ListItemButton selected={router.asPath === "/help"}>
+            <ListItemButton selected={router.pathname === "/help"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <HelpOutlineOutlinedIcon sx={{ color: "#818181" }} />
@@ -362,7 +364,7 @@ export default function NavDrawer() {
         </ListItem>
         <ListItem disablePadding>
           <Link href="/changelog">
-            <ListItemButton selected={router.asPath === "/changelog"}>
+            <ListItemButton selected={router.pathname === "/changelog"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <ExploreOutlinedIcon sx={{ color: "#818181" }} />
@@ -381,7 +383,7 @@ export default function NavDrawer() {
         </ListItem>
         <ListItem disablePadding>
           <Link href="/settings">
-            <ListItemButton selected={router.asPath === "/settings"}>
+            <ListItemButton selected={router.pathname === "/settings"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <SettingsIcon sx={{ color: "#818181" }} />
