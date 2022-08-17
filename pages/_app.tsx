@@ -7,6 +7,7 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
 
 import ContentContainer from "../components/ContentContainer";
+import { ErrorHandler } from "../components/ErrorHandler";
 import Navigation from "../components/Navigation";
 import nextI18nConfig from "../next-i18next.config";
 import "../styles/globals.css";
@@ -25,12 +26,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           horizontal: "right",
         }}
       >
-        <AuthProvider>
-          <Navigation />
-          <ContentContainer>
-            <Component {...pageProps} />
-          </ContentContainer>
-        </AuthProvider>
+        <ErrorHandler>
+          <AuthProvider>
+            <Navigation />
+            <ContentContainer>
+              <Component {...pageProps} />
+            </ContentContainer>
+          </AuthProvider>
+        </ErrorHandler>
       </SnackbarProvider>
     </ThemeProvider>
   );
