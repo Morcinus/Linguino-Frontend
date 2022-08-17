@@ -1,9 +1,9 @@
-export interface VocabularyDeck {
-  deckId: string;
-  deckName: string;
+export interface VocabularyLesson {
+  lessonId: string;
+  lessonName: string;
   progress?: number;
   category?: string;
   learningOrder?: number;
 }
 
-export type VocabularyDecks = Array<VocabularyDeck>;
+export type VocabularyLessons = Array<VocabularyLesson>;

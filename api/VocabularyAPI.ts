@@ -6,11 +6,11 @@ import useErrorHandler from "../components/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
 export default class VocabularyAPI {
-  public static useVocabularyDecks(): FetchHook & {
-    vocabularyDeckCategories: any;
+  public static useVocabularyLessons(): FetchHook & {
+    vocabularyLessonCategories: any;
   } {
     const { data, error } = useSWR(
-      ["vocabulary-decks", "?group=category&sort=+learningOrder"],
+      ["vocabulary-lessons", "?group=category&sort=+learningOrder"],
       fetcher
     );
     const { setError } = useErrorHandler();
@@ -20,7 +20,7 @@ export default class VocabularyAPI {
     }, [error]);
 
     return {
-      vocabularyDeckCategories: data,
+      vocabularyLessonCategories: data,
       isLoading: !error && !data,
     };
   }

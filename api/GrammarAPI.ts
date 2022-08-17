@@ -6,11 +6,11 @@ import useErrorHandler from "../components/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
 export default class GrammarAPI {
-  public static useGrammarDecks(): FetchHook & {
-    grammarDeckCategories: any;
+  public static useGrammarLessons(): FetchHook & {
+    grammarLessonCategories: any;
   } {
     const { data, error } = useSWR(
-      ["grammar-decks", "?group=category&sort=+learningOrder"],
+      ["grammar-lessons", "?group=category&sort=+learningOrder"],
       fetcher
     );
     const { setError } = useErrorHandler();
@@ -20,7 +20,7 @@ export default class GrammarAPI {
     }, [error]);
 
     return {
-      grammarDeckCategories: data,
+      grammarLessonCategories: data,
       isLoading: !error && !data,
     };
   }

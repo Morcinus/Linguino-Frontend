@@ -12,24 +12,24 @@ import {
   Typography,
 } from "@mui/material";
 
-export interface DeckCardProps {
+export interface LessonCardProps {
   title: string;
   progress: number;
   id: string;
 }
 
-export const DECK_CARD_WIDTH = 143;
+export const LESSON_CARD_WIDTH = 143;
 
-export default function DeckCard({ title, progress, id }: DeckCardProps) {
+export default function LessonCard({ title, progress, id }: LessonCardProps) {
   return (
     <Card
       sx={{
         position: "relative",
-        width: DECK_CARD_WIDTH,
+        width: LESSON_CARD_WIDTH,
         height: 200,
       }}
     >
-      <Link href={`/deck/${id}`}>
+      <Link href={`/lesson/${id}`}>
         <CardActionArea
           sx={{
             position: "absolute",

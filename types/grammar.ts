@@ -1,9 +1,9 @@
-export interface GrammarDeck {
-  deckId: string;
-  deckName: string;
+export interface GrammarLesson {
+  lessonId: string;
+  lessonName: string;
   progress?: number;
   category?: string;
   learningOrder?: number;
 }
 
-export type GrammarDecks = Array<GrammarDeck>;
+export type GrammarLessons = Array<GrammarLesson>;

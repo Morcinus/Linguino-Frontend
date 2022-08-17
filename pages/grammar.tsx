@@ -6,11 +6,11 @@ import { Box } from "@mui/system";
 
 import GrammarAPI from "../api/GrammarAPI";
 import CardGrid from "../components/CardGrid";
-import { GrammarDeck } from "../types/grammar";
+import { GrammarLesson } from "../types/grammar";
 
 export default function grammar() {
   const [value, setValue] = useState("0");
-  const { grammarDeckCategories, isLoading } = GrammarAPI.useGrammarDecks();
+  const { grammarLessonCategories, isLoading } = GrammarAPI.useGrammarLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -27,7 +27,7 @@ export default function grammar() {
               centered
               TabIndicatorProps={{ style: { background: "rgba(0,0,0,0)" } }}
             >
-              {grammarDeckCategories?.map((group: any, i: number) => {
+              {grammarLessonCategories?.map((group: any, i: number) => {
                 return (
                   <Tab
                     label={`${group.category.name}`}
@@ -45,7 +45,7 @@ export default function grammar() {
               })}
             </Tabs>
 
-            {grammarDeckCategories?.map((group: any, i: number) => {
+            {grammarLessonCategories?.map((group: any, i: number) => {
               return (
                 <TabPanel value={`${i}`} sx={{ pt: 1 }} key={`${i}`}>
                   <Divider sx={{ mb: 3 }}>
@@ -53,9 +53,9 @@ export default function grammar() {
                   </Divider>
                   <CardGrid
                     cards={group.data.map(
-                      ({ deckId, deckName, progress }: GrammarDeck) => ({
-                        id: deckId,
-                        title: deckName,
+                      ({ lessonId, lessonName, progress }: GrammarLesson) => ({
+                        id: lessonId,
+                        title: lessonName,
                         progress,
                       })
                     )}
