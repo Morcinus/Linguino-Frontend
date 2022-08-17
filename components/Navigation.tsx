@@ -20,7 +20,7 @@ export default function PermanentDrawerLeft() {
 
       {user && <NavDrawer />}
 
-      <Toolbar />
+      <Toolbar sx={{ mb: 3.5 }} />
     </Box>
   );
 }

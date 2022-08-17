@@ -12,14 +12,21 @@ export default function ContentContainer({
   children: ReactNode;
 }): JSX.Element {
   const { user } = useAuth();
-  return (
+  return user ? (
     <Box
       sx={{
-        width: user ? `calc(100% - ${drawerWidth}px)` : "100%",
-        ml: user ? `${drawerWidth}px` : 0,
+        width: `calc(100% - ${drawerWidth}px)`,
+        ml: `${drawerWidth}px`,
       }}
     >
-      <Container maxWidth="lg">{children}</Container>
+      <Container
+        maxWidth="lg"
+        sx={{ justifyContent: "center", display: "flex" }}
+      >
+        {children}
+      </Container>
     </Box>
+  ) : (
+    <>{children}</>
   );
 }
