@@ -147,15 +147,15 @@ export default function NavDrawer() {
           <Link href="/speaking">
             <ListItemButton selected={router.pathname === "/speaking"}>
               <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "#fbc02d" }}>
-                  <RecordVoiceOverIcon sx={{ color: "#fff9c4" }} />
+                <Avatar sx={{ backgroundColor: "speaking.main" }}>
+                  <RecordVoiceOverIcon sx={{ color: "speaking.light" }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={t("studying.speaking")}
                 primaryTypographyProps={{
                   variant: "body1",
-                  color: "#c49000",
+                  color: "speaking.dark",
                   fontWeight: "bold",
                 }}
               />
@@ -175,15 +175,15 @@ export default function NavDrawer() {
           <Link href="/pronunciation">
             <ListItemButton selected={router.pathname === "/pronunciation"}>
               <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "#ED9526" }}>
-                  <TranslateIcon sx={{ color: "#FBE5C9" }} />
+                <Avatar sx={{ backgroundColor: "pronunciation.main" }}>
+                  <TranslateIcon sx={{ color: "pronunciation.light" }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={t("studying.pronunciation")}
                 primaryTypographyProps={{
                   variant: "body1",
-                  color: "#7F4C0A",
+                  color: "pronunciation.dark",
                   fontWeight: "bold",
                 }}
               />
@@ -202,15 +202,15 @@ export default function NavDrawer() {
           <Link href="/vocabulary">
             <ListItemButton selected={router.pathname === "/vocabulary"}>
               <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "#2AB930" }}>
-                  <ExtensionIcon sx={{ color: "#C5F2C7" }} />
+                <Avatar sx={{ backgroundColor: "vocabulary.main" }}>
+                  <ExtensionIcon sx={{ color: "vocabulary.light" }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={t("studying.vocabulary")}
                 primaryTypographyProps={{
                   variant: "body1",
-                  color: "#155D18",
+                  color: "vocabulary.dark",
                   fontWeight: "bold",
                 }}
               />
@@ -230,15 +230,15 @@ export default function NavDrawer() {
           <Link href="/grammar">
             <ListItemButton selected={router.pathname === "/grammar"}>
               <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "#1672EC" }}>
-                  <CategoryIcon sx={{ color: "#C5DCFA" }} />
+                <Avatar sx={{ backgroundColor: "grammar.main" }}>
+                  <CategoryIcon sx={{ color: "grammar.light" }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={t("studying.grammar")}
                 primaryTypographyProps={{
                   variant: "body1",
-                  color: "#0A3977",
+                  color: "grammar.dark",
                   fontWeight: "bold",
                 }}
               />
@@ -257,15 +257,15 @@ export default function NavDrawer() {
           <Link href="/reading">
             <ListItemButton selected={router.pathname === "/reading"}>
               <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "#3f51b5" }}>
-                  <AutoStoriesIcon sx={{ color: "#c5cae9" }} />
+                <Avatar sx={{ backgroundColor: "reading.main" }}>
+                  <AutoStoriesIcon sx={{ color: "reading.light" }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={t("studying.reading")}
                 primaryTypographyProps={{
                   variant: "body1",
-                  color: "#002984",
+                  color: "reading.dark",
                   fontWeight: "bold",
                 }}
               />
@@ -284,15 +284,15 @@ export default function NavDrawer() {
           <Link href="/listening">
             <ListItemButton selected={router.pathname === "/listening"}>
               <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "#9A0FBF" }}>
-                  <HeadphonesIcon sx={{ color: "#ECB9F9" }} />
+                <Avatar sx={{ backgroundColor: "listening.main" }}>
+                  <HeadphonesIcon sx={{ color: "listening.light" }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={t("studying.listening")}
                 primaryTypographyProps={{
                   variant: "body1",
-                  color: "#4D085F",
+                  color: "listening.dark",
                   fontWeight: "bold",
                 }}
               />
