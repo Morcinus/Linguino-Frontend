@@ -12,7 +12,7 @@ import Navigation from "../components/Navigation";
 import nextI18nConfig from "../next-i18next.config";
 import "../styles/globals.css";
 import theme from "../styles/theme";
-import { AuthProvider } from "../util/useAuth";
+import { AuthProvider } from "../util/hooks/useAuth";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Avatar, Box } from "@mui/material";
 
-import useAuth from "../util/useAuth";
+import useAuth from "../util/hooks/useAuth";
 
 export default function UserAvatar() {
   const { user } = useAuth();

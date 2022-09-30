@@ -12,9 +12,9 @@ import React, {
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
-import { AuthAPI, User } from "../api/AuthAPI";
-import config from "../config/config";
-import { LocalStorageManager } from "./LocalStorageManager";
+import { AuthAPI, User } from "../../api/AuthAPI";
+import config from "../../config/config";
+import { LocalStorageManager } from "../LocalStorageManager";
 
 interface AuthContextType {
   user?: User;

@@ -12,7 +12,7 @@ import { Divider, IconButton, Tooltip } from "@mui/material";
 import { Menu } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
-import useAuth from "../util/useAuth";
+import useAuth from "../util/hooks/useAuth";
 import UserAvatar from "./UserAvatar";
 
 export default function NavbarMenu() {
