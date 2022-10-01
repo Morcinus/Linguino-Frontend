@@ -6,9 +6,7 @@ import useErrorHandler from "../components/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
 export default class VocabularyAPI {
-  public static useVocabularyLessons(): FetchHook & {
-    vocabularyLessonCategories: any;
-  } {
+  public static useVocabularyLessons(): FetchHook {
     const { data, error } = useSWR(
       ["vocabulary-lessons", "?group=category&sort=+learningOrder"],
       fetcher
@@ -20,7 +18,7 @@ export default class VocabularyAPI {
     }, [error]);
 
     return {
-      vocabularyLessonCategories: data,
+      data: data,
       isLoading: !error && !data,
     };
   }

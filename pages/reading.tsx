@@ -10,7 +10,8 @@ import { ReadingLesson } from "../types/reading";
 
 export default function Reading() {
   const [value, setValue] = useState("0");
-  const { readingLessonCategories, isLoading } = ReadingAPI.useReadingLessons();
+  const { data: readingLessonCategories, isLoading } =
+    ReadingAPI.useReadingLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);

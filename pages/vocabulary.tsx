@@ -10,7 +10,7 @@ import { VocabularyLesson } from "../types/vocabulary";
 
 export default function Vocabulary() {
   const [value, setValue] = useState("0");
-  const { vocabularyLessonCategories, isLoading } =
+  const { data: vocabularyLessonCategories, isLoading } =
     VocabularyAPI.useVocabularyLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {

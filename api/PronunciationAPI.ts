@@ -6,9 +6,7 @@ import useErrorHandler from "../components/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
 export default class PronunciationAPI {
-  public static usePronunciationLessons(): FetchHook & {
-    pronunciationLessonCategories: any;
-  } {
+  public static usePronunciationLessons(): FetchHook {
     const { data, error } = useSWR(
       ["pronunciation-lessons", "?group=category&sort=+learningOrder"],
       fetcher
@@ -20,7 +18,7 @@ export default class PronunciationAPI {
     }, [error]);
 
     return {
-      pronunciationLessonCategories: data,
+      data: data,
       isLoading: !error && !data,
     };
   }

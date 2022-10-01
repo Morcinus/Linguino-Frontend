@@ -10,7 +10,7 @@ import { ListeningLesson } from "../types/listening";
 
 export default function Listening() {
   const [value, setValue] = useState("0");
-  const { listeningLessonCategories, isLoading } =
+  const { data: listeningLessonCategories, isLoading } =
     ListeningAPI.useListeningLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {

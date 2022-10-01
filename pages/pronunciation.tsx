@@ -10,7 +10,7 @@ import { PronunciationLesson } from "../types/pronunciation";
 
 export default function Pronunciation() {
   const [value, setValue] = useState("0");
-  const { pronunciationLessonCategories, isLoading } =
+  const { data: pronunciationLessonCategories, isLoading } =
     PronunciationAPI.usePronunciationLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {

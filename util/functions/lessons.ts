@@ -42,17 +42,17 @@ export function getLessonColor(lessonType: LessonType, colorType: ColorType) {
 export function getLessonName(lessonType: LessonType) {
   switch (lessonType) {
     case "SPEAKING":
-      return i18n.t("studying.speaking");
+      return i18n?.t("studying.speaking");
     case "PRONUNCIATION":
-      return i18n.t("studying.pronunciation");
+      return i18n?.t("studying.pronunciation");
     case "VOCABULARY":
-      return i18n.t("studying.vocabulary");
+      return i18n?.t("studying.vocabulary");
     case "GRAMMAR":
-      return i18n.t("studying.grammar");
+      return i18n?.t("studying.grammar");
     case "READING":
-      return i18n.t("studying.reading");
+      return i18n?.t("studying.reading");
     case "LISTENING":
-      return i18n.t("studying.listening");
+      return i18n?.t("studying.listening");
     default:
       return "";
   }

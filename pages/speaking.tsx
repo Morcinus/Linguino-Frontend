@@ -10,7 +10,7 @@ import { SpeakingLesson } from "../types/speaking";
 
 export default function Speaking() {
   const [value, setValue] = useState("0");
-  const { speakingLessonCategories, isLoading } =
+  const { data: speakingLessonCategories, isLoading } =
     SpeakingAPI.useSpeakingLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {

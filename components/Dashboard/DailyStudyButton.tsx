@@ -104,9 +104,9 @@ export default function DailyStudyButton() {
   );
 }
 
-function emptyChartData(array) {
+function emptyChartData(array: any) {
   const newArray: GraphData[] = [];
-  array.forEach((element) => {
+  array.forEach((element: any) => {
     // Max Progress
     newArray.push({
       value: element.maxProgress,
@@ -124,9 +124,9 @@ function emptyChartData(array) {
   return newArray;
 }
 
-function fillChartData(array) {
+function fillChartData(array: any) {
   const newArray: GraphData[] = [];
-  array.forEach((element) => {
+  array.forEach((element: any) => {
     // Progress
     newArray.push({
       value:
@@ -134,7 +134,7 @@ function fillChartData(array) {
           ? element.progress
           : element.maxProgress,
       color: getLessonColor(element.lessonType, "MAIN"),
-      id: getLessonName(element.lessonType),
+      id: getLessonName(element.lessonType) || "",
     });
 
     // Empty

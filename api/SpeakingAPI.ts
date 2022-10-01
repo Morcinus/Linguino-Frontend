@@ -6,9 +6,7 @@ import useErrorHandler from "../components/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
 export default class SpeakingAPI {
-  public static useSpeakingLessons(): FetchHook & {
-    speakingLessonCategories: any;
-  } {
+  public static useSpeakingLessons(): FetchHook {
     const { data, error } = useSWR(
       ["speaking-lessons", "?group=category&sort=+learningOrder"],
       fetcher
@@ -20,7 +18,7 @@ export default class SpeakingAPI {
     }, [error]);
 
     return {
-      speakingLessonCategories: data,
+      data: data,
       isLoading: !error && !data,
     };
   }

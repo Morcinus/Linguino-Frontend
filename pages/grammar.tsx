@@ -10,7 +10,8 @@ import { GrammarLesson } from "../types/grammar";
 
 export default function Grammar() {
   const [value, setValue] = useState("0");
-  const { grammarLessonCategories, isLoading } = GrammarAPI.useGrammarLessons();
+  const { data: grammarLessonCategories, isLoading } =
+    GrammarAPI.useGrammarLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);

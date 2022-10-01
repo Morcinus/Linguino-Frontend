@@ -6,9 +6,7 @@ import useErrorHandler from "../components/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
 export default class GrammarAPI {
-  public static useGrammarLessons(): FetchHook & {
-    grammarLessonCategories: any;
-  } {
+  public static useGrammarLessons(): FetchHook {
     const { data, error } = useSWR(
       ["grammar-lessons", "?group=category&sort=+learningOrder"],
       fetcher
@@ -20,7 +18,7 @@ export default class GrammarAPI {
     }, [error]);
 
     return {
-      grammarLessonCategories: data,
+      data: data,
       isLoading: !error && !data,
     };
   }
