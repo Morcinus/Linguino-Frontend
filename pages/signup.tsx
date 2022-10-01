@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
+import Router from "next/router";
 
 import LoadingButton from "@mui/lab/LoadingButton";
 import { FormHelperText } from "@mui/material";
@@ -35,7 +35,6 @@ function Signup() {
   } = useForm<InputTypes>();
   const { signUp, loading, errors: authErrors, user } = useAuth();
   const { t } = useTranslation("form");
-  const router = useRouter();
 
   const onSubmit = (data: {
     username: string;
@@ -46,7 +45,7 @@ function Signup() {
   };
 
   useEffect(() => {
-    if (user) router.push("/");
+    if (user) Router.push("/");
   }, [user]);
 
   return (

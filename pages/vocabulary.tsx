@@ -8,7 +8,7 @@ import VocabularyAPI from "../api/VocabularyAPI";
 import CardGrid from "../components/CardGrid";
 import { VocabularyLesson } from "../types/vocabulary";
 
-export default function vocabulary() {
+export default function Vocabulary() {
   const [value, setValue] = useState("0");
   const { vocabularyLessonCategories, isLoading } =
     VocabularyAPI.useVocabularyLessons();

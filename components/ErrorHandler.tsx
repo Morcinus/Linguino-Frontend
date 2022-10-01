@@ -3,6 +3,7 @@ import { useSnackbar } from "notistack";
 import React, {
   ReactNode,
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -28,19 +29,24 @@ export function ErrorHandler({
   const { t } = useTranslation("snack");
   const router = useRouter();
 
-  function setError(message?: string) {
-    if (!message) message = t("general-error-message");
+  const setError = useCallback(
+    (message?: string) => {
+      if (!message) message = t("general-error-message");
 
-    if (message && !errorMessages.includes(message)) {
-      enqueueSnackbar(message);
-      setErrorMessage((errorMessages) => [...errorMessages, `${message}`]);
-    }
-  }
+      if (message && !errorMessages.includes(message)) {
+        enqueueSnackbar(message);
+        setErrorMessage((errorMessages) => [...errorMessages, `${message}`]);
+      }
+    },
+    [enqueueSnackbar, errorMessages, t]
+  );
 
   // Clear errors on path change
   useEffect(() => {
-    if (errorMessages) setErrorMessage((arr) => []);
-  }, [router.pathname]);
+    if (Array.isArray(errorMessages) && errorMessages.length) {
+      setErrorMessage((arr) => []);
+    }
+  }, [errorMessages, router.pathname]);
 
   const memoedValue = useMemo(
     () => ({

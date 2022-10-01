@@ -8,7 +8,7 @@ import PronunciationAPI from "../api/PronunciationAPI";
 import CardGrid from "../components/CardGrid";
 import { PronunciationLesson } from "../types/pronunciation";
 
-export default function pronunciation() {
+export default function Pronunciation() {
   const [value, setValue] = useState("0");
   const { pronunciationLessonCategories, isLoading } =
     PronunciationAPI.usePronunciationLessons();

@@ -8,7 +8,7 @@ import ListeningAPI from "../api/ListeningAPI";
 import CardGrid from "../components/CardGrid";
 import { ListeningLesson } from "../types/listening";
 
-export default function listening() {
+export default function Listening() {
   const [value, setValue] = useState("0");
   const { listeningLessonCategories, isLoading } =
     ListeningAPI.useListeningLessons();

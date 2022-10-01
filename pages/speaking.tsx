@@ -8,7 +8,7 @@ import SpeakingAPI from "../api/SpeakingAPI";
 import CardGrid from "../components/CardGrid";
 import { SpeakingLesson } from "../types/speaking";
 
-export default function speaking() {
+export default function Speaking() {
   const [value, setValue] = useState("0");
   const { speakingLessonCategories, isLoading } =
     SpeakingAPI.useSpeakingLessons();

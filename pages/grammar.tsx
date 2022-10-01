@@ -8,7 +8,7 @@ import GrammarAPI from "../api/GrammarAPI";
 import CardGrid from "../components/CardGrid";
 import { GrammarLesson } from "../types/grammar";
 
-export default function grammar() {
+export default function Grammar() {
   const [value, setValue] = useState("0");
   const { grammarLessonCategories, isLoading } = GrammarAPI.useGrammarLessons();
 

@@ -8,7 +8,7 @@ import ReadingAPI from "../api/ReadingAPI";
 import CardGrid from "../components/CardGrid";
 import { ReadingLesson } from "../types/reading";
 
-export default function reading() {
+export default function Reading() {
   const [value, setValue] = useState("0");
   const { readingLessonCategories, isLoading } = ReadingAPI.useReadingLessons();
 
