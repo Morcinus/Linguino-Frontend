@@ -5,7 +5,8 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:storybook/recommended"
   ],
   "plugins": ["@typescript-eslint"],
   "globals": {
@@ -17,6 +18,13 @@
       "rules": {
         "no-undef": "off",
         "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+      "rules": {
+        // example of overriding a rule
+        "storybook/hierarchy-separator": "error"
       }
     }
   ]
