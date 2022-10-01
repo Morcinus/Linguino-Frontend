@@ -105,7 +105,7 @@ export default function DailyStudyButton() {
 }
 
 function emptyChartData(array) {
-  let newArray: GraphData[] = [];
+  const newArray: GraphData[] = [];
   array.forEach((element) => {
     // Max Progress
     newArray.push({
@@ -125,7 +125,7 @@ function emptyChartData(array) {
 }
 
 function fillChartData(array) {
-  let newArray: GraphData[] = [];
+  const newArray: GraphData[] = [];
   array.forEach((element) => {
     // Progress
     newArray.push({

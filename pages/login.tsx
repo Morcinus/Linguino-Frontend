@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import Router from "next/router";
 
 import LoadingButton from "@mui/lab/LoadingButton";

@@ -44,7 +44,7 @@ export function ErrorHandler({
   // Clear errors on path change
   useEffect(() => {
     if (Array.isArray(errorMessages) && errorMessages.length) {
-      setErrorMessage((arr) => []);
+      setErrorMessage(() => []);
     }
   }, [errorMessages, router.pathname]);
 
