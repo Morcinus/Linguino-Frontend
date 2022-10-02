@@ -5,7 +5,7 @@ import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 import VocabularyAPI from "../api/VocabularyAPI";
-import CardGrid from "../app/components/CardGrid";
+import CardGrid from "../app/components/layouts/CardGrid";
 import { VocabularyLesson } from "../domain/models/types/vocabulary";
 
 export default function Vocabulary() {

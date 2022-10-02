@@ -7,12 +7,12 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
 
 import nextI18nConfig from "../../next-i18next.config";
-import ContentContainer from "../app/components/ContentContainer";
-import { ErrorHandler } from "../app/components/ErrorHandler";
-import Navigation from "../app/components/Navigation";
+import ContentContainer from "../app/components/layouts/ContentContainer";
+import Navigation from "../app/components/layouts/Navigation";
+import { AuthProvider } from "../infrastructure/services/AuthProvider";
+import { ErrorHandler } from "../infrastructure/services/ErrorHandler";
 import "../styles/globals.css";
 import theme from "../styles/theme";
-import { AuthProvider } from "../util/hooks/useAuth";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 

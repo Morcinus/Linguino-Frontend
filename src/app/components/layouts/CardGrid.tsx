@@ -1,8 +1,9 @@
-import React from "react";
-
 import { Box } from "@mui/material";
 
-import LessonCard, { LESSON_CARD_WIDTH, LessonCardProps } from "./LessonCard";
+import LessonCard, {
+  LESSON_CARD_WIDTH,
+  LessonCardProps,
+} from "../atoms/LessonCard";
 
 interface Props {
   cards: Array<LessonCardProps>;

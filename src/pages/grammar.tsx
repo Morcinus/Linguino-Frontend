@@ -5,7 +5,7 @@ import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 import GrammarAPI from "../api/GrammarAPI";
-import CardGrid from "../app/components/CardGrid";
+import CardGrid from "../app/components/layouts/CardGrid";
 import { GrammarLesson } from "../domain/models/types/grammar";
 
 export default function Grammar() {

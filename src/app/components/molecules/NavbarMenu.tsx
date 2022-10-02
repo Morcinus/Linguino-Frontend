@@ -11,7 +11,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { Divider, IconButton, Menu, Tooltip } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
-import useAuth from "../../util/hooks/useAuth";
+import useAuth from "../../../infrastructure/services/AuthProvider";
 import UserAvatar from "./UserAvatar";
 
 export default function NavbarMenu() {

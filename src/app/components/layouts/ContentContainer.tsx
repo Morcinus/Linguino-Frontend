@@ -3,8 +3,8 @@ import { ReactNode } from "react";
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
 
-import useAuth from "../../util/hooks/useAuth";
-import { drawerWidth } from "./NavDrawer";
+import useAuth from "../../../infrastructure/services/AuthProvider";
+import { drawerWidth } from "../organisms/NavDrawer";
 
 export default function ContentContainer({
   children,

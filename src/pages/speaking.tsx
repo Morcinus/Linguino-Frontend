@@ -5,7 +5,7 @@ import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 import SpeakingAPI from "../api/SpeakingAPI";
-import CardGrid from "../app/components/CardGrid";
+import CardGrid from "../app/components/layouts/CardGrid";
 import { SpeakingLesson } from "../domain/models/types/speaking";
 
 export default function Speaking() {

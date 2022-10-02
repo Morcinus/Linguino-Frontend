@@ -1,12 +1,10 @@
-import * as React from "react";
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 
-import NavbarMenu from "./NavbarMenu";
-import Streak from "./Streak";
+import NavbarMenu from "../molecules/NavbarMenu";
+import Streak from "../molecules/Streak";
 
 const drawerWidth = 240;
 

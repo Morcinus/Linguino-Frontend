@@ -5,7 +5,7 @@ import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 import ListeningAPI from "../api/ListeningAPI";
-import CardGrid from "../app/components/CardGrid";
+import CardGrid from "../app/components/layouts/CardGrid";
 import { ListeningLesson } from "../domain/models/types/listening";
 
 export default function Listening() {

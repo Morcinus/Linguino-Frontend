@@ -14,7 +14,7 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import useAuth from "../util/hooks/useAuth";
+import useAuth from "../infrastructure/services/AuthProvider";
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 

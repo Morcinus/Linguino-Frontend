@@ -2,10 +2,10 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 
-import useAuth from "../../util/hooks/useAuth";
-import NavDrawer from "./NavDrawer";
-import NavBarAuthenticated from "./NavbarAuthenticated";
-import NavBarUnauthenticated from "./NavbarUnauthenticated";
+import useAuth from "../../../infrastructure/services/AuthProvider";
+import NavDrawer from "../organisms/NavDrawer";
+import NavBarAuthenticated from "../organisms/NavbarAuthenticated";
+import NavBarUnauthenticated from "../organisms/NavbarUnauthenticated";
 
 export default function PermanentDrawerLeft() {
   const { user } = useAuth();
