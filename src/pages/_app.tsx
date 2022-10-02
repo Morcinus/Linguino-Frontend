@@ -6,10 +6,10 @@ import type { AppProps } from "next/app";
 
 import { ThemeProvider } from "@mui/material/styles";
 
-import ContentContainer from "../components/ContentContainer";
-import { ErrorHandler } from "../components/ErrorHandler";
-import Navigation from "../components/Navigation";
-import nextI18nConfig from "../next-i18next.config";
+import nextI18nConfig from "../../next-i18next.config";
+import ContentContainer from "../app/components/ContentContainer";
+import { ErrorHandler } from "../app/components/ErrorHandler";
+import Navigation from "../app/components/Navigation";
 import "../styles/globals.css";
 import theme from "../styles/theme";
 import { AuthProvider } from "../util/hooks/useAuth";

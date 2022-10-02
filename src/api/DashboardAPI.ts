@@ -2,15 +2,13 @@ import useSWR from "swr";
 
 import { useEffect } from "react";
 
-import useErrorHandler from "../components/ErrorHandler";
+import useErrorHandler from "../app/components/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
-export default class PronunciationAPI {
-  public static usePronunciationLessons(): FetchHook {
-    const { data, error } = useSWR(
-      ["pronunciation-lessons", "?group=category&sort=+learningOrder"],
-      fetcher
-    );
+export default class DashboardAPI {
+  public static useDailyLearnButton(): FetchHook {
+    const { data, error } = useSWR(["dashboard/daily-learn-button"], fetcher);
+
     const { setError } = useErrorHandler();
 
     useEffect(() => {

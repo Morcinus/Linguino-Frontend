@@ -1,9 +1,7 @@
-import React from "react";
-
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { IconButton, Typography } from "@mui/material";
 
-import useAuth from "../util/hooks/useAuth";
+import useAuth from "../../util/hooks/useAuth";
 
 export default function Streak() {
   const { user } = useAuth();

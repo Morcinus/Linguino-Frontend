@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
 
-import useAuth from "../util/hooks/useAuth";
+import useAuth from "../../util/hooks/useAuth";
 import { drawerWidth } from "./NavDrawer";
 
 export default function ContentContainer({

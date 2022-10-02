@@ -8,11 +8,10 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import FaceIcon from "@mui/icons-material/Face";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { Divider, IconButton, Tooltip } from "@mui/material";
-import { Menu } from "@mui/material";
+import { Divider, IconButton, Menu, Tooltip } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
-import useAuth from "../util/hooks/useAuth";
+import useAuth from "../../util/hooks/useAuth";
 import UserAvatar from "./UserAvatar";
 
 export default function NavbarMenu() {

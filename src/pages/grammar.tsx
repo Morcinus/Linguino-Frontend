@@ -4,14 +4,14 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import VocabularyAPI from "../api/VocabularyAPI";
-import CardGrid from "../components/CardGrid";
-import { VocabularyLesson } from "../types/vocabulary";
+import GrammarAPI from "../api/GrammarAPI";
+import CardGrid from "../app/components/CardGrid";
+import { GrammarLesson } from "../types/grammar";
 
-export default function Vocabulary() {
+export default function Grammar() {
   const [value, setValue] = useState("0");
-  const { data: vocabularyLessonCategories, isLoading } =
-    VocabularyAPI.useVocabularyLessons();
+  const { data: grammarLessonCategories, isLoading } =
+    GrammarAPI.useGrammarLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -28,7 +28,7 @@ export default function Vocabulary() {
               centered
               TabIndicatorProps={{ style: { background: "rgba(0,0,0,0)" } }}
             >
-              {vocabularyLessonCategories?.map((group: any, i: number) => {
+              {grammarLessonCategories?.map((group: any, i: number) => {
                 return (
                   <Tab
                     label={`${group.category.name}`}
@@ -46,7 +46,7 @@ export default function Vocabulary() {
               })}
             </Tabs>
 
-            {vocabularyLessonCategories?.map((group: any, i: number) => {
+            {grammarLessonCategories?.map((group: any, i: number) => {
               return (
                 <TabPanel value={`${i}`} sx={{ pt: 1 }} key={`${i}`}>
                   <Divider sx={{ mb: 3 }}>
@@ -54,11 +54,7 @@ export default function Vocabulary() {
                   </Divider>
                   <CardGrid
                     cards={group.data.map(
-                      ({
-                        lessonId,
-                        lessonName,
-                        progress,
-                      }: VocabularyLesson) => ({
+                      ({ lessonId, lessonName, progress }: GrammarLesson) => ({
                         id: lessonId,
                         title: lessonName,
                         progress,

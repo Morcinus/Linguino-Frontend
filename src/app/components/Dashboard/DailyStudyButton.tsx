@@ -6,8 +6,8 @@ import Link from "next/link";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { IconButton } from "@mui/material";
 
-import DashboardAPI from "../../api/DashboardAPI";
-import { getLessonColor, getLessonName } from "../../util/functions/lessons";
+import DashboardAPI from "../../../api/DashboardAPI";
+import { getLessonColor, getLessonName } from "../../../util/functions/lessons";
 
 interface GraphData {
   id: string;

@@ -2,7 +2,7 @@ import useSWR from "swr";
 
 import { useEffect } from "react";
 
-import useErrorHandler from "../components/ErrorHandler";
+import useErrorHandler from "../app/components/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
 export default class ListeningAPI {

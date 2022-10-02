@@ -4,14 +4,14 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import SpeakingAPI from "../api/SpeakingAPI";
-import CardGrid from "../components/CardGrid";
-import { SpeakingLesson } from "../types/speaking";
+import VocabularyAPI from "../api/VocabularyAPI";
+import CardGrid from "../app/components/CardGrid";
+import { VocabularyLesson } from "../types/vocabulary";
 
-export default function Speaking() {
+export default function Vocabulary() {
   const [value, setValue] = useState("0");
-  const { data: speakingLessonCategories, isLoading } =
-    SpeakingAPI.useSpeakingLessons();
+  const { data: vocabularyLessonCategories, isLoading } =
+    VocabularyAPI.useVocabularyLessons();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -28,7 +28,7 @@ export default function Speaking() {
               centered
               TabIndicatorProps={{ style: { background: "rgba(0,0,0,0)" } }}
             >
-              {speakingLessonCategories?.map((group: any, i: number) => {
+              {vocabularyLessonCategories?.map((group: any, i: number) => {
                 return (
                   <Tab
                     label={`${group.category.name}`}
@@ -46,7 +46,7 @@ export default function Speaking() {
               })}
             </Tabs>
 
-            {speakingLessonCategories?.map((group: any, i: number) => {
+            {vocabularyLessonCategories?.map((group: any, i: number) => {
               return (
                 <TabPanel value={`${i}`} sx={{ pt: 1 }} key={`${i}`}>
                   <Divider sx={{ mb: 3 }}>
@@ -54,7 +54,11 @@ export default function Speaking() {
                   </Divider>
                   <CardGrid
                     cards={group.data.map(
-                      ({ lessonId, lessonName, progress }: SpeakingLesson) => ({
+                      ({
+                        lessonId,
+                        lessonName,
+                        progress,
+                      }: VocabularyLesson) => ({
                         id: lessonId,
                         title: lessonName,
                         progress,
