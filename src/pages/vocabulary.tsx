@@ -4,9 +4,9 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import VocabularyAPI from "../api/VocabularyAPI";
 import CardGrid from "../app/components/layouts/CardGrid";
 import { VocabularyLesson } from "../domain/models/types/vocabulary";
+import VocabularyAPI from "../infrastructure/api/VocabularyAPI";
 
 export default function Vocabulary() {
   const [value, setValue] = useState("0");

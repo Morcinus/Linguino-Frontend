@@ -4,9 +4,9 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import PronunciationAPI from "../api/PronunciationAPI";
 import CardGrid from "../app/components/layouts/CardGrid";
 import { PronunciationLesson } from "../domain/models/types/pronunciation";
+import PronunciationAPI from "../infrastructure/api/PronunciationAPI";
 
 export default function Pronunciation() {
   const [value, setValue] = useState("0");

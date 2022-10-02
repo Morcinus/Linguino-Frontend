@@ -4,9 +4,9 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import ListeningAPI from "../api/ListeningAPI";
 import CardGrid from "../app/components/layouts/CardGrid";
 import { ListeningLesson } from "../domain/models/types/listening";
+import ListeningAPI from "../infrastructure/api/ListeningAPI";
 
 export default function Listening() {
   const [value, setValue] = useState("0");

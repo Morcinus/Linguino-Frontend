@@ -4,9 +4,9 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import ReadingAPI from "../api/ReadingAPI";
 import CardGrid from "../app/components/layouts/CardGrid";
 import { ReadingLesson } from "../domain/models/types/reading";
+import ReadingAPI from "../infrastructure/api/ReadingAPI";
 
 export default function Reading() {
   const [value, setValue] = useState("0");

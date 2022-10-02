@@ -2,7 +2,7 @@ import useSWR from "swr";
 
 import { useEffect } from "react";
 
-import useErrorHandler from "../infrastructure/services/ErrorHandler";
+import useErrorHandler from "../services/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
 export default class ReadingAPI {

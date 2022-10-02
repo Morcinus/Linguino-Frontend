@@ -4,9 +4,9 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import SpeakingAPI from "../api/SpeakingAPI";
 import CardGrid from "../app/components/layouts/CardGrid";
 import { SpeakingLesson } from "../domain/models/types/speaking";
+import SpeakingAPI from "../infrastructure/api/SpeakingAPI";
 
 export default function Speaking() {
   const [value, setValue] = useState("0");

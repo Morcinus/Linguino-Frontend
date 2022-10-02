@@ -4,9 +4,9 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import GrammarAPI from "../api/GrammarAPI";
 import CardGrid from "../app/components/layouts/CardGrid";
 import { GrammarLesson } from "../domain/models/types/grammar";
+import GrammarAPI from "../infrastructure/api/GrammarAPI";
 
 export default function Grammar() {
   const [value, setValue] = useState("0");

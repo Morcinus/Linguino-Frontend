@@ -2,13 +2,13 @@ import useSWR from "swr";
 
 import { useEffect } from "react";
 
-import useErrorHandler from "../infrastructure/services/ErrorHandler";
+import useErrorHandler from "../services/ErrorHandler";
 import { FetchHook, fetcher } from "./API";
 
-export default class SpeakingAPI {
-  public static useSpeakingLessons(): FetchHook {
+export default class ListeningAPI {
+  public static useListeningLessons(): FetchHook {
     const { data, error } = useSWR(
-      ["speaking-lessons", "?group=category&sort=+learningOrder"],
+      ["listening-lessons", "?group=category&sort=+learningOrder"],
       fetcher
     );
     const { setError } = useErrorHandler();
