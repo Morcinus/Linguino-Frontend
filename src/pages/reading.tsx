@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 
 import ReadingAPI from "../api/ReadingAPI";
 import CardGrid from "../app/components/CardGrid";
-import { ReadingLesson } from "../types/reading";
+import { ReadingLesson } from "../domain/models/types/reading";
 
 export default function Reading() {
   const [value, setValue] = useState("0");

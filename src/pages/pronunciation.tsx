@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 
 import PronunciationAPI from "../api/PronunciationAPI";
 import CardGrid from "../app/components/CardGrid";
-import { PronunciationLesson } from "../types/pronunciation";
+import { PronunciationLesson } from "../domain/models/types/pronunciation";
 
 export default function Pronunciation() {
   const [value, setValue] = useState("0");

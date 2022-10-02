@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 
 import GrammarAPI from "../api/GrammarAPI";
 import CardGrid from "../app/components/CardGrid";
-import { GrammarLesson } from "../types/grammar";
+import { GrammarLesson } from "../domain/models/types/grammar";
 
 export default function Grammar() {
   const [value, setValue] = useState("0");

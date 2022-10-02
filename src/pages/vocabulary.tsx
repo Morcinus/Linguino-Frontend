@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 
 import VocabularyAPI from "../api/VocabularyAPI";
 import CardGrid from "../app/components/CardGrid";
-import { VocabularyLesson } from "../types/vocabulary";
+import { VocabularyLesson } from "../domain/models/types/vocabulary";
 
 export default function Vocabulary() {
   const [value, setValue] = useState("0");

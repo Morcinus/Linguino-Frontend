@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 
 import SpeakingAPI from "../api/SpeakingAPI";
 import CardGrid from "../app/components/CardGrid";
-import { SpeakingLesson } from "../types/speaking";
+import { SpeakingLesson } from "../domain/models/types/speaking";
 
 export default function Speaking() {
   const [value, setValue] = useState("0");

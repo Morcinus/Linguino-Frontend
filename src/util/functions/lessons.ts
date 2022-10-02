@@ -1,8 +1,8 @@
 import { i18n } from "next-i18next";
 
+import { ColorType } from "../../domain/models/types/colors";
+import { LessonType } from "../../domain/models/types/lessons";
 import theme from "../../styles/theme";
-import { ColorType } from "../../types/colors";
-import { LessonType } from "../../types/lessons";
 
 export function getLessonColor(lessonType: LessonType, colorType: ColorType) {
   let color;
