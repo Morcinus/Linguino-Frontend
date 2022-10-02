@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 
 import { AuthAPI, User } from "../../api/AuthAPI";
 import config from "../../config/config";
-import { LocalStorageManager } from "../LocalStorageManager";
+import { LocalStorageManager } from "../../infrastructure/repositories/LocalStorageManager";
 
 interface AuthContextType {
   user?: User;
