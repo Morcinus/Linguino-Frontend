@@ -1,5 +1,3 @@
-import React from "react";
-
 import Link from "next/link";
 
 import DoneIcon from "@mui/icons-material/Done";
@@ -14,7 +12,7 @@ import {
 
 export interface LessonCardProps {
   title: string;
-  progress: number;
+  progress: number | undefined;
   id: string;
 }
 

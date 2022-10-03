@@ -28,7 +28,7 @@ export default function Reading() {
               centered
               TabIndicatorProps={{ style: { background: "rgba(0,0,0,0)" } }}
             >
-              {readingLessonCategories?.map((group: any, i: number) => {
+              {readingLessonCategories?.map((group, i: number) => {
                 return (
                   <Tab
                     label={`${group.category.name}`}
@@ -46,7 +46,7 @@ export default function Reading() {
               })}
             </Tabs>
 
-            {readingLessonCategories?.map((group: any, i: number) => {
+            {readingLessonCategories?.map((group, i: number) => {
               return (
                 <TabPanel value={`${i}`} sx={{ pt: 1 }} key={`${i}`}>
                   <Divider sx={{ mb: 3 }}>
