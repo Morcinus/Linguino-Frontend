@@ -53,17 +53,10 @@ export default function Vocabulary() {
                     <Typography variant="h5">{group.category.name}</Typography>
                   </Divider>
                   <CardGrid
-                    cards={group.data.map(
-                      ({
-                        lessonId,
-                        lessonName,
-                        progress,
-                      }: VocabularyLesson) => ({
-                        id: lessonId,
-                        title: lessonName,
-                        progress,
-                      })
-                    )}
+                    cards={group.data.map((lesson: VocabularyLesson) => ({
+                      ...lesson,
+                      title: lesson.name,
+                    }))}
                   />
                 </TabPanel>
               );

@@ -53,17 +53,10 @@ export default function Listening() {
                     <Typography variant="h5">{group.category.name}</Typography>
                   </Divider>
                   <CardGrid
-                    cards={group.data.map(
-                      ({
-                        lessonId,
-                        lessonName,
-                        progress,
-                      }: ListeningLesson) => ({
-                        id: lessonId,
-                        title: lessonName,
-                        progress,
-                      })
-                    )}
+                    cards={group.data.map((lesson: ListeningLesson) => ({
+                      ...lesson,
+                      title: lesson.name,
+                    }))}
                   />
                 </TabPanel>
               );

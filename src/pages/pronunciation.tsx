@@ -53,17 +53,10 @@ export default function Pronunciation() {
                     <Typography variant="h5">{group.category.name}</Typography>
                   </Divider>
                   <CardGrid
-                    cards={group.data.map(
-                      ({
-                        lessonId,
-                        lessonName,
-                        progress,
-                      }: PronunciationLesson) => ({
-                        id: lessonId,
-                        title: lessonName,
-                        progress,
-                      })
-                    )}
+                    cards={group.data.map((lesson: PronunciationLesson) => ({
+                      ...lesson,
+                      title: lesson.name,
+                    }))}
                   />
                 </TabPanel>
               );

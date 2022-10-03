@@ -53,13 +53,10 @@ export default function Grammar() {
                     <Typography variant="h5">{group.category.name}</Typography>
                   </Divider>
                   <CardGrid
-                    cards={group.data.map(
-                      ({ lessonId, lessonName, progress }: GrammarLesson) => ({
-                        id: lessonId,
-                        title: lessonName,
-                        progress,
-                      })
-                    )}
+                    cards={group.data.map((lesson: GrammarLesson) => ({
+                      ...lesson,
+                      title: lesson.name,
+                    }))}
                   />
                 </TabPanel>
               );

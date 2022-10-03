@@ -12,7 +12,7 @@ import {
 
 export interface LessonCardProps {
   title: string;
-  progress: number | undefined;
+  progress?: number;
   id: string;
 }
 

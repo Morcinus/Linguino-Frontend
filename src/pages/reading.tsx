@@ -53,13 +53,10 @@ export default function Reading() {
                     <Typography variant="h5">{group.category.name}</Typography>
                   </Divider>
                   <CardGrid
-                    cards={group.data.map(
-                      ({ lessonId, lessonName, progress }: ReadingLesson) => ({
-                        id: lessonId,
-                        title: lessonName,
-                        progress,
-                      })
-                    )}
+                    cards={group.data.map((lesson: ReadingLesson) => ({
+                      ...lesson,
+                      title: lesson.name,
+                    }))}
                   />
                 </TabPanel>
               );

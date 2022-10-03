@@ -1,6 +1,6 @@
 import { Category } from "../../types/category";
 
-export interface CategoryLessons<LessonType> {
+export interface CategoryLessons<Lesson> {
   category: Category;
-  data: Array<LessonType>;
+  data: Array<Lesson>;
 }
