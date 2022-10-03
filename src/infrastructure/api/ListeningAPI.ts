@@ -1,25 +1,10 @@
-import useSWR from "swr";
-
-import { useEffect } from "react";
-
-import useErrorHandler from "../services/ErrorHandler";
-import { FetchHook, fetcher } from "./API";
+import { FetchHook } from "./API";
+import useAPI from "./useAPI";
 
 export default class ListeningAPI {
+  private static readonly URI = "listening-lessons";
+
   public static useListeningLessons(): FetchHook {
-    const { data, error } = useSWR(
-      ["listening-lessons", "?group=category&sort=+learningOrder"],
-      fetcher
-    );
-    const { setError } = useErrorHandler();
-
-    useEffect(() => {
-      if (error) setError();
-    }, [error]);
-
-    return {
-      data: data,
-      isLoading: !error && !data,
-    };
+    return useAPI([this.URI, "?group=category&sort=+learningOrder"]);
   }
 }

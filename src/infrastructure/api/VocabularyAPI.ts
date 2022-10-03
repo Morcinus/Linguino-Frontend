@@ -1,25 +1,10 @@
-import useSWR from "swr";
-
-import { useEffect } from "react";
-
-import useErrorHandler from "../services/ErrorHandler";
-import { FetchHook, fetcher } from "./API";
+import { FetchHook } from "./API";
+import useAPI from "./useAPI";
 
 export default class VocabularyAPI {
+  private static readonly URI = "vocabulary-lessons";
+
   public static useVocabularyLessons(): FetchHook {
-    const { data, error } = useSWR(
-      ["vocabulary-lessons", "?group=category&sort=+learningOrder"],
-      fetcher
-    );
-    const { setError } = useErrorHandler();
-
-    useEffect(() => {
-      if (error) setError();
-    }, [error]);
-
-    return {
-      data: data,
-      isLoading: !error && !data,
-    };
+    return useAPI([this.URI, "?group=category&sort=+learningOrder"]);
   }
 }

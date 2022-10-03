@@ -1,23 +1,10 @@
-import useSWR from "swr";
-
-import { useEffect } from "react";
-
-import useErrorHandler from "../services/ErrorHandler";
-import { FetchHook, fetcher } from "./API";
+import { FetchHook } from "./API";
+import useAPI from "./useAPI";
 
 export default class DashboardAPI {
+  private static readonly URI = "dashboard";
+
   public static useDailyLearnButton(): FetchHook {
-    const { data, error } = useSWR(["dashboard/daily-learn-button"], fetcher);
-
-    const { setError } = useErrorHandler();
-
-    useEffect(() => {
-      if (error) setError();
-    }, [error]);
-
-    return {
-      data: data,
-      isLoading: !error && !data,
-    };
+    return useAPI([`${this.URI}/daily-learn-button`]);
   }
 }
