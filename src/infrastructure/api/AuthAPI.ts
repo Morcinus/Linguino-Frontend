@@ -1,6 +1,7 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
+import { User } from "../../domain/models/types/user";
 import { LocalStorageManager } from "../repositories/LocalStorageManager";
 
 export const AuthAPI = {
@@ -73,13 +74,6 @@ export const AuthAPI = {
     });
   },
 };
-
-export interface User {
-  username: string;
-  email: string;
-  completedDailyGoal?: boolean;
-  streak?: number;
-}
 
 interface DecodedToken {
   exp: number;

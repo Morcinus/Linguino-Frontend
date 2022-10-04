@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { User } from "../api/AuthAPI";
+import { User } from "../../domain/models/types/user";
 
 export const LocalStorageManager = {
   setAuthorizationHeader(idToken: string): void {

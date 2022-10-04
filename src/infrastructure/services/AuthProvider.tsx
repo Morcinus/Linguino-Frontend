@@ -13,7 +13,8 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 import config from "../../config/config";
-import { AuthAPI, User } from "../api/AuthAPI";
+import { User } from "../../domain/models/types/user";
+import { AuthAPI } from "../api/AuthAPI";
 import { LocalStorageManager } from "../repositories/LocalStorageManager";
 
 interface AuthContextType {
