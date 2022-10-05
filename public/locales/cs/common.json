@@ -28,5 +28,9 @@
     "settings": "Nastavení",
     "my-profile": "Můj profil",
     "logout": "Odhlásit"
+  },
+
+  "calendar": {
+    "calendar": "Kalendář"
   }
 }

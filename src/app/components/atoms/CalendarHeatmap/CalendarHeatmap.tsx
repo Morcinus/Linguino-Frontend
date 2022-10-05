@@ -17,7 +17,7 @@ const CalendarHeatmap: React.FC<ICalendarHeatmap> = ({
   to,
 }) => {
   return (
-    <div style={{ height: "250px", width: "250px" }}>
+    <div style={{ height: "180px", width: "250px" }}>
       <ResponsiveTimeRange
         weekdayTicks={[0, 1, 2, 3, 4, 5, 6]} // custom weekday tickmarks
         direction="vertical"
@@ -36,6 +36,8 @@ const CalendarHeatmap: React.FC<ICalendarHeatmap> = ({
             enableChip
           />
         )}
+        weekdayLegendOffset={0}
+        monthLegendOffset={0}
       />
     </div>
   );
