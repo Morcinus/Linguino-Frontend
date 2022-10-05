@@ -1,4 +1,8 @@
+import axios from "axios";
+
 import * as NextImage from "next/image";
+
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 const BREAKPOINTS_INT = {
   xs: 375,
