@@ -12,6 +12,8 @@ import theme from '../src/app/styles/theme';
 
 import * as NextImage from "next/image";
 
+import "../src/app/styles/globals.css";
+
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const decorators = [
