@@ -14,7 +14,7 @@ jobs:
           node-version: "18.x"
       - uses: borales/actions-yarn@v3.0.0
         with:
-          cmd: install
+          cmd: install --ignore-engines
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: build
