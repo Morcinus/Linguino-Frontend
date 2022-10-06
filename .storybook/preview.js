@@ -1,8 +1,39 @@
 import axios from "axios";
+import i18n from "i18next";
+
+import common from '../public/locales/cs/common.json' assert { type: 'json' };
+import form from '../public/locales/cs/form.json' assert { type: 'json' };
+import snack from '../public/locales/cs/snack.json' assert { type: 'json' };
+
+import { initReactI18next } from "react-i18next";
 
 import * as NextImage from "next/image";
-
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
+
+export const decorators = [
+  // ... other decorators
+  (Story, Context) => {
+    i18n.use(initReactI18next).init({
+      lng: "cs",
+      fallbackLng: "cs",
+
+      // have a common namespace used around the full app
+      ns: ["common"],
+      defaultNS: "common",
+
+      // debug: true,
+
+      interpolation: {
+        escapeValue: false, // not needed for react!!
+      },
+
+      // https://github.com/i18next/i18next/issues/1473
+      resources: { cs: { common: common, form: form, snack: snack } },
+    });
+
+    return <Story />;
+  },
+];
 
 const BREAKPOINTS_INT = {
   xs: 375,
