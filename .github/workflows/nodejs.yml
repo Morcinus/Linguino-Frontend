@@ -17,4 +17,4 @@ jobs:
           cmd: install --ignore-engines
       - uses: borales/actions-yarn@v3.0.0
         with:
-          cmd: build
+          cmd: build --ignore-engines
