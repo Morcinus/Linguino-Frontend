@@ -7,11 +7,19 @@ import snack from '../public/locales/cs/snack.json' assert { type: 'json' };
 
 import { initReactI18next } from "react-i18next";
 
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../src/app/styles/theme';
+
 import * as NextImage from "next/image";
+
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const decorators = [
-  // ... other decorators
+  Story => (
+    <ThemeProvider theme={theme}>
+      <Story />
+    </ThemeProvider>
+  ),
   (Story, Context) => {
     i18n.use(initReactI18next).init({
       lng: "cs",
