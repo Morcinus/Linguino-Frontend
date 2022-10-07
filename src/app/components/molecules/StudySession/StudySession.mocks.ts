@@ -1,11 +1,19 @@
 import { IStudySession } from "./StudySession";
 
 const base: IStudySession = {
-  lessonType: "VOCABULARY",
+  sessionInfo: {
+    goal: 5,
+    progress: 0,
+    lessonType: "VOCABULARY",
+  },
 };
 
 const lesson: IStudySession = {
-  lessonType: "VOCABULARY",
+  sessionInfo: {
+    goal: 5,
+    progress: 0,
+    lessonType: "VOCABULARY",
+  },
   lessonId: "kdfmsakdfoako",
 };
 

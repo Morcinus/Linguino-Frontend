@@ -1,31 +1,49 @@
 import { useEffect, useState } from "react";
 
+import { Box, Container } from "@mui/material";
+
 import {
-  ExerciseProgress,
-  ExerciseType,
+    ExerciseProgress,
+    ExerciseType
 } from "../../../../domain/models/types/exercises";
-import { LessonType } from "../../../../domain/models/types/lessons";
+import { StudySession } from "../../../../domain/models/types/studySessions";
 import StudySessionAPI from "../../../../infrastructure/api/StudySessionAPI";
+import { useScroll } from "../../../hooks/useScroll";
+import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
+import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";
 import TextExercise from "../../atoms/TextExercise/TextExercise";
 
 export interface IStudySession {
-  lessonType: LessonType;
+  sessionInfo: StudySession;
   lessonId?: string;
+  onFinish?: (progressArray: Array<ExerciseProgress>) => void;
+  onWrongAnswer?: () => void;
+  onContinue?: () => void;
 }
 
 interface IRenderExercise {
   type: ExerciseType;
 }
 
-const StudySession: React.FC<IStudySession> = ({ lessonType, lessonId }) => {
+const content = "# Hello world \n ldsfjafld jdlafjafdjsl";
+
+const StudySession: React.FC<IStudySession> = ({
+  sessionInfo,
+  lessonId,
+  onFinish,
+  onWrongAnswer,
+  onContinue,
+}) => {
   const [finishedSession, setFinishedSession] = useState(false);
   const [index, setIndex] = useState(0);
+  const [openExpansion, setOpenExpansion] = useState(false);
+  const [executeScroll, elRef] = useScroll();
   const { data: exerciseArray, isLoading } = StudySessionAPI.useStudySession(
-    lessonType,
+    sessionInfo?.lessonType,
     lessonId
   );
   const { trigger } = StudySessionAPI.useStudySessionMutation(
-    lessonType,
+    sessionInfo?.lessonType,
     lessonId
   );
   const [progressArray, setProgressArray] = useState<Array<ExerciseProgress>>(
@@ -38,19 +56,21 @@ const StudySession: React.FC<IStudySession> = ({ lessonType, lessonId }) => {
       if (index === -1) {
         return [...progressArray, { exerciseId: id, attempts: 1 }];
       } else {
-        let newProgressArray = progressArray;
-        newProgressArray[index].attempts += 1;
-        return newProgressArray;
+        let arr = [...progressArray];
+        arr[index].attempts += 1;
+        return arr;
       }
     });
   };
 
   function handleWrong() {
     exerciseArray.push(exerciseArray[index]);
+    if (typeof onWrongAnswer === "function") onWrongAnswer();
   }
 
   function handleContinue() {
     addProgress(exerciseArray[index].id);
+    if (typeof onContinue === "function") onContinue();
     if (index < exerciseArray.length - 1) {
       setIndex(index + 1);
     } else {
@@ -59,7 +79,10 @@ const StudySession: React.FC<IStudySession> = ({ lessonType, lessonId }) => {
   }
 
   useEffect(() => {
-    if (finishedSession) trigger(progressArray);
+    if (finishedSession) {
+      trigger(progressArray);
+      if (typeof onFinish === "function") onFinish(progressArray);
+    }
 
     // Must not depend on finishedSession!
     // https://stackoverflow.com/a/59468261/13082130
@@ -81,17 +104,42 @@ const StudySession: React.FC<IStudySession> = ({ lessonType, lessonId }) => {
     }
   }
 
+  function toggleExpansion() {
+    if (openExpansion) setOpenExpansion(false);
+    else {
+      setOpenExpansion(true);
+    }
+  }
+
+  useEffect(() => {
+    if (openExpansion) executeScroll();
+  }, [openExpansion]);
+
   return (
     <>
-      {!isLoading && exerciseArray ? (
-        !finishedSession ? (
-          <RenderExercise type={exerciseArray[index].type} />
-        ) : (
-          <p>session finished</p>
-        )
-      ) : (
-        "Loading..."
-      )}
+      <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+        <Box sx={{ flexGrow: 1 }}>
+          <Container maxWidth="sm">
+            {!isLoading && exerciseArray ? (
+              !finishedSession ? (
+                <RenderExercise type={exerciseArray[index].type} />
+              ) : (
+                <p>session finished</p>
+              )
+            ) : (
+              "Loading..."
+            )}
+          </Container>
+        </Box>
+
+        <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
+      </Box>
+
+      <StudyExpansionContent
+        open={openExpansion}
+        reference={elRef}
+        content={content}
+      />
     </>
   );
 };
