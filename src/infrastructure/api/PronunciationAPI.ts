@@ -11,6 +11,6 @@ export default class PronunciationAPI {
     FetchHook,
     { data: Array<CategoryLessons<PronunciationLesson>> }
   > {
-    return useAPI([this.URI, "?group=category&sort=+learningOrder"]);
+    return useAPI(`${this.URI}?group=category&sort=+learningOrder`);
   }
 }

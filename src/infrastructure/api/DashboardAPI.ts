@@ -7,13 +7,13 @@ export default class DashboardAPI {
   private static readonly URI = "dashboard";
 
   public static useDailyLearnButton(): FetchHook {
-    return useAPI([`${this.URI}/daily-learn-button`]);
+    return useAPI(`${this.URI}/daily-learn-button`);
   }
 
   public static useStudyCalendar(): Modify<
     FetchHook,
     { data: { maxValue: number; data: Array<ICalendarDataPoint> } }
   > {
-    return useAPI([`${this.URI}/study-calendar`]);
+    return useAPI(`${this.URI}/study-calendar`);
   }
 }

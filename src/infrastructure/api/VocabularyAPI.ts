@@ -11,6 +11,6 @@ export default class VocabularyAPI {
     FetchHook,
     { data: Array<CategoryLessons<VocabularyLesson>> }
   > {
-    return useAPI([this.URI, "?group=category&sort=+learningOrder"]);
+    return useAPI(`${this.URI}?group=category&sort=+learningOrder`);
   }
 }

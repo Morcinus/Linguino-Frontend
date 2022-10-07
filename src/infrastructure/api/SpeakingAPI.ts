@@ -11,6 +11,6 @@ export default class SpeakingAPI {
     FetchHook,
     { data: Array<CategoryLessons<SpeakingLesson>> }
   > {
-    return useAPI([this.URI, "?group=category&sort=+learningOrder"]);
+    return useAPI(`${this.URI}?group=category&sort=+learningOrder`);
   }
 }

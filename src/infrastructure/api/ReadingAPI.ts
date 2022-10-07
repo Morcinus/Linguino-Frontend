@@ -11,6 +11,6 @@ export default class ReadingAPI {
     FetchHook,
     { data: Array<CategoryLessons<ReadingLesson>> }
   > {
-    return useAPI([this.URI, "?group=category&sort=+learningOrder"]);
+    return useAPI(`${this.URI}?group=category&sort=+learningOrder`);
   }
 }
