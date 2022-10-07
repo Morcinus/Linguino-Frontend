@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/material";
 
 import {
-    ExerciseProgress,
-    ExerciseType
+  ExerciseProgress,
+  ExerciseType
 } from "../../../../domain/models/types/exercises";
 import { StudySession } from "../../../../domain/models/types/studySessions";
 import StudySessionAPI from "../../../../infrastructure/api/StudySessionAPI";
@@ -15,7 +15,7 @@ import TextExercise from "../../atoms/TextExercise/TextExercise";
 
 export interface IStudySession {
   sessionInfo: StudySession;
-  lessonId?: string;
+  lessonId?: ID;
   onFinish?: (progressArray: Array<ExerciseProgress>) => void;
   onWrongAnswer?: () => void;
   onContinue?: () => void;
@@ -50,7 +50,7 @@ const StudySession: React.FC<IStudySession> = ({
     []
   );
 
-  const addProgress = (id: string) => {
+  const addProgress = (id: ID) => {
     setProgressArray(() => {
       let index = progressArray.findIndex((x) => x.exerciseId === id);
       if (index === -1) {

@@ -13,7 +13,7 @@ import {
 export interface LessonCardProps {
   title: string;
   progress?: number;
-  id: string;
+  id: ID;
 }
 
 export const LESSON_CARD_WIDTH = 143;

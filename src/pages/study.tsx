@@ -13,7 +13,7 @@ import useAuth from "../infrastructure/services/AuthProvider";
 
 export default function Study() {
   const [index, setIndex] = useState(0);
-  const { data, isLoading } = UserAPI.useUserSettings(useAuth().user?.username);
+  const { data, isLoading } = UserAPI.useUserSettings(useAuth().user?.id);
   const [progressArray, setProgressArray] = useState<Array<StudySession>>([]);
 
   function handleWrongAnswer() {

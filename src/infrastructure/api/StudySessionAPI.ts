@@ -10,7 +10,7 @@ export default class StudySessionAPI {
 
   public static useStudySession(
     lessonType: LessonType,
-    lessonId: string | undefined = undefined
+    lessonId: ID | undefined = undefined
   ): Modify<FetchHook, { data: Array<Exercise> }> {
     if (lessonId === undefined) return useAPI([`${this.URI}/${lessonType}`]);
     else return useAPI([`${this.URI}/${lessonType}/lessons/${lessonId}`]);
@@ -18,7 +18,7 @@ export default class StudySessionAPI {
 
   public static useStudySessionMutation(
     lessonType: LessonType,
-    lessonId: string | undefined = undefined
+    lessonId: ID | undefined = undefined
   ): MutationHook {
     if (lessonId === undefined) return useMutation(`${this.URI}/${lessonType}`);
     else return useMutation(`${this.URI}/${lessonType}/lessons/${lessonId}`);

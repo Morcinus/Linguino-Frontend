@@ -14,7 +14,7 @@ export interface Question {
 }
 
 export interface Exercise {
-  id: string;
+  id: ID;
   type: ExerciseType;
 
   instructionTitle: string;
@@ -26,6 +26,6 @@ export interface Exercise {
 }
 
 export interface ExerciseProgress {
-  exerciseId: string;
+  exerciseId: ID;
   attempts: number;
 }

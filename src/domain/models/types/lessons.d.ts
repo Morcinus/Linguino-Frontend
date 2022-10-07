@@ -9,7 +9,7 @@ export type LessonType =
   | "READING";
 
 export interface Lesson {
-  id: string;
+  id: ID;
   name: string;
   progress?: number;
   category?: Category;

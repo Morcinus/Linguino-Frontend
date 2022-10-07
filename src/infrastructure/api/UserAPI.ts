@@ -7,7 +7,7 @@ export default class UserAPI {
   private static readonly URI = "users";
 
   public static useUserSettings(
-    userId: string | undefined
+    userId: ID | undefined
   ): Modify<FetchHook, { data: UserSettings }> {
     return useAPI(() => (userId ? `${this.URI}/${userId}/settings` : false));
   }
