@@ -7,3 +7,8 @@ export interface FetchHook {
   data: any;
   isLoading: boolean;
 }
+
+export interface MutationHook {
+  trigger: any;
+  isValidating: boolean;
+}
