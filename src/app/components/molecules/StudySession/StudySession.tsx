@@ -39,11 +39,11 @@ const StudySession: React.FC<IStudySession> = ({
   const [openExpansion, setOpenExpansion] = useState(false);
   const [executeScroll, elRef] = useScroll();
   const { data: exerciseArray, isLoading } = StudySessionAPI.useStudySession(
-    sessionInfo?.lessonType,
+    sessionInfo?.sessionType,
     lessonId
   );
   const { trigger } = StudySessionAPI.useStudySessionMutation(
-    sessionInfo?.lessonType,
+    sessionInfo?.sessionType,
     lessonId
   );
   const [progressArray, setProgressArray] = useState<Array<ExerciseProgress>>(

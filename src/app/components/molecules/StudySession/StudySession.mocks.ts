@@ -4,7 +4,7 @@ const base: IStudySession = {
   sessionInfo: {
     goal: 5,
     progress: 0,
-    lessonType: "VOCABULARY",
+    sessionType: "VOCABULARY",
   },
 };
 
@@ -12,7 +12,7 @@ const lesson: IStudySession = {
   sessionInfo: {
     goal: 5,
     progress: 0,
-    lessonType: "VOCABULARY",
+    sessionType: "VOCABULARY",
   },
   lessonId: "kdfmsakdfoako",
 };
