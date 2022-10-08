@@ -2,8 +2,8 @@ import { Exercise } from "../../domain/models/types/exercises";
 import { StudySession } from "../../domain/models/types/studySessions";
 import { Modify } from "../../domain/models/utils/modify";
 import { FetchHook, MutationHook } from "./API";
-import useAPI from "./useAPI";
-import useMutation from "./useMutation";
+import useAPI from "./hooks/useAPI";
+import useMutation from "./hooks/useMutation";
 
 export default class StudySessionAPI {
   private static readonly URI = "study-sessions";

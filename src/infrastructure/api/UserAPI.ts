@@ -1,7 +1,7 @@
 import { UserSettings } from "../../domain/models/types/settings";
 import { Modify } from "../../domain/models/utils/modify";
 import { FetchHook } from "./API";
-import useAPI from "./useAPI";
+import useAPI from "./hooks/useAPI";
 
 export default class UserAPI {
   private static readonly URI = "users";
