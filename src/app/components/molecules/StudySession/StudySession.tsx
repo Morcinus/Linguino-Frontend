@@ -14,8 +14,7 @@ import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpans
 import TextExercise from "../../atoms/TextExercise/TextExercise";
 
 export interface IStudySession {
-  sessionInfo: StudySession;
-  lessonId?: ID;
+  session: StudySession;
   onFinish?: (progressArray: Array<ExerciseProgress>) => void;
   onWrongAnswer?: () => void;
   onContinue?: () => void;
@@ -28,8 +27,7 @@ interface IRenderExercise {
 const content = "# Hello world \n ldsfjafld jdlafjafdjsl";
 
 const StudySession: React.FC<IStudySession> = ({
-  sessionInfo,
-  lessonId,
+  session,
   onFinish,
   onWrongAnswer,
   onContinue,
@@ -39,12 +37,10 @@ const StudySession: React.FC<IStudySession> = ({
   const [openExpansion, setOpenExpansion] = useState(false);
   const [executeScroll, elRef] = useScroll();
   const { data: exerciseArray, isLoading } = StudySessionAPI.useStudySession(
-    sessionInfo?.sessionType,
-    lessonId
+    session
   );
   const { trigger } = StudySessionAPI.useStudySessionMutation(
-    sessionInfo?.sessionType,
-    lessonId
+    session
   );
   const [progressArray, setProgressArray] = useState<Array<ExerciseProgress>>(
     []

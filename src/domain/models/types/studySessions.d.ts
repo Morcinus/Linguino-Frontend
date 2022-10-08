@@ -1,7 +1,8 @@
 import { LessonType } from "./lessons";
 
 export interface StudySession {
-  sessionType: LessonType;
+  type: LessonType;
+  lessonId?: ID;
   goal: number;
   progress: number;
 }

@@ -70,7 +70,7 @@ export default function Study() {
           </Box>
 
           <StudySessionComponent
-            sessionInfo={data.dailySessions[index]}
+            session={data.dailySessions[index]}
             onContinue={handleContinue}
             onWrongAnswer={handleWrongAnswer}
             onFinish={handleSessionFinish}

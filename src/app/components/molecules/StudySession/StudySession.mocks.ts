@@ -1,20 +1,20 @@
 import { IStudySession } from "./StudySession";
 
 const base: IStudySession = {
-  sessionInfo: {
+  session: {
     goal: 5,
     progress: 0,
-    sessionType: "VOCABULARY",
+    type: "VOCABULARY",
   },
 };
 
 const lesson: IStudySession = {
-  sessionInfo: {
+  session: {
     goal: 5,
     progress: 0,
-    sessionType: "VOCABULARY",
+    type: "VOCABULARY",
+    lessonId: "kdfmsakdfoako",
   },
-  lessonId: "kdfmsakdfoako",
 };
 
 export const mockStudySessionProps = {
