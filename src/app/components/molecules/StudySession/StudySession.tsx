@@ -24,8 +24,6 @@ interface IRenderExercise {
   type: ExerciseType;
 }
 
-const content = "# Hello world \n ldsfjafld jdlafjafdjsl";
-
 const StudySession: React.FC<IStudySession> = ({
   session,
   onFinish,
@@ -125,14 +123,26 @@ const StudySession: React.FC<IStudySession> = ({
           </Container>
         </Box>
 
-        <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
+        {!isLoading &&
+        exerciseArray &&
+        exerciseArray[index].explanation !== undefined ? (
+          <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
+        ) : (
+          <></>
+        )}
       </Box>
 
-      <StudyExpansionContent
-        open={openExpansion}
-        reference={elRef}
-        content={content}
-      />
+      {!isLoading &&
+      exerciseArray &&
+      exerciseArray[index].explanation !== undefined ? (
+        <StudyExpansionContent
+          open={openExpansion}
+          reference={elRef}
+          content={exerciseArray[index].explanation}
+        />
+      ) : (
+        <></>
+      )}
     </>
   );
 };

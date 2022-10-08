@@ -7,7 +7,7 @@ import { Box } from "@mui/system";
 export interface IStudyExpansionContent {
   open: boolean;
   reference?: MutableRefObject<any>;
-  content: string;
+  content: string | undefined;
 }
 
 const StudyExpansionContent: React.FC<IStudyExpansionContent> = ({
@@ -20,7 +20,7 @@ const StudyExpansionContent: React.FC<IStudyExpansionContent> = ({
       {open && (
         <Container maxWidth="md">
           <Box ref={reference}>
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown>{content || ""}</ReactMarkdown>
           </Box>
         </Container>
       )}
