@@ -4,9 +4,9 @@ import { Box, Container } from "@mui/material";
 
 import {
   ExerciseProgress,
-  ExerciseType
+  ExerciseType,
 } from "../../../../domain/models/types/exercises";
-import { StudySession } from "../../../../domain/models/types/studySessions";
+import { StudySession as StudySessionType } from "../../../../domain/models/types/studySessions";
 import StudySessionAPI from "../../../../infrastructure/api/StudySessionAPI";
 import { useScroll } from "../../../hooks/useScroll";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
@@ -14,7 +14,7 @@ import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpans
 import TextExercise from "../../atoms/TextExercise/TextExercise";
 
 export interface IStudySession {
-  session: StudySession;
+  session: StudySessionType;
   onFinish?: (progressArray: Array<ExerciseProgress>) => void;
   onWrongAnswer?: () => void;
   onContinue?: () => void;
@@ -36,12 +36,9 @@ const StudySession: React.FC<IStudySession> = ({
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
   const [executeScroll, elRef] = useScroll();
-  const { data: exerciseArray, isLoading } = StudySessionAPI.useStudySession(
-    session
-  );
-  const { trigger } = StudySessionAPI.useStudySessionMutation(
-    session
-  );
+  const { data: exerciseArray, isLoading } =
+    StudySessionAPI.useStudySession(session);
+  const { trigger } = StudySessionAPI.useStudySessionMutation(session);
   const [progressArray, setProgressArray] = useState<Array<ExerciseProgress>>(
     []
   );
