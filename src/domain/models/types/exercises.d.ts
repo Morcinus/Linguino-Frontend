@@ -35,3 +35,7 @@ export interface ExerciseProgress {
   exerciseId: ID;
   attempts: number;
 }
+
+export interface ListeningExercise extends Exercise {
+  audioLink: string;
+}

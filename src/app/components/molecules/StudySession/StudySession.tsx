@@ -9,6 +9,7 @@ import {
 import { StudySession as StudySessionType } from "../../../../domain/models/types/studySessions";
 import StudySessionAPI from "../../../../infrastructure/api/StudySessionAPI";
 import { useScroll } from "../../../hooks/useScroll";
+import ShortListenExercise from "../../atoms/ShortListenExercise/ShortListenExercise";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";
 import TextExercise from "../../atoms/TextExercise/TextExercise";
@@ -90,6 +91,9 @@ const StudySession: React.FC<IStudySession> = ({
         return <TextExercise {...props} variant="long" />;
       case "SHORT_TEXT":
         return <TextExercise {...props} variant="short" />;
+      case "LISTEN_AND_WRITE":
+        // @ts-ignore
+        return <ShortListenExercise {...props} />;
       default:
         return <></>;
     }
