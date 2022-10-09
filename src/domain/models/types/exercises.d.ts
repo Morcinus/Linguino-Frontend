@@ -25,6 +25,12 @@ export interface Exercise {
   explanation?: string;
 }
 
+export interface IExerciseComponent {
+  exercise: Exercise;
+  onWrong: () => void;
+  onContinue: () => void;
+}
+
 export interface ExerciseProgress {
   exerciseId: ID;
   attempts: number;

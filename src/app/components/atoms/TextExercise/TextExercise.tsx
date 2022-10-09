@@ -12,14 +12,11 @@ import {
   Typography,
 } from "@mui/material";
 
-import { Exercise } from "../../../../domain/models/types/exercises";
+import { IExerciseComponent } from "../../../../domain/models/types/exercises";
 import { useFocus } from "../../../hooks/useFocus";
 import CharacterButton from "../CharacterButton/CharacterButton";
 
-export interface ITextExercise {
-  exercise: Exercise;
-  onWrong: () => void;
-  onContinue: () => void;
+export interface ITextExercise extends IExerciseComponent {
   variant: "short" | "long" | "fillInTheBlank";
 }
 
