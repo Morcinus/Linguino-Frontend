@@ -14,12 +14,16 @@ import {
   Typography,
 } from "@mui/material";
 
-import { IExerciseComponent } from "../../../../domain/models/types/exercises";
+import {
+  IExerciseComponent,
+  TextExercise as TextExerciseType,
+} from "../../../../domain/models/types/exercises";
 import { useFocus } from "../../../hooks/useFocus";
 import CharacterButton from "../CharacterButton/CharacterButton";
 
 export interface ITextExercise extends IExerciseComponent {
   variant: "short" | "long" | "fillInTheBlank";
+  exercise: TextExerciseType;
 }
 
 const TextExercise: React.FC<ITextExercise> = ({

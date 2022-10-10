@@ -9,12 +9,14 @@ export interface IListenButton {
   playOnMount: boolean;
   displayProgress: boolean;
   audioLink: string;
+  onFinish?: () => void;
 }
 
 const ListenButton: React.FC<IListenButton> = ({
   playOnMount,
   displayProgress,
   audioLink,
+  onFinish,
 }) => {
   const [value, setValue] = useState(0);
   const [running, setRunning] = useState(false);
@@ -47,6 +49,7 @@ const ListenButton: React.FC<IListenButton> = ({
 
     audio.addEventListener("ended", () => {
       setRunning(false);
+      if (typeof onFinish === "function") onFinish();
     });
   }, []);
 

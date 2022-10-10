@@ -17,7 +17,16 @@ const lesson: IStudySession = {
   },
 };
 
+const speakingSession: IStudySession = {
+  session: {
+    goal: 3,
+    progress: 0,
+    type: "SPEAKING",
+  },
+};
+
 export const mockStudySessionProps = {
   base,
   lesson,
+  speakingSession,
 };
