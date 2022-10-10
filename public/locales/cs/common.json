@@ -20,6 +20,10 @@
     "listening": "Poslech"
   },
 
+  "exercise": {
+    "continue": "Pokračovat"
+  },
+
   "other": {
     "other": "Ostatní",
     "subscription": "Předplatné",

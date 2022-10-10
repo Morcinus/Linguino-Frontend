@@ -4,7 +4,7 @@ export type ExerciseType =
   | "FILL_IN_BLANK"
   | "LISTEN_AND_WRITE"
   | "LISTEN_AND_SPEAK"
-  | "SPEAKING_WITH_QUESTIONS"
+  | "SPEECH"
   | "READING_WITH_QUESTIONS"
   | "LISTENING_WITH_QUESTIONS";
 
@@ -38,4 +38,8 @@ export interface ExerciseProgress {
 
 export interface ListeningExercise extends Exercise {
   audioLink: string;
+}
+
+export interface SpeakingExercise extends Exercise {
+  time: number;
 }
