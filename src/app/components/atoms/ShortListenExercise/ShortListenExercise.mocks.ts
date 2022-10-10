@@ -3,19 +3,16 @@ import { IShortListenExercise } from "./ShortListenExercise";
 const base: IShortListenExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
-    type: "LONG_TEXT",
+    type: "LISTEN_AND_WRITE",
 
     instructionTitle: "Přepište poslech",
-    instructionDescription: "Použijte minulý čas prostý",
 
     questions: [
       {
-        question: "xxx",
+        question: "",
         answer: "xxx",
       },
     ],
-
-    explanation: "# Hello world \n ldsfjafld jdlafjafdjsl",
 
     audioLink: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
   },
