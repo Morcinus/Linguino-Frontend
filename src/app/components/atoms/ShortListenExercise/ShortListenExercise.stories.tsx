@@ -6,7 +6,7 @@ import ShortListenExercise, {
 import { mockShortListenExerciseProps } from "./ShortListenExercise.mocks";
 
 export default {
-  title: "atoms/ShortListenExercise",
+  title: "atoms/exercises/ShortListenExercise",
   component: ShortListenExercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

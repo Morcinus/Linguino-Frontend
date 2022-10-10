@@ -4,7 +4,7 @@ import TextExercise, { ITextExercise } from "./TextExercise";
 import { mockTextExerciseProps } from "./TextExercise.mocks";
 
 export default {
-  title: "atoms/TextExercise",
+  title: "atoms/exercises/TextExercise",
   component: TextExercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
