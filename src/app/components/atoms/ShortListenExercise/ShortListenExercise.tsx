@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useKeypress from "react-use-keypress";
 
+import { useTranslation } from "next-i18next";
+
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 
 import {
@@ -21,6 +23,7 @@ const ShortListenExercise: React.FC<IShortListenExercise> = ({
   onWrong,
   onContinue,
 }) => {
+  const { t } = useTranslation("common");
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState<"NONE" | "RIGHT" | "WRONG">("NONE");
   const [inputRef, setInputFocus] = useFocus();
@@ -125,7 +128,9 @@ const ShortListenExercise: React.FC<IShortListenExercise> = ({
             helperText={
               <Typography variant="body1">
                 {status === "WRONG" &&
-                  `Správná odpověď: ${exercise.questions[0].answer}`}
+                  `${t("exercise.correctAnswer")} ${
+                    exercise.questions[0].answer
+                  }`}
               </Typography>
             }
           />
@@ -155,9 +160,9 @@ const ShortListenExercise: React.FC<IShortListenExercise> = ({
                 }}
               >
                 {status === "RIGHT"
-                  ? "Správně!"
+                  ? t("exercise.right")
                   : status === "WRONG"
-                  ? `Špatně! `
+                  ? t("exercise.wrong")
                   : ""}
               </Typography>
             </Grid>
@@ -175,7 +180,7 @@ const ShortListenExercise: React.FC<IShortListenExercise> = ({
                     : "primary"
                 }
               >
-                {submitted ? "continue" : "check"}
+                {submitted ? t("exercise.continue") : t("exercise.check")}
               </Button>
             </Grid>
           </Grid>

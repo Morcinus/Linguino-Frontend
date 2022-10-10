@@ -1,5 +1,6 @@
 {
   "project-name": "Linguino English",
+  "loading": "Načítání...",
 
   "open-menu": "Otevřít menu",
   "user-avatar-circle-tooltip": "Hurá! Splnili jste svůj denní cíl!",
@@ -21,6 +22,10 @@
   },
 
   "exercise": {
+    "right": "Správně!",
+    "wrong": "Špatně!",
+    "correctAnswer": "Správná odpověď:",
+    "check": "Zkontrolovat",
     "continue": "Pokračovat"
   },
 

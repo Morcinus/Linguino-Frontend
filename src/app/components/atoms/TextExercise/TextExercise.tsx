@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useKeypress from "react-use-keypress";
 
+import { useTranslation } from "next-i18next";
+
 import {
   Box,
   Button,
@@ -26,6 +28,7 @@ const TextExercise: React.FC<ITextExercise> = ({
   onContinue,
   variant,
 }) => {
+  const { t } = useTranslation("common");
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState<"NONE" | "RIGHT" | "WRONG">("NONE");
   const [inputRef, setInputFocus] = useFocus();
@@ -142,7 +145,9 @@ const TextExercise: React.FC<ITextExercise> = ({
             helperText={
               <Typography variant="body1">
                 {status === "WRONG" &&
-                  `Správná odpověď: ${exercise.questions[0].answer}`}
+                  `${t("exercise.correctAnswer")} ${
+                    exercise.questions[0].answer
+                  }`}
               </Typography>
             }
           />
@@ -172,9 +177,9 @@ const TextExercise: React.FC<ITextExercise> = ({
                 }}
               >
                 {status === "RIGHT"
-                  ? "Správně!"
+                  ? t("exercise.right")
                   : status === "WRONG"
-                  ? `Špatně! `
+                  ? t("exercise.wrong")
                   : ""}
               </Typography>
             </Grid>
@@ -188,11 +193,11 @@ const TextExercise: React.FC<ITextExercise> = ({
                   status === "RIGHT"
                     ? "success"
                     : status === "WRONG"
-                    ? `error`
+                    ? "error"
                     : "primary"
                 }
               >
-                {submitted ? "continue" : "check"}
+                {submitted ? t("exercise.continue") : t("exercise.check")}
               </Button>
             </Grid>
           </Grid>
