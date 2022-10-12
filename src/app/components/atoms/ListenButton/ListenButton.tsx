@@ -69,51 +69,53 @@ const ListenButton: React.FC<IListenButton> = ({
   };
 
   return (
-    <Box sx={{ m: 1, position: "relative", justifyContent: "center" }}>
-      <Fab
-        sx={{
-          boxShadow: "none",
-          backgroundColor: "rgba(0,0,0,0)",
-          "&:hover": {
-            backgroundColor: "rgba(0,0,0,0.1)",
-          },
-        }}
-        onClick={handleButtonClick}
-      >
-        {running ? (
-          <div className={styles.dots}>
-            <Box
-              sx={{ backgroundColor: "primary.main" }}
-              className={[styles.dot, styles.dot1].join(" ")}
-            />
-            <Box
-              sx={{ backgroundColor: "primary.main" }}
-              className={[styles.dot, styles.dot2].join(" ")}
-            />
-            <Box
-              sx={{ backgroundColor: "primary.main" }}
-              className={[styles.dot, styles.dot3].join(" ")}
-            />
-          </div>
-        ) : (
-          <HeadphonesIcon color="primary" fontSize="large" />
-        )}
-      </Fab>
-      {displayProgress && (
-        <CircularProgress
-          size={68}
-          value={value}
-          variant="determinate"
-          color="primary"
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box sx={{ m: 1, position: "relative" }}>
+        <Fab
           sx={{
-            position: "absolute",
-            top: -6,
-            left: -6,
-            zIndex: 1,
-            borderRadius: 5,
+            boxShadow: "none",
+            backgroundColor: "rgba(0,0,0,0)",
+            "&:hover": {
+              backgroundColor: "rgba(0,0,0,0.1)",
+            },
           }}
-        />
-      )}
+          onClick={handleButtonClick}
+        >
+          {running ? (
+            <div className={styles.dots}>
+              <Box
+                sx={{ backgroundColor: "primary.main" }}
+                className={[styles.dot, styles.dot1].join(" ")}
+              />
+              <Box
+                sx={{ backgroundColor: "primary.main" }}
+                className={[styles.dot, styles.dot2].join(" ")}
+              />
+              <Box
+                sx={{ backgroundColor: "primary.main" }}
+                className={[styles.dot, styles.dot3].join(" ")}
+              />
+            </div>
+          ) : (
+            <HeadphonesIcon color="primary" fontSize="large" />
+          )}
+        </Fab>
+        {displayProgress && (
+          <CircularProgress
+            size={68}
+            value={value}
+            variant="determinate"
+            color="primary"
+            sx={{
+              position: "absolute",
+              top: -6,
+              left: -6,
+              zIndex: 1,
+              borderRadius: 5,
+            }}
+          />
+        )}
+      </Box>
     </Box>
   );
 };
