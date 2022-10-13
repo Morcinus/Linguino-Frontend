@@ -16,18 +16,14 @@ export default function Study() {
   const { data, isLoading } = UserAPI.useUserSettings(useAuth().user?.id);
   const [progressArray, setProgressArray] = useState<Array<StudySession>>([]);
 
-  function handleWrongAnswer() {
-    setProgressArray(() => {
-      const arr = progressArray;
-      arr[index].goal += 1;
-      return arr;
-    });
-  }
-
-  function handleContinue() {
+  function handleContinue(reschedule: boolean) {
     setProgressArray(() => {
       const arr = [...progressArray];
+
+      if (reschedule) arr[index].goal += 1;
+
       arr[index].progress += 1;
+
       return arr;
     });
   }
@@ -72,7 +68,6 @@ export default function Study() {
           <StudySessionComponent
             session={data.dailySessions[index]}
             onContinue={handleContinue}
-            onWrongAnswer={handleWrongAnswer}
             onFinish={handleSessionFinish}
             key={index}
           />

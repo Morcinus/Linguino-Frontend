@@ -2,112 +2,78 @@ import { useEffect, useState } from "react";
 
 import { Box, Container } from "@mui/material";
 
-import {
-  ExerciseProgress,
-  ExerciseType,
-} from "../../../../domain/models/types/exercises";
+import { Exercise } from "../../../../domain/models/types/exercises";
+import { QuestionAttempt } from "../../../../domain/models/types/questions";
 import { StudySession as StudySessionType } from "../../../../domain/models/types/studySessions";
+import { getExplanation } from "../../../../domain/models/utils/type-guards";
 import StudySessionAPI from "../../../../infrastructure/api/StudySessionAPI";
 import { useScroll } from "../../../hooks/useScroll";
-import RapidQuestionExercise from "../../atoms/RapidQuestionExercise/RapidQuestionExercise";
-import ShortListenExercise from "../../atoms/ShortListenExercise/ShortListenExercise";
-import SpeechExercise from "../../atoms/SpeechExercise/SpeechExercise";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";
-import TextExercise from "../../atoms/TextExercise/TextExercise";
+import ExerciseSwitcher from "../ExerciseSwitcher/ExerciseSwitcher";
 
 export interface IStudySession {
   session: StudySessionType;
-  onFinish?: (progressArray: Array<ExerciseProgress>) => void;
-  onWrongAnswer?: () => void;
-  onContinue?: () => void;
-}
-
-interface IRenderExercise {
-  type: ExerciseType;
+  onFinish?: () => void;
+  onContinue?: (reschedule: boolean) => void;
 }
 
 const StudySession: React.FC<IStudySession> = ({
   session,
   onFinish,
-  onWrongAnswer,
   onContinue,
 }) => {
   const [finishedSession, setFinishedSession] = useState(false);
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
   const [executeScroll, elRef] = useScroll();
-  const { data: exerciseArray, isLoading } =
-    StudySessionAPI.useStudySession(session);
+  const { data, isLoading } = StudySessionAPI.useStudySession(session);
   const { trigger } = StudySessionAPI.useStudySessionMutation(session);
-  const [progressArray, setProgressArray] = useState<Array<ExerciseProgress>>(
-    []
-  );
+  const [attemptArray, setAttemptArray] = useState<Array<QuestionAttempt>>([]);
+  const [exerciseQueue, setExerciseQueue] = useState<Array<Exercise>>([]);
 
-  const addProgress = (id: ID) => {
-    setProgressArray(() => {
-      let index = progressArray.findIndex((x) => x.exerciseId === id);
-      if (index === -1) {
-        return [...progressArray, { exerciseId: id, attempts: 1 }];
-      } else {
-        let arr = [...progressArray];
-        arr[index].attempts += 1;
-        return arr;
-      }
-    });
-  };
+  useEffect(() => {
+    if (!isLoading && data && exerciseQueue.length === 0) {
+      setExerciseQueue(data);
+    }
+  }, [data, isLoading]);
 
-  function handleWrong() {
-    exerciseArray.push(exerciseArray[index]);
-    if (typeof onWrongAnswer === "function") onWrongAnswer();
-  }
-
-  function handleContinue() {
-    addProgress(exerciseArray[index].id);
-    if (typeof onContinue === "function") onContinue();
-    if (index < exerciseArray.length - 1) {
+  function nextExercise() {
+    if (index < exerciseQueue.length - 1) {
       setIndex(index + 1);
     } else {
       setFinishedSession(true);
     }
   }
 
+  function handleContinue(
+    attempts: Array<QuestionAttempt>,
+    reschedule: boolean
+  ) {
+    let arr = [...attemptArray, ...attempts];
+    setAttemptArray(arr);
+
+    if (reschedule) {
+      setExerciseQueue((old) => {
+        return [...old, old[index]];
+      });
+      setIndex(index + 1);
+    } else {
+      nextExercise();
+    }
+
+    if (typeof onContinue === "function") onContinue(reschedule);
+  }
+
   useEffect(() => {
     if (finishedSession) {
-      trigger(progressArray);
-      if (typeof onFinish === "function") onFinish(progressArray);
+      trigger(attemptArray); // TODO ZMENIT API a API specifikaci
+      if (typeof onFinish === "function") onFinish();
     }
 
     // Must not depend on finishedSession!
     // https://stackoverflow.com/a/59468261/13082130
-  }, [JSON.stringify(progressArray)]);
-
-  function RenderExercise({ type }: IRenderExercise) {
-    let props = {
-      exercise: exerciseArray[index],
-      onContinue: handleContinue,
-      onWrong: handleWrong,
-    };
-    switch (type) {
-      case "LONG_TEXT":
-        // @ts-ignore
-        return <TextExercise {...props} variant="long" />;
-      case "SHORT_TEXT":
-        // @ts-ignore
-        return <TextExercise {...props} variant="short" />;
-      case "LISTEN_AND_WRITE":
-        // @ts-ignore
-        return <ShortListenExercise {...props} />;
-      case "SPEECH":
-        // @ts-ignore
-        return <SpeechExercise {...props} />;
-      case "RAPID_QUESTIONS":
-        // @ts-ignore
-        return <RapidQuestionExercise {...props} />;
-      default:
-        return <></>;
-    }
-  }
+  }, [JSON.stringify(attemptArray)]);
 
   function toggleExpansion() {
     if (openExpansion) setOpenExpansion(false);
@@ -125,9 +91,12 @@ const StudySession: React.FC<IStudySession> = ({
       <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
         <Box sx={{ flexGrow: 1 }}>
           <Container maxWidth="sm">
-            {!isLoading && exerciseArray ? (
+            {!isLoading && exerciseQueue[index] ? (
               !finishedSession ? (
-                <RenderExercise type={exerciseArray[index].type} />
+                <ExerciseSwitcher
+                  exercise={exerciseQueue[index]}
+                  onContinue={handleContinue}
+                />
               ) : (
                 <p>session finished</p>
               )
@@ -138,8 +107,9 @@ const StudySession: React.FC<IStudySession> = ({
         </Box>
 
         {!isLoading &&
-        exerciseArray &&
-        exerciseArray[index].explanation !== undefined ? (
+        exerciseQueue !== undefined &&
+        exerciseQueue[index] !== undefined &&
+        "explanation" in exerciseQueue[index] ? (
           <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
         ) : (
           <></>
@@ -147,12 +117,13 @@ const StudySession: React.FC<IStudySession> = ({
       </Box>
 
       {!isLoading &&
-      exerciseArray &&
-      exerciseArray[index].explanation !== undefined ? (
+      exerciseQueue !== undefined &&
+      exerciseQueue[index] !== undefined &&
+      "explanation" in exerciseQueue[index] ? (
         <StudyExpansionContent
           open={openExpansion}
           reference={elRef}
-          content={exerciseArray[index].explanation}
+          content={getExplanation(exerciseQueue[index])}
         />
       ) : (
         <></>

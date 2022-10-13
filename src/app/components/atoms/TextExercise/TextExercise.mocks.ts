@@ -11,8 +11,10 @@ const long: ITextExercise = {
 
     questions: [
       {
+        id: "asdndajdlad",
         question: "xxx",
         answer: "xxx",
+        answerAudioLink: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
       },
     ],
 
@@ -20,9 +22,6 @@ const long: ITextExercise = {
   },
   onContinue: () => {
     console.log("onContinue");
-  },
-  onWrong: () => {
-    console.log("onWrong");
   },
 };
 
@@ -37,8 +36,10 @@ const short: ITextExercise = {
 
     questions: [
       {
+        id: "asdndajdlad",
         question: "xxx",
         answer: "xxx",
+        answerAudioLink: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
       },
     ],
 
@@ -46,9 +47,6 @@ const short: ITextExercise = {
   },
   onContinue: () => {
     console.log("onContinue");
-  },
-  onWrong: () => {
-    console.log("onWrong");
   },
 };
 
@@ -63,8 +61,10 @@ const fillInTheBlank: ITextExercise = {
 
     questions: [
       {
+        id: "asdndajdlad",
         question: "xxx",
         answer: "xxx",
+        answerAudioLink: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
       },
     ],
 
@@ -72,9 +72,6 @@ const fillInTheBlank: ITextExercise = {
   },
   onContinue: () => {
     console.log("onContinue");
-  },
-  onWrong: () => {
-    console.log("onWrong");
   },
 };
 

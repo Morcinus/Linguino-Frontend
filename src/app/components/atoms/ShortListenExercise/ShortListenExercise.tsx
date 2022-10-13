@@ -8,19 +8,18 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 
 import {
   IExerciseComponent,
-  ListeningExercise,
+  ShortListeningExercise as ShortListeningExerciseType,
 } from "../../../../domain/models/types/exercises";
 import { useFocus } from "../../../hooks/useFocus";
 import CharacterButton from "../CharacterButton/CharacterButton";
 import ListenButton from "../ListenButton/ListenButton";
 
 export interface IShortListenExercise extends IExerciseComponent {
-  exercise: ListeningExercise;
+  exercise: ShortListeningExerciseType;
 }
 
 const ShortListenExercise: React.FC<IShortListenExercise> = ({
   exercise,
-  onWrong,
   onContinue,
 }) => {
   const { t } = useTranslation("common");
@@ -39,16 +38,22 @@ const ShortListenExercise: React.FC<IShortListenExercise> = ({
       setStatus("RIGHT");
     } else {
       setStatus("WRONG");
-      if (typeof onWrong === "function") onWrong();
     }
   };
 
   const handleContinue = () => {
     setSubmitted(false);
     setStatus("NONE");
-    onContinue();
+    onContinue(
+      [
+        {
+          questionId: exercise.questions[0].id,
+          isCorrect: status === "RIGHT" ? true : false,
+        },
+      ],
+      status === "RIGHT" ? false : true
+    );
     reset({ answer: "" });
-    console.log("Reset");
   };
 
   useEffect(() => {
@@ -86,7 +91,7 @@ const ShortListenExercise: React.FC<IShortListenExercise> = ({
           {exercise.instructionTitle}
         </Typography>
         <ListenButton
-          audioLink={exercise.audioLink}
+          audioLink={exercise.questions[0].questionAudioLink}
           displayProgress={false}
           playOnMount={true}
         />
@@ -126,7 +131,7 @@ const ShortListenExercise: React.FC<IShortListenExercise> = ({
             }
             focused={status === "RIGHT" || status === "WRONG" ? true : false}
             helperText={
-              <Typography variant="body1">
+              <Typography variant="body1" component="span">
                 {status === "WRONG" &&
                   `${t("exercise.correctAnswer")} ${
                     exercise.questions[0].answer

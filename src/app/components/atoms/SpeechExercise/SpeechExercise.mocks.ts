@@ -13,23 +13,20 @@ const base: ISpeechExercise = {
     questions: [
       {
         question: "Why do you like the genre?",
-        answer: "",
+        id: "dadadas",
       },
       {
         question: "What genres do you hate?",
-        answer: "",
+        id: "qdwqd",
       },
       {
         question: "Would you want to play an instrument? Why? Why not?",
-        answer: "",
+        id: "wdqqw",
       },
     ],
   },
   onContinue: () => {
     console.log("onContinue");
-  },
-  onWrong: () => {
-    console.log("onWrong");
   },
 };
 export const mockSpeechExerciseProps = {

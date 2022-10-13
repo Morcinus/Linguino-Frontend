@@ -9,18 +9,15 @@ const base: IShortListenExercise = {
 
     questions: [
       {
-        question: "",
+        id: "lafjdflfa",
         answer: "xxx",
+        questionAudioLink:
+          "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
       },
     ],
-
-    audioLink: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
   },
   onContinue: () => {
     console.log("onContinue");
-  },
-  onWrong: () => {
-    console.log("onWrong");
   },
 };
 

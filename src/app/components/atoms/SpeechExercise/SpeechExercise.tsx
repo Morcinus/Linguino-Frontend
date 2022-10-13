@@ -7,18 +7,18 @@ import { Box, Button, Typography } from "@mui/material";
 
 import {
   IExerciseComponent,
-  SpeakingExercise,
+  SpeechExercise as SpeechExerciseType,
 } from "../../../../domain/models/types/exercises";
+import { QuestionAttempt } from "../../../../domain/models/types/questions";
 import CheckList from "../CheckList/CheckList";
 import Timer from "../Timer/Timer";
 
 export interface ISpeechExercise extends IExerciseComponent {
-  exercise: SpeakingExercise;
+  exercise: SpeechExerciseType;
 }
 
 const SpeechExercise: React.FC<ISpeechExercise> = ({
   exercise,
-  onWrong,
   onContinue,
 }) => {
   const [status, setStatus] = useState<"NONE" | "FINISHED">("NONE");
@@ -26,8 +26,18 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
 
   const handleContinue = () => {
     setStatus("NONE");
-    onContinue();
+    onContinue(getQuestionProgress(), false);
   };
+
+  function getQuestionProgress(): QuestionAttempt[] {
+    let arr: Array<QuestionAttempt> = [];
+
+    exercise.questions.forEach((question) => {
+      arr.push({ questionId: question.id, isCorrect: true });
+    });
+
+    return arr;
+  }
 
   useKeypress("Enter", (e: Event) => {
     e.preventDefault();

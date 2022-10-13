@@ -17,7 +17,6 @@ export interface IRapidQuestionExercise extends IExerciseComponent {
 
 const RapidQuestionExercise: React.FC<IRapidQuestionExercise> = ({
   exercise,
-  onWrong,
   onContinue,
 }) => {
   const TIMEOUT = 2000;
@@ -28,8 +27,12 @@ const RapidQuestionExercise: React.FC<IRapidQuestionExercise> = ({
 
   const handleContinue = () => {
     setStatus("NONE");
-    onContinue();
+    onContinue(getQuestionProgress(), false);
   };
+
+  function getQuestionProgress() {
+    return [{ questionId: exercise.questions[0].id, isCorrect: true }];
+  }
 
   useKeypress("Enter", (e: Event) => {
     e.preventDefault();
@@ -70,7 +73,7 @@ const RapidQuestionExercise: React.FC<IRapidQuestionExercise> = ({
 
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <ListenButton
-            audioLink={exercise.audioLink}
+            audioLink={exercise.questions[0].questionAudioLink}
             displayProgress={false}
             playOnMount={true}
             onFinish={handleFinish}

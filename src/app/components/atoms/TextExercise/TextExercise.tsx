@@ -28,7 +28,6 @@ export interface ITextExercise extends IExerciseComponent {
 
 const TextExercise: React.FC<ITextExercise> = ({
   exercise,
-  onWrong,
   onContinue,
   variant,
 }) => {
@@ -48,16 +47,22 @@ const TextExercise: React.FC<ITextExercise> = ({
       setStatus("RIGHT");
     } else {
       setStatus("WRONG");
-      if (typeof onWrong === "function") onWrong();
     }
   };
 
   const handleContinue = () => {
     setSubmitted(false);
     setStatus("NONE");
-    onContinue();
+    onContinue(
+      [
+        {
+          questionId: exercise.questions[0].id,
+          isCorrect: status === "RIGHT" ? true : false,
+        },
+      ],
+      status === "RIGHT" ? false : true
+    );
     reset({ answer: "" });
-    console.log("Reset");
   };
 
   useEffect(() => {
@@ -147,7 +152,7 @@ const TextExercise: React.FC<ITextExercise> = ({
             }
             focused={status === "RIGHT" || status === "WRONG" ? true : false}
             helperText={
-              <Typography variant="body1">
+              <Typography variant="body1" component="span">
                 {status === "WRONG" &&
                   `${t("exercise.correctAnswer")} ${
                     exercise.questions[0].answer

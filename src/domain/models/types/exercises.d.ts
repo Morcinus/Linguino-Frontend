@@ -1,56 +1,76 @@
-export type ExerciseType =
-  | "SHORT_TEXT"
-  | "LONG_TEXT"
-  | "FILL_IN_BLANK"
-  | "LISTEN_AND_WRITE"
-  | "LISTEN_AND_SPEAK"
-  | "SPEECH"
-  | "RAPID_QUESTIONS"
-  | "READING_WITH_QUESTIONS"
-  | "LISTENING_WITH_QUESTIONS";
-
-export interface Question {
-  question: string;
-  answer?: string;
-}
-
-export interface Exercise {
-  id: ID;
-  type: ExerciseType;
-
-  instructionTitle: string;
-  instructionDescription?: string;
-
-  questions?: Array<Question>;
-
-  explanation?: string;
-}
+export type Exercise =
+  | TextExercise
+  | ListeningExercise
+  | RapidQuestionExercise
+  | SpeechExercise
+  | ShortListeningExercise;
 
 export interface IExerciseComponent {
   exercise: Exercise;
-  onWrong: () => void;
-  onContinue: () => void;
+  onContinue: (attempts: Array<QuestionAttempt>, reschedule: boolean) => void;
 }
 
-export interface ExerciseProgress {
-  exerciseId: ID;
-  attempts: number;
-}
-
-export interface ListeningExercise extends Exercise {
+export interface ListeningExercise {
+  id: ID;
+  type: "LISTENING";
+  instructionTitle: string;
+  instructionDescription?: string;
   audioLink: string;
-  questions: Array<Question>;
+
+  questions: Array<{
+    id: ID;
+    question: string;
+    blankIndexes: Array<number>;
+  }>;
 }
 
-export interface SpeakingExercise extends Exercise {
+export interface ShortListeningExercise {
+  id: ID;
+  type: "LISTEN_AND_WRITE";
+  instructionTitle: string;
+
+  questions: Array<{
+    id: ID;
+    answer: string;
+    questionAudioLink: string;
+  }>;
+}
+
+export interface RapidQuestionExercise {
+  id: ID;
+  type: "RAPID_QUESTIONS";
+  instructionTitle: string;
+
+  questions: Array<{
+    id: ID;
+    questionAudioLink: string;
+  }>;
+}
+
+export interface SpeechExercise {
+  id: ID;
+  type: "SPEECH";
+  instructionTitle: string;
+  instructionDescription: string;
   time: number;
-  questions: Array<Question>;
+
+  questions: Array<{
+    id: ID;
+    question: string;
+  }>;
 }
 
-export interface RapidQuestionExercise extends Exercise {
-  audioLink: string;
-}
+export interface TextExercise {
+  id: ID;
+  type: "LONG_TEXT" | "SHORT_TEXT";
+  instructionTitle: string;
+  instructionDescription?: string;
+  explanation: string;
 
-export interface TextExercise extends Exercise {
-  questions: Array<Question>;
+  questions: Array<{
+    id: ID;
+    question: string;
+    answer: string;
+    answerAudioLink: string;
+  }>;
 }
