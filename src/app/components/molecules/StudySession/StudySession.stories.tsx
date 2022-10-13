@@ -15,13 +15,14 @@ const Template: ComponentStory<typeof StudySession> = (args) => (
   <StudySession {...args} />
 );
 
-export const Base = Template.bind({});
+export const TextSession = Template.bind({});
 export const Lesson = Template.bind({});
 export const SpeakingSession = Template.bind({});
+export const ListeningSession = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
-Base.args = {
-  ...mockStudySessionProps.base,
+TextSession.args = {
+  ...mockStudySessionProps.textSession,
 } as IStudySession;
 
 Lesson.args = {
@@ -30,4 +31,8 @@ Lesson.args = {
 
 SpeakingSession.args = {
   ...mockStudySessionProps.speakingSession,
+} as IStudySession;
+
+ListeningSession.args = {
+  ...mockStudySessionProps.listeningSession,
 } as IStudySession;

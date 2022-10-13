@@ -1,6 +1,6 @@
 import { IStudySession } from "./StudySession";
 
-const base: IStudySession = {
+const textSession: IStudySession = {
   session: {
     goal: 5,
     progress: 0,
@@ -25,8 +25,17 @@ const speakingSession: IStudySession = {
   },
 };
 
+const listeningSession: IStudySession = {
+  session: {
+    goal: 1,
+    progress: 0,
+    type: "LISTENING",
+  },
+};
+
 export const mockStudySessionProps = {
-  base,
+  textSession,
   lesson,
   speakingSession,
+  listeningSession,
 };

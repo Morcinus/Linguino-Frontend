@@ -29,6 +29,9 @@ const ExerciseSwitcher: React.FC<IExerciseSwitcher> = (props) => {
       case "RAPID_QUESTIONS":
         // @ts-ignore
         return <RapidQuestionExercise {...props} />;
+      case "LISTENING":
+        // @ts-ignore
+        return <ListeningExercise {...props} />;
       default:
         return <>None</>;
     }
