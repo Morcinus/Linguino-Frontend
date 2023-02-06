@@ -4,25 +4,19 @@ import useKeypress from "react-use-keypress";
 
 import { useTranslation } from "next-i18next";
 
-import {
-  Box,
-  Button,
-  Card,
-  CardMedia,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Card, CardMedia, Grid, Typography } from "@mui/material";
 
 import {
+  AnswerState,
   IExerciseComponent,
   TextExercise as TextExerciseType,
 } from "../../../../domain/models/types/exercises";
 import { useFocus } from "../../../hooks/useFocus";
 import CharacterButton from "../CharacterButton/CharacterButton";
+import TextAnswer from "../TextAnswer/TextAnswer";
 
 export interface ITextExercise extends IExerciseComponent {
-  variant: "short" | "long" | "fillInTheBlank";
+  variant: "short" | "long";
   exercise: TextExerciseType;
 }
 
@@ -33,7 +27,7 @@ const TextExercise: React.FC<ITextExercise> = ({
 }) => {
   const { t } = useTranslation("common");
   const [submitted, setSubmitted] = useState(false);
-  const [status, setStatus] = useState<"NONE" | "RIGHT" | "WRONG">("NONE");
+  const [answerState, setAnswerState] = useState<AnswerState>("NONE");
   const [inputRef, setInputFocus] = useFocus();
   const { register, handleSubmit, reset, setValue, getValues } = useForm<{
     answer: string;
@@ -44,23 +38,23 @@ const TextExercise: React.FC<ITextExercise> = ({
   const onCheckSubmit = (data: { answer: string }) => {
     setSubmitted(true);
     if (data.answer.trim() === exercise.questions[0].answer) {
-      setStatus("RIGHT");
+      setAnswerState("RIGHT");
     } else {
-      setStatus("WRONG");
+      setAnswerState("WRONG");
     }
   };
 
   const handleContinue = () => {
     setSubmitted(false);
-    setStatus("NONE");
+    setAnswerState("NONE");
     onContinue(
       [
         {
           questionId: exercise.questions[0].id,
-          isCorrect: status === "RIGHT" ? true : false,
+          isCorrect: answerState === "RIGHT" ? true : false,
         },
       ],
-      status === "RIGHT" ? false : true
+      answerState === "RIGHT" ? false : true
     );
     reset({ answer: "" });
   };
@@ -118,47 +112,15 @@ const TextExercise: React.FC<ITextExercise> = ({
         </Typography>
 
         <Box sx={{ justifyContent: "center", display: "flex" }}>
-          <TextField
+          <TextAnswer
             inputRef={inputRef}
-            variant="outlined"
-            multiline={variant === "long" ? true : false}
-            rows={variant === "long" ? 3 : 1}
-            sx={{
-              width: variant === "long" ? "100%" : undefined,
-              my: 2,
-              borderRadius: 2,
-              "& .MuiInputBase-root.Mui-disabled .MuiOutlinedInput-notchedOutline":
-                {
-                  borderColor:
-                    status === "RIGHT"
-                      ? "green"
-                      : status === "WRONG"
-                      ? "red"
-                      : undefined,
-                  borderWidth: 2,
-                },
-            }}
-            autoComplete="off"
-            {...register("answer", {
+            variant={variant}
+            correctAnswer={exercise.questions[0].answer}
+            disabled={submitted}
+            registration={register("answer", {
               required: true,
             })}
-            disabled={submitted ? true : false}
-            color={
-              status === "RIGHT"
-                ? "success"
-                : status === "WRONG"
-                ? "error"
-                : undefined
-            }
-            focused={status === "RIGHT" || status === "WRONG" ? true : false}
-            helperText={
-              <Typography variant="body1" component="span">
-                {status === "WRONG" &&
-                  `${t("exercise.correctAnswer")} ${
-                    exercise.questions[0].answer
-                  }`}
-              </Typography>
-            }
+            answerState={answerState}
           />
         </Box>
         <Box>
@@ -178,16 +140,16 @@ const TextExercise: React.FC<ITextExercise> = ({
                 sx={{
                   fontWeight: "bold",
                   color:
-                    status === "RIGHT"
+                    answerState === "RIGHT"
                       ? "green"
-                      : status === "WRONG"
+                      : answerState === "WRONG"
                       ? `red`
                       : undefined,
                 }}
               >
-                {status === "RIGHT"
+                {answerState === "RIGHT"
                   ? t("exercise.right")
-                  : status === "WRONG"
+                  : answerState === "WRONG"
                   ? t("exercise.wrong")
                   : ""}
               </Typography>
@@ -199,9 +161,9 @@ const TextExercise: React.FC<ITextExercise> = ({
                 }
                 variant="contained"
                 color={
-                  status === "RIGHT"
+                  answerState === "RIGHT"
                     ? "success"
-                    : status === "WRONG"
+                    : answerState === "WRONG"
                     ? "error"
                     : "primary"
                 }

@@ -74,3 +74,5 @@ export interface TextExercise {
     answerAudioLink: string;
   }>;
 }
+
+export type AnswerState = "NONE" | "RIGHT" | "WRONG";

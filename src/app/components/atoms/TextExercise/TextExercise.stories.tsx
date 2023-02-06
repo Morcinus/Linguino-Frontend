@@ -17,7 +17,6 @@ const Template: ComponentStory<typeof TextExercise> = (args) => (
 
 export const Short = Template.bind({});
 export const Long = Template.bind({});
-export const FillInTheBlank = Template.bind({});
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
@@ -27,8 +26,4 @@ Long.args = {
 
 Short.args = {
   ...mockTextExerciseProps.short,
-} as ITextExercise;
-
-FillInTheBlank.args = {
-  ...mockTextExerciseProps.fillInTheBlank,
 } as ITextExercise;
