@@ -3,7 +3,7 @@ import useKeypress from "react-use-keypress";
 
 import { useTranslation } from "next-i18next";
 
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import {
   IExerciseComponent,
@@ -11,6 +11,7 @@ import {
 } from "../../../../domain/models/types/exercises";
 import { QuestionAttempt } from "../../../../domain/models/types/questions";
 import CheckList from "../CheckList/CheckList";
+import FullWidthButton from "../FullWidthButton/FullWidthButton";
 import Timer from "../Timer/Timer";
 
 export interface ISpeechExercise extends IExerciseComponent {
@@ -49,7 +50,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
       sx={{
         justifyContent: "center",
         display: "flex",
-        textAlign: "center",
+        mb: 4,
       }}
     >
       <Box
@@ -61,25 +62,23 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
           width: "90%",
         }}
       >
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-          {exercise.instructionTitle}
+        <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
+          {exercise.assignmentTitle}
         </Typography>
         <Timer
           milliseconds={exercise.time}
           onFinish={() => setStatus("FINISHED")}
         />
+        <Box>
+          <Typography variant="subtitle2">{t("exercise.topic")}:</Typography>
+          <Typography variant="subtitle1">
+            {exercise.assignmentTopic}
+          </Typography>
+        </Box>
 
         <CheckList items={exercise.questions.map((e) => e.question)} />
 
-        <Box sx={{ mt: 4 }}>
-          <Button
-            onClick={handleContinue}
-            variant="contained"
-            disabled={status === "FINISHED" ? false : true}
-          >
-            {t("exercise.continue")}
-          </Button>
-        </Box>
+        <FullWidthButton text={t("exercise.continue")} />
       </Box>
     </Box>
   );

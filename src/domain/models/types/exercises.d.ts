@@ -50,8 +50,8 @@ export interface RapidQuestionExercise {
 export interface SpeechExercise {
   id: ID;
   type: "SPEECH";
-  instructionTitle: string;
-  instructionDescription: string;
+  assignmentTitle: string;
+  assignmentTopic: string;
   time: number;
 
   questions: Array<{

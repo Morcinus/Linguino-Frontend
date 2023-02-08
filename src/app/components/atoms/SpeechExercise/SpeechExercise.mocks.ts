@@ -5,8 +5,8 @@ const base: ISpeechExercise = {
     id: "ifdsamlmlkafd",
     type: "SPEECH",
 
-    instructionTitle: "Mluvte na téma",
-    instructionDescription: "What is my favourite music genre",
+    assignmentTitle: "Mluvte na téma",
+    assignmentTopic: "What is my favourite music genre",
 
     time: 120000,
 

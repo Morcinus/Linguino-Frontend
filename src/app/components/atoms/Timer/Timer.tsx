@@ -62,6 +62,7 @@ const Timer: React.FC<ITimer> = ({ milliseconds, onFinish }) => {
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
+        textAlign: "center",
       }}
     >
       <SimpleCircularProgress
@@ -69,17 +70,21 @@ const Timer: React.FC<ITimer> = ({ milliseconds, onFinish }) => {
         color={theme.palette.primary.main}
         thickness="thin"
       >
-        <Typography variant="h4">{timeMMSS(milliseconds - value)}</Typography>
+        <Box sx={{ display: "flex", flexDirection: "column", zIndex: 2 }}>
+          <Typography variant="h4">{timeMMSS(milliseconds - value)}</Typography>
+          <Box>
+            <IconButton onClick={handleClick} size="large">
+              {finished ? (
+                <ReplayIcon />
+              ) : running ? (
+                <PauseIcon />
+              ) : (
+                <PlayArrowIcon />
+              )}
+            </IconButton>
+          </Box>
+        </Box>
       </SimpleCircularProgress>
-      <IconButton onClick={handleClick} sx={{ mt: 1 }}>
-        {finished ? (
-          <ReplayIcon />
-        ) : running ? (
-          <PauseIcon />
-        ) : (
-          <PlayArrowIcon />
-        )}
-      </IconButton>
     </Box>
   );
 };
