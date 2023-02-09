@@ -2,7 +2,16 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
-    fontFamily: ["Nunito"].join(","),
+    fontFamily: ["Nunito", "Poppins"].join(","),
+    subtitle1: {
+      fontSize: 18,
+      fontFamily: "Poppins",
+      fontWeight: "medium",
+    },
+    subtitle2: {
+      fontSize: 16,
+      fontFamily: "Poppins",
+    },
   },
   palette: {
     primary: {
