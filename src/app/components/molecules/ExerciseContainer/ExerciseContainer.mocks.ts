@@ -1,6 +1,6 @@
-import { IExerciseSwitcher } from "./ExerciseSwitcher";
+import { IExerciseContainer } from "./ExerciseContainer";
 
-const base: IExerciseSwitcher = {
+const base: IExerciseContainer = {
   exercise: {
     id: "ifdsamlmlkafd",
     type: "LONG_TEXT",
@@ -24,6 +24,6 @@ const base: IExerciseSwitcher = {
   },
 };
 
-export const mockExerciseSwitcherProps = {
+export const mockExerciseContainerProps = {
   base,
 };

@@ -10,7 +10,7 @@ import StudySessionAPI from "../../../../infrastructure/api/StudySessionAPI";
 import { useScroll } from "../../../hooks/useScroll";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";
-import ExerciseSwitcher from "../ExerciseSwitcher/ExerciseSwitcher";
+import ExerciseContainer from "../ExerciseContainer/ExerciseContainer";
 
 export interface IStudySession {
   session: StudySessionType;
@@ -93,7 +93,7 @@ const StudySession: React.FC<IStudySession> = ({
           <Container maxWidth="sm">
             {!isLoading && exerciseQueue[index] ? (
               !finishedSession ? (
-                <ExerciseSwitcher
+                <ExerciseContainer
                   exercise={exerciseQueue[index]}
                   onContinue={handleContinue}
                 />
