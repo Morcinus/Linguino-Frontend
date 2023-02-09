@@ -2,18 +2,18 @@ import { Button } from "@mui/material";
 
 export interface IFullWidthButton {
   text?: string;
-  handleClick?: Function;
+  onClick?: Function;
   disabled?: boolean;
 }
 
 const FullWidthButton: React.FC<IFullWidthButton> = ({
   text,
-  handleClick,
+  onClick,
   disabled,
 }) => {
   return (
     <Button
-      onClick={(e) => handleClick?.(e)}
+      onClick={(e) => onClick?.(e)}
       variant="contained"
       disabled={disabled}
       size="large"

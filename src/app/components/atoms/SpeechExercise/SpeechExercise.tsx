@@ -78,7 +78,10 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
 
         <CheckList items={exercise.questions.map((e) => e.question)} />
 
-        <FullWidthButton text={t("exercise.continue")} />
+        <FullWidthButton
+          text={t("exercise.continue")}
+          onClick={handleContinue}
+        />
       </Box>
     </Box>
   );
