@@ -3,11 +3,13 @@ import { Button, Typography } from "@mui/material";
 export interface ICharacterButton {
   onClick: () => void;
   character: string;
+  disabled?: boolean;
 }
 
 const CharacterButton: React.FC<ICharacterButton> = ({
   onClick,
   character,
+  disabled,
 }) => {
   return (
     <Button
@@ -21,6 +23,7 @@ const CharacterButton: React.FC<ICharacterButton> = ({
         borderRadius: 0.2,
       }}
       onClick={onClick}
+      disabled={disabled}
     >
       <Typography variant="h5">{character}</Typography>
     </Button>

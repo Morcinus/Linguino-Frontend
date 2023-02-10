@@ -6,7 +6,7 @@ const long: ITextExercise = {
     id: "ifdsamlmlkafd",
     type: "LONG_TEXT",
 
-    instructionTitle: "Přeložte do angličtiny",
+    assignmentTitle: "Přeložte do angličtiny",
     instructionDescription: "Použijte minulý čas prostý",
 
     questions: [
@@ -31,7 +31,7 @@ const short: ITextExercise = {
     id: "ifdsamlmlkafd",
     type: "LONG_TEXT",
 
-    instructionTitle: "Přeložte do angličtiny",
+    assignmentTitle: "Přeložte do angličtiny",
     instructionDescription: "Použijte minulý čas prostý",
 
     questions: [

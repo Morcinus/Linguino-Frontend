@@ -4,7 +4,7 @@ import useKeypress from "react-use-keypress";
 
 import { useTranslation } from "next-i18next";
 
-import { Box, Button, Card, CardMedia, Grid, Typography } from "@mui/material";
+import { Box, Card, CardMedia, Typography } from "@mui/material";
 
 import {
   AnswerState,
@@ -13,6 +13,7 @@ import {
 } from "../../../../domain/models/types/exercises";
 import { useFocus } from "../../../hooks/useFocus";
 import CharacterButton from "../CharacterButton/CharacterButton";
+import FullWidthButton from "../FullWidthButton/FullWidthButton";
 import TextAnswer from "../TextAnswer/TextAnswer";
 
 export interface ITextExercise extends IExerciseComponent {
@@ -77,103 +78,101 @@ const TextExercise: React.FC<ITextExercise> = ({
   return (
     <Box
       sx={{
-        justifyContent: "center",
         display: "flex",
-        textAlign: "center",
+        flexDirection: "column",
+        width: "90%",
+        margin: "auto",
+        gap: 1,
+        mb: 2,
       }}
     >
-      <Box
+      <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
+        {exercise.assignmentTitle}
+      </Typography>
+
+      <Card
         sx={{
-          justifyContent: "center",
-          display: "flex",
-          flexDirection: "column",
-          width: "90%",
+          width: "100%",
+          maxWidth: "250px",
+          aspectRatio: "1/1",
+          my: 2,
+          mx: "auto",
         }}
       >
-        <Box sx={{ justifyContent: "center", display: "flex" }}>
-          <Card
-            sx={{ width: "100%", maxWidth: "250px", aspectRatio: "1/1", my: 2 }}
-          >
-            <CardMedia
-              sx={{
-                width: "100%",
-                height: "100%",
-                zIndex: 0,
-              }}
-              image={`${process.env.NEXT_PUBLIC_STORAGE_BUCKET_URL} + ${exercise.id}`}
-            />
-          </Card>
-        </Box>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-          {exercise.instructionTitle}
-        </Typography>
-        <Typography variant="h5" sx={{ mt: 0.5, mb: 2 }}>
-          {exercise.questions[0].question}
-        </Typography>
+        <CardMedia
+          sx={{
+            width: "100%",
+            height: "100%",
+            zIndex: 0,
+          }}
+          image={`${process.env.NEXT_PUBLIC_STORAGE_BUCKET_URL} + ${exercise.id}`}
+        />
+      </Card>
 
-        <Box sx={{ justifyContent: "center", display: "flex" }}>
-          <TextAnswer
-            inputRef={inputRef}
-            variant={variant}
-            correctAnswer={exercise.questions[0].answer}
-            disabled={submitted}
-            registration={register("answer", {
-              required: true,
-            })}
-            answerState={answerState}
-          />
-        </Box>
+      <Typography variant="subtitle1">
+        {exercise.questions[0].question}
+      </Typography>
+
+      <TextAnswer
+        inputRef={inputRef}
+        variant={variant}
+        disabled={submitted}
+        registration={register("answer", {
+          required: true,
+        })}
+        answerState={answerState}
+      />
+
+      <CharacterButton
+        onClick={handleAddCharacter}
+        character="'"
+        disabled={answerState !== "NONE"}
+      />
+
+      {answerState !== "NONE" && (
         <Box>
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Grid item xs={3} sx={{ textAlign: "left" }}>
-              <CharacterButton onClick={handleAddCharacter} character="'" />
-            </Grid>
-
-            <Grid item xs={6}>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: "bold",
-                  color:
-                    answerState === "RIGHT"
-                      ? "green"
-                      : answerState === "WRONG"
-                      ? `red`
-                      : undefined,
-                }}
-              >
-                {answerState === "RIGHT"
-                  ? t("exercise.right")
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: "bold",
+              color:
+                answerState === "RIGHT"
+                  ? "green"
                   : answerState === "WRONG"
-                  ? t("exercise.wrong")
-                  : ""}
-              </Typography>
-            </Grid>
-            <Grid item xs={3} sx={{ textAlign: "RIGHT" }}>
-              <Button
-                onClick={
-                  !submitted ? handleSubmit(onCheckSubmit) : handleContinue
-                }
-                variant="contained"
-                color={
-                  answerState === "RIGHT"
-                    ? "success"
-                    : answerState === "WRONG"
-                    ? "error"
-                    : "primary"
-                }
-              >
-                {submitted ? t("exercise.continue") : t("exercise.check")}
-              </Button>
-            </Grid>
-          </Grid>
+                  ? `red`
+                  : undefined,
+            }}
+          >
+            {answerState === "RIGHT"
+              ? t("exercise.right")
+              : answerState === "WRONG"
+              ? t("exercise.wrong")
+              : ""}
+          </Typography>
+          <Typography variant="subtitle2">
+            {answerState === "RIGHT"
+              ? t("exercise.alternativeAnswer")
+              : answerState === "WRONG"
+              ? t("exercise.correctAnswer")
+              : ""}
+          </Typography>
+          <Typography variant="body2">
+            {exercise.questions[0].answer}
+          </Typography>
         </Box>
-      </Box>
+      )}
+
+      <FullWidthButton
+        text={submitted ? t("exercise.continue") : t("exercise.check")}
+        onClick={!submitted ? handleSubmit(onCheckSubmit) : handleContinue}
+        variant={
+          answerState === "RIGHT"
+            ? "right"
+            : answerState === "WRONG"
+            ? "wrong"
+            : undefined
+        }
+      />
     </Box>
   );
 };

@@ -4,12 +4,14 @@ export interface IFullWidthButton {
   text?: string;
   onClick?: Function;
   disabled?: boolean;
+  variant?: "right" | "wrong";
 }
 
 const FullWidthButton: React.FC<IFullWidthButton> = ({
   text,
   onClick,
   disabled,
+  variant,
 }) => {
   return (
     <Button
@@ -24,6 +26,13 @@ const FullWidthButton: React.FC<IFullWidthButton> = ({
         width: "100%",
         borderRadius: 0,
       }}
+      color={
+        variant === "right"
+          ? "success"
+          : variant === "wrong"
+          ? "error"
+          : "primary"
+      }
     >
       {text}
     </Button>

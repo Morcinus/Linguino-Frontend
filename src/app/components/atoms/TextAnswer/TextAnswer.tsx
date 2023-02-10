@@ -11,7 +11,7 @@ export interface ITextAnswer {
   inputRef?: MutableRefObject<any>;
   variant?: "short" | "long";
   disabled?: boolean;
-  correctAnswer: string;
+  correctAnswer?: string;
   answerState: AnswerState;
   registration?: UseFormRegisterReturn;
 }
@@ -32,9 +32,8 @@ const TextAnswer: React.FC<ITextAnswer> = ({
       variant="outlined"
       multiline={variant === "long" ? true : false}
       rows={variant === "long" ? 3 : 1}
+      fullWidth
       sx={{
-        width: variant === "long" ? "100%" : undefined,
-        my: 2,
         borderRadius: 2,
         "& .MuiInputBase-root.Mui-disabled .MuiOutlinedInput-notchedOutline": {
           borderColor:
@@ -59,10 +58,12 @@ const TextAnswer: React.FC<ITextAnswer> = ({
         answerState === "RIGHT" || answerState === "WRONG" ? true : false
       }
       helperText={
-        <Typography variant="body1" component="span">
-          {answerState === "WRONG" &&
-            `${t("exercise.correctAnswer")} ${correctAnswer}`}
-        </Typography>
+        correctAnswer ? (
+          <Typography variant="body1" component="span">
+            {answerState === "WRONG" &&
+              `${t("exercise.correctAnswer")} ${correctAnswer}`}
+          </Typography>
+        ) : undefined
       }
       {...registration}
     />

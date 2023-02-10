@@ -63,7 +63,7 @@ export interface SpeechExercise {
 export interface TextExercise {
   id: ID;
   type: "LONG_TEXT" | "SHORT_TEXT";
-  instructionTitle: string;
+  assignmentTitle: string;
   instructionDescription?: string;
   explanation: string;
 
