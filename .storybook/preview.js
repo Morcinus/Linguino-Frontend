@@ -7,6 +7,8 @@ import snack from '../public/locales/cs/snack.json' assert { type: 'json' };
 
 import { initReactI18next } from "react-i18next";
 
+import AuthDecorator from "../src/decorators/authDecorator";
+
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../src/app/styles/theme';
 
@@ -22,6 +24,7 @@ export const decorators = [
       <Story />
     </ThemeProvider>
   ),
+  AuthDecorator,
   (Story, Context) => {
     i18n.use(initReactI18next).init({
       lng: "cs",

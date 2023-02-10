@@ -17,7 +17,7 @@ import { User } from "../../domain/models/types/user";
 import { AuthAPI } from "../api/AuthAPI";
 import { LocalStorageManager } from "../repositories/LocalStorageManager";
 
-interface AuthContextType {
+export interface AuthContextType {
   user?: User;
   loading: boolean;
   errors?: string[];
@@ -26,7 +26,9 @@ interface AuthContextType {
   logout: () => void;
 }
 
-const AuthContext = createContext<AuthContextType>({} as AuthContextType);
+export const AuthContext = createContext<AuthContextType>(
+  {} as AuthContextType
+);
 
 // Source: https://dev.to/finiam/predictable-react-authentication-with-the-context-api-g10
 export function AuthProvider({
