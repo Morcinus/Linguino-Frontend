@@ -6,11 +6,13 @@ import { AnswerState } from "../../../../domain/models/types/exercises";
 
 export interface ICorrectAnswerBox {
   state?: AnswerState;
+  answer: string;
   correctAnswer: string;
 }
 
 const CorrectAnswerBox: React.FC<ICorrectAnswerBox> = ({
   state,
+  answer,
   correctAnswer,
 }) => {
   const { t } = useTranslation("common");
@@ -39,14 +41,18 @@ const CorrectAnswerBox: React.FC<ICorrectAnswerBox> = ({
               ? t("exercise.wrong")
               : ""}
           </Typography>
-          <Typography variant="subtitle2">
-            {state === "RIGHT"
-              ? t("exercise.alternativeAnswer")
-              : state === "WRONG"
-              ? t("exercise.correctAnswer")
-              : ""}
-          </Typography>
-          <Typography variant="body2">{correctAnswer}</Typography>
+          {correctAnswer !== answer && (
+            <>
+              <Typography variant="subtitle2">
+                {state === "RIGHT"
+                  ? t("exercise.alternativeAnswer")
+                  : state === "WRONG"
+                  ? t("exercise.correctAnswer")
+                  : ""}
+              </Typography>
+              <Typography variant="body2">{correctAnswer}</Typography>
+            </>
+          )}
         </>
       )}
     </>

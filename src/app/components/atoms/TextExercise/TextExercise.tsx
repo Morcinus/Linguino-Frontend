@@ -116,6 +116,7 @@ const TextExercise: React.FC<ITextExercise> = ({
 
       <CorrectAnswerBox
         state={answerState}
+        answer={getValues().answer}
         correctAnswer={exercise.questions[0].answer}
       />
 
