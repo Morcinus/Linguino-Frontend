@@ -1,9 +1,7 @@
 import { MutableRefObject } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
-import { useTranslation } from "next-i18next";
-
-import { TextField, Typography } from "@mui/material";
+import { TextField } from "@mui/material";
 
 import { AnswerState } from "../../../../domain/models/types/exercises";
 
@@ -20,12 +18,9 @@ const TextAnswer: React.FC<ITextAnswer> = ({
   inputRef,
   variant = "short",
   disabled,
-  correctAnswer,
   answerState,
   registration,
 }) => {
-  const { t } = useTranslation("common");
-
   return (
     <TextField
       inputRef={inputRef}
@@ -56,14 +51,6 @@ const TextAnswer: React.FC<ITextAnswer> = ({
       }
       focused={
         answerState === "RIGHT" || answerState === "WRONG" ? true : false
-      }
-      helperText={
-        correctAnswer ? (
-          <Typography variant="body1" component="span">
-            {answerState === "WRONG" &&
-              `${t("exercise.correctAnswer")} ${correctAnswer}`}
-          </Typography>
-        ) : undefined
       }
       {...registration}
     />

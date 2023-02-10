@@ -1,3 +1,5 @@
+import Box from "@mui/material/Box";
+
 import { Exercise } from "../../../../domain/models/types/exercises";
 import {
   isListeningExercise,
@@ -66,7 +68,20 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
     return <></>;
   }
 
-  return <>{renderExercise()}</>;
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "90%",
+        margin: "auto",
+        gap: 1,
+        mb: 4,
+      }}
+    >
+      {renderExercise()}
+    </Box>
+  );
 };
 
 export default ExerciseContainer;

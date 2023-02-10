@@ -3,7 +3,7 @@ import useKeypress from "react-use-keypress";
 
 import { useTranslation } from "next-i18next";
 
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 import {
   IExerciseComponent,
@@ -46,16 +46,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
   });
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        width: "90%",
-        margin: "auto",
-        gap: 1,
-        mb: 2,
-      }}
-    >
+    <>
       <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
         {exercise.assignmentTitle}
       </Typography>
@@ -70,7 +61,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
       <CheckList items={exercise.questions.map((e) => e.question)} />
 
       <FullWidthButton text={t("exercise.continue")} onClick={handleContinue} />
-    </Box>
+    </>
   );
 };
 

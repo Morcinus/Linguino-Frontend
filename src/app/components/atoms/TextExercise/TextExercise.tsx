@@ -4,7 +4,7 @@ import useKeypress from "react-use-keypress";
 
 import { useTranslation } from "next-i18next";
 
-import { Box, Card, CardMedia, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 import {
   AnswerState,
@@ -13,7 +13,9 @@ import {
 } from "../../../../domain/models/types/exercises";
 import { useFocus } from "../../../hooks/useFocus";
 import CharacterButton from "../CharacterButton/CharacterButton";
+import CorrectAnswerBox from "../CorrectAnswerBox/CorrectAnswerBox";
 import FullWidthButton from "../FullWidthButton/FullWidthButton";
+import ImageCard from "../ImageCard/ImageCard";
 import TextAnswer from "../TextAnswer/TextAnswer";
 
 export interface ITextExercise extends IExerciseComponent {
@@ -76,38 +78,14 @@ const TextExercise: React.FC<ITextExercise> = ({
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        width: "90%",
-        margin: "auto",
-        gap: 1,
-        mb: 2,
-      }}
-    >
+    <>
       <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
         {exercise.assignmentTitle}
       </Typography>
 
-      <Card
-        sx={{
-          width: "100%",
-          maxWidth: "250px",
-          aspectRatio: "1/1",
-          my: 2,
-          mx: "auto",
-        }}
-      >
-        <CardMedia
-          sx={{
-            width: "100%",
-            height: "100%",
-            zIndex: 0,
-          }}
-          image={`${process.env.NEXT_PUBLIC_STORAGE_BUCKET_URL} + ${exercise.id}`}
-        />
-      </Card>
+      <ImageCard
+        url={`${process.env.NEXT_PUBLIC_STORAGE_BUCKET_URL} + ${exercise.id}`}
+      />
 
       <Typography variant="subtitle1">
         {exercise.questions[0].question}
@@ -129,38 +107,10 @@ const TextExercise: React.FC<ITextExercise> = ({
         disabled={answerState !== "NONE"}
       />
 
-      {answerState !== "NONE" && (
-        <>
-          <Typography
-            variant="subtitle1"
-            sx={{
-              fontWeight: "bold",
-              color:
-                answerState === "RIGHT"
-                  ? "green"
-                  : answerState === "WRONG"
-                  ? `red`
-                  : undefined,
-            }}
-          >
-            {answerState === "RIGHT"
-              ? t("exercise.right")
-              : answerState === "WRONG"
-              ? t("exercise.wrong")
-              : ""}
-          </Typography>
-          <Typography variant="subtitle2">
-            {answerState === "RIGHT"
-              ? t("exercise.alternativeAnswer")
-              : answerState === "WRONG"
-              ? t("exercise.correctAnswer")
-              : ""}
-          </Typography>
-          <Typography variant="body2">
-            {exercise.questions[0].answer}
-          </Typography>
-        </>
-      )}
+      <CorrectAnswerBox
+        state={answerState}
+        correctAnswer={exercise.questions[0].answer}
+      />
 
       <FullWidthButton
         text={submitted ? t("exercise.continue") : t("exercise.check")}
@@ -173,7 +123,7 @@ const TextExercise: React.FC<ITextExercise> = ({
             : undefined
         }
       />
-    </Box>
+    </>
   );
 };
 

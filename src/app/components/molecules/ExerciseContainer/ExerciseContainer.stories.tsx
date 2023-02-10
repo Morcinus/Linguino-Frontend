@@ -4,7 +4,7 @@ import ExerciseContainer, { IExerciseContainer } from "./ExerciseContainer";
 import { mockExerciseContainerProps } from "./ExerciseContainer.mocks";
 
 export default {
-  title: "templates/ExerciseContainer",
+  title: "molecules/ExerciseContainer",
   component: ExerciseContainer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
@@ -16,8 +16,23 @@ const Template: ComponentStory<typeof ExerciseContainer> = (args) => (
 );
 
 export const Base = Template.bind({});
+export const ShortTextExercise = Template.bind({});
+export const LongTextExercise = Template.bind({});
+export const SpeechExercise = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 Base.args = {
   ...mockExerciseContainerProps.base,
+} as IExerciseContainer;
+
+ShortTextExercise.args = {
+  ...mockExerciseContainerProps.shortTextExercise,
+} as IExerciseContainer;
+
+LongTextExercise.args = {
+  ...mockExerciseContainerProps.longTextExercise,
+} as IExerciseContainer;
+
+SpeechExercise.args = {
+  ...mockExerciseContainerProps.speechExercise,
 } as IExerciseContainer;
