@@ -1,5 +1,6 @@
 import axios from "axios";
 import { SnackbarProvider } from "notistack";
+import "regenerator-runtime/runtime";
 
 import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
