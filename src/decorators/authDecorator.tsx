@@ -12,9 +12,9 @@ export default function AuthDecorator(Story: Story) {
       email: "example@example.com",
       id: "123",
       selectedCourse: {
-        name: "English course",
+        name: "Czech course",
         language1: "cs",
-        language2: "en-US",
+        language2: "cs",
       },
       username: "Pepa Okurka",
       streak: 42,

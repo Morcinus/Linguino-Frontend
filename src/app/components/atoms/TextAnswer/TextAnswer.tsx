@@ -1,9 +1,11 @@
 import { MutableRefObject } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
-import { TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 
 import { AnswerState } from "../../../../domain/models/types/exercises";
+import useAuth from "../../../../infrastructure/services/AuthProvider";
+import AudioInputIconButton from "../AudioInputIconButton/AudioInputIconButton";
 
 export interface ITextAnswer {
   inputRef?: MutableRefObject<any>;
@@ -12,6 +14,8 @@ export interface ITextAnswer {
   correctAnswer?: string;
   answerState: AnswerState;
   registration?: UseFormRegisterReturn;
+  enableAudioInput?: boolean;
+  onAudioInputChange?: (text: string) => void;
 }
 
 const TextAnswer: React.FC<ITextAnswer> = ({
@@ -20,7 +24,11 @@ const TextAnswer: React.FC<ITextAnswer> = ({
   disabled,
   answerState,
   registration,
+  enableAudioInput,
+  onAudioInputChange,
 }) => {
+  const { user } = useAuth();
+
   return (
     <TextField
       inputRef={inputRef}
@@ -53,6 +61,17 @@ const TextAnswer: React.FC<ITextAnswer> = ({
         answerState === "RIGHT" || answerState === "WRONG" ? true : false
       }
       {...registration}
+      InputProps={{
+        endAdornment:
+          enableAudioInput && user ? (
+            <InputAdornment position="end">
+              <AudioInputIconButton
+                onChange={(text) => onAudioInputChange?.(text)}
+                inputLanguage={user.selectedCourse.language2}
+              />
+            </InputAdornment>
+          ) : undefined,
+      }}
     />
   );
 };

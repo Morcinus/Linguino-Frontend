@@ -77,6 +77,11 @@ const TextExercise: React.FC<ITextExercise> = ({
     setInputFocus();
   };
 
+  const handleAudioInputChange = (text: string) => {
+    setValue("answer", text);
+    setInputFocus();
+  };
+
   return (
     <>
       <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
@@ -99,6 +104,8 @@ const TextExercise: React.FC<ITextExercise> = ({
           required: true,
         })}
         answerState={answerState}
+        enableAudioInput={true}
+        onAudioInputChange={handleAudioInputChange}
       />
 
       <CharacterButton
