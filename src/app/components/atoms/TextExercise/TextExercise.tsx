@@ -130,7 +130,7 @@ const TextExercise: React.FC<ITextExercise> = ({
       />
 
       {answerState !== "NONE" && (
-        <Box>
+        <>
           <Typography
             variant="subtitle1"
             sx={{
@@ -159,7 +159,7 @@ const TextExercise: React.FC<ITextExercise> = ({
           <Typography variant="body2">
             {exercise.questions[0].answer}
           </Typography>
-        </Box>
+        </>
       )}
 
       <FullWidthButton

@@ -48,41 +48,28 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
   return (
     <Box
       sx={{
-        justifyContent: "center",
         display: "flex",
-        mb: 4,
+        flexDirection: "column",
+        width: "90%",
+        margin: "auto",
+        gap: 1,
+        mb: 2,
       }}
     >
-      <Box
-        sx={{
-          justifyContent: "center",
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          width: "90%",
-        }}
-      >
-        <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-          {exercise.assignmentTitle}
-        </Typography>
-        <Timer
-          milliseconds={exercise.time}
-          onFinish={() => setStatus("FINISHED")}
-        />
-        <Box>
-          <Typography variant="subtitle2">{t("exercise.topic")}:</Typography>
-          <Typography variant="subtitle1">
-            {exercise.assignmentTopic}
-          </Typography>
-        </Box>
+      <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
+        {exercise.assignmentTitle}
+      </Typography>
+      <Timer
+        milliseconds={exercise.time}
+        onFinish={() => setStatus("FINISHED")}
+      />
 
-        <CheckList items={exercise.questions.map((e) => e.question)} />
+      <Typography variant="subtitle2">{t("exercise.topic")}:</Typography>
+      <Typography variant="subtitle1">{exercise.assignmentTopic}</Typography>
 
-        <FullWidthButton
-          text={t("exercise.continue")}
-          onClick={handleContinue}
-        />
-      </Box>
+      <CheckList items={exercise.questions.map((e) => e.question)} />
+
+      <FullWidthButton text={t("exercise.continue")} onClick={handleContinue} />
     </Box>
   );
 };

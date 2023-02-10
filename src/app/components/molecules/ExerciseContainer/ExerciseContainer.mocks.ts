@@ -5,7 +5,7 @@ const base: IExerciseContainer = {
     id: "ifdsamlmlkafd",
     type: "LONG_TEXT",
 
-    instructionTitle: "Přeložte do angličtiny",
+    assignmentTitle: "Přeložte do angličtiny",
     instructionDescription: "Použijte minulý čas prostý",
 
     questions: [
