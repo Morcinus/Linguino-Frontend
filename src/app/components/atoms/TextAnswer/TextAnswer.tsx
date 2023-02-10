@@ -64,7 +64,10 @@ const TextAnswer: React.FC<ITextAnswer> = ({
       InputProps={{
         endAdornment:
           enableAudioInput && user ? (
-            <InputAdornment position="end">
+            <InputAdornment
+              position="end"
+              sx={{ alignItems: variant === "long" ? "flex-start" : undefined }}
+            >
               <AudioInputIconButton
                 onChange={(text) => onAudioInputChange?.(text)}
                 inputLanguage={user.selectedCourse.language2}
