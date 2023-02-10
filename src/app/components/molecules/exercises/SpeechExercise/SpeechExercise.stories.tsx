@@ -4,7 +4,7 @@ import SpeechExercise, { ISpeechExercise } from "./SpeechExercise";
 import { mockSpeechExerciseProps } from "./SpeechExercise.mocks";
 
 export default {
-  title: "atoms/exercises/SpeechExercise",
+  title: "molecules/exercises/SpeechExercise",
   component: SpeechExercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

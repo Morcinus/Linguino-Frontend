@@ -12,8 +12,8 @@ import { QuestionAttempt } from "../../../../domain/models/types/questions";
 import ListeningExercise from "../../atoms/ListeningExercise/ListeningExercise";
 import RapidQuestionExercise from "../../atoms/RapidQuestionExercise/RapidQuestionExercise";
 import ShortListenExercise from "../../atoms/ShortListenExercise/ShortListenExercise";
-import SpeechExercise from "../../atoms/SpeechExercise/SpeechExercise";
-import TextExercise from "../../atoms/TextExercise/TextExercise";
+import SpeechExercise from "../exercises/SpeechExercise/SpeechExercise";
+import TextExercise from "../exercises/TextExercise/TextExercise";
 
 export interface IExerciseContainer {
   exercise: Exercise;

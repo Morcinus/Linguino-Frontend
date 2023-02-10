@@ -8,11 +8,11 @@ import { Typography } from "@mui/material";
 import {
   IExerciseComponent,
   SpeechExercise as SpeechExerciseType,
-} from "../../../../domain/models/types/exercises";
-import { QuestionAttempt } from "../../../../domain/models/types/questions";
-import CheckList from "../CheckList/CheckList";
-import FullWidthButton from "../FullWidthButton/FullWidthButton";
-import Timer from "../Timer/Timer";
+} from "../../../../../domain/models/types/exercises";
+import { QuestionAttempt } from "../../../../../domain/models/types/questions";
+import CheckList from "../../../atoms/CheckList/CheckList";
+import FullWidthButton from "../../../atoms/FullWidthButton/FullWidthButton";
+import Timer from "../../../atoms/Timer/Timer";
 
 export interface ISpeechExercise extends IExerciseComponent {
   exercise: SpeechExerciseType;

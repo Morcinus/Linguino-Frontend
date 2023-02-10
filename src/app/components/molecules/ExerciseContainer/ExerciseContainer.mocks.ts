@@ -1,4 +1,4 @@
-import { ISpeechExercise } from "../../atoms/SpeechExercise/SpeechExercise";
+import { ISpeechExercise } from "../exercises/SpeechExercise/SpeechExercise";
 import { IExerciseContainer } from "./ExerciseContainer";
 
 const base: IExerciseContainer = {

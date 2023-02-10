@@ -10,13 +10,13 @@ import {
   AnswerState,
   IExerciseComponent,
   TextExercise as TextExerciseType,
-} from "../../../../domain/models/types/exercises";
-import { useFocus } from "../../../hooks/useFocus";
-import CharacterButton from "../CharacterButton/CharacterButton";
-import CorrectAnswerBox from "../CorrectAnswerBox/CorrectAnswerBox";
-import FullWidthButton from "../FullWidthButton/FullWidthButton";
-import ImageCard from "../ImageCard/ImageCard";
-import TextAnswer from "../TextAnswer/TextAnswer";
+} from "../../../../../domain/models/types/exercises";
+import { useFocus } from "../../../../hooks/useFocus";
+import CharacterButton from "../../../atoms/CharacterButton/CharacterButton";
+import CorrectAnswerBox from "../../../atoms/CorrectAnswerBox/CorrectAnswerBox";
+import FullWidthButton from "../../../atoms/FullWidthButton/FullWidthButton";
+import ImageCard from "../../../atoms/ImageCard/ImageCard";
+import TextAnswer from "../../../atoms/TextAnswer/TextAnswer";
 
 export interface ITextExercise extends IExerciseComponent {
   variant: "short" | "long";
