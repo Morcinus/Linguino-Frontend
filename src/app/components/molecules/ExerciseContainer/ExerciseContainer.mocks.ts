@@ -1,4 +1,3 @@
-import { ISpeechExercise } from "../exercises/SpeechExercise/SpeechExercise";
 import { IExerciseContainer } from "./ExerciseContainer";
 
 const base: IExerciseContainer = {
@@ -73,7 +72,7 @@ const shortTextExercise: IExerciseContainer = {
   },
 };
 
-const speechExercise: ISpeechExercise = {
+const speechExercise: IExerciseContainer = {
   exercise: {
     id: "ifdsamlmlkafd",
     type: "SPEECH",
@@ -103,9 +102,30 @@ const speechExercise: ISpeechExercise = {
   },
 };
 
+const shortListeningExercise: IExerciseContainer = {
+  exercise: {
+    id: "ifdsamlmlkafd",
+    type: "SHORT_LISTENING",
+    assignmentTitle: "Přeložte do angličtiny",
+
+    questions: [
+      {
+        id: "asdndajdlad",
+        answer: "xxx",
+        questionAudioLink:
+          "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
+      },
+    ],
+  },
+  onContinue: () => {
+    console.log("onContinue");
+  },
+};
+
 export const mockExerciseContainerProps = {
   base,
   longTextExercise,
   shortTextExercise,
   speechExercise,
+  shortListeningExercise,
 };

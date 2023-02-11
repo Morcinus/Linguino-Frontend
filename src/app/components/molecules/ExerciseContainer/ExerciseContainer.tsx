@@ -11,7 +11,7 @@ import {
 import { QuestionAttempt } from "../../../../domain/models/types/questions";
 import ListeningExercise from "../../atoms/ListeningExercise/ListeningExercise";
 import RapidQuestionExercise from "../../atoms/RapidQuestionExercise/RapidQuestionExercise";
-import ShortListenExercise from "../../atoms/ShortListenExercise/ShortListenExercise";
+import ShortListeningExercise from "../exercises/ShortListeningExercise/ShortListeningExercise";
 import SpeechExercise from "../exercises/SpeechExercise/SpeechExercise";
 import TextExercise from "../exercises/TextExercise/TextExercise";
 
@@ -31,7 +31,7 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
 
     if (isShortListeningExercise(exercise)) {
       return (
-        <ShortListenExercise exercise={exercise} onContinue={onContinue} />
+        <ShortListeningExercise exercise={exercise} onContinue={onContinue} />
       );
     }
 

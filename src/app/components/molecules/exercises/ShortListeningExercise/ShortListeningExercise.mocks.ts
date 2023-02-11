@@ -1,15 +1,14 @@
-import { IShortListenExercise } from "./ShortListenExercise";
+import { IShortListeningExercise } from "./ShortListeningExercise";
 
-const base: IShortListenExercise = {
+const base: IShortListeningExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
-    type: "LISTEN_AND_WRITE",
-
-    instructionTitle: "Přepište poslech",
+    type: "SHORT_LISTENING",
+    assignmentTitle: "Přeložte do angličtiny",
 
     questions: [
       {
-        id: "lafjdflfa",
+        id: "asdndajdlad",
         answer: "xxx",
         questionAudioLink:
           "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
@@ -21,6 +20,6 @@ const base: IShortListenExercise = {
   },
 };
 
-export const mockShortListenExerciseProps = {
+export const mockShortListeningExerciseProps = {
   base,
 };

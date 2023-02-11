@@ -16,7 +16,7 @@ export function isListeningExercise(
 export function isShortListeningExercise(
   exercise: Exercise
 ): exercise is ShortListeningExercise {
-  return (exercise as ShortListeningExercise).type === "LISTEN_AND_WRITE";
+  return (exercise as ShortListeningExercise).type === "SHORT_LISTENING";
 }
 
 export function isRapidQuestionExercise(

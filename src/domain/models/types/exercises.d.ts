@@ -26,8 +26,8 @@ export interface ListeningExercise {
 
 export interface ShortListeningExercise {
   id: ID;
-  type: "LISTEN_AND_WRITE";
-  instructionTitle: string;
+  type: "SHORT_LISTENING";
+  assignmentTitle: string;
 
   questions: Array<{
     id: ID;
