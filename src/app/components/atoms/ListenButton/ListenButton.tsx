@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 
-import HeadphonesIcon from "@mui/icons-material/Headphones";
+import PauseIcon from "@mui/icons-material/Pause";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { Box, CircularProgress, Fab } from "@mui/material";
-
-import styles from "./ListenButton.module.css";
 
 export interface IListenButton {
   playOnMount: boolean;
@@ -19,23 +18,25 @@ const ListenButton: React.FC<IListenButton> = ({
   onFinish,
 }) => {
   const [value, setValue] = useState(0);
-  const [running, setRunning] = useState(false);
+  const [state, setState] = useState<"STOPPED" | "RUNNING" | "PAUSED">(
+    "STOPPED"
+  );
   const [audio, setAudio] = useState(new Audio(audioLink));
 
   function playSound() {
-    setRunning(true);
+    setState("RUNNING");
     audio.play();
   }
 
   function pauseSound() {
-    setRunning(false);
+    setState("PAUSED");
     audio.pause();
   }
 
   function resetSound() {
     audio.pause();
     audio.currentTime = 0;
-    setRunning(false);
+    setState("STOPPED");
     setValue(0);
   }
 
@@ -48,7 +49,7 @@ const ListenButton: React.FC<IListenButton> = ({
     }
 
     audio.addEventListener("ended", () => {
-      setRunning(false);
+      setState("STOPPED");
       if (typeof onFinish === "function") onFinish();
     });
   }, []);
@@ -73,45 +74,34 @@ const ListenButton: React.FC<IListenButton> = ({
       <Box sx={{ m: 1, position: "relative" }}>
         <Fab
           sx={{
-            boxShadow: "none",
+            boxShadow: "0 3px 8px 0 rgba(0,0,0,0.08)",
             backgroundColor: "rgba(0,0,0,0)",
             "&:hover": {
               backgroundColor: "rgba(0,0,0,0.1)",
             },
+            width: "80px",
+            height: "80px",
           }}
           onClick={handleButtonClick}
         >
-          {running ? (
-            <div className={styles.dots}>
-              <Box
-                sx={{ backgroundColor: "primary.main" }}
-                className={[styles.dot, styles.dot1].join(" ")}
-              />
-              <Box
-                sx={{ backgroundColor: "primary.main" }}
-                className={[styles.dot, styles.dot2].join(" ")}
-              />
-              <Box
-                sx={{ backgroundColor: "primary.main" }}
-                className={[styles.dot, styles.dot3].join(" ")}
-              />
-            </div>
+          {state === "STOPPED" || state === "PAUSED" ? (
+            <PlayArrowIcon color="primary" fontSize="large" />
           ) : (
-            <HeadphonesIcon color="primary" fontSize="large" />
+            <PauseIcon color="primary" fontSize="large" />
           )}
         </Fab>
         {displayProgress && (
           <CircularProgress
-            size={68}
+            size={88}
             value={value}
             variant="determinate"
             color="primary"
+            thickness={2}
             sx={{
               position: "absolute",
-              top: -6,
-              left: -6,
+              top: "-4px",
+              left: "-4px",
               zIndex: 1,
-              borderRadius: 5,
             }}
           />
         )}

@@ -83,7 +83,7 @@ const ShortListeningExercise: React.FC<IShortListeningExercise> = ({
 
       <ListenButton
         audioLink={exercise.questions[0].questionAudioLink}
-        displayProgress={false}
+        displayProgress={true}
         playOnMount={true}
       />
 
