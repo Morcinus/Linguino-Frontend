@@ -4,7 +4,7 @@ import ListeningExercise, { IListeningExercise } from "./ListeningExercise";
 import { mockListeningExerciseProps } from "./ListeningExercise.mocks";
 
 export default {
-  title: "atoms/exercises/ListeningExercise",
+  title: "molecules/exercises/ListeningExercise",
   component: ListeningExercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

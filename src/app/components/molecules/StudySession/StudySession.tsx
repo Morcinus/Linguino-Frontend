@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/material";
 
 import { Exercise } from "../../../../domain/models/types/exercises";
-import { QuestionAttempt } from "../../../../domain/models/types/questions";
+import { QuestionAttempt } from "../../../../domain/models/types/questionAnswers";
 import { StudySession as StudySessionType } from "../../../../domain/models/types/studySessions";
 import { getExplanation } from "../../../../domain/models/utils/type-guards";
 import StudySessionAPI from "../../../../infrastructure/api/StudySessionAPI";

@@ -1,3 +1,4 @@
+import { base as listeningExercise } from "../exercises/ListeningExercise/ListeningExercise.mocks";
 import { IExerciseContainer } from "./ExerciseContainer";
 
 const base: IExerciseContainer = {
@@ -128,4 +129,5 @@ export const mockExerciseContainerProps = {
   shortTextExercise,
   speechExercise,
   shortListeningExercise,
+  listeningExercise,
 };

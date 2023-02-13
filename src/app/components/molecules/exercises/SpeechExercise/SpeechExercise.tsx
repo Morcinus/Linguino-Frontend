@@ -9,7 +9,7 @@ import {
   IExerciseComponent,
   SpeechExercise as SpeechExerciseType,
 } from "../../../../../domain/models/types/exercises";
-import { QuestionAttempt } from "../../../../../domain/models/types/questions";
+import { QuestionAttempt } from "../../../../../domain/models/types/questionAnswers";
 import CheckList from "../../../atoms/CheckList/CheckList";
 import FullWidthButton from "../../../atoms/FullWidthButton/FullWidthButton";
 import Timer from "../../../atoms/Timer/Timer";

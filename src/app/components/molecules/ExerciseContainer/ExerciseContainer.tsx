@@ -8,9 +8,9 @@ import {
   isSpeechExercise,
   isTextExercise,
 } from "../../../../domain/models/types/guards/exerciseGuard";
-import { QuestionAttempt } from "../../../../domain/models/types/questions";
-import ListeningExercise from "../../atoms/ListeningExercise/ListeningExercise";
+import { QuestionAttempt } from "../../../../domain/models/types/questionAnswers";
 import RapidQuestionExercise from "../../atoms/RapidQuestionExercise/RapidQuestionExercise";
+import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
 import ShortListeningExercise from "../exercises/ShortListeningExercise/ShortListeningExercise";
 import SpeechExercise from "../exercises/SpeechExercise/SpeechExercise";
 import TextExercise from "../exercises/TextExercise/TextExercise";

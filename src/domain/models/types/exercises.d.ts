@@ -1,3 +1,5 @@
+import { FillInBlankQuestionAnswer } from "./questionAnswers";
+
 export type Exercise =
   | TextExercise
   | ListeningExercise
@@ -13,15 +15,11 @@ export interface IExerciseComponent {
 export interface ListeningExercise {
   id: ID;
   type: "LISTENING";
-  instructionTitle: string;
-  instructionDescription?: string;
-  audioLink: string;
+  assignmentTitle: string;
+  audioURL: string;
+  imageURL: string;
 
-  questions: Array<{
-    id: ID;
-    question: string;
-    blankIndexes: Array<number>;
-  }>;
+  questions: Array<FillInBlankQuestionAnswer | TextQuestionAnswer>;
 }
 
 export interface ShortListeningExercise {

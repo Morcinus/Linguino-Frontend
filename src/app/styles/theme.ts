@@ -11,6 +11,7 @@ const theme = createTheme({
     subtitle2: {
       fontSize: 16,
       fontFamily: "Poppins",
+      fontWeight: "medium",
     },
   },
   palette: {

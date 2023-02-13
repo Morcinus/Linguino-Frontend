@@ -3,6 +3,8 @@ export interface QuestionAttempt {
   isCorrect: boolean;
 }
 
+export type QuestionAnswer = FillInBlankQuestionAnswer | TextQuestionAnswer;
+
 export interface Question {
   id: ID;
   question: string;
@@ -12,8 +14,18 @@ export interface Question {
   blankIndexes: Array<number>;
 }
 
-type FillInBlankQuestion = {
+export interface FillInBlankQuestionAnswer {
+  type: "FILL_IN_BLANK";
   id: ID;
   question: string;
+  answer: string;
   blankIndexes: Array<number>;
-};
+}
+
+export interface TextQuestionAnswer {
+  type: "TEXT";
+  id: ID;
+  question: string;
+  answer: string;
+  answerAudioURL?: string;
+}
