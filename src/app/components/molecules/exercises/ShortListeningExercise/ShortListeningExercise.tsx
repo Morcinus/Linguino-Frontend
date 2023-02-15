@@ -28,6 +28,7 @@ const ShortListeningExercise: React.FC<IShortListeningExercise> = ({
           component: TextQuestionAnswer,
           props: {
             questionAnswer: exercise.question,
+            characterButtons: ["'"],
           },
         },
       ]}
