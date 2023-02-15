@@ -34,7 +34,7 @@ export interface ShortListeningExercise {
   type: "SHORT_LISTENING";
   assignmentTitle: string;
   audioURL: string;
-  imageURL: string;
+  imageURL?: string;
   question: TextQuestionAnswer;
 }
 
