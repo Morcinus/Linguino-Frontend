@@ -15,7 +15,7 @@ import TextExercise from "../exercises/TextExercise/TextExercise";
 
 export interface IExerciseContainer {
   exercise: Exercise;
-  onContinue: (attempts: Array<QuestionAttempt>, reschedule: boolean) => void;
+  onContinue?: (attempts: Array<QuestionAttempt>, reschedule: boolean) => void;
 }
 
 const ExerciseContainer: React.FC<IExerciseContainer> = ({

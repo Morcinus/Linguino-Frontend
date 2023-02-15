@@ -31,9 +31,6 @@ const base: IListeningExercise = {
       },
     ],
   },
-  onContinue: (attempts, reschedule) => {
-    console.log("onContinue", attempts, reschedule);
-  },
 };
 
 export const mockListeningExerciseProps = {

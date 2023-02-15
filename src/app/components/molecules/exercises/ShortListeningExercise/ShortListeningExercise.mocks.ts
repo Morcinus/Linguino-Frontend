@@ -14,9 +14,6 @@ const base: IShortListeningExercise = {
       question: "",
     },
   },
-  onContinue: (attempts, reschedule) => {
-    console.log("onContinue", attempts, reschedule);
-  },
 };
 
 export const mockShortListeningExerciseProps = {

@@ -18,7 +18,7 @@ const ListeningExercise: React.FC<IListeningExercise> = ({
   onContinue,
 }) => {
   const handleContinue = (arr: Array<UserAnswer>) => {
-    onContinue(arr, false);
+    onContinue?.(arr, false);
 
     console.log("Submitting", arr);
   };

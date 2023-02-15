@@ -13,9 +13,6 @@ const base: ITextExercise = {
       question: "Lorem ipsum?",
     },
   },
-  onContinue: (attempts, reschedule) => {
-    console.log("onContinue", attempts, reschedule);
-  },
 };
 
 export const mockTextExerciseProps = {

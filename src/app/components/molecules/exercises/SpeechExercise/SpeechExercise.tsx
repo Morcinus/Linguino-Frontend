@@ -27,7 +27,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
 
   const handleContinue = () => {
     setStatus("NONE");
-    onContinue(getQuestionProgress(), false);
+    onContinue?.(getQuestionProgress(), false);
   };
 
   function getQuestionProgress(): QuestionAttempt[] {

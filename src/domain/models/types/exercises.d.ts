@@ -13,7 +13,7 @@ export type Exercise =
 
 export interface IExerciseComponent {
   exercise: Exercise;
-  onContinue: (attempts: Array<QuestionAttempt>, reschedule: boolean) => void;
+  onContinue?: (attempts: Array<QuestionAttempt>, reschedule: boolean) => void;
 }
 
 export interface IQuestionAnswerComponent {

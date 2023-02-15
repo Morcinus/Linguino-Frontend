@@ -25,9 +25,6 @@ const base: ISpeechExercise = {
       },
     ],
   },
-  onContinue: (attempts, reschedule) => {
-    console.log("onContinue", attempts, reschedule);
-  },
 };
 export const mockSpeechExerciseProps = {
   base,

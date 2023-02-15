@@ -17,7 +17,7 @@ const TextExercise: React.FC<ITextExercise> = ({ exercise, onContinue }) => {
     <Exercise
       assignmentTitle={exercise.assignmentTitle}
       onContinue={(arr: Array<UserAnswer>) => {
-        onContinue(arr, false);
+        onContinue?.(arr, false);
       }}
       imageURL={exercise.imageURL}
       questionAnswers={[exercise.question]}

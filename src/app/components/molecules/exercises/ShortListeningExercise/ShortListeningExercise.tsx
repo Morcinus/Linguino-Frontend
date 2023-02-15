@@ -19,7 +19,7 @@ const ShortListeningExercise: React.FC<IShortListeningExercise> = ({
     <Exercise
       assignmentTitle={exercise.assignmentTitle}
       onContinue={(arr: Array<UserAnswer>) => {
-        onContinue(arr, false);
+        onContinue?.(arr, false);
       }}
       imageURL={exercise.imageURL}
       questionAnswers={[exercise.question]}
