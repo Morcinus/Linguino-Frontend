@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { MutableRefObject, useState } from "react";
 
 import { Box, InputAdornment, TextField, Typography } from "@mui/material";
 
@@ -6,12 +6,14 @@ import { IQuestionAnswerComponent } from "../../../../domain/models/types/exerci
 import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import useAuth from "../../../../infrastructure/services/AuthProvider";
 import AudioInputIconButton from "../AudioInputIconButton/AudioInputIconButton";
+import CharacterButton from "../CharacterButton/CharacterButton";
 
 export interface ITextQuestionAnswer extends IQuestionAnswerComponent {
   inputRef?: MutableRefObject<any>;
   rows?: "short" | "long";
   size?: "small" | "medium";
   enableAudioInput?: boolean;
+  characterButtons?: Array<string>;
 }
 
 const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({
@@ -23,10 +25,13 @@ const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({
   questionAnswer,
   answerStates,
   displayAnswers = false,
+  characterButtons = [],
 }) => {
   const { user } = useAuth();
+  const [value, setValue] = useState<string>();
 
   const handleChange = (text: string) => {
+    setValue(text);
     onChange?.(
       evaluateAnswer({
         answers: [text],
@@ -57,6 +62,7 @@ const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({
         inputRef={inputRef}
         variant="outlined"
         size={size}
+        value={value}
         multiline={rows === "long" ? true : false}
         rows={rows === "long" ? 3 : 1}
         fullWidth
@@ -107,6 +113,18 @@ const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({
             ) : undefined,
         }}
       />
+      <Box sx={{ mt: 1 }}>
+        {characterButtons.map((character, i) => {
+          return (
+            <CharacterButton
+              character={character}
+              onClick={() => handleChange(`${value ?? ""}${character}`)}
+              key={i}
+              disabled={displayAnswers}
+            />
+          );
+        })}
+      </Box>
     </Box>
   );
 };
