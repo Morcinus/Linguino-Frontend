@@ -5,11 +5,13 @@ import {
   isListeningExercise,
   isShortListeningExercise,
   isSpeechExercise,
+  isTextExercise,
 } from "../../../../domain/models/types/guards/exerciseGuard";
 import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
 import ShortListeningExercise from "../exercises/ShortListeningExercise/ShortListeningExercise";
 import SpeechExercise from "../exercises/SpeechExercise/SpeechExercise";
+import TextExercise from "../exercises/TextExercise/TextExercise";
 
 export interface IExerciseContainer {
   exercise: Exercise;
@@ -35,25 +37,9 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
       );
     }
 
-    /*     if (isTextExercise(exercise)) {
-      if (exercise.type === "LONG_TEXT") {
-        return (
-          <TextExercise
-            exercise={exercise}
-            onContinue={onContinue}
-            variant="long"
-          />
-        );
-      } else {
-        return (
-          <TextExercise
-            exercise={exercise}
-            onContinue={onContinue}
-            variant="short"
-          />
-        );
-      }
-    } */
+    if (isTextExercise(exercise)) {
+      return <TextExercise exercise={exercise} onContinue={onContinue} />;
+    }
 
     return <></>;
   }

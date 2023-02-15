@@ -25,8 +25,5 @@ export function isSpeechExercise(
 }
 
 export function isTextExercise(exercise: Exercise): exercise is TextExercise {
-  return (
-    (exercise as TextExercise).type === "LONG_TEXT" ||
-    (exercise as TextExercise).type === "SHORT_TEXT"
-  );
+  return (exercise as TextExercise).type === "TEXT";
 }

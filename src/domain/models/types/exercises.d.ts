@@ -1,4 +1,8 @@
-import { FillInBlankQuestionAnswer, QuestionAnswer } from "./questionAnswers";
+import {
+  FillInBlankQuestionAnswer,
+  QuestionAnswer,
+  TextQuestionAnswer,
+} from "./questionAnswers";
 import { QuestionAttempt } from "./questionAttempts";
 
 export type Exercise =
@@ -53,17 +57,12 @@ export interface SpeechExercise {
 
 export interface TextExercise {
   id: ID;
-  type: "LONG_TEXT" | "SHORT_TEXT";
+  type: "TEXT";
   assignmentTitle: string;
-  instructionDescription?: string;
-  explanation: string;
+  explanation?: string;
+  imageURL?: string;
 
-  questions: Array<{
-    id: ID;
-    question: string;
-    answer: string;
-    answerAudioLink: string;
-  }>;
+  question: TextQuestionAnswer;
 }
 
 export type AnswerState = "NONE" | "RIGHT" | "WRONG";
