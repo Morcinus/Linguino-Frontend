@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import FillTheBlank from "./FillTheBlank";
+import FillTheBlank, { IFillTheBlank } from "./FillTheBlank";
+import { mockFillTheBlankProps } from "./FillTheBlank.mocks";
 
 export default {
   title: "atoms/FillTheBlank",
@@ -14,9 +15,9 @@ const Template: ComponentStory<typeof FillTheBlank> = (args) => (
   <FillTheBlank {...args} />
 );
 
-//export const Base = Template.bind({});
+export const Base = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
-//Base.args = {
-//  ...mockFillTheBlankProps.base,
-//} as IFillTheBlank;
+Base.args = {
+  ...mockFillTheBlankProps.base,
+} as IFillTheBlank;

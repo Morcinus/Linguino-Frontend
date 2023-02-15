@@ -1,6 +1,6 @@
 import { IListeningExercise } from "./ListeningExercise";
 
-export const base: IListeningExercise = {
+const base: IListeningExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
     type: "LISTENING",
@@ -18,15 +18,14 @@ export const base: IListeningExercise = {
       },
       {
         id: "asdndajdladb",
-        type: "FILL_IN_BLANK",
-        blankIndexes: [3],
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        type: "TEXT",
+        answer: "xxx",
         question: "Lorem ipsum?",
       },
       {
         id: "asdndajdladc",
         type: "FILL_IN_BLANK",
-        blankIndexes: [5],
+        blankIndexes: [2, 5],
         answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         question: "Lorem ipsum?",
       },

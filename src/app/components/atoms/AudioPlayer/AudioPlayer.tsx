@@ -6,19 +6,15 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import Replay10Icon from "@mui/icons-material/Replay10";
 import { Box, IconButton, LinearProgress } from "@mui/material";
 
-import ImageCard from "../ImageCard/ImageCard";
-
 export interface IAudioPlayer {
   playOnMount: boolean;
   audioLink: string;
-  imageURL: string;
   onFinish?: () => void;
 }
 
 const AudioPlayer: React.FC<IAudioPlayer> = ({
   playOnMount,
   audioLink,
-  imageURL,
   onFinish,
 }) => {
   const [value, setValue] = useState(0);
@@ -93,8 +89,6 @@ const AudioPlayer: React.FC<IAudioPlayer> = ({
         flexDirection: "column",
       }}
     >
-      <ImageCard url={imageURL} />
-
       <LinearProgress value={value} variant="determinate" color="primary" />
 
       <Box

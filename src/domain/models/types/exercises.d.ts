@@ -1,15 +1,22 @@
-import { FillInBlankQuestionAnswer } from "./questionAnswers";
+import { FillInBlankQuestionAnswer, QuestionAnswer } from "./questionAnswers";
+import { QuestionAttempt } from "./questionAttempts";
 
 export type Exercise =
   | TextExercise
   | ListeningExercise
-  | RapidQuestionExercise
   | SpeechExercise
   | ShortListeningExercise;
 
 export interface IExerciseComponent {
   exercise: Exercise;
   onContinue: (attempts: Array<QuestionAttempt>, reschedule: boolean) => void;
+}
+
+export interface IQuestionAnswerComponent {
+  questionAnswer: QuestionAnswer;
+  onChange?: (userAnswer: UserAnswer) => void;
+  answerStates?: Array<AnswerState>;
+  displayAnswers?: boolean;
 }
 
 export interface ListeningExercise {
@@ -30,17 +37,6 @@ export interface ShortListeningExercise {
   questions: Array<{
     id: ID;
     answer: string;
-    questionAudioLink: string;
-  }>;
-}
-
-export interface RapidQuestionExercise {
-  id: ID;
-  type: "RAPID_QUESTIONS";
-  instructionTitle: string;
-
-  questions: Array<{
-    id: ID;
     questionAudioLink: string;
   }>;
 }

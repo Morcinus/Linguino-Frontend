@@ -1,0 +1,17 @@
+import FillTheBlank from "../../app/components/atoms/FillTheBlank/FillTheBlank";
+import TextQuestionAnswer from "../../app/components/atoms/TextQuestionAnswer/TextQuestionAnswer";
+import {
+  isFillInBlankQuestionAnswer,
+  isTextQuestionAnswer,
+} from "../../domain/models/types/guards/questionGuard";
+import { QuestionAnswer } from "../../domain/models/types/questionAnswers";
+
+export function getQuestionAnswerComponent(
+  questionAnswer: QuestionAnswer
+): React.ElementType {
+  if (isFillInBlankQuestionAnswer(questionAnswer)) return FillTheBlank;
+
+  if (isTextQuestionAnswer(questionAnswer)) return TextQuestionAnswer;
+
+  return TextQuestionAnswer;
+}

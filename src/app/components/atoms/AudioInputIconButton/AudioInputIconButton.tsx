@@ -12,11 +12,13 @@ import styles from "./AudioInputIconButton.module.css";
 export interface IAudioInputIconButton {
   onChange: (text: string) => void;
   inputLanguage: Language;
+  disabled?: boolean;
 }
 
 const AudioInputIconButton: React.FC<IAudioInputIconButton> = ({
   onChange,
   inputLanguage,
+  disabled = false,
 }) => {
   const [enabled, setEnabled] = useState(true);
 
@@ -36,7 +38,10 @@ const AudioInputIconButton: React.FC<IAudioInputIconButton> = ({
       {enabled ? (
         <>
           {listening ? (
-            <IconButton onClick={SpeechRecognition.stopListening}>
+            <IconButton
+              onClick={SpeechRecognition.stopListening}
+              disabled={disabled}
+            >
               <Box className={styles.dots}>
                 <Box
                   sx={{ backgroundColor: "primary.main" }}
@@ -59,6 +64,7 @@ const AudioInputIconButton: React.FC<IAudioInputIconButton> = ({
                   language: inputLanguage,
                 })
               }
+              disabled={disabled}
             >
               <MicIcon />
             </IconButton>

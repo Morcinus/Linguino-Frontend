@@ -9,7 +9,7 @@ import {
   IExerciseComponent,
   SpeechExercise as SpeechExerciseType,
 } from "../../../../../domain/models/types/exercises";
-import { QuestionAttempt } from "../../../../../domain/models/types/questionAnswers";
+import { QuestionAttempt } from "../../../../../domain/models/types/questionAttempts";
 import CheckList from "../../../atoms/CheckList/CheckList";
 import FullWidthButton from "../../../atoms/FullWidthButton/FullWidthButton";
 import Timer from "../../../atoms/Timer/Timer";
@@ -34,7 +34,11 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
     let arr: Array<QuestionAttempt> = [];
 
     exercise.questions.forEach((question) => {
-      arr.push({ questionId: question.id, isCorrect: true });
+      arr.push({
+        questionAnswerId: question.id,
+        states: ["RIGHT"],
+        answers: [],
+      });
     });
 
     return arr;

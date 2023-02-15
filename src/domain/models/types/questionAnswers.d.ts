@@ -1,8 +1,3 @@
-export interface QuestionAttempt {
-  questionId: ID;
-  isCorrect: boolean;
-}
-
 export type QuestionAnswer = FillInBlankQuestionAnswer | TextQuestionAnswer;
 
 export interface Question {

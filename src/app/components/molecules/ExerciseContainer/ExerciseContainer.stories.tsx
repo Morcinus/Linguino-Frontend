@@ -16,23 +16,12 @@ const Template: ComponentStory<typeof ExerciseContainer> = (args) => (
 );
 
 export const Base = Template.bind({});
-export const ShortTextExercise = Template.bind({});
-export const LongTextExercise = Template.bind({});
 export const SpeechExercise = Template.bind({});
 export const ListeningExercise = Template.bind({});
-export const ShortListeningExercise = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 Base.args = {
   ...mockExerciseContainerProps.base,
-} as IExerciseContainer;
-
-ShortTextExercise.args = {
-  ...mockExerciseContainerProps.shortTextExercise,
-} as IExerciseContainer;
-
-LongTextExercise.args = {
-  ...mockExerciseContainerProps.longTextExercise,
 } as IExerciseContainer;
 
 SpeechExercise.args = {
@@ -41,8 +30,4 @@ SpeechExercise.args = {
 
 ListeningExercise.args = {
   ...mockExerciseContainerProps.listeningExercise,
-} as IExerciseContainer;
-
-ShortListeningExercise.args = {
-  ...mockExerciseContainerProps.shortListeningExercise,
 } as IExerciseContainer;

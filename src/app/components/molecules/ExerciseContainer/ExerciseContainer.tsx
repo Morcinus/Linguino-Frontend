@@ -3,17 +3,11 @@ import Box from "@mui/material/Box";
 import { Exercise } from "../../../../domain/models/types/exercises";
 import {
   isListeningExercise,
-  isRapidQuestionExercise,
-  isShortListeningExercise,
   isSpeechExercise,
-  isTextExercise,
 } from "../../../../domain/models/types/guards/exerciseGuard";
-import { QuestionAttempt } from "../../../../domain/models/types/questionAnswers";
-import RapidQuestionExercise from "../../atoms/RapidQuestionExercise/RapidQuestionExercise";
+import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
-import ShortListeningExercise from "../exercises/ShortListeningExercise/ShortListeningExercise";
 import SpeechExercise from "../exercises/SpeechExercise/SpeechExercise";
-import TextExercise from "../exercises/TextExercise/TextExercise";
 
 export interface IExerciseContainer {
   exercise: Exercise;
@@ -29,23 +23,17 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
       return <ListeningExercise exercise={exercise} onContinue={onContinue} />;
     }
 
-    if (isShortListeningExercise(exercise)) {
+    /*     if (isShortListeningExercise(exercise)) {
       return (
         <ShortListeningExercise exercise={exercise} onContinue={onContinue} />
       );
-    }
-
-    if (isRapidQuestionExercise(exercise)) {
-      return (
-        <RapidQuestionExercise exercise={exercise} onContinue={onContinue} />
-      );
-    }
+    } */
 
     if (isSpeechExercise(exercise)) {
       return <SpeechExercise exercise={exercise} onContinue={onContinue} />;
     }
 
-    if (isTextExercise(exercise)) {
+    /*     if (isTextExercise(exercise)) {
       if (exercise.type === "LONG_TEXT") {
         return (
           <TextExercise
@@ -63,25 +51,12 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
           />
         );
       }
-    }
+    } */
 
     return <></>;
   }
 
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        width: "90%",
-        margin: "auto",
-        gap: 1,
-        mb: 4,
-      }}
-    >
-      {renderExercise()}
-    </Box>
-  );
+  return <Box>{renderExercise()}</Box>;
 };
 
 export default ExerciseContainer;

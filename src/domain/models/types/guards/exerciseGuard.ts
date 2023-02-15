@@ -1,7 +1,6 @@
 import {
   Exercise,
   ListeningExercise,
-  RapidQuestionExercise,
   ShortListeningExercise,
   SpeechExercise,
   TextExercise,
@@ -17,12 +16,6 @@ export function isShortListeningExercise(
   exercise: Exercise
 ): exercise is ShortListeningExercise {
   return (exercise as ShortListeningExercise).type === "SHORT_LISTENING";
-}
-
-export function isRapidQuestionExercise(
-  exercise: Exercise
-): exercise is RapidQuestionExercise {
-  return (exercise as RapidQuestionExercise).type === "RAPID_QUESTIONS";
 }
 
 export function isSpeechExercise(

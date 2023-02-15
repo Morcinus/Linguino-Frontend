@@ -1,23 +1,23 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import TextAnswer, { ITextAnswer } from "./TextAnswer";
-import { mockTextAnswerProps } from "./TextAnswer.mocks";
+import Exercise, { IExercise } from "./Exercise";
+import { mockExerciseProps } from "./Exercise.mocks";
 
 export default {
-  title: "atoms/TextAnswer",
-  component: TextAnswer,
+  title: "templates/Exercise",
+  component: Exercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} as ComponentMeta<typeof TextAnswer>;
+} as ComponentMeta<typeof Exercise>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof TextAnswer> = (args) => (
-  <TextAnswer {...args} />
+const Template: ComponentStory<typeof Exercise> = (args) => (
+  <Exercise {...args} />
 );
 
 export const Base = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 Base.args = {
-  ...mockTextAnswerProps.base,
-} as ITextAnswer;
+  ...mockExerciseProps.base,
+} as IExercise;
