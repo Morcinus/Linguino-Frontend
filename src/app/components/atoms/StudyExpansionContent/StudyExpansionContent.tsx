@@ -1,8 +1,9 @@
 import { MutableRefObject } from "react";
-import ReactMarkdown from "react-markdown";
 
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
+
+import MarkdownText from "../MarkdownText/MarkdownText";
 
 export interface IStudyExpansionContent {
   open: boolean;
@@ -20,7 +21,7 @@ const StudyExpansionContent: React.FC<IStudyExpansionContent> = ({
       {open && (
         <Container maxWidth="md">
           <Box ref={reference}>
-            <ReactMarkdown>{content || ""}</ReactMarkdown>
+            <MarkdownText text={content} />
           </Box>
         </Container>
       )}

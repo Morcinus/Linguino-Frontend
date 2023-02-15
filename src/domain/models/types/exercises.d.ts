@@ -9,7 +9,8 @@ export type Exercise =
   | TextExercise
   | ListeningExercise
   | SpeechExercise
-  | ShortListeningExercise;
+  | ShortListeningExercise
+  | ReadingExercise;
 
 export interface IExerciseComponent {
   exercise: Exercise;
@@ -63,6 +64,16 @@ export interface TextExercise {
   imageURL?: string;
 
   question: TextQuestionAnswer;
+}
+
+export interface ReadingExercise {
+  id: ID;
+  type: "READING";
+  assignmentTitle: string;
+  imageURL: string;
+  article: string;
+
+  questions: Array<FillInBlankQuestionAnswer | TextQuestionAnswer>;
 }
 
 export type AnswerState = "NONE" | "RIGHT" | "WRONG";
