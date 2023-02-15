@@ -33,12 +33,9 @@ export interface ShortListeningExercise {
   id: ID;
   type: "SHORT_LISTENING";
   assignmentTitle: string;
-
-  questions: Array<{
-    id: ID;
-    answer: string;
-    questionAudioLink: string;
-  }>;
+  audioURL: string;
+  imageURL: string;
+  question: TextQuestionAnswer;
 }
 
 export interface SpeechExercise {

@@ -6,14 +6,14 @@ import { Box, CircularProgress, Fab } from "@mui/material";
 
 export interface IListenButton {
   playOnMount: boolean;
-  displayProgress: boolean;
+  displayProgress?: boolean;
   audioLink: string;
   onFinish?: () => void;
 }
 
 const ListenButton: React.FC<IListenButton> = ({
   playOnMount,
-  displayProgress,
+  displayProgress = false,
   audioLink,
   onFinish,
 }) => {

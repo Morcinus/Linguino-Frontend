@@ -3,10 +3,12 @@ import Box from "@mui/material/Box";
 import { Exercise } from "../../../../domain/models/types/exercises";
 import {
   isListeningExercise,
+  isShortListeningExercise,
   isSpeechExercise,
 } from "../../../../domain/models/types/guards/exerciseGuard";
 import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
+import ShortListeningExercise from "../exercises/ShortListeningExercise/ShortListeningExercise";
 import SpeechExercise from "../exercises/SpeechExercise/SpeechExercise";
 
 export interface IExerciseContainer {
@@ -23,14 +25,14 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
       return <ListeningExercise exercise={exercise} onContinue={onContinue} />;
     }
 
-    /*     if (isShortListeningExercise(exercise)) {
+    if (isSpeechExercise(exercise)) {
+      return <SpeechExercise exercise={exercise} onContinue={onContinue} />;
+    }
+
+    if (isShortListeningExercise(exercise)) {
       return (
         <ShortListeningExercise exercise={exercise} onContinue={onContinue} />
       );
-    } */
-
-    if (isSpeechExercise(exercise)) {
-      return <SpeechExercise exercise={exercise} onContinue={onContinue} />;
     }
 
     /*     if (isTextExercise(exercise)) {

@@ -31,8 +31,8 @@ const base: IListeningExercise = {
       },
     ],
   },
-  onContinue: () => {
-    console.log("onContinue");
+  onContinue: (attempts, reschedule) => {
+    console.log("onContinue", attempts, reschedule);
   },
 };
 
