@@ -172,14 +172,13 @@ class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
         {this.props.componentsBelowQuestions}
 
         <FullWidthButton
-          text={
-            this.state.submitted || this.props.submitBeforeContinue === false
-              ? t("exercise.continue")
-              : t("exercise.check")
-          }
           onClick={this.handleClick}
           disabled={!this.state.readyToSubmit}
-        />
+        >
+          {this.state.submitted || this.props.submitBeforeContinue === false
+            ? t("exercise.continue")
+            : t("exercise.check")}
+        </FullWidthButton>
       </Box>
     );
   }

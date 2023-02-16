@@ -1,7 +1,7 @@
 import { IFullWidthButton } from "./FullWidthButton";
 
 const base: IFullWidthButton = {
-  text: "Button Text",
+  children: "Button Text",
 };
 
 export const mockFullWidthButtonProps = {

@@ -1,14 +1,14 @@
 import { Button } from "@mui/material";
 
 export interface IFullWidthButton {
-  text?: string;
   onClick?: Function;
   disabled?: boolean;
   variant?: "right" | "wrong";
+  children?: React.ReactNode;
 }
 
 const FullWidthButton: React.FC<IFullWidthButton> = ({
-  text,
+  children,
   onClick,
   disabled,
   variant,
@@ -34,7 +34,7 @@ const FullWidthButton: React.FC<IFullWidthButton> = ({
           : "primary"
       }
     >
-      {text}
+      {children}
     </Button>
   );
 };
