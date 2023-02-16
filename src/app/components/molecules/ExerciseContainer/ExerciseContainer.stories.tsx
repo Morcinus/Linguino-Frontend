@@ -21,7 +21,12 @@ export const ListeningExercise = Template.bind({});
 export const TextExercise = Template.bind({});
 export const ReadingExercise = Template.bind({});
 export const RepeatAudioExercise = Template.bind({});
+export const ReadAloudExercise = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
+
+ReadAloudExercise.args = {
+  ...mockExerciseContainerProps.readAloudExercise,
+} as IExerciseContainer;
 
 RepeatAudioExercise.args = {
   ...mockExerciseContainerProps.repeatAudioExercise,

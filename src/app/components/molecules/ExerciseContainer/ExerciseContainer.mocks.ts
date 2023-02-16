@@ -1,4 +1,5 @@
 import { mockListeningExerciseProps } from "../exercises/ListeningExercise/ListeningExercise.mocks";
+import { mockReadAloudExerciseProps } from "../exercises/ReadAloudExercise/ReadAloudExercise.mocks";
 import { mockReadingExerciseProps } from "../exercises/ReadingExercise/ReadingExercise.mocks";
 import { mockRepeatAudioExerciseProps } from "../exercises/RepeatAudioExercise/RepeatAudioExercise.mocks";
 import { mockShortListeningExerciseProps } from "../exercises/ShortListeningExercise/ShortListeningExercise.mocks";
@@ -12,4 +13,5 @@ export const mockExerciseContainerProps = {
   textExercise: mockTextExerciseProps.base,
   readingExercise: mockReadingExerciseProps.base,
   repeatAudioExercise: mockRepeatAudioExerciseProps.base,
+  readAloudExercise: mockReadAloudExerciseProps.base,
 };

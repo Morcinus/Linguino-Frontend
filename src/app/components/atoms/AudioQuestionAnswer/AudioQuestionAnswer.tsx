@@ -55,8 +55,10 @@ const AudioQuestionAnswer: React.FC<IAudioQuestionAnswer> = ({
 
   return (
     <Box>
-      <Box>
-        <Typography variant="subtitle2">{questionAnswer.question}</Typography>
+      <Box sx={{ textAlign: "center" }}>
+        <Typography variant="subtitle2">
+          {questionAnswer.question ?? ""}
+        </Typography>
       </Box>
       <Box sx={{ mt: 1, textAlign: "center" }}>
         {answer !== undefined && (
@@ -69,7 +71,7 @@ const AudioQuestionAnswer: React.FC<IAudioQuestionAnswer> = ({
               width: "100%",
             }}
           >
-            {answer.split(" ").map((word, i) => {
+            {answer.split(" ").map((word, i, answer) => {
               const correctWord = removeInterpunction(
                 questionAnswer.answer
               ).split(" ")[i];
@@ -87,13 +89,15 @@ const AudioQuestionAnswer: React.FC<IAudioQuestionAnswer> = ({
                     >
                       {correctWord}
                     </Typography>
-                    <Typography
-                      variant="subtitle2"
-                      paragraph={false}
-                      display="inline"
-                    >
-                      {" "}
-                    </Typography>
+                    {i + 1 !== answer.length && (
+                      <Typography
+                        variant="subtitle2"
+                        paragraph={false}
+                        display="inline"
+                      >
+                        {" "}
+                      </Typography>
+                    )}
                   </Box>
                 );
               } else {
@@ -107,13 +111,15 @@ const AudioQuestionAnswer: React.FC<IAudioQuestionAnswer> = ({
                     >
                       {correctWord}
                     </Typography>
-                    <Typography
-                      variant="subtitle2"
-                      paragraph={false}
-                      display="inline"
-                    >
-                      {" "}
-                    </Typography>
+                    {i + 1 !== answer.length && (
+                      <Typography
+                        variant="subtitle2"
+                        paragraph={false}
+                        display="inline"
+                      >
+                        {" "}
+                      </Typography>
+                    )}
                   </Box>
                 );
               }

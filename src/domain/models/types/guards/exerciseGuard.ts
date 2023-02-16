@@ -1,6 +1,7 @@
 import {
   Exercise,
   ListeningExercise,
+  ReadAloudExercise,
   ReadingExercise,
   RepeatAudioExercise,
   ShortListeningExercise,
@@ -40,4 +41,10 @@ export function isRepeatAudioExercise(
   exercise: Exercise
 ): exercise is RepeatAudioExercise {
   return (exercise as RepeatAudioExercise).type === "REPEAT_AUDIO";
+}
+
+export function isReadAloudExercise(
+  exercise: Exercise
+): exercise is ReadAloudExercise {
+  return (exercise as ReadAloudExercise).type === "READ_ALOUD";
 }

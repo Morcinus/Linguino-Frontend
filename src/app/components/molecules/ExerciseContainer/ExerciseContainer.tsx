@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import { Exercise } from "../../../../domain/models/types/exercises";
 import {
   isListeningExercise,
+  isReadAloudExercise,
   isReadingExercise,
   isRepeatAudioExercise,
   isShortListeningExercise,
@@ -11,6 +12,7 @@ import {
 } from "../../../../domain/models/types/guards/exerciseGuard";
 import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
+import ReadAloudExercise from "../exercises/ReadAloudExercise/ReadAloudExercise";
 import ReadingExercise from "../exercises/ReadingExercise/ReadingExercise";
 import RepeatAudioExercise from "../exercises/RepeatAudioExercise/RepeatAudioExercise";
 import ShortListeningExercise from "../exercises/ShortListeningExercise/ShortListeningExercise";
@@ -53,6 +55,10 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
       return (
         <RepeatAudioExercise exercise={exercise} onContinue={onContinue} />
       );
+    }
+
+    if (isReadAloudExercise(exercise)) {
+      return <ReadAloudExercise exercise={exercise} onContinue={onContinue} />;
     }
 
     return <></>;

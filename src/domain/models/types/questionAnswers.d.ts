@@ -31,6 +31,6 @@ export interface TextQuestionAnswer {
 export interface AudioQuestionAnswer {
   type: "AUDIO";
   id: ID;
-  question: string;
+  question?: string;
   answer: string;
 }
