@@ -4,7 +4,7 @@ import FillTheBlank, { IFillTheBlank } from "./FillTheBlank";
 import { mockFillTheBlankProps } from "./FillTheBlank.mocks";
 
 export default {
-  title: "atoms/FillTheBlank",
+  title: "molecules/QuestionAnswers/FillTheBlank",
   component: FillTheBlank,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

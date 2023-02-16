@@ -4,7 +4,7 @@ import TextQuestionAnswer, { ITextQuestionAnswer } from "./TextQuestionAnswer";
 import { mockTextQuestionAnswerProps } from "./TextQuestionAnswer.mocks";
 
 export default {
-  title: "atoms/TextQuestionAnswer",
+  title: "molecules/QuestionAnswers/TextQuestionAnswer",
   component: TextQuestionAnswer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

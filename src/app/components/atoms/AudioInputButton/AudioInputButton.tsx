@@ -9,21 +9,32 @@ import { Box, Fab } from "@mui/material";
 import { Language } from "../../../../domain/models/types/languages";
 import styles from "./AudioInputButton.module.css";
 
+interface Command {
+  command: string | string[] | RegExp;
+  callback: (...args: any[]) => unknown;
+  isFuzzyMatch?: boolean | undefined;
+  matchInterim?: boolean | undefined;
+  fuzzyMatchingThreshold?: number | undefined;
+  bestMatchOnly?: boolean | undefined;
+}
+
 export interface IAudioInputButton {
   onChange?: (text: string) => void;
   inputLanguage: Language;
   disabled?: boolean;
+  commands?: Array<Command>;
 }
 
 const AudioInputButton: React.FC<IAudioInputButton> = ({
   onChange,
   inputLanguage,
   disabled = false,
+  commands = [],
 }) => {
   const [enabled, setEnabled] = useState(true);
 
   const { transcript, listening, browserSupportsSpeechRecognition } =
-    useSpeechRecognition();
+    useSpeechRecognition({ commands });
 
   if (!browserSupportsSpeechRecognition) {
     setEnabled(false);

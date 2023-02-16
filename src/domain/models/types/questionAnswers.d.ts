@@ -1,4 +1,7 @@
-export type QuestionAnswer = FillInBlankQuestionAnswer | TextQuestionAnswer;
+export type QuestionAnswer =
+  | FillInBlankQuestionAnswer
+  | TextQuestionAnswer
+  | AudioQuestionAnswer;
 
 export interface Question {
   id: ID;
@@ -23,4 +26,11 @@ export interface TextQuestionAnswer {
   question: string;
   answer: string;
   answerAudioURL?: string;
+}
+
+export interface AudioQuestionAnswer {
+  type: "AUDIO";
+  id: ID;
+  question: string;
+  answer: string;
 }
