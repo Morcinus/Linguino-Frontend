@@ -4,6 +4,7 @@ import { Exercise } from "../../../../domain/models/types/exercises";
 import {
   isListeningExercise,
   isReadingExercise,
+  isRepeatAudioExercise,
   isShortListeningExercise,
   isSpeechExercise,
   isTextExercise,
@@ -11,6 +12,7 @@ import {
 import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
 import ReadingExercise from "../exercises/ReadingExercise/ReadingExercise";
+import RepeatAudioExercise from "../exercises/RepeatAudioExercise/RepeatAudioExercise";
 import ShortListeningExercise from "../exercises/ShortListeningExercise/ShortListeningExercise";
 import SpeechExercise from "../exercises/SpeechExercise/SpeechExercise";
 import TextExercise from "../exercises/TextExercise/TextExercise";
@@ -45,6 +47,12 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
 
     if (isReadingExercise(exercise)) {
       return <ReadingExercise exercise={exercise} onContinue={onContinue} />;
+    }
+
+    if (isRepeatAudioExercise(exercise)) {
+      return (
+        <RepeatAudioExercise exercise={exercise} onContinue={onContinue} />
+      );
     }
 
     return <></>;

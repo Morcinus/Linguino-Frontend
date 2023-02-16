@@ -23,6 +23,7 @@ export interface IExercise {
   }>;
   componentsAboveQuestions?: ReactNode;
   componentsBelowQuestions?: ReactNode;
+  submitBeforeContinue?: boolean;
 }
 
 type IExerciseState = {
@@ -44,7 +45,7 @@ class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
   }
 
   handleClick = () => {
-    if (this.state.submitted) {
+    if (this.state.submitted || this.props.submitBeforeContinue === false) {
       this.props.onContinue(this.state.userAnswers);
     } else {
       if (this.state.readyToSubmit) {
@@ -67,18 +68,6 @@ class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
       (ua) => ua?.questionAnswerId === answer?.questionAnswerId
     );
     answer.answers = this.patchAnswers(answer.answers, prevUserAnswer?.answers);
-    //answer.states = this.patchStates(answer.states, prevUserAnswer?.states);
-
-    /*     const index = this.state.userAnswers.findIndex(
-      (ua) => ua.questionAnswerId === answer.questionAnswerId
-    );
-
-    const answers = [...this.state.userAnswers];
-    if (index !== -1) {
-      answers[index] = answer;
-    } else {
-      answers.push(answer); // Zde je problém - nemůžu pushovat, protože answers musí být ve stejném pořadí jako questionAnswers???
-    } */
 
     const answers = [...this.state.userAnswers];
     const index = this.props.questionAnswers.findIndex(
@@ -107,13 +96,6 @@ class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
   patchStates(newStates: Array<AnswerState>, prevStates?: Array<AnswerState>) {
     if (prevStates) {
       newStates.forEach((newState, i) => {
-        // Don't patch states with NONE
-        /*         if (
-          newState === "NONE" &&
-          (prevStates[i] === "RIGHT" || prevStates[i] === "WRONG")
-        )
-          return; */
-
         prevStates[i] = newState;
       });
       return [...prevStates];
@@ -191,7 +173,9 @@ class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
 
         <FullWidthButton
           text={
-            this.state.submitted ? t("exercise.continue") : t("exercise.check")
+            this.state.submitted || this.props.submitBeforeContinue === false
+              ? t("exercise.continue")
+              : t("exercise.check")
           }
           onClick={this.handleClick}
           disabled={!this.state.readyToSubmit}

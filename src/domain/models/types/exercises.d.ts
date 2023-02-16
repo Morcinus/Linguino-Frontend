@@ -10,7 +10,8 @@ export type Exercise =
   | ListeningExercise
   | SpeechExercise
   | ShortListeningExercise
-  | ReadingExercise;
+  | ReadingExercise
+  | RepeatAudioExercise;
 
 export interface IExerciseComponent {
   exercise: Exercise;
@@ -41,6 +42,15 @@ export interface ShortListeningExercise {
   audioURL: string;
   imageURL?: string;
   question: TextQuestionAnswer;
+}
+
+export interface RepeatAudioExercise {
+  id: ID;
+  type: "REPEAT_AUDIO";
+  assignmentTitle: string;
+  audioURL: string;
+  imageURL?: string;
+  question: AudioQuestionAnswer;
 }
 
 export interface SpeechExercise {
