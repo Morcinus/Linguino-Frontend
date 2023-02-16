@@ -1,6 +1,7 @@
 import {
   Exercise,
   ListeningExercise,
+  ReadingExercise,
   ShortListeningExercise,
   SpeechExercise,
   TextExercise,
@@ -26,4 +27,10 @@ export function isSpeechExercise(
 
 export function isTextExercise(exercise: Exercise): exercise is TextExercise {
   return (exercise as TextExercise).type === "TEXT";
+}
+
+export function isReadingExercise(
+  exercise: Exercise
+): exercise is ReadingExercise {
+  return (exercise as ReadingExercise).type === "READING";
 }

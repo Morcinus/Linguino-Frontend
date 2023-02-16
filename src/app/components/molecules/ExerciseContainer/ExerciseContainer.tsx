@@ -3,12 +3,14 @@ import Box from "@mui/material/Box";
 import { Exercise } from "../../../../domain/models/types/exercises";
 import {
   isListeningExercise,
+  isReadingExercise,
   isShortListeningExercise,
   isSpeechExercise,
   isTextExercise,
 } from "../../../../domain/models/types/guards/exerciseGuard";
 import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
+import ReadingExercise from "../exercises/ReadingExercise/ReadingExercise";
 import ShortListeningExercise from "../exercises/ShortListeningExercise/ShortListeningExercise";
 import SpeechExercise from "../exercises/SpeechExercise/SpeechExercise";
 import TextExercise from "../exercises/TextExercise/TextExercise";
@@ -39,6 +41,10 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
 
     if (isTextExercise(exercise)) {
       return <TextExercise exercise={exercise} onContinue={onContinue} />;
+    }
+
+    if (isReadingExercise(exercise)) {
+      return <ReadingExercise exercise={exercise} onContinue={onContinue} />;
     }
 
     return <></>;
