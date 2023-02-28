@@ -14,4 +14,8 @@ export interface Lesson {
   progress?: number;
   category?: Category;
   learningOrder?: number;
+  videoId?: string;
+  description?: string;
+  favorite: boolean;
+  visible: boolean;
 }

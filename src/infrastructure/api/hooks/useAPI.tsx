@@ -3,10 +3,10 @@ import useSWR, { Key } from "swr";
 import { useEffect } from "react";
 
 import useErrorHandler from "../../services/ErrorHandler";
-import { FetchHook, fetcher } from "../API";
+import { SWRHook, fetcher } from "../API";
 
-export default function useAPI(props: Key): FetchHook {
-  const { data, error } = useSWR(props, fetcher);
+export default function useAPI(key: Key): SWRHook {
+  const { data, error, mutate } = useSWR(key, fetcher);
 
   const { setError } = useErrorHandler();
 
@@ -15,7 +15,8 @@ export default function useAPI(props: Key): FetchHook {
   }, [error]);
 
   return {
-    data: data,
+    data,
     isLoading: !error && !data,
+    mutate,
   };
 }

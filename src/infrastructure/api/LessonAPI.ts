@@ -1,7 +1,9 @@
+import axios from "axios";
+
 import { CategoryLessons } from "../../domain/models/dtos/api/categoryLessons";
-import { LessonType } from "../../domain/models/types/lessons";
+import { Lesson, LessonType } from "../../domain/models/types/lessons";
 import { Modify } from "../../domain/models/utils/modify";
-import { FetchHook } from "./API";
+import { FetchHook, SWRHook } from "./API";
 import useAPI from "./hooks/useAPI";
 
 export default class LessonAPI {
@@ -9,9 +11,18 @@ export default class LessonAPI {
 
   public static useLessons(
     lessonType: LessonType
-  ): Modify<FetchHook, { data: Array<CategoryLessons> }> {
+  ): Modify<SWRHook, { data: Array<CategoryLessons> }> {
     return useAPI(
-      `${this.URI}/${lessonType}?group=category&sort=+learningOrder`
+      `${this.URI}?lessonType=${lessonType}&group=category&sort=+learningOrder`
     );
+  }
+
+  public static async updateLesson(lesson: Lesson): Promise<Lesson> {
+    return axios.put(`${this.URI}`, lesson).then((res) => res.data);
+  }
+
+  public static useLesson(lessonId: ID): Modify<FetchHook, { lesson: Lesson }> {
+    const { data, ...rest } = useAPI(`${this.URI}/${lessonId}`);
+    return { lesson: data, ...rest };
   }
 }

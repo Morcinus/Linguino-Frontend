@@ -38,7 +38,9 @@
     "news": "Novinky",
     "settings": "Nastavení",
     "my-profile": "Můj profil",
-    "logout": "Odhlásit"
+    "logout": "Odhlásit",
+    "readMore": "Zobrazit více",
+    "readLess": "Zobrazit méně"
   },
 
   "calendar": {
