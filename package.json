@@ -14,7 +14,7 @@
     "lint": "next lint --dir src",
     "prettier": "prettier --write .",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 6006 -s ./public",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {

@@ -22,6 +22,7 @@ module.exports = async ({ config, mode }) => {
     module: false,
     assert: false,
     path: require.resolve("path-browserify"),
+    util: false,
   };
 
   config.resolve.alias = {

@@ -10,11 +10,11 @@ import { initReactI18next } from "react-i18next";
 import AuthDecorator from "../src/decorators/authDecorator";
 
 import { ThemeProvider } from '@mui/material/styles';
-import theme from '../src/app/styles/theme';
+import theme from '../src/styles/theme';
 
 import * as NextImage from "next/image";
 
-import "../src/app/styles/globals.css";
+import "../src/styles/globals.css";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
