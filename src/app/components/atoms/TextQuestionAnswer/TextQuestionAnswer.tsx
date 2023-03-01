@@ -9,7 +9,7 @@ import AudioInputIconButton from "../AudioInputIconButton/AudioInputIconButton";
 import CharacterButton from "../CharacterButton/CharacterButton";
 
 export interface ITextQuestionAnswer extends IQuestionAnswerComponent {
-  inputRef?: MutableRefObject<any>;
+  inputRef?: MutableRefObject<HTMLElement | null>;
   rows?: "short" | "long";
   size?: "small" | "medium";
   enableAudioInput?: boolean;
@@ -42,7 +42,7 @@ const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({
   };
 
   const evaluateAnswer = (userAnswer: UserAnswer): UserAnswer => {
-    let obj = userAnswer;
+    const obj = userAnswer;
     if (userAnswer.answers[0] === questionAnswer.answer) {
       obj.states[0] = "RIGHT";
     } else if (userAnswer.answers[0] === "") {

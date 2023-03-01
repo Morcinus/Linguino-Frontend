@@ -4,8 +4,7 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Divider, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import { LessonType } from "../../../../domain/models/types/lessons";
-import { SpeakingLesson } from "../../../../domain/models/types/speaking";
+import { Lesson, LessonType } from "../../../../domain/models/types/lessons";
 import LessonAPI from "../../../../infrastructure/api/LessonAPI";
 import CardGrid from "../CardGrid";
 
@@ -58,7 +57,7 @@ const LessonsOverview: React.FC<ILessonsOverview> = ({ lessonType }) => {
                     <Typography variant="h5">{group.category.name}</Typography>
                   </Divider>
                   <CardGrid
-                    cards={group.data.map((lesson: SpeakingLesson) => ({
+                    cards={group.data.map((lesson: Lesson) => ({
                       ...lesson,
                       title: lesson.name,
                     }))}

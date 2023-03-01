@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 
 import config from "../../config/config";
 import { User } from "../../domain/models/types/user";
-import { AuthAPI } from "../api/AuthAPI";
+import AuthAPI from "../api/AuthAPI";
 import { LocalStorageManager } from "../repositories/LocalStorageManager";
 
 export interface AuthContextType {
@@ -48,9 +48,10 @@ export function AuthProvider({
   // If page changes
   useEffect(() => {
     // Reset error state
-    if (errors) setError((arr) => []);
+    if (errors) setError(() => []);
 
     authCheck();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.pathname]);
 
   useEffect(() => {
@@ -58,17 +59,15 @@ export function AuthProvider({
       .then(async (user) => {
         setUser(user);
       })
-      .catch(() => {
-        /* There is no user*/
-      })
       .finally(() => {
         authCheck();
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function login(email: string, password: string) {
     setLoading(true);
-    setError((arr) => []);
+    setError(() => []);
 
     AuthAPI.login({ email, password })
       .then((user) => {
@@ -85,7 +84,7 @@ export function AuthProvider({
 
   function signUp(username: string, email: string, password: string) {
     setLoading(true);
-    setError((arr) => []);
+    setError(() => []);
 
     AuthAPI.signUp({ username, email, password })
       .then((user) => {
@@ -99,7 +98,7 @@ export function AuthProvider({
   }
 
   function logout() {
-    setError((arr) => []);
+    setError(() => []);
     AuthAPI.logout();
     setUser(undefined);
     router.push("/login");
@@ -147,6 +146,7 @@ export function AuthProvider({
       signUp,
       logout,
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [user, loading, errors]
   );
 

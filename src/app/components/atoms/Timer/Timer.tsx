@@ -16,45 +16,38 @@ export interface ITimer {
 
 const Timer: React.FC<ITimer> = ({ milliseconds, onFinish }) => {
   const [value, setValue] = useState<number>(0);
-  const [running, setRunning] = useState(true);
+  const [state, setState] = useState<"STOPPED" | "RUNNING" | "PAUSED">(
+    "RUNNING"
+  );
   const [finished, setFinished] = useState(false);
 
-  function initTimer() {
+  function resetTimer() {
     setValue(0);
-    setFinished(false);
-    setRunning(true);
+    setState("RUNNING");
   }
 
   useEffect(() => {
-    let interval: any = null;
-    let tickMs = 50;
+    if (finished) onFinish?.();
+  }, [finished, onFinish]);
 
-    if (value >= milliseconds) {
-      clearInterval(interval);
-      setFinished(true);
-      setRunning(false);
-      if (typeof onFinish === "function") onFinish();
-    }
+  useEffect(() => {
+    if (state !== "RUNNING") return;
 
-    if (running) {
-      interval = setInterval(() => {
-        setValue((value) => value + tickMs);
-      }, tickMs);
-    }
+    const tickMilliseconds = 1000;
+    const interval = setInterval(() => {
+      if (value >= milliseconds) {
+        setFinished(true);
+        setState("STOPPED");
+      }
 
+      if (state === "RUNNING")
+        setValue((value) => {
+          const newValue = value + tickMilliseconds;
+          return newValue >= milliseconds ? milliseconds : newValue;
+        });
+    }, tickMilliseconds);
     return () => clearInterval(interval);
-  }, [running, value]);
-
-  const handleClick = () => {
-    if (finished) {
-      initTimer();
-      return;
-    }
-
-    if (running) {
-      setRunning(false);
-    } else setRunning(true);
-  };
+  }, [value, milliseconds, state]);
 
   return (
     <Box
@@ -73,15 +66,19 @@ const Timer: React.FC<ITimer> = ({ milliseconds, onFinish }) => {
         <Box sx={{ display: "flex", flexDirection: "column", zIndex: 2 }}>
           <Typography variant="h4">{timeMMSS(milliseconds - value)}</Typography>
           <Box>
-            <IconButton onClick={handleClick} size="large">
-              {finished ? (
+            {state === "STOPPED" ? (
+              <IconButton onClick={resetTimer} size="large">
                 <ReplayIcon />
-              ) : running ? (
+              </IconButton>
+            ) : state === "RUNNING" ? (
+              <IconButton onClick={() => setState("PAUSED")} size="large">
                 <PauseIcon />
-              ) : (
+              </IconButton>
+            ) : (
+              <IconButton onClick={() => setState("RUNNING")} size="large">
                 <PlayArrowIcon />
-              )}
-            </IconButton>
+              </IconButton>
+            )}
           </Box>
         </Box>
       </SimpleCircularProgress>

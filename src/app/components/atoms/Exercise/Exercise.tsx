@@ -1,4 +1,4 @@
-import { Component, ElementType, ReactNode } from "react";
+import { Component, ComponentProps, ElementType, ReactNode } from "react";
 
 import { WithTranslation, withTranslation } from "next-i18next";
 
@@ -19,7 +19,7 @@ export interface IExercise {
   questionAnswers: Array<QuestionAnswer>;
   questionAnswerComponents: Array<{
     component: ElementType;
-    props?: Object;
+    props?: ComponentProps<ElementType>;
   }>;
   componentsAboveQuestions?: ReactNode;
   componentsBelowQuestions?: ReactNode;
@@ -155,7 +155,7 @@ class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
         >
           {this.props.questionAnswerComponents.map(
             ({ component, props }, i) => {
-              let Child = component;
+              const Child = component;
               return (
                 <Child
                   {...props}

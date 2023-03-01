@@ -1,7 +1,9 @@
+import { MouseEvent } from "react";
+
 import { Button } from "@mui/material";
 
 export interface IFullWidthButton {
-  onClick?: Function;
+  onClick?: (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
   disabled?: boolean;
   variant?: "right" | "wrong";
   children?: React.ReactNode;

@@ -9,7 +9,7 @@ import useAuth from "../../../../infrastructure/services/AuthProvider";
 import { removeInterpunction } from "../../../../util/functions/exercises";
 import AudioInputButton from "../AudioInputButton/AudioInputButton";
 
-export interface IAudioQuestionAnswer extends IQuestionAnswerComponent {}
+export type IAudioQuestionAnswer = IQuestionAnswerComponent;
 
 const CORRECT_RATIO_THRESHOLD = 9;
 
@@ -41,7 +41,7 @@ const AudioQuestionAnswer: React.FC<IAudioQuestionAnswer> = ({
     userAnswer: UserAnswer,
     similarityRatio: number
   ): UserAnswer => {
-    let obj = userAnswer;
+    const obj = userAnswer;
 
     if (similarityRatio > CORRECT_RATIO_THRESHOLD) {
       obj.states[0] = "RIGHT";

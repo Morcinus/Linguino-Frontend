@@ -4,25 +4,20 @@ import { KeyedMutator } from "swr";
 export const fetcher = (url: string, queryParams = "") =>
   axios.get(`${url}${queryParams}`).then((res) => res.data);
 
-export const optimisticMutationOption = (data: any) => {
+export function optimisticMutationOption<T>(data: T) {
   return {
     revalidate: false,
     optimisticData: data,
   };
-};
-
-export interface SWRHook {
-  data: any;
-  isLoading: boolean;
-  mutate: KeyedMutator<any>;
 }
 
-export interface FetchHook {
+export interface SWRHook<T> {
+  data: T;
   isLoading: boolean;
-  mutate: KeyedMutator<any>;
+  mutate: KeyedMutator<T>;
 }
 
-export interface MutationHook {
-  trigger: any;
-  isValidating: boolean;
+export interface FetchHook<T> {
+  isLoading: boolean;
+  mutate: KeyedMutator<T>;
 }

@@ -28,7 +28,6 @@ const StudySession: React.FC<IStudySession> = ({
   const [openExpansion, setOpenExpansion] = useState(false);
   const [executeScroll, elRef] = useScroll();
   const { data, isLoading } = StudySessionAPI.useStudySession(session);
-  const { trigger } = StudySessionAPI.useStudySessionMutation(session);
   const [attemptArray, setAttemptArray] = useState<Array<QuestionAttempt>>([]);
   const [exerciseQueue, setExerciseQueue] = useState<Array<Exercise>>([]);
 
@@ -36,21 +35,25 @@ const StudySession: React.FC<IStudySession> = ({
     if (!isLoading && data && exerciseQueue.length === 0) {
       setExerciseQueue(data);
     }
-  }, [data, isLoading]);
+  }, [data, isLoading, exerciseQueue.length]);
 
   function nextExercise() {
     if (index < exerciseQueue.length - 1) {
       setIndex(index + 1);
-    } else {
-      setFinishedSession(true);
     }
+  }
+
+  function handleFinished(attemptArray: Array<QuestionAttempt>) {
+    setFinishedSession(true);
+    StudySessionAPI.updateStudySession(session, attemptArray);
+    onFinish?.();
   }
 
   function handleContinue(
     attempts: Array<QuestionAttempt>,
     reschedule: boolean
   ) {
-    let arr = [...attemptArray, ...attempts];
+    const arr = [...attemptArray, ...attempts];
     setAttemptArray(arr);
 
     if (reschedule) {
@@ -60,20 +63,12 @@ const StudySession: React.FC<IStudySession> = ({
       setIndex(index + 1);
     } else {
       nextExercise();
+
+      if (index >= exerciseQueue.length - 1) handleFinished(arr);
     }
 
-    if (typeof onContinue === "function") onContinue(reschedule);
+    onContinue?.(reschedule);
   }
-
-  useEffect(() => {
-    if (finishedSession) {
-      trigger(attemptArray); // TODO ZMENIT API a API specifikaci
-      if (typeof onFinish === "function") onFinish();
-    }
-
-    // Must not depend on finishedSession!
-    // https://stackoverflow.com/a/59468261/13082130
-  }, [JSON.stringify(attemptArray)]);
 
   function toggleExpansion() {
     if (openExpansion) setOpenExpansion(false);
@@ -84,7 +79,7 @@ const StudySession: React.FC<IStudySession> = ({
 
   useEffect(() => {
     if (openExpansion) executeScroll();
-  }, [openExpansion]);
+  }, [openExpansion, executeScroll]);
 
   return (
     <>

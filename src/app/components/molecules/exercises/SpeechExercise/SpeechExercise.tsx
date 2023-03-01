@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useKeypress from "react-use-keypress";
 
 import { useTranslation } from "next-i18next";
@@ -22,16 +21,14 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const [status, setStatus] = useState<"NONE" | "FINISHED">("NONE");
   const { t } = useTranslation("common");
 
   const handleContinue = () => {
-    setStatus("NONE");
     onContinue?.(getQuestionProgress(), false);
   };
 
   function getQuestionProgress(): QuestionAttempt[] {
-    let arr: Array<QuestionAttempt> = [];
+    const arr: Array<QuestionAttempt> = [];
 
     exercise.questions.forEach((question) => {
       arr.push({
@@ -54,10 +51,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
       <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
         {exercise.assignmentTitle}
       </Typography>
-      <Timer
-        milliseconds={exercise.time}
-        onFinish={() => setStatus("FINISHED")}
-      />
+      <Timer milliseconds={exercise.time} />
 
       <Typography variant="subtitle2">{t("exercise.topic")}:</Typography>
       <Typography variant="subtitle1">{exercise.assignmentTopic}</Typography>

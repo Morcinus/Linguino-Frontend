@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import DashboardAPI from "../../../../infrastructure/api/DashboardAPI";
 import CalendarHeatmap from "../../atoms/CalendarHeatmap/CalendarHeatmap";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IStudyCalendar {}
 
 const StudyCalendar: React.FC<IStudyCalendar> = () => {

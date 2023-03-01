@@ -5,14 +5,14 @@ import { useEffect } from "react";
 import useErrorHandler from "../../services/ErrorHandler";
 import { SWRHook, fetcher } from "../API";
 
-export default function useAPI(key: Key): SWRHook {
+export default function useAPI<T>(key: Key): SWRHook<T> {
   const { data, error, mutate } = useSWR(key, fetcher);
 
   const { setError } = useErrorHandler();
 
   useEffect(() => {
     if (error) setError();
-  }, [error]);
+  }, [error, setError]);
 
   return {
     data,

@@ -3,11 +3,11 @@ import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 
 export interface INavigationBar {
   leftIconButton?: {
-    onClick?: () => {};
+    onClick?: () => void;
     icon: keyof typeof MUIcon;
   };
   rightIconButton?: {
-    onClick?: () => {};
+    onClick?: () => void;
     icon: keyof typeof MUIcon;
   };
   header?: string;

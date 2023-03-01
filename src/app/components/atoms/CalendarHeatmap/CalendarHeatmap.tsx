@@ -43,10 +43,4 @@ const CalendarHeatmap: React.FC<ICalendarHeatmap> = ({
   );
 };
 
-function date30DaysAgo() {
-  var date = new Date();
-  var last = new Date(date.getTime() - 30 * 24 * 60 * 60 * 1000);
-  return last;
-}
-
 export default CalendarHeatmap;

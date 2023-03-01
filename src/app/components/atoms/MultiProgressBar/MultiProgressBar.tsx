@@ -17,8 +17,8 @@ const MultiProgressBar: React.FC<IMultiProgressBar> = ({ data }) => {
   }
 
   function calculateValue(index: number): number {
-    let goal = data[index].goal;
-    let progress = data[index].progress < goal ? data[index].progress : goal;
+    const goal = data[index].goal;
+    const progress = data[index].progress < goal ? data[index].progress : goal;
 
     return (progress / goal) * 100;
   }

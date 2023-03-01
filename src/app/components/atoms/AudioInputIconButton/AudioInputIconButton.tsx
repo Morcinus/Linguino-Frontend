@@ -31,7 +31,7 @@ const AudioInputIconButton: React.FC<IAudioInputIconButton> = ({
 
   useEffect(() => {
     onChange(transcript);
-  }, [transcript]);
+  }, [transcript, onChange]);
 
   return (
     <>

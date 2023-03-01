@@ -7,7 +7,7 @@ import MarkdownText from "../MarkdownText/MarkdownText";
 
 export interface IStudyExpansionContent {
   open: boolean;
-  reference?: MutableRefObject<any>;
+  reference?: MutableRefObject<HTMLElement | null>;
   content: string | undefined;
 }
 

@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 import { User } from "../../domain/models/types/user";
 import { LocalStorageManager } from "../repositories/LocalStorageManager";
 
-export const AuthAPI = {
+const AuthAPI = {
   signUp(data: {
     username: string;
     email: string;
@@ -52,28 +52,28 @@ export const AuthAPI = {
         LocalStorageManager.setIdToken(res.data.idToken);
         LocalStorageManager.setRefreshToken(res.data.refreshToken);
       })
-      .catch((err) => {
+      .catch(() => {
         // Refresh token is expired, user needs to log in again
         this.logout();
       });
   },
 
-  getCurrentUser(): Promise<User> {
-    return new Promise(async (resolve, reject) => {
-      let token = LocalStorageManager.getIdToken();
+  async getCurrentUser(): Promise<User> {
+    const token = LocalStorageManager.getIdToken();
 
-      if (token) {
-        const decodedToken = jwtDecode<DecodedToken>(token);
-        // If ID token is expired
-        if (decodedToken.exp * 1000 < Date.now()) await this.refreshIDToken();
-      } else this.logout();
+    if (token) {
+      const decodedToken = jwtDecode<DecodedToken>(token);
+      // If ID token is expired
+      if (decodedToken.exp * 1000 < Date.now()) await this.refreshIDToken();
+    } else this.logout();
 
-      if (LocalStorageManager.userExists())
-        resolve(LocalStorageManager.getUser());
-      else reject(null);
-    });
+    if (LocalStorageManager.userExists()) {
+      return LocalStorageManager.getUser();
+    } else return Promise.reject("No user found.");
   },
 };
+
+export default AuthAPI;
 
 interface DecodedToken {
   exp: number;

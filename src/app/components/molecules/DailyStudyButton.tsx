@@ -6,8 +6,15 @@ import Link from "next/link";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { IconButton } from "@mui/material";
 
+import { LessonType } from "../../../domain/models/types/lessons";
 import DashboardAPI from "../../../infrastructure/api/DashboardAPI";
 import { getLessonColor, getLessonName } from "../../../util/functions/lessons";
+
+export interface DailyStudyData {
+  lessonType: LessonType;
+  progress: number;
+  maxProgress: number;
+}
 
 interface GraphData {
   id: string;
@@ -104,9 +111,9 @@ export default function DailyStudyButton() {
   );
 }
 
-function emptyChartData(array: any) {
+function emptyChartData(array: Array<DailyStudyData>) {
   const newArray: GraphData[] = [];
-  array.forEach((element: any) => {
+  array.forEach((element: DailyStudyData) => {
     // Max Progress
     newArray.push({
       value: element.maxProgress,
@@ -124,9 +131,9 @@ function emptyChartData(array: any) {
   return newArray;
 }
 
-function fillChartData(array: any) {
+function fillChartData(array: Array<DailyStudyData>) {
   const newArray: GraphData[] = [];
-  array.forEach((element: any) => {
+  array.forEach((element: DailyStudyData) => {
     // Progress
     newArray.push({
       value:

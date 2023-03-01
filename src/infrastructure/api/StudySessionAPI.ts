@@ -1,32 +1,34 @@
+import axios from "axios";
+
 import { Exercise } from "../../domain/models/types/exercises";
+import { QuestionAttempt } from "../../domain/models/types/questionAttempts";
 import { StudySession } from "../../domain/models/types/studySessions";
-import { Modify } from "../../domain/models/utils/modify";
-import { MutationHook, SWRHook } from "./API";
+import { SWRHook } from "./API";
 import useAPI from "./hooks/useAPI";
-import useMutation from "./hooks/useMutation";
 
-export default class StudySessionAPI {
-  private static readonly URI = "study-sessions";
+const StudySessionAPI = {
+  URI: "study-sessions",
 
-  public static useStudySession(
-    session: StudySession
-  ): Modify<SWRHook, { data: Array<Exercise> }> {
-    if (session.lessonId === undefined)
-      return useAPI(
-        `${this.URI}/${session.type}?exerciseAmount=${session.goal}`
-      );
-    else
-      return useAPI([
-        `${this.URI}/${session.type}/lessons/${session.lessonId}?exerciseAmount=${session.goal}`,
-      ]);
-  }
+  useStudySession(session: StudySession): SWRHook<Array<Exercise>> {
+    const url =
+      session.lessonId === undefined
+        ? `${this.URI}/${session.type}/lessons/${session.lessonId}?exerciseAmount=${session.goal}`
+        : `${this.URI}/${session.type}?exerciseAmount=${session.goal}`;
 
-  public static useStudySessionMutation(session: StudySession): MutationHook {
-    if (session.lessonId === undefined)
-      return useMutation(`${this.URI}/${session.type}`);
-    else
-      return useMutation(
-        `${this.URI}/${session.type}/lessons/${session.lessonId}`
-      );
-  }
-}
+    return useAPI(url);
+  },
+
+  async updateStudySession(
+    session: StudySession,
+    attempts: Array<QuestionAttempt>
+  ): Promise<Array<QuestionAttempt>> {
+    const url =
+      session.lessonId === undefined
+        ? `${this.URI}/${session.type}`
+        : `${this.URI}/${session.type}/lessons/${session.lessonId}`;
+
+    return axios.post(url, attempts);
+  },
+};
+
+export default StudySessionAPI;

@@ -11,7 +11,7 @@ import styles from "./AudioInputButton.module.css";
 
 interface Command {
   command: string | string[] | RegExp;
-  callback: (...args: any[]) => unknown;
+  callback: (...args: any[]) => unknown; // eslint-disable-line @typescript-eslint/no-explicit-any
   isFuzzyMatch?: boolean | undefined;
   matchInterim?: boolean | undefined;
   fuzzyMatchingThreshold?: number | undefined;
@@ -42,7 +42,7 @@ const AudioInputButton: React.FC<IAudioInputButton> = ({
 
   useEffect(() => {
     onChange?.(transcript);
-  }, [transcript]);
+  }, [transcript, onChange]);
 
   return (
     <>

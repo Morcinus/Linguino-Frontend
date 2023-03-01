@@ -18,7 +18,7 @@ const FillTheBlank: React.FC<IFillTheBlank> = ({
   onChange,
   displayAnswers = false,
 }) => {
-  let words = questionAnswer.answer.split(" ");
+  const words = questionAnswer.answer.split(" ");
 
   function handleChange(index: number, answer: string) {
     const answers: Array<string> = [];
@@ -28,11 +28,9 @@ const FillTheBlank: React.FC<IFillTheBlank> = ({
 
     let states: Array<AnswerState> = [];
     if (!answerStates || answerStates.length === 0) {
-      let blankIndexesSorted = questionAnswer.blankIndexes.sort();
-
       // Init states
       let lastIndex: number | undefined = undefined;
-      questionAnswer.blankIndexes.sort().forEach((blankIndex, i) => {
+      questionAnswer.blankIndexes.sort().forEach((blankIndex) => {
         // Ignore neighbouring blanks
         if (lastIndex === undefined || lastIndex !== blankIndex - 1)
           states[blankIndex] = "NONE";
@@ -54,7 +52,7 @@ const FillTheBlank: React.FC<IFillTheBlank> = ({
   }
 
   const evaluateAnswer = (userAnswer: UserAnswer): UserAnswer => {
-    let words = questionAnswer.answer.split(" ");
+    const words = questionAnswer.answer.split(" ");
     userAnswer.answers.forEach((answer, i) => {
       if (answer === undefined) return;
 

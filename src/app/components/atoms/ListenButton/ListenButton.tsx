@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import PauseIcon from "@mui/icons-material/Pause";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
@@ -19,54 +19,52 @@ const ListenButton: React.FC<IListenButton> = ({
 }) => {
   const [value, setValue] = useState(0);
   const [state, setState] = useState<"STOPPED" | "RUNNING" | "PAUSED">(
-    "STOPPED"
+    playOnMount ? "RUNNING" : "STOPPED"
   );
-  const [audio, setAudio] = useState(new Audio(audioLink));
-
-  function playSound() {
-    setState("RUNNING");
-    audio.play();
-  }
-
-  function pauseSound() {
-    setState("PAUSED");
-    audio.pause();
-  }
+  const [finished, setFinished] = useState(false);
+  const audioRef = useRef(new Audio(audioLink));
 
   function resetSound() {
-    audio.pause();
-    audio.currentTime = 0;
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
     setState("STOPPED");
     setValue(0);
   }
 
   useEffect(() => {
-    pauseSound();
-    audio.currentTime = 0;
+    if (finished) onFinish?.();
+  }, [finished, onFinish]);
 
-    if (playOnMount) {
-      playSound();
-    }
+  useEffect(() => {
+    state === "RUNNING" ? audioRef.current.play() : audioRef.current.pause();
+  }, [state]);
 
-    audio.addEventListener("ended", () => {
-      setState("STOPPED");
-      if (typeof onFinish === "function") onFinish();
-    });
+  useEffect(() => {
+    const ref = audioRef.current;
+    return () => ref.pause();
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setValue(() => (audio.currentTime / audio.duration) * 100);
+      if (audioRef.current.currentTime >= audioRef.current.duration) {
+        setFinished(true);
+        setState("STOPPED");
+      }
+
+      setValue(
+        () => (audioRef.current.currentTime / audioRef.current.duration) * 100
+      );
     }, 50);
     return () => clearInterval(interval);
   }, []);
 
   const handleButtonClick = () => {
-    if (audio.paused) {
-      if (audio.currentTime === audio.duration) resetSound();
+    if (audioRef.current.paused) {
+      if (audioRef.current.currentTime === audioRef.current.duration)
+        resetSound();
 
-      playSound();
-    } else pauseSound();
+      setState("RUNNING");
+    } else setState("PAUSED");
   };
 
   return (

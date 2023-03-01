@@ -6,23 +6,23 @@ import { Modify } from "../../domain/models/utils/modify";
 import { FetchHook, SWRHook } from "./API";
 import useAPI from "./hooks/useAPI";
 
-export default class LessonAPI {
-  private static readonly URI = "lessons";
+const LessonAPI = {
+  URI: "lessons",
 
-  public static useLessons(
-    lessonType: LessonType
-  ): Modify<SWRHook, { data: Array<CategoryLessons> }> {
+  useLessons(lessonType: LessonType): SWRHook<Array<CategoryLessons>> {
     return useAPI(
       `${this.URI}?lessonType=${lessonType}&group=category&sort=+learningOrder`
     );
-  }
+  },
 
-  public static async updateLesson(lesson: Lesson): Promise<Lesson> {
+  async updateLesson(lesson: Lesson): Promise<Lesson> {
     return axios.put(`${this.URI}`, lesson).then((res) => res.data);
-  }
+  },
 
-  public static useLesson(lessonId: ID): Modify<FetchHook, { lesson: Lesson }> {
-    const { data, ...rest } = useAPI(`${this.URI}/${lessonId}`);
+  useLesson(lessonId: ID): Modify<FetchHook<Lesson>, { lesson: Lesson }> {
+    const { data, ...rest } = useAPI<Lesson>(`${this.URI}/${lessonId}`);
     return { lesson: data, ...rest };
-  }
-}
+  },
+};
+
+export default LessonAPI;
