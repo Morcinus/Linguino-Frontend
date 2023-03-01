@@ -5,8 +5,8 @@ import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, Container, IconButton, Toolbar } from "@mui/material";
 
-import MultiProgressBar from "../app/components/atoms/MultiProgressBar/MultiProgressBar";
-import { default as StudySessionComponent } from "../app/components/molecules/StudySession/StudySession";
+import MultiProgressBar from "../components/atoms/MultiProgressBar/MultiProgressBar";
+import { default as StudySessionComponent } from "../components/molecules/StudySession/StudySession";
 import { StudySession } from "../domain/models/types/studySessions";
 import UserAPI from "../infrastructure/api/UserAPI";
 import useAuth from "../infrastructure/services/AuthProvider";

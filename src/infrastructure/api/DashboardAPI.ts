@@ -1,4 +1,4 @@
-import { DailyStudyData } from "../../app/components/molecules/DailyStudyButton";
+import { DailyStudyData } from "../../components/molecules/DailyStudyButton";
 import { ICalendarDataPoint } from "../../domain/models/types/calendar";
 import { SWRHook } from "./API";
 import useAPI from "./hooks/useAPI";

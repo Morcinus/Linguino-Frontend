@@ -1,5 +1,5 @@
-import FillTheBlank from "../../app/components/atoms/FillTheBlank/FillTheBlank";
-import TextQuestionAnswer from "../../app/components/atoms/TextQuestionAnswer/TextQuestionAnswer";
+import FillTheBlank from "../../components/atoms/FillTheBlank/FillTheBlank";
+import TextQuestionAnswer from "../../components/atoms/TextQuestionAnswer/TextQuestionAnswer";
 import {
   isFillInBlankQuestionAnswer,
   isTextQuestionAnswer,
