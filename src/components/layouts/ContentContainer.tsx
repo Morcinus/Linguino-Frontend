@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
@@ -15,9 +15,10 @@ export default function ContentContainer({
   children: ReactNode;
 }): JSX.Element {
   const { user } = useAuth();
-  const router = useRouter();
+  const pathname = usePathname();
   return user &&
-    !config.pagesWithoutContentContainer.includes(router.pathname) ? (
+    pathname &&
+    !config.pagesWithoutContentContainer.includes(pathname) ? (
     <Box
       sx={{
         width: `calc(100% - ${drawerWidth}px)`,

@@ -1,6 +1,3 @@
-import * as React from "react";
-
-import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
 import AppBar from "@mui/material/AppBar";
@@ -9,8 +6,10 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 
+import { useTranslation } from "../../i18n/client";
+
 export default function NavBarUnauthenticated() {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("cs", "common");
 
   return (
     <Box sx={{ display: "flex" }}>

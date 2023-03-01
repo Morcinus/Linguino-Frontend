@@ -1,6 +1,6 @@
 import { useSnackbar } from "notistack";
 
-import React, {
+import {
   ReactNode,
   createContext,
   useCallback,
@@ -10,8 +10,9 @@ import React, {
   useState,
 } from "react";
 
-import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
+
+import { useTranslation } from "../../i18n/client";
 
 interface ErrorContextType {
   setError: (message?: string) => void;
@@ -26,8 +27,8 @@ export function ErrorHandler({
 }): JSX.Element {
   const [errorMessages, setErrorMessage] = useState<string[]>([]);
   const { enqueueSnackbar } = useSnackbar();
-  const { t } = useTranslation("snack");
-  const router = useRouter();
+  const { t } = useTranslation("cs", "snack");
+  const pathname = usePathname();
 
   const setError = useCallback(
     (message?: string) => {
@@ -46,7 +47,7 @@ export function ErrorHandler({
     if (Array.isArray(errorMessages) && errorMessages.length) {
       setErrorMessage(() => []);
     }
-  }, [errorMessages, router.pathname]);
+  }, [errorMessages, pathname]);
 
   const memoedValue = useMemo(
     () => ({

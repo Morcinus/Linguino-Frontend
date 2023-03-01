@@ -9,11 +9,11 @@ import {
   useState,
 } from "react";
 
-import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 
 import config from "../../config/config";
 import { User } from "../../domain/models/types/user";
+import { useTranslation } from "../../i18n/client";
 import AuthAPI from "../api/AuthAPI";
 import { LocalStorageManager } from "../repositories/LocalStorageManager";
 
@@ -40,8 +40,10 @@ export function AuthProvider({
   const [errors, setError] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const { enqueueSnackbar } = useSnackbar();
-  const { t } = useTranslation("snack");
+  const { t } = useTranslation("cs", "snack");
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
+
+  const pathname = usePathname();
 
   const router = useRouter();
 
@@ -52,7 +54,7 @@ export function AuthProvider({
 
     authCheck();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.pathname]);
+  }, [pathname]);
 
   useEffect(() => {
     AuthAPI.getCurrentUser()
@@ -107,13 +109,13 @@ export function AuthProvider({
   function authCheck() {
     if (
       !user &&
-      !config.publicRoutes.includes(router.pathname) &&
+      pathname &&
+      !config.publicRoutes.includes(pathname) &&
       !LocalStorageManager.userExists()
-    )
-      router.push("/login").then(() => {
-        setInitialLoading(false);
-      });
-    else {
+    ) {
+      router.push("/login");
+      setInitialLoading(false);
+    } else {
       setInitialLoading(false);
     }
   }

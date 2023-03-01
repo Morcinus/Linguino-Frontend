@@ -1,8 +1,5 @@
-import * as React from "react";
-
-import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
@@ -30,11 +27,14 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 
+import { useTranslation } from "../../i18n/client";
+
 export const drawerWidth = 240;
 
 export default function NavDrawer() {
-  const router = useRouter();
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("cs", "common");
+
+  const pathname = usePathname();
 
   return (
     <Drawer
@@ -76,7 +76,7 @@ export default function NavDrawer() {
       >
         <ListItem disablePadding>
           <Link href="/">
-            <ListItemButton selected={router.pathname === "/"}>
+            <ListItemButton selected={pathname === "/"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <HomeIcon sx={{ color: "#818181" }} />
@@ -95,7 +95,7 @@ export default function NavDrawer() {
         </ListItem>
         <ListItem disablePadding>
           <Link href="/groups">
-            <ListItemButton selected={router.pathname === "/groups"}>
+            <ListItemButton selected={pathname === "/groups"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <GroupIcon sx={{ color: "#818181" }} />
@@ -145,7 +145,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/speaking">
-            <ListItemButton selected={router.pathname === "/speaking"}>
+            <ListItemButton selected={pathname === "/speaking"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "speaking.main" }}>
                   <RecordVoiceOverIcon sx={{ color: "speaking.light" }} />
@@ -173,7 +173,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/pronunciation">
-            <ListItemButton selected={router.pathname === "/pronunciation"}>
+            <ListItemButton selected={pathname === "/pronunciation"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "pronunciation.main" }}>
                   <TranslateIcon sx={{ color: "pronunciation.light" }} />
@@ -200,7 +200,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/vocabulary">
-            <ListItemButton selected={router.pathname === "/vocabulary"}>
+            <ListItemButton selected={pathname === "/vocabulary"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "vocabulary.main" }}>
                   <ExtensionIcon sx={{ color: "vocabulary.light" }} />
@@ -228,7 +228,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/grammar">
-            <ListItemButton selected={router.pathname === "/grammar"}>
+            <ListItemButton selected={pathname === "/grammar"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "grammar.main" }}>
                   <CategoryIcon sx={{ color: "grammar.light" }} />
@@ -255,7 +255,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/reading">
-            <ListItemButton selected={router.pathname === "/reading"}>
+            <ListItemButton selected={pathname === "/reading"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "reading.main" }}>
                   <AutoStoriesIcon sx={{ color: "reading.light" }} />
@@ -282,7 +282,7 @@ export default function NavDrawer() {
           }}
         >
           <Link href="/listening">
-            <ListItemButton selected={router.pathname === "/listening"}>
+            <ListItemButton selected={pathname === "/listening"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "listening.main" }}>
                   <HeadphonesIcon sx={{ color: "listening.light" }} />
@@ -324,9 +324,7 @@ export default function NavDrawer() {
       >
         <ListItem disablePadding>
           <Link href="/extend-subscription">
-            <ListItemButton
-              selected={router.pathname === "/extend-subscription"}
-            >
+            <ListItemButton selected={pathname === "/extend-subscription"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <AccountBalanceWalletIcon sx={{ color: "#818181" }} />
@@ -345,7 +343,7 @@ export default function NavDrawer() {
         </ListItem>
         <ListItem disablePadding>
           <Link href="/help">
-            <ListItemButton selected={router.pathname === "/help"}>
+            <ListItemButton selected={pathname === "/help"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <HelpOutlineOutlinedIcon sx={{ color: "#818181" }} />
@@ -364,7 +362,7 @@ export default function NavDrawer() {
         </ListItem>
         <ListItem disablePadding>
           <Link href="/changelog">
-            <ListItemButton selected={router.pathname === "/changelog"}>
+            <ListItemButton selected={pathname === "/changelog"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <ExploreOutlinedIcon sx={{ color: "#818181" }} />
@@ -383,7 +381,7 @@ export default function NavDrawer() {
         </ListItem>
         <ListItem disablePadding>
           <Link href="/settings">
-            <ListItemButton selected={router.pathname === "/settings"}>
+            <ListItemButton selected={pathname === "/settings"}>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "#E0E0E0" }}>
                   <SettingsIcon sx={{ color: "#818181" }} />

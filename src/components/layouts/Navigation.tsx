@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,11 +13,11 @@ import NavBarUnauthenticated from "../organisms/NavbarUnauthenticated";
 export default function PermanentDrawerLeft() {
   const { user } = useAuth();
 
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <>
-      {!config.pagesWithoutToolbar.includes(router.pathname) && (
+      {pathname && !config.pagesWithoutToolbar.includes(pathname) && (
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
 

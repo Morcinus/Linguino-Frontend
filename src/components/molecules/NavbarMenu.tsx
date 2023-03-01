@@ -1,6 +1,5 @@
 import React from "react";
 
-import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
@@ -11,6 +10,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { Divider, IconButton, Menu, Tooltip } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
+import { useTranslation } from "../../i18n/client";
 import useAuth from "../../infrastructure/services/AuthProvider";
 import UserAvatar from "./UserAvatar";
 
@@ -18,7 +18,7 @@ export default function NavbarMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const { logout, user } = useAuth();
   const open = Boolean(anchorEl);
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("cs", "common");
 
   const handleClose = () => {
     setAnchorEl(null);
