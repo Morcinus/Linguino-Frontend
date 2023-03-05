@@ -14,6 +14,7 @@ import theme from '../src/styles/theme';
 
 import * as NextImage from "next/image";
 
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
 import "../src/styles/globals.css";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
@@ -81,6 +82,9 @@ Object.defineProperty(NextImage, "default", {
 });
 
 export const parameters = {
+  nextRouter: {
+    Provider: AppRouterContext.Provider,
+  },
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
