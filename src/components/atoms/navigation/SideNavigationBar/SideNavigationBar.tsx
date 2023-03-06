@@ -1,0 +1,45 @@
+import { useState } from "react";
+
+import { useRouter } from "next/navigation";
+
+import { Box, Tab, Tabs } from "@mui/material";
+
+import { useTranslation } from "../../../../i18n/client";
+import { primaryNavigation } from "../config";
+
+export interface ISideNavigationBar {}
+
+const SideNavigationBar: React.FC<ISideNavigationBar> = () => {
+  const [value, setValue] = useState(0);
+  const { t } = useTranslation("cs", "common");
+  const router = useRouter();
+
+  return (
+    <Box sx={{ flexGrow: 1, display: "flex" }}>
+      <Tabs
+        orientation="vertical"
+        variant="scrollable"
+        value={value}
+        onChange={(_, newValue) => {
+          setValue(newValue);
+          router.push(primaryNavigation[newValue].path);
+        }}
+        sx={{
+          boxShadow: "2px 0 0 0 rgba(0,0,0,0.09)",
+        }}
+        TabIndicatorProps={{ style: { background: "rgba(0,0,0,0)" } }}
+      >
+        {primaryNavigation.map((item, i) => (
+          <Tab
+            label={t(item.label)}
+            icon={item.icon}
+            sx={{ p: 0, textTransform: "none" }}
+            key={i}
+          />
+        ))}
+      </Tabs>
+    </Box>
+  );
+};
+
+export default SideNavigationBar;
