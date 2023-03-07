@@ -1,14 +1,14 @@
+import { useTranslation } from "i18n/client";
+
 import Link from "next/link";
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import Toolbar from "@mui/material/Toolbar";
+import { AppBar, Box, Button, CssBaseline, Toolbar } from "@mui/material";
 
-import { useTranslation } from "../../i18n/client";
+export interface IUnauthenticatedNavigationBar {}
 
-export default function NavBarUnauthenticated() {
+const UnauthenticatedNavigationBar: React.FC<
+  IUnauthenticatedNavigationBar
+> = ({}) => {
   const { t } = useTranslation("cs", "common");
 
   return (
@@ -32,4 +32,6 @@ export default function NavBarUnauthenticated() {
       </AppBar>
     </Box>
   );
-}
+};
+
+export default UnauthenticatedNavigationBar;
