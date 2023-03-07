@@ -8,7 +8,7 @@ export interface IUnauthenticatedNavigationBar {}
 
 const UnauthenticatedNavigationBar: React.FC<
   IUnauthenticatedNavigationBar
-> = ({}) => {
+> = () => {
   const { t } = useTranslation("cs", "common");
 
   return (

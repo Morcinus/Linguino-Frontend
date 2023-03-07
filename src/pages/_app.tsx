@@ -7,9 +7,10 @@ import type { AppProps } from "next/app";
 
 import { ThemeProvider } from "@mui/material/styles";
 
+import Navigation from "components/atoms/navigation/NavigationBars/NavigationBars";
+import ContentContainer from "components/layouts/ContentContainer/ContentContainer";
+
 import nextI18nConfig from "../../next-i18next.config";
-import ContentContainer from "../components/layouts/ContentContainer";
-import Navigation from "../components/layouts/Navigation";
 import { AuthProvider } from "../infrastructure/services/AuthProvider";
 import { ErrorHandler } from "../infrastructure/services/ErrorHandler";
 import "../styles/globals.css";
