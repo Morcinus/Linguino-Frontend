@@ -27,6 +27,7 @@
     "@nivo/core": "^0.80.0",
     "@nivo/pie": "^0.80.0",
     "@nivo/tooltip": "^0.80.0",
+    "@storybook/addon-queryparams": "^6.2.9",
     "axios": "^0.27.2",
     "i18next-chained-backend": "^3.0.2",
     "i18next-http-backend": "^1.4.1",
