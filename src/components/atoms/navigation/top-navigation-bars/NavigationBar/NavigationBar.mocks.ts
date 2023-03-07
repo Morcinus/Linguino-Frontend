@@ -8,7 +8,6 @@ const primary: INavigationBar = {
   rightIconButton: {
     icon: "NavigateNext",
   },
-  variant: "primary",
 };
 
 const transparent: INavigationBar = {
@@ -19,7 +18,6 @@ const transparent: INavigationBar = {
   rightIconButton: {
     icon: "NavigateNext",
   },
-  variant: "transparent",
 };
 
 export const mockNavigationBarProps = {
