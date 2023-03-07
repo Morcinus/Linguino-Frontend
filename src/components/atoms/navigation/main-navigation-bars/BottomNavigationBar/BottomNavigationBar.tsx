@@ -4,10 +4,12 @@ import { useRouter } from "next/navigation";
 
 import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
 
-import { useTranslation } from "../../../../i18n/client";
-import { primaryNavigation } from "../config";
+import { useTranslation } from "../../../../../i18n/client";
+import { primaryNavigation } from "../../config";
 
 export interface IBottomNavigationBar {}
+
+export const BOTTOM_NAV_BAR_HEIGHT = "56px";
 
 const BottomNavigationBar: React.FC<IBottomNavigationBar> = () => {
   const [value, setValue] = useState(0);
@@ -15,7 +17,15 @@ const BottomNavigationBar: React.FC<IBottomNavigationBar> = () => {
   const router = useRouter();
 
   return (
-    <Box>
+    <Box
+      sx={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        height: BOTTOM_NAV_BAR_HEIGHT,
+      }}
+    >
       <BottomNavigation
         showLabels
         value={value}
