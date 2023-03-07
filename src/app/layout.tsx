@@ -6,8 +6,7 @@ import { SnackbarProvider } from "notistack";
 
 import { ThemeProvider } from "@mui/material/styles";
 
-import ContentContainer from "../components/layouts/ContentContainer";
-import Navigation from "../components/layouts/Navigation";
+import Navigation from "components/atoms/navigation/NavigationBars/NavigationBars";
 import { AuthProvider } from "../infrastructure/services/AuthProvider";
 import { ErrorHandler } from "../infrastructure/services/ErrorHandler";
 import "../styles/globals.css";
@@ -34,7 +33,7 @@ export default function RootLayout({
             <ErrorHandler>
               <AuthProvider>
                 <Navigation />
-                <ContentContainer>{children}</ContentContainer>
+                {children}
               </AuthProvider>
             </ErrorHandler>
           </SnackbarProvider>
