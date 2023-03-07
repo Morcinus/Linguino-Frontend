@@ -1,5 +1,5 @@
 {
-  "project-name": "Linguino English",
+  "project-name": "Linguino",
   "loading": "Načítání...",
 
   "open-menu": "Otevřít menu",
@@ -8,10 +8,11 @@
   "signup": "Registrace",
 
   "menu": "Menu",
-  "home": "Domů",
   "groups": "Skupiny",
+  "categories": "Kategorie",
 
   "studying": {
+    "study": "Učit se",
     "studying": "Učení",
     "speaking": "Mluvení",
     "pronunciation": "Výslovnost",
@@ -45,5 +46,33 @@
 
   "calendar": {
     "calendar": "Kalendář"
-  }
+  },
+
+  "navigation": {
+    "home": "Domů",
+    "shop": "Obchod",
+    "challenges": "Výzvy",
+    "feed": "Novinky",
+    "profile": "Profil",
+    "premium": "Premium",
+
+    "levels": "Úrovně",
+    "lessons": "Lekce",
+    "favorites": "Oblíbené",
+    "myVocabulary": "Moje slovíčka",
+    "courses": "Kurzy",
+    "help": "Nápověda",
+    "bugReport": "Nahlášení chyby",
+    "settings": "Nastavení",
+    "logout": "Odhlásit"
+  },
+
+  "levels": [
+    "Začátečník A1",
+    "Začátečník A2",
+    "Středně pokročilý B1",
+    "Středně pokročilý B2",
+    "Pokročilý C1",
+    "Pokročilý C2"
+  ]
 }
