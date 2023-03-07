@@ -6,7 +6,7 @@ import theme from "styles/theme";
 
 import { usePathname } from "next/navigation";
 
-import { Box, CssBaseline, Toolbar, useMediaQuery } from "@mui/material";
+import { Box, CssBaseline, useMediaQuery } from "@mui/material";
 
 import DrawerContainer from "../drawer/DrawerContainer/DrawerContainer";
 import BottomNavigationBar from "../main-navigation-bars/BottomNavigationBar/BottomNavigationBar";
@@ -34,9 +34,14 @@ const Navigation: React.FC<INavigation> = () => {
           ) : (
             <UnauthenticatedNavigationBar />
           )}
-          {desktop === true ? <SideNavigationBar /> : <BottomNavigationBar />}
 
-          <Toolbar />
+          {user ? (
+            desktop === true ? (
+              <SideNavigationBar />
+            ) : (
+              <BottomNavigationBar />
+            )
+          ) : undefined}
         </Box>
       )}
     </>
