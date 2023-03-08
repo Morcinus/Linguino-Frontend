@@ -16,6 +16,8 @@ const icons: Record<string, string> = {
   speaking: "record_voice_over",
   reading: "auto_stories",
   listening: "headphones",
+
+  next: "navigate_next",
 };
 
 export default icons;

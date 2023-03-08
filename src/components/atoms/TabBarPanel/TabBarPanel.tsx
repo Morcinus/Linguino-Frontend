@@ -43,7 +43,7 @@ const TabBarPanel: React.FC<ITabBarPanel> = ({
             scrollButtons="auto"
             TabIndicatorProps={{ style: { background: "rgba(0,0,0,0)" } }}
           >
-            {tabs?.map((item: TabItem, i: number) => {
+            {tabs?.map((item: TabItem) => {
               return (
                 <Tab
                   label={item.name ? t(item.name) : undefined}
@@ -63,7 +63,7 @@ const TabBarPanel: React.FC<ITabBarPanel> = ({
         </CardContent>
       </Card>
 
-      {tabs?.map((item: TabItem, i: number) => {
+      {tabs?.map((item: TabItem) => {
         return (
           <TabPanel value={item.id} sx={{ pt: 1, px: 0 }} key={item.id}>
             {panelContent}

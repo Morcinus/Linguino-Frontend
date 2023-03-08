@@ -1,10 +1,10 @@
-import { i18n } from "next-i18next";
+import i18next from "i18next";
 
 import { ColorType } from "../../domain/models/types/colors";
 import { LessonType } from "../../domain/models/types/lessons";
 import theme from "../../styles/theme";
 
-export function getLessonColor(lessonType: LessonType, colorType: ColorType) {
+export function getLessonColor(lessonType: LessonType, colorType?: ColorType) {
   let color;
   switch (lessonType) {
     case "SPEAKING":
@@ -34,25 +34,29 @@ export function getLessonColor(lessonType: LessonType, colorType: ColorType) {
       return color?.main;
     case "DARK":
       return color?.dark;
+    case "BACKGROUND":
+      return color?.background;
+    case "ON_MAIN":
+      return color?.onMain;
     default:
-      return "#ffffff";
+      return color?.main;
   }
 }
 
 export function getLessonName(lessonType: LessonType) {
   switch (lessonType) {
     case "SPEAKING":
-      return i18n?.t("studying.speaking");
+      return i18next?.t("studying.speaking");
     case "PRONUNCIATION":
-      return i18n?.t("studying.pronunciation");
+      return i18next?.t("studying.pronunciation");
     case "VOCABULARY":
-      return i18n?.t("studying.vocabulary");
+      return i18next?.t("studying.vocabulary");
     case "GRAMMAR":
-      return i18n?.t("studying.grammar");
+      return i18next?.t("studying.grammar");
     case "READING":
-      return i18n?.t("studying.reading");
+      return i18next?.t("studying.reading");
     case "LISTENING":
-      return i18n?.t("studying.listening");
+      return i18next?.t("studying.listening");
     default:
       return "";
   }

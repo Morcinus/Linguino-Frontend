@@ -1,18 +1,26 @@
 import axios from "axios";
+import { parseQueryParams } from "util/functions/api";
 
-import { CategoryLessons } from "../../domain/models/dtos/api/categoryLessons";
 import { Lesson, LessonType } from "../../domain/models/types/lessons";
 import { Modify } from "../../domain/models/utils/modify";
-import { FetchHook, SWRHook } from "./API";
+import { FetchHook } from "./API";
 import useAPI from "./hooks/useAPI";
 
-const LessonAPI = {
+export interface LessonsParams {
+  type?: LessonType;
+  categoryId?: ID;
+}
+
+const LessonsAPI = {
   URI: "lessons",
 
-  useLessons(lessonType: LessonType): SWRHook<Array<CategoryLessons>> {
-    return useAPI(
-      `${this.URI}?lessonType=${lessonType}&group=category&sort=+learningOrder`
+  useLessons(
+    params: LessonsParams
+  ): Modify<FetchHook<Array<Lesson>>, { lessons: Array<Lesson> }> {
+    const { data, ...rest } = useAPI<Array<Lesson>>(
+      `${this.URI}?${parseQueryParams(params)}`
     );
+    return { lessons: data, ...rest };
   },
 
   async updateLesson(lesson: Lesson): Promise<Lesson> {
@@ -25,4 +33,4 @@ const LessonAPI = {
   },
 };
 
-export default LessonAPI;
+export default LessonsAPI;

@@ -8,7 +8,7 @@ import { Button, Card, CardContent, Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 import { optimisticMutationOption } from "../../../infrastructure/api/API";
-import LessonAPI from "../../../infrastructure/api/LessonAPI";
+import LessonsAPI from "../../../infrastructure/api/LessonsAPI";
 import FavoriteButton from "../../atoms/FavoriteButton/FavoriteButton";
 import VisibilityButton from "../../atoms/VisibilityButton/VisibilityButton";
 import YouTubeVideoEmbed from "../../atoms/YouTubeVideoEmbed/YouTubeVideoEmbed";
@@ -19,7 +19,7 @@ export interface ILessonCard {
 
 const LessonCard: React.FC<ILessonCard> = ({ lessonId }) => {
   const maxDescriptionLength = 250;
-  const { lesson, mutate } = LessonAPI.useLesson(lessonId);
+  const { lesson, mutate } = LessonsAPI.useLesson(lessonId);
   const [open, setOpen] = useState(false);
   const { t } = useTranslation("common");
 
@@ -28,7 +28,7 @@ const LessonCard: React.FC<ILessonCard> = ({ lessonId }) => {
       ...lesson,
       favorite: !lesson.favorite,
     };
-    mutate(LessonAPI.updateLesson(data), optimisticMutationOption(data));
+    mutate(LessonsAPI.updateLesson(data), optimisticMutationOption(data));
   }
 
   function handleVisibleChange() {
@@ -36,7 +36,7 @@ const LessonCard: React.FC<ILessonCard> = ({ lessonId }) => {
       ...lesson,
       visible: !lesson.visible,
     };
-    mutate(LessonAPI.updateLesson(data), optimisticMutationOption(data));
+    mutate(LessonsAPI.updateLesson(data), optimisticMutationOption(data));
   }
 
   return (

@@ -1,37 +1,32 @@
-import * as MUIcon from "@mui/icons-material";
-import { Fab } from "@mui/material";
+import theme from "styles/theme";
 
-import { LessonType } from "../../../domain/models/types/lessons";
+import { Fab, Icon, useMediaQuery } from "@mui/material";
+
 import { useTranslation } from "../../../i18n/client";
-import { getLessonColor } from "../../../util/functions/lessons";
+import { BOTTOM_NAV_BAR_HEIGHT } from "../navigation/main-navigation-bars/BottomNavigationBar/BottomNavigationBar";
 
 export interface ILessonFab {
-  icon?: keyof typeof MUIcon;
-  lessonType: LessonType;
+  icon?: string;
   onClick?: () => void;
 }
 
-const LessonFab: React.FC<ILessonFab> = ({ icon, lessonType, onClick }) => {
+const LessonFab: React.FC<ILessonFab> = ({ icon, onClick }) => {
   const { t } = useTranslation("cs", "common");
-  const Icon = icon && MUIcon[icon];
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <Fab
       variant="extended"
+      color="primary"
       sx={{
         position: "fixed",
         right: 16,
-        bottom: 16,
-        backgroundColor: getLessonColor(lessonType, "MAIN"),
-        color: getLessonColor(lessonType, "ON_MAIN"),
-        "&:hover": {
-          backgroundColor: getLessonColor(lessonType, "LIGHT"),
-        },
+        bottom: desktop ? 16 : `${16 + BOTTOM_NAV_BAR_HEIGHT}`,
       }}
       onClick={onClick}
     >
       {t("study")}
-      {Icon && <Icon sx={{ ml: 1 }} />}
+      <Icon sx={{ ml: 1 }}>{icon}</Icon>
     </Fab>
   );
 };

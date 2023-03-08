@@ -9,7 +9,7 @@ import { primaryNavigation } from "../../config";
 
 export interface IBottomNavigationBar {}
 
-export const BOTTOM_NAV_BAR_HEIGHT = "56px";
+export const BOTTOM_NAV_BAR_HEIGHT = 56;
 
 const BottomNavigationBar: React.FC<IBottomNavigationBar> = () => {
   const [value, setValue] = useState(0);
@@ -23,7 +23,7 @@ const BottomNavigationBar: React.FC<IBottomNavigationBar> = () => {
         bottom: 0,
         left: 0,
         width: "100%",
-        height: BOTTOM_NAV_BAR_HEIGHT,
+        height: `${BOTTOM_NAV_BAR_HEIGHT}px`,
       }}
     >
       <BottomNavigation

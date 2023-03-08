@@ -29,7 +29,7 @@ const ContentContainer: React.FC<IContentContainer> = ({ children }) => {
         pt: 3,
         minHeight: "100vh",
         pl: desktop ? SIDE_NAV_BAR_WIDTH : undefined,
-        pb: !desktop ? BOTTOM_NAV_BAR_HEIGHT : undefined,
+        pb: !desktop ? `${BOTTOM_NAV_BAR_HEIGHT}px` : undefined,
       }}
     >
       <Container
