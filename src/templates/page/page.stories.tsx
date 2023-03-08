@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
+import Layout from "./layout";
 import BaseTemplate, { IBaseTemplate } from "./page";
 import { mockBaseTemplateProps } from "./page.mocks";
 
@@ -12,7 +13,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof BaseTemplate> = (args) => (
-  <BaseTemplate {...args} />
+  <Layout>
+    <BaseTemplate {...args} />
+  </Layout>
 );
 
 export const Base = Template.bind({});
