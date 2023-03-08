@@ -74,5 +74,14 @@
     "Středně pokročilý B2",
     "Pokročilý C1",
     "Pokročilý C2"
-  ]
+  ],
+
+  "lessons": {
+    "speaking": "Lekce mluvení",
+    "pronunciation": "Lekce výslovnosti",
+    "vocabulary": "Lekce slovíček",
+    "grammar": "Lekce gramatiky",
+    "reading": "Lekce čtení",
+    "listening": "Lekce poslechu"
+  }
 }

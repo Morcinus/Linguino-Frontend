@@ -6,6 +6,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { Box } from "@mui/system";
 
 export interface INavigationBar {
   leftIconButton?: {
@@ -36,21 +37,24 @@ const NavigationBar: React.FC<INavigationBar & AppBarProps> = ({
       <Toolbar
         sx={{
           display: "flex",
-          justifyContent:
-            !leftIconButton && !rightIconButton ? "center" : "space-between",
+          justifyContent: "space-between",
         }}
       >
-        {leftIconButton && (
-          <IconButton onClick={leftIconButton.onClick}>
-            <Icon>{leftIconButton.icon}</Icon>
-          </IconButton>
-        )}
+        <Box>
+          {leftIconButton && (
+            <IconButton onClick={leftIconButton.onClick}>
+              <Icon>{leftIconButton.icon}</Icon>
+            </IconButton>
+          )}
+        </Box>
         <Typography variant="subtitle1">{header}</Typography>
-        {rightIconButton && (
-          <IconButton onClick={rightIconButton.onClick}>
-            <Icon>{rightIconButton.icon}</Icon>
-          </IconButton>
-        )}
+        <Box>
+          {rightIconButton && (
+            <IconButton onClick={rightIconButton.onClick}>
+              <Icon>{rightIconButton.icon}</Icon>
+            </IconButton>
+          )}
+        </Box>
       </Toolbar>
     </AppBar>
   );
