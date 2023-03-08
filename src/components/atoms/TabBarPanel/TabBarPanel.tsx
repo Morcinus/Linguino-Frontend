@@ -55,6 +55,9 @@ const TabBarPanel: React.FC<ITabBarPanel> = ({
                       backgroundColor: "primary.main",
                       borderRadius: 1,
                     },
+                    minWidth: "fit-content",
+                    maxWidth: "100%",
+                    flex: 1,
                   }}
                 />
               );

@@ -33,7 +33,7 @@ const ContentContainer: React.FC<IContentContainer> = ({ children }) => {
       }}
     >
       <Container
-        maxWidth="lg"
+        maxWidth="md"
         sx={{ justifyContent: "center", display: "flex" }}
       >
         {children}

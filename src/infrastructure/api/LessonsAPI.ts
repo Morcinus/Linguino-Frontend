@@ -9,6 +9,7 @@ import useAPI from "./hooks/useAPI";
 export interface LessonsParams {
   type?: LessonType;
   categoryId?: ID;
+  favorite?: boolean;
 }
 
 const LessonsAPI = {
