@@ -1,3 +1,5 @@
+const path = require("path");
+
 /**
  * The doc doesn't really mention using webpack.config.js, but .storybook/main.js instead.
  *
@@ -30,6 +32,11 @@ module.exports = async ({ config, mode }) => {
     ...config.resolve.alias,
     "next-i18next": "react-i18next",
   };
+
+  config.resolve.modules = [
+    path.resolve(__dirname, "..", "src"),
+    "node_modules",
+  ];
 
   return config;
 };
