@@ -9,6 +9,7 @@ import { Box, CssBaseline, Toolbar, useMediaQuery } from "@mui/material";
 import DrawerContainer from "../drawer/DrawerContainer/DrawerContainer";
 import BottomNavigationBar from "../main-navigation-bars/BottomNavigationBar/BottomNavigationBar";
 import SideNavigationBar from "../main-navigation-bars/SideNavigationBar/SideNavigationBar";
+import BackNavigationBar from "../top-navigation-bars/BackNavigationBar/BackNavigationBar";
 import DefaultNavigationBar from "../top-navigation-bars/DefaultNavigationBar/DefaultNavigationBar";
 import LessonsNavigationBar from "../top-navigation-bars/LessonsNavigationBar/LessonsNavigationBar";
 import UnauthenticatedNavigationBar from "../top-navigation-bars/UnauthenticatedNavigationBar/UnauthenticatedNavigationBar";
@@ -26,6 +27,8 @@ const Navigation: React.FC<INavigation> = () => {
     switch (pathname) {
       case "/lessons":
         return <DrawerContainer child={{ component: LessonsNavigationBar }} />;
+      case "/favorites":
+        return <BackNavigationBar header="favorites" />;
       default:
         return <DrawerContainer child={{ component: DefaultNavigationBar }} />;
     }

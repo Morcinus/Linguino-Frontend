@@ -18,6 +18,7 @@ const icons: Record<string, string> = {
   listening: "headphones",
 
   next: "navigate_next",
+  back: "navigate_before",
 };
 
 export default icons;
