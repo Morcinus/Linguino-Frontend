@@ -26,6 +26,7 @@ const SideNavigationBar: React.FC<ISideNavigationBar> = () => {
         position: "fixed",
         left: 0,
         top: 0,
+        backgroundColor: "background.paper",
       }}
     >
       <Tabs
