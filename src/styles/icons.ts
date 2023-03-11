@@ -19,6 +19,9 @@ const icons: Record<string, string> = {
 
   next: "navigate_next",
   back: "navigate_before",
+  close: "close",
+
+  coins: "toll",
 };
 
 export default icons;

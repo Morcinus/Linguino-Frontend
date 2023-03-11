@@ -7,4 +7,5 @@ export interface User {
   completedDailyGoal?: boolean;
   streak?: number;
   selectedCourse: Course;
+  balance?: number;
 }

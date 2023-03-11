@@ -18,6 +18,7 @@ export default function AuthDecorator(Story: Story) {
       },
       username: "Pepa Okurka",
       streak: 42,
+      balance: 999,
       completedDailyGoal: true,
     },
     login: () => console.log("login"),

@@ -12,6 +12,7 @@ import SideNavigationBar from "../main-navigation-bars/SideNavigationBar/SideNav
 import BackNavigationBar from "../top-navigation-bars/BackNavigationBar/BackNavigationBar";
 import DefaultNavigationBar from "../top-navigation-bars/DefaultNavigationBar/DefaultNavigationBar";
 import LessonsNavigationBar from "../top-navigation-bars/LessonsNavigationBar/LessonsNavigationBar";
+import ShopNavigationBar from "../top-navigation-bars/ShopNavigationBar/ShopNavigationBar";
 import UnauthenticatedNavigationBar from "../top-navigation-bars/UnauthenticatedNavigationBar/UnauthenticatedNavigationBar";
 
 export interface INavigation {}
@@ -27,6 +28,8 @@ const Navigation: React.FC<INavigation> = () => {
     switch (pathname) {
       case "/lessons":
         return <DrawerContainer child={{ component: LessonsNavigationBar }} />;
+      case "/shop":
+        return <DrawerContainer child={{ component: ShopNavigationBar }} />;
       case "/favorites":
         return <BackNavigationBar header="favorites" />;
       default:

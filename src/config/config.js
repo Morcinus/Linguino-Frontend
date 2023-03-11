@@ -30,6 +30,22 @@ const config = {
       name: "levels.5",
     },
   ],
+
+  // TODO fetchnout ze serveru a uložit do globálního contextu?
+  shopCategories: [
+    {
+      id: "0",
+      name: "shop.categories.0",
+    },
+    {
+      id: "1",
+      name: "shop.categories.1",
+    },
+    {
+      id: "2",
+      name: "shop.categories.2",
+    },
+  ],
 };
 
 module.exports = config;

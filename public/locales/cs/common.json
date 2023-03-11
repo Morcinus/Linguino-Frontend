@@ -83,5 +83,14 @@
     "grammar": "Lekce gramatiky",
     "reading": "Lekce čtení",
     "listening": "Lekce poslechu"
+  },
+
+  "shop": {
+    "buy": "Koupit",
+    "equip": "Zapnout",
+    "unequip": "Vypnout",
+    "categories": ["Motivy", "Položky", "Postavy"],
+    "bought": "koupeno",
+    "equipped": "zapnuto"
   }
 }
