@@ -22,6 +22,9 @@ const icons: Record<string, string> = {
   close: "close",
 
   coins: "toll",
+
+  follow: "person_add_outlined",
+  unfollow: "person_remove_outlined",
 };
 
 export default icons;

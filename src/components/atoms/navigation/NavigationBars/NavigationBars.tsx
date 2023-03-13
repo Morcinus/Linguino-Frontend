@@ -25,6 +25,8 @@ const Navigation: React.FC<INavigation> = () => {
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function renderNavBar(pathname: string) {
+    if (/\/users\/.*\/followers/.test(pathname)) return <BackNavigationBar />;
+
     switch (pathname) {
       case "/lessons":
         return <DrawerContainer child={{ component: LessonsNavigationBar }} />;

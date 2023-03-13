@@ -64,7 +64,10 @@
     "help": "Nápověda",
     "bugReport": "Nahlášení chyby",
     "settings": "Nastavení",
-    "logout": "Odhlásit"
+    "logout": "Odhlásit",
+
+    "followers": "Sledující",
+    "following": "Sleduji"
   },
 
   "levels": [

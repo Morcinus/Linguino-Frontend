@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
 
 export interface IBackNavigationBar {
-  header: string;
+  header?: string;
 }
 
 const BackNavigationBar: React.FC<IBackNavigationBar> = ({ header }) => {
@@ -14,7 +14,7 @@ const BackNavigationBar: React.FC<IBackNavigationBar> = ({ header }) => {
   const router = useRouter();
   return (
     <NavigationBar
-      header={t(`navigation.${header}`)}
+      header={header ? t(`navigation.${header}`) : undefined}
       leftIconButton={{
         icon: icons.back,
         onClick: () => {

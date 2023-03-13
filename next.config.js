@@ -3,7 +3,8 @@ const { i18n } = require("./next-i18next.config");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n,
+  // Had to be turned off otherwise dynamic segments don't work
+  // i18n,
   experimental: {
     appDir: true,
   },

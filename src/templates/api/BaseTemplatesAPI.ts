@@ -11,7 +11,7 @@ const BaseTemplatesAPI = {
   URI: "base-templates",
 
   useBaseTemplates(
-    params: BaseTemplateParams
+    params: BaseTemplateParams = {}
   ): Modify<
     FetchHook<Array<BaseTemplate>>,
     { baseTemplates: Array<BaseTemplate> }
