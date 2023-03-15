@@ -41,7 +41,8 @@
     "my-profile": "Můj profil",
     "logout": "Odhlásit",
     "readMore": "Zobrazit více",
-    "readLess": "Zobrazit méně"
+    "readLess": "Zobrazit méně",
+    "submit": "Odeslat"
   },
 
   "calendar": {
@@ -95,5 +96,10 @@
     "categories": ["Motivy", "Položky", "Postavy"],
     "bought": "koupeno",
     "equipped": "zapnuto"
+  },
+
+  "feedback": {
+    "header": "Našli jste chybu? Něco vám nevyhovuje? Máte nápad na zlepšení? Dejte nám vědět! Každou zprávu si čteme :)",
+    "thanks": "Děkujeme za zpětnou vazbu!"
   }
 }

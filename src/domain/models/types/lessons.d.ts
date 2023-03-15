@@ -18,4 +18,24 @@ export interface Lesson {
   description?: string;
   favorite: boolean;
   visible: boolean;
+  feedback: Feedback;
+  background?: Background;
+}
+
+export type Feedback = {
+  state?: FeedbackState;
+  textFeedback?: string;
+};
+
+export type FeedbackState = "LIKED" | "DISLIKED" | null;
+
+export type Background = ImageBackground | GradientBackground;
+
+export interface ImageBackground {
+  imageURL: string;
+}
+
+export interface GradientBackground {
+  // Any valid CSS "background" gradient property
+  gradient: string;
 }

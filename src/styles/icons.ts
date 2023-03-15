@@ -25,6 +25,9 @@ const icons: Record<string, string> = {
 
   follow: "person_add_outlined",
   unfollow: "person_remove_outlined",
+
+  like: "thumb_up",
+  dislike: "thumb_down",
 };
 
 export default icons;

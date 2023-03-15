@@ -1,4 +1,9 @@
-import { LessonType } from "../lessons";
+import {
+  Background,
+  GradientBackground,
+  ImageBackground,
+  LessonType,
+} from "../lessons";
 
 export function isLessonType(
   lesson: string | null | undefined
@@ -11,4 +16,16 @@ export function isLessonType(
     lesson === "PRONUNCIATION" ||
     lesson === "READING"
   );
+}
+
+export function isImageBackground(
+  background: Background
+): background is ImageBackground {
+  return (background as ImageBackground).imageURL !== undefined;
+}
+
+export function isGradientBackground(
+  background: Background
+): background is GradientBackground {
+  return (background as GradientBackground).gradient !== undefined;
 }

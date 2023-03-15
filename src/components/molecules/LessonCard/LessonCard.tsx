@@ -1,43 +1,31 @@
-import { useState } from "react";
+import { Lesson } from "domain/models/types/lessons";
+import { useTranslation } from "i18n/client";
 
-import { useTranslation } from "next-i18next";
+import { useState } from "react";
 
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button, Card, CardContent, Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import { optimisticMutationOption } from "../../../infrastructure/api/API";
-import LessonsAPI from "../../../infrastructure/api/LessonsAPI";
 import FavoriteButton from "../../atoms/FavoriteButton/FavoriteButton";
 import VisibilityButton from "../../atoms/VisibilityButton/VisibilityButton";
 import YouTubeVideoEmbed from "../../atoms/YouTubeVideoEmbed/YouTubeVideoEmbed";
 
 export interface ILessonCard {
-  lessonId: string;
+  lesson: Lesson;
+  onFavoriteChange: (value: boolean) => void;
+  onVisibleChange: (value: boolean) => void;
 }
 
-const LessonCard: React.FC<ILessonCard> = ({ lessonId }) => {
+const LessonCard: React.FC<ILessonCard> = ({
+  lesson,
+  onVisibleChange,
+  onFavoriteChange,
+}) => {
   const maxDescriptionLength = 250;
-  const { lesson, mutate } = LessonsAPI.useLesson(lessonId);
   const [open, setOpen] = useState(false);
-  const { t } = useTranslation("common");
-
-  function handleFavoriteChange() {
-    const data = {
-      ...lesson,
-      favorite: !lesson.favorite,
-    };
-    mutate(LessonsAPI.updateLesson(data), optimisticMutationOption(data));
-  }
-
-  function handleVisibleChange() {
-    const data = {
-      ...lesson,
-      visible: !lesson.visible,
-    };
-    mutate(LessonsAPI.updateLesson(data), optimisticMutationOption(data));
-  }
+  const { t } = useTranslation("cs", "common");
 
   return (
     <Card>
@@ -49,11 +37,11 @@ const LessonCard: React.FC<ILessonCard> = ({ lessonId }) => {
             </Typography>
             <VisibilityButton
               active={lesson?.visible}
-              onClick={handleVisibleChange}
+              onClick={() => onVisibleChange(!lesson.visible)}
             />
             <FavoriteButton
               active={lesson?.favorite}
-              onClick={handleFavoriteChange}
+              onClick={() => onFavoriteChange(!lesson.favorite)}
             />
           </Box>
           <Divider />
