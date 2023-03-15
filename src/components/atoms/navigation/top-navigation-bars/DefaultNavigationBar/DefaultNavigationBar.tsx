@@ -4,10 +4,13 @@ import NavigationBar from "components/atoms/navigation/top-navigation-bars/Navig
 
 import { IDrawerController } from "../../drawer/DrawerContainer/DrawerContainer";
 
-export interface IDefaultNavigationBar extends IDrawerController {}
+export interface IDefaultNavigationBar extends IDrawerController {
+  header?: string;
+}
 
 const DefaultNavigationBar: React.FC<IDefaultNavigationBar> = ({
   onDrawerOpen,
+  header,
 }) => {
   return (
     <NavigationBar
@@ -16,6 +19,7 @@ const DefaultNavigationBar: React.FC<IDefaultNavigationBar> = ({
         onClick: onDrawerOpen,
       }}
       color="neutral"
+      header={header}
     />
   );
 };

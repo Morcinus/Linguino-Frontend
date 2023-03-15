@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import LessonsList from "components/atoms/LessonsList/LessonsList";
+import LinkCardList from "components/atoms/LinkCardList/LinkCardList";
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 
 import { LessonType } from "../../../domain/models/types/lessons";
@@ -32,7 +32,19 @@ const LessonsOverview: React.FC<ILessonsOverview> = ({ lessonType }) => {
           <TabBarPanel
             onChange={(value) => setValue(value)}
             tabs={categories}
-            panelContent={lessons && <LessonsList lessons={lessons} />}
+            panelContent={
+              lessons && (
+                <LinkCardList
+                  links={lessons.map((lesson) => {
+                    return {
+                      id: lesson.id,
+                      name: lesson.name,
+                      url: `/lessons/${lesson.id}`,
+                    };
+                  })}
+                />
+              )
+            }
             value={value}
           />
         </Box>

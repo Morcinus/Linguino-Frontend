@@ -1,4 +1,5 @@
 import config from "config/config";
+import { useTranslation } from "i18n/client";
 import useAuth from "infrastructure/services/AuthProvider";
 import theme from "styles/theme";
 
@@ -20,12 +21,24 @@ export interface INavigation {}
 const Navigation: React.FC<INavigation> = () => {
   const { user } = useAuth();
 
+  const { t } = useTranslation("cs", "common");
+
   const pathname = usePathname();
 
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function renderNavBar(pathname: string) {
     if (/\/users\/.*\/followers/.test(pathname)) return <BackNavigationBar />;
+    if (/^\/help\//.test(pathname)) return <BackNavigationBar />;
+    if (/^\/help/.test(pathname))
+      return (
+        <DrawerContainer
+          child={{
+            component: DefaultNavigationBar,
+            props: { header: t("navigation.help") },
+          }}
+        />
+      );
 
     switch (pathname) {
       case "/lessons":

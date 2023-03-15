@@ -1,40 +1,35 @@
-import { ILessonsList } from "./LessonsList";
+import { ILinkCardList } from "./LinkCardList";
 
-const base: ILessonsList = {
-  lessons: [
+const base: ILinkCardList = {
+  links: [
     {
       id: "fsaklnkjdsafdasf",
-      favorite: false,
       name: "Lorem ipsum 1",
-      visible: true,
+      url: "lessons/1",
     },
     {
       id: "daggfafgfafddsaf",
-      favorite: false,
       name: "Lorem ipsum 2",
-      visible: true,
+      url: "lessons/2",
     },
     {
       id: "fsdaffgbnhdnff",
-      favorite: false,
       name: "Lorem ipsum 3",
-      visible: true,
+      url: "lessons/3",
     },
     {
       id: "ngsgdbdshsghsgh",
-      favorite: false,
       name: "Lorem ipsum 4",
-      visible: true,
+      url: "lessons/4",
     },
     {
       id: "sghsgdshdhhsdhsd",
-      favorite: false,
       name: "Lorem ipsum 5",
-      visible: true,
+      url: "lessons/5",
     },
   ],
 };
 
-export const mockLessonsListProps = {
+export const mockLinkCardListProps = {
   base,
 };

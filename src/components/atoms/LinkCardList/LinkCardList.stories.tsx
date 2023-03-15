@@ -1,23 +1,23 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import LessonsList, { ILessonsList } from "./LessonsList";
-import { mockLessonsListProps } from "./LessonsList.mocks";
+import LinkCardList, { ILinkCardList } from "./LinkCardList";
+import { mockLinkCardListProps } from "./LinkCardList.mocks";
 
 export default {
-  title: "atoms/LessonsList",
-  component: LessonsList,
+  title: "atoms/LinkCardList",
+  component: LinkCardList,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} as ComponentMeta<typeof LessonsList>;
+} as ComponentMeta<typeof LinkCardList>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof LessonsList> = (args) => (
-  <LessonsList {...args} />
+const Template: ComponentStory<typeof LinkCardList> = (args) => (
+  <LinkCardList {...args} />
 );
 
 export const Base = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 Base.args = {
-  ...mockLessonsListProps.base,
-} as ILessonsList;
+  ...mockLinkCardListProps.base,
+} as ILinkCardList;

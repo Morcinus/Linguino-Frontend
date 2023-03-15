@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import LessonsList from "components/atoms/LessonsList/LessonsList";
+import LinkCardList from "components/atoms/LinkCardList/LinkCardList";
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 import VocabularyList from "components/atoms/VocabularyList/VocabularyList";
 
@@ -39,7 +39,17 @@ const FavoritesOverview: React.FC<IFavoritesOverview> = () => {
         ]}
         panelContent={
           value === "lessons"
-            ? lessons && <LessonsList lessons={lessons} />
+            ? lessons && (
+                <LinkCardList
+                  links={lessons.map((lesson) => {
+                    return {
+                      id: lesson.id,
+                      name: lesson.name,
+                      url: `/lessons/${lesson.id}`,
+                    };
+                  })}
+                />
+              )
             : value === "vocabulary"
             ? vocabulary && <VocabularyList vocabulary={vocabulary} />
             : undefined
