@@ -16,6 +16,8 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 
+import OutlinedIcon from "../OutlinedIcon/OutlinedIcon";
+
 export interface IFeedbackCard {
   onFeedbackChange: (value: Feedback) => void;
   feedback: Feedback;
@@ -42,28 +44,20 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
           <IconButton
             onClick={() => onFeedbackChange({ ...feedback, state: "LIKED" })}
           >
-            <Icon
-              baseClassName={
-                feedback.state !== "LIKED"
-                  ? "material-icons-outlined"
-                  : undefined
-              }
-            >
-              {icons.like}
-            </Icon>
+            {feedback.state === "LIKED" ? (
+              <Icon>{icons.like}</Icon>
+            ) : (
+              <OutlinedIcon>{icons.like}</OutlinedIcon>
+            )}
           </IconButton>
           <IconButton
             onClick={() => onFeedbackChange({ ...feedback, state: "DISLIKED" })}
           >
-            <Icon
-              baseClassName={
-                feedback.state !== "DISLIKED"
-                  ? "material-icons-outlined"
-                  : undefined
-              }
-            >
-              {icons.dislike}
-            </Icon>
+            {feedback.state === "DISLIKED" ? (
+              <Icon>{icons.dislike}</Icon>
+            ) : (
+              <OutlinedIcon>{icons.dislike}</OutlinedIcon>
+            )}
           </IconButton>
         </Box>
         {feedback.state === "DISLIKED" && !feedback.textFeedback && (
