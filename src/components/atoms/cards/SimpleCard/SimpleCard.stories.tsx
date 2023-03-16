@@ -4,7 +4,7 @@ import SimpleCard, { ISimpleCard } from "./SimpleCard";
 import { mockSimpleCardProps } from "./SimpleCard.mocks";
 
 export default {
-  title: "atoms/SimpleCard",
+  title: "atoms/cards/SimpleCard",
   component: SimpleCard,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

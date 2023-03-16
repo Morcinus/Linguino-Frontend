@@ -11,9 +11,9 @@ import {
 
 import { Box, Toolbar } from "@mui/material";
 
+import LessonItemCard from "components/atoms/cards/LessonItemCard/LessonItemCard";
 import LevelProgressBar from "components/atoms/LevelProgressBar/LevelProgressBar";
 import ExampleSentenceList from "components/atoms/lists/ExampleSentenceList/ExampleSentenceList";
-import LessonItemCard from "components/molecules/LessonItemCard/LessonItemCard";
 
 export interface ILessonItemPage {
   params: {

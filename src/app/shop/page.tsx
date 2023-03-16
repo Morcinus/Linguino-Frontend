@@ -15,8 +15,8 @@ import { useState } from "react";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
+import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import Popup, { IPopup } from "components/atoms/Popup/Popup";
-import SimpleCard from "components/atoms/SimpleCard/SimpleCard";
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
 

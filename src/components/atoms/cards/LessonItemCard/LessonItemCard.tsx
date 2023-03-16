@@ -6,8 +6,8 @@ import { Box } from "@mui/system";
 import ListenIconButton from "components/atoms/ListenIconButton/ListenIconButton";
 import MarkdownText from "components/atoms/MarkdownText/MarkdownText";
 
-import FavoriteButton from "../../atoms/FavoriteButton/FavoriteButton";
-import VisibilityButton from "../../atoms/VisibilityButton/VisibilityButton";
+import FavoriteButton from "../../FavoriteButton/FavoriteButton";
+import VisibilityButton from "../../VisibilityButton/VisibilityButton";
 
 export interface ILessonItemCard {
   lessonItem: LessonItem;

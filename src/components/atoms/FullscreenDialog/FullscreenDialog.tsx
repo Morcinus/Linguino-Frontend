@@ -3,8 +3,8 @@ import { ReactNode } from "react";
 import { Box, Button, Typography } from "@mui/material";
 
 import FullWidthButton from "../FullWidthButton/FullWidthButton";
-import ImageCard from "../ImageCard/ImageCard";
 import KeyPress from "../KeyPress/KeyPress";
+import ImageCard from "../cards/ImageCard/ImageCard";
 
 export interface IFullscreenDialog {
   header1?: string;

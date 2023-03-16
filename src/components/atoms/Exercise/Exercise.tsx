@@ -9,8 +9,8 @@ import { QuestionAnswer } from "../../../domain/models/types/questionAnswers";
 import { UserAnswer } from "../../../domain/models/types/questionAttempts";
 import theme from "../../../styles/theme";
 import FullWidthButton from "../FullWidthButton/FullWidthButton";
-import ImageCard from "../ImageCard/ImageCard";
 import KeyPress from "../KeyPress/KeyPress";
+import ImageCard from "../cards/ImageCard/ImageCard";
 
 export interface IExercise {
   assignmentTitle?: string;

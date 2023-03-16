@@ -1,23 +1,23 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import FeedbackCard, { IFeedbackCard } from "./FeedbackCard";
-import { mockFeedbackCardProps } from "./FeedbackCard.mocks";
+import LessonCard, { ILessonCard } from "./LessonCard";
+import { mockLessonCardProps } from "./LessonCard.mocks";
 
 export default {
-  title: "atoms/FeedbackCard",
-  component: FeedbackCard,
+  title: "atoms/cards/LessonCard",
+  component: LessonCard,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} as ComponentMeta<typeof FeedbackCard>;
+} as ComponentMeta<typeof LessonCard>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof FeedbackCard> = (args) => (
-  <FeedbackCard {...args} />
+const Template: ComponentStory<typeof LessonCard> = (args) => (
+  <LessonCard {...args} />
 );
 
 export const Base = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 Base.args = {
-  ...mockFeedbackCardProps.base,
-} as IFeedbackCard;
+  ...mockLessonCardProps.base,
+} as ILessonCard;

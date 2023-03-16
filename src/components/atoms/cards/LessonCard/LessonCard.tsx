@@ -8,9 +8,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button, Card, CardContent, Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import FavoriteButton from "../../atoms/FavoriteButton/FavoriteButton";
-import VisibilityButton from "../../atoms/VisibilityButton/VisibilityButton";
-import YouTubeVideoEmbed from "../../atoms/YouTubeVideoEmbed/YouTubeVideoEmbed";
+import FavoriteButton from "../../FavoriteButton/FavoriteButton";
+import VisibilityButton from "../../VisibilityButton/VisibilityButton";
+import YouTubeVideoEmbed from "../../YouTubeVideoEmbed/YouTubeVideoEmbed";
 
 export interface ILessonCard {
   lesson: Lesson;

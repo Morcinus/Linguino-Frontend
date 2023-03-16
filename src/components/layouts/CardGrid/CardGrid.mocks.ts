@@ -1,6 +1,6 @@
 import { action } from "@storybook/addon-actions";
 
-import SimpleCard from "components/atoms/SimpleCard/SimpleCard";
+import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 
 import { ICardGrid } from "./CardGrid";
 

@@ -12,9 +12,9 @@ import {
 import { Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 
-import FeedbackCard from "components/atoms/FeedbackCard/FeedbackCard";
+import FeedbackCard from "components/atoms/cards/FeedbackCard/FeedbackCard";
+import LessonCard from "components/atoms/cards/LessonCard/LessonCard";
 import LessonItemList from "components/atoms/lists/LessonItemList/LessonItemList";
-import LessonCard from "components/molecules/LessonCard/LessonCard";
 
 export interface ILessonPage {
   params: {

@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 
-import OutlinedIcon from "../OutlinedIcon/OutlinedIcon";
+import OutlinedIcon from "../../OutlinedIcon/OutlinedIcon";
 
 export interface IFeedbackCard {
   onFeedbackChange: (value: Feedback) => void;
