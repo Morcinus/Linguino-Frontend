@@ -30,6 +30,9 @@ const icons: Record<string, string> = {
   dislike: "thumb_down",
 
   sound: "volume_up",
+
+  starFilled: "star",
+  star: "star_border",
 };
 
 export default icons;

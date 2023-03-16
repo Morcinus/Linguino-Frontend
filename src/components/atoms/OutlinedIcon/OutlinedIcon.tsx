@@ -1,13 +1,17 @@
 import { ReactNode } from "react";
 
-import { Icon } from "@mui/material";
+import { Icon, IconProps } from "@mui/material";
 
 export interface IOutlinedIcon {
   children: ReactNode;
 }
 
-const OutlinedIcon: React.FC<IOutlinedIcon> = ({ children }) => {
-  return <Icon baseClassName="material-icons-outlined">{children}</Icon>;
+const OutlinedIcon: React.FC<IOutlinedIcon & IconProps> = (props) => {
+  return (
+    <Icon baseClassName="material-icons-outlined" {...props}>
+      {props.children}
+    </Icon>
+  );
 };
 
 export default OutlinedIcon;

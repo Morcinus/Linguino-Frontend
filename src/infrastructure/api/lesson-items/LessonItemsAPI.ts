@@ -1,5 +1,5 @@
 import { Modify } from "domain/models/utils/modify";
-import { FetchHook } from "infrastructure/api/API";
+import API, { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 import { parseQueryParams } from "util/functions/api";
 
@@ -26,6 +26,10 @@ const LessonItemsAPI = {
       `${this.URI}?${parseQueryParams(params)}`
     );
     return { lessonItems: data, ...rest };
+  },
+
+  async updateLessonItem(lessonItem: Partial<LessonItem>): Promise<LessonItem> {
+    return API.put(`${this.URI}/${lessonItem.id}`, lessonItem);
   },
 };
 
