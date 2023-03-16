@@ -1,5 +1,5 @@
-import { Feedback } from "domain/models/types/lessons";
 import { useTranslation } from "i18n/client";
+import { Feedback } from "infrastructure/api/lessons/Lessons";
 import { useSnackbar } from "notistack";
 import icons from "styles/icons";
 

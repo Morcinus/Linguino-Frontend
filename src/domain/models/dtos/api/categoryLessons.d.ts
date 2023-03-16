@@ -1,5 +1,6 @@
+import { Lesson } from "infrastructure/api/lessons/Lessons";
+
 import { Category } from "../../types/category";
-import { Lesson } from "../../types/lessons";
 
 export interface CategoryLessons {
   category: Category;

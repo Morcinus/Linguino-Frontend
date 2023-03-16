@@ -1,12 +1,12 @@
 import { ResponsivePie } from "@nivo/pie";
 import { BasicTooltip } from "@nivo/tooltip";
+import { LessonType } from "infrastructure/api/lessons/Lessons";
 
 import Link from "next/link";
 
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { IconButton } from "@mui/material";
 
-import { LessonType } from "../../domain/models/types/lessons";
 import DashboardAPI from "../../infrastructure/api/DashboardAPI";
 import { getLessonColor, getLessonName } from "../../util/functions/lessons";
 

@@ -1,7 +1,7 @@
 import i18next from "i18next";
+import { LessonType } from "infrastructure/api/lessons/Lessons";
 
 import { ColorType } from "../../domain/models/types/colors";
-import { LessonType } from "../../domain/models/types/lessons";
 import theme from "../../styles/theme";
 
 export function getLessonColor(lessonType: LessonType, colorType?: ColorType) {

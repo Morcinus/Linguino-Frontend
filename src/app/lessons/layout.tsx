@@ -4,7 +4,7 @@ import ContentContainer from "components/layouts/ContentContainer/ContentContain
 import { useRouter, useSearchParams } from 'next/navigation';
 import icons from "styles/icons";
 import LessonFab from "../../components/atoms/LessonFab/LessonFab";
-import { isLessonType } from "../../domain/models/types/guards/lessonGuard";
+import { isLessonType } from "../../infrastructure/api/lessons/LessonsGuard";
 
 export interface ILayout {
   children: React.ReactNode;

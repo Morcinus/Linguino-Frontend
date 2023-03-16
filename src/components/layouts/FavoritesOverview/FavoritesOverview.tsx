@@ -1,4 +1,5 @@
 import VocabularyAPI from "infrastructure/api/VocabularyAPI";
+import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
 
 import React, { useState } from "react";
 
@@ -10,7 +11,6 @@ import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 import VocabularyList from "components/atoms/VocabularyList/VocabularyList";
 
 import { useTranslation } from "../../../i18n/client";
-import LessonsAPI from "../../../infrastructure/api/LessonsAPI";
 
 export interface IFavoritesOverview {}
 

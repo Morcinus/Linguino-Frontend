@@ -1,7 +1,7 @@
 "use client"
 
+import { LessonType } from "infrastructure/api/lessons/Lessons";
 import LessonsOverview from "../../components/layouts/LessonsOverview/LessonsOverview";
-import { LessonType } from "../../domain/models/types/lessons";
 
 export interface ILessonsPage {
   searchParams: {

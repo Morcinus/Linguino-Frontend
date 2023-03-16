@@ -1,4 +1,6 @@
 import { categories } from "config/config";
+import { LessonType } from "infrastructure/api/lessons/Lessons";
+import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
 
 import React, { useState } from "react";
 
@@ -8,9 +10,7 @@ import { Box } from "@mui/system";
 import LinkCardList from "components/atoms/LinkCardList/LinkCardList";
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 
-import { LessonType } from "../../../domain/models/types/lessons";
 import { useTranslation } from "../../../i18n/client";
-import LessonsAPI from "../../../infrastructure/api/LessonsAPI";
 
 export interface ILessonsOverview {
   lessonType: LessonType;

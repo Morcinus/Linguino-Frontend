@@ -1,4 +1,4 @@
-import { Category } from "./category";
+import { Category } from "domain/models/types/category";
 
 export type LessonType =
   | "VOCABULARY"

@@ -2,8 +2,8 @@ import {
   Background,
   GradientBackground,
   ImageBackground,
-  LessonType,
-} from "../lessons";
+  LessonType
+} from "./Lessons";
 
 export function isLessonType(
   lesson: string | null | undefined

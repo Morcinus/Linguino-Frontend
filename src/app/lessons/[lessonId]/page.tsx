@@ -1,19 +1,19 @@
 // prettier-ignore
 "use client"
 
+import { optimisticMutationOption } from "infrastructure/api/API";
 import {
   isGradientBackground,
   isImageBackground
-} from "domain/models/types/guards/lessonGuard";
-import { Background, Feedback } from "domain/models/types/lessons";
-import { optimisticMutationOption } from "infrastructure/api/API";
-import LessonsAPI from "infrastructure/api/LessonsAPI";
+} from "infrastructure/api/lessons/LessonsGuard";
 
 import { Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 
 import FeedbackCard from "components/atoms/FeedbackCard/FeedbackCard";
 import LessonCard from "components/molecules/LessonCard/LessonCard";
+import { Background, Feedback } from "infrastructure/api/lessons/Lessons";
+import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
 
 export interface ILessonPage {
   params: {
