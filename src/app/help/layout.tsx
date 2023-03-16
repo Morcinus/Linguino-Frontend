@@ -1,3 +1,4 @@
+// prettier-ignore
 "use client"
 
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";

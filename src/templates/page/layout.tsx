@@ -1,3 +1,4 @@
+// prettier-ignore
 "use client"
 
 export interface ILayout {

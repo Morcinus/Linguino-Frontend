@@ -1,4 +1,5 @@
-"use client"
+// prettier-ignore
+"use client";
 
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";
 import { useRouter, useSearchParams } from 'next/navigation';

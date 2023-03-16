@@ -1,5 +1,5 @@
+// prettier-ignore
 "use client"
-
 
 export interface ILayout {
   children: React.ReactNode;
