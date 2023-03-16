@@ -4,7 +4,7 @@
 import ArticlesAPI from "infrastructure/api/articles/ArticlesAPI";
 
 import { Box } from "@mui/material";
-import LinkCardList from "components/atoms/LinkCardList/LinkCardList";
+import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
 
 export interface IHelpArticlesPage {
   params: {

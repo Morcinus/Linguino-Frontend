@@ -2,7 +2,7 @@
 "use client"
 
 import { Box } from "@mui/material";
-import LinkCardList from "components/atoms/LinkCardList/LinkCardList";
+import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
 import ArticleCategoriesAPI from "infrastructure/api/article-categories/ArticleCategoriesAPI";
 
 

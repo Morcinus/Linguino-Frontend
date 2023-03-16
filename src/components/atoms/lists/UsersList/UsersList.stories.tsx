@@ -1,23 +1,23 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import VocabularyList, { IVocabularyList } from "./VocabularyList";
-import { mockVocabularyListProps } from "./VocabularyList.mocks";
+import UsersList, { IUsersList } from "./UsersList";
+import { mockUsersListProps } from "./UsersList.mocks";
 
 export default {
-  title: "templates/VocabularyList",
-  component: VocabularyList,
+  title: "atoms/lists/UsersList",
+  component: UsersList,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} as ComponentMeta<typeof VocabularyList>;
+} as ComponentMeta<typeof UsersList>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof VocabularyList> = (args) => (
-  <VocabularyList {...args} />
+const Template: ComponentStory<typeof UsersList> = (args) => (
+  <UsersList {...args} />
 );
 
 export const Base = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 Base.args = {
-  ...mockVocabularyListProps.base,
-} as IVocabularyList;
+  ...mockUsersListProps.base,
+} as IUsersList;

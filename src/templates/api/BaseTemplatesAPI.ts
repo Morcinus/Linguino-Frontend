@@ -10,6 +10,13 @@ export interface BaseTemplateParams {}
 const BaseTemplatesAPI = {
   URI: "base-templates",
 
+  useBaseTemplate(
+    id: ID
+  ): Modify<FetchHook<BaseTemplate>, { baseTemplate: BaseTemplate }> {
+    const { data, ...rest } = useAPI<BaseTemplate>(`${this.URI}/${id}`);
+    return { baseTemplate: data, ...rest };
+  },
+
   useBaseTemplates(
     params: BaseTemplateParams = {}
   ): Modify<

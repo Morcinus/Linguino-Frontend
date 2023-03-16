@@ -7,8 +7,8 @@ import React, { useState } from "react";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import LinkCardList from "components/atoms/LinkCardList/LinkCardList";
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
+import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
 
 import { useTranslation } from "../../../i18n/client";
 

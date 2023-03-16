@@ -1,4 +1,4 @@
-import VocabularyAPI from "infrastructure/api/VocabularyAPI";
+import LessonItemsAPI from "infrastructure/api/lesson-items/LessonItemsAPI";
 import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
 
 import React, { useState } from "react";
@@ -6,9 +6,9 @@ import React, { useState } from "react";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import LinkCardList from "components/atoms/LinkCardList/LinkCardList";
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
-import VocabularyList from "components/atoms/VocabularyList/VocabularyList";
+import LessonItemList from "components/atoms/lists/LessonItemList/LessonItemList";
+import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
 
 import { useTranslation } from "../../../i18n/client";
 
@@ -19,7 +19,7 @@ const FavoritesOverview: React.FC<IFavoritesOverview> = () => {
   const { lessons } = LessonsAPI.useLessons({
     favorite: true,
   });
-  const { vocabulary } = VocabularyAPI.useVocabulary({ favorite: true });
+  const { lessonItems } = LessonItemsAPI.useLessonItems({ favorite: true });
   const { t } = useTranslation("cs", "common");
 
   return (
@@ -51,7 +51,7 @@ const FavoritesOverview: React.FC<IFavoritesOverview> = () => {
                 />
               )
             : value === "vocabulary"
-            ? vocabulary && <VocabularyList vocabulary={vocabulary} />
+            ? lessonItems && <LessonItemList lessonItems={lessonItems} />
             : undefined
         }
         value={value}

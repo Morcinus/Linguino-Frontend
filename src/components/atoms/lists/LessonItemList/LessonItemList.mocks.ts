@@ -1,7 +1,7 @@
-import { IVocabularyList } from "./VocabularyList";
+import { ILessonItemList } from "./LessonItemList";
 
-const base: IVocabularyList = {
-  vocabulary: [
+const base: ILessonItemList = {
+  lessonItems: [
     {
       id: "sldfajnsajfldfsaaljd",
       nameL1: "jablko",
@@ -35,6 +35,6 @@ const base: IVocabularyList = {
   ],
 };
 
-export const mockVocabularyListProps = {
+export const mockLessonItemListProps = {
   base,
 };

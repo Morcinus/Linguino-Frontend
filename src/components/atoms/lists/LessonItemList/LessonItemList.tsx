@@ -1,4 +1,4 @@
-import { Vocabulary } from "domain/models/types/vocabulary";
+import { LessonItem } from "infrastructure/api/lesson-items/LessonItems";
 import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
@@ -14,26 +14,26 @@ import {
 
 import CardList from "../CardList/CardList";
 
-export interface IVocabularyList {
-  vocabulary: Array<Vocabulary>;
+export interface ILessonItemList {
+  lessonItems: Array<LessonItem>;
 }
 
-const VocabularyList: React.FC<IVocabularyList> = ({ vocabulary }) => {
+const LessonItemList: React.FC<ILessonItemList> = ({ lessonItems }) => {
   const router = useRouter();
 
   return (
     <CardList>
-      {vocabulary.map((word) => {
+      {lessonItems.map((item) => {
         return (
-          <ListItem key={word.id}>
+          <ListItem key={item.id}>
             <ListItemButton
               component="a"
-              onClick={() => router.push(`/vocabulary/${word.id}`)}
+              onClick={() => router.push(`/lessonItems/${item.id}`)}
             >
               <ListItemAvatar>
-                <Avatar src={word.imageURL} variant="rounded" />
+                <Avatar src={item.imageURL} variant="rounded" />
               </ListItemAvatar>
-              <ListItemText primary={word.nameL2} secondary={word.nameL1} />
+              <ListItemText primary={item.nameL2} secondary={item.nameL1} />
               <Icon>{icons.next}</Icon>
             </ListItemButton>
           </ListItem>
@@ -43,4 +43,4 @@ const VocabularyList: React.FC<IVocabularyList> = ({ vocabulary }) => {
   );
 };
 
-export default VocabularyList;
+export default LessonItemList;

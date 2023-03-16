@@ -10,7 +10,7 @@ import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
-import UsersList from "components/atoms/UsersList/UsersList";
+import UsersList from "components/atoms/lists/UsersList/UsersList";
 
 export interface IFollowersOverview {
   userId: ID;

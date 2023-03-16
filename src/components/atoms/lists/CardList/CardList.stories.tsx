@@ -1,23 +1,23 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import LinkCardList, { ILinkCardList } from "./LinkCardList";
-import { mockLinkCardListProps } from "./LinkCardList.mocks";
+import CardList, { ICardList } from "./CardList";
+import { mockCardListProps } from "./CardList.mocks";
 
 export default {
-  title: "atoms/LinkCardList",
-  component: LinkCardList,
+  title: "atoms/lists/CardList",
+  component: CardList,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} as ComponentMeta<typeof LinkCardList>;
+} as ComponentMeta<typeof CardList>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof LinkCardList> = (args) => (
-  <LinkCardList {...args} />
+const Template: ComponentStory<typeof CardList> = (args) => (
+  <CardList {...args} />
 );
 
 export const Base = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 Base.args = {
-  ...mockLinkCardListProps.base,
-} as ILinkCardList;
+  ...mockCardListProps.base,
+} as ICardList;
