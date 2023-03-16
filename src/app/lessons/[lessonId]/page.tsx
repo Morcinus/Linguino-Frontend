@@ -2,6 +2,8 @@
 "use client"
 
 import { optimisticMutationOption } from "infrastructure/api/API";
+import { Background, Feedback } from "infrastructure/api/lessons/Lessons";
+import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
 import {
   isGradientBackground,
   isImageBackground
@@ -11,9 +13,8 @@ import { Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 
 import FeedbackCard from "components/atoms/FeedbackCard/FeedbackCard";
+import LessonItemList from "components/atoms/lists/LessonItemList/LessonItemList";
 import LessonCard from "components/molecules/LessonCard/LessonCard";
-import { Background, Feedback } from "infrastructure/api/lessons/Lessons";
-import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
 
 export interface ILessonPage {
   params: {
@@ -56,7 +57,7 @@ const LessonPage: React.FC<ILessonPage> = ({ params }) => {
         backgroundImage: `url("${background.imageURL}")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        backgroundPosition: "center center"
+        backgroundPosition: "center center",
       };
     }
 
@@ -96,6 +97,7 @@ const LessonPage: React.FC<ILessonPage> = ({ params }) => {
               onFavoriteChange={handleFavoriteChange}
               onVisibleChange={handleVisibleChange}
             />
+            {lesson.items && <LessonItemList lessonItems={lesson.items} />}
             <FeedbackCard
               feedback={lesson.feedback}
               onFeedbackChange={handleFeedbackChange}

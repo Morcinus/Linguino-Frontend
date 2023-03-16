@@ -28,6 +28,8 @@ const icons: Record<string, string> = {
 
   like: "thumb_up",
   dislike: "thumb_down",
+
+  sound: "volume_up",
 };
 
 export default icons;

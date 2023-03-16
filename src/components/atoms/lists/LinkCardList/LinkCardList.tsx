@@ -2,7 +2,14 @@ import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
 
-import { Icon, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import {
+  Avatar,
+  Icon,
+  ListItem,
+  ListItemAvatar,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
 
 import CardList from "../CardList/CardList";
 
@@ -10,6 +17,8 @@ export interface ListItem {
   id: ID;
   url: string;
   name: string;
+  secondaryName?: string;
+  imageURL?: string;
 }
 
 export interface ILinkCardList {
@@ -25,7 +34,15 @@ const LinkCardList: React.FC<ILinkCardList> = ({ links }) => {
         return (
           <ListItem key={link.id}>
             <ListItemButton component="a" onClick={() => router.push(link.url)}>
-              <ListItemText primary={link.name} />
+              {link.imageURL && (
+                <ListItemAvatar>
+                  <Avatar src={link.imageURL} variant="rounded" />
+                </ListItemAvatar>
+              )}
+              <ListItemText
+                primary={link.name}
+                secondary={link.secondaryName ?? undefined}
+              />
               <Icon>{icons.next}</Icon>
             </ListItemButton>
           </ListItem>

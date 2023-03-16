@@ -7,7 +7,6 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
-import LessonItemList from "components/atoms/lists/LessonItemList/LessonItemList";
 import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
 
 import { useTranslation } from "../../../i18n/client";
@@ -51,7 +50,19 @@ const FavoritesOverview: React.FC<IFavoritesOverview> = () => {
                 />
               )
             : value === "vocabulary"
-            ? lessonItems && <LessonItemList lessonItems={lessonItems} />
+            ? lessonItems && (
+                <LinkCardList
+                  links={lessonItems.map((item) => {
+                    return {
+                      id: item.id,
+                      name: item.nameL2,
+                      secondaryName: item.nameL1,
+                      url: `/lesson-items/${item.id}`,
+                      imageURL: item.imageURL,
+                    };
+                  })}
+                />
+              )
             : undefined
         }
         value={value}

@@ -1,16 +1,16 @@
 import { LessonItem } from "infrastructure/api/lesson-items/LessonItems";
-import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
 
 import {
   Avatar,
-  Icon,
   ListItem,
   ListItemAvatar,
   ListItemButton,
   ListItemText,
 } from "@mui/material";
+
+import ListenIconButton from "components/atoms/ListenIconButton/ListenIconButton";
 
 import CardList from "../CardList/CardList";
 
@@ -25,16 +25,23 @@ const LessonItemList: React.FC<ILessonItemList> = ({ lessonItems }) => {
     <CardList>
       {lessonItems.map((item) => {
         return (
-          <ListItem key={item.id}>
+          <ListItem
+            key={item.id}
+            secondaryAction={
+              item.audioURL ? (
+                <ListenIconButton audioLink={item.audioURL} />
+              ) : undefined
+            }
+            sx={{ pr: 2 }}
+          >
             <ListItemButton
               component="a"
-              onClick={() => router.push(`/lessonItems/${item.id}`)}
+              onClick={() => router.push(`/lesson-items/${item.id}`)}
             >
               <ListItemAvatar>
                 <Avatar src={item.imageURL} variant="rounded" />
               </ListItemAvatar>
               <ListItemText primary={item.nameL2} secondary={item.nameL1} />
-              <Icon>{icons.next}</Icon>
             </ListItemButton>
           </ListItem>
         );

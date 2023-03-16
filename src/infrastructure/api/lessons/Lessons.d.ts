@@ -20,6 +20,7 @@ export interface Lesson {
   visible: boolean;
   feedback: Feedback;
   background?: Background;
+  items?: Array<LessonItem>;
 }
 
 export type Feedback = {
