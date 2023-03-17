@@ -102,5 +102,28 @@
   "feedback": {
     "header": "Našli jste chybu? Něco vám nevyhovuje? Máte nápad na zlepšení? Dejte nám vědět! Každou zprávu si čteme :)",
     "thanks": "Děkujeme za zpětnou vazbu!"
+  },
+
+  "subscription": {
+    "current": "Momentální odběr",
+    "nextPayment": "Další platba",
+    "cancel": "Odhlásit odběr",
+    "whyUnsubscribe": "Proč rušíte odběr?",
+    "continue": "Pokračovat",
+    "unsubscribeReasons": [
+      "Stačí mi aplikace zdarma",
+      "Je to moc drahé",
+      "Nepoužívám funkce premium"
+    ],
+    "keep": "Ponechání premium",
+    "keepPremium": "Ponechat premium",
+    "confirmCancellation": "Potvrdit zrušení",
+    "youWontHaveAccessToThese": "Po zrušení ztratíte přístup k těmto funkcím",
+    "premiumFeatures": [
+      "Žádné reklamy",
+      "Pokročilá slovní zásoba",
+      "Vytváření vlastních lekcí"
+    ],
+    "successfullyUnsubscibed": "Odběr byl úspěšně zrušen."
   }
 }

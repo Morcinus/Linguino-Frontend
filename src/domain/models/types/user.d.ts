@@ -8,4 +8,5 @@ export interface User {
   streak?: number;
   selectedCourse: Course;
   balance?: number;
+  currentSubscriptionId?: ID;
 }

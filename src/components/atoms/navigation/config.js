@@ -34,6 +34,6 @@ export const primaryNavigation = [
   {
     label: "navigation.premium",
     icon: <OfflineBoltOutlinedIcon />,
-    path: "/premium",
+    path: "/subscription",
   },
 ];
