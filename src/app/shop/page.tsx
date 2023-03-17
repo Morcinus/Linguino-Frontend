@@ -91,7 +91,7 @@ const ShopPage: React.FC<IShopPage> = () => {
                     onClick: () => {
                       const buyPopupProps = {
                         displayCloseButton: true,
-                        text: `${item.price}`,
+                        subheader: `${item.price}`,
                         imageURL: item.imageURL,
                         primaryAction: {
                           text: t("shop.buy"),

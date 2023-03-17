@@ -17,6 +17,7 @@ import {
 
 export interface IPopup {
   header?: string;
+  subheader?: string;
   text?: string;
   imageURL?: string;
   primaryAction?: {
@@ -34,6 +35,7 @@ export interface IPopup {
 
 const Popup: React.FC<IPopup> = ({
   header,
+  subheader,
   text,
   imageURL,
   primaryAction,
@@ -73,8 +75,15 @@ const Popup: React.FC<IPopup> = ({
         {imageURL && (
           <Image src={imageURL} alt="image" width={180} height={180} />
         )}
-        <DialogContentText>
-          <Typography variant="subtitle2">{text}</Typography>
+        <DialogContentText
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <Typography variant="subtitle2">{subheader}</Typography>
+          <Typography variant="body1">{text}</Typography>
         </DialogContentText>
       </DialogContent>
       <DialogActions sx={{ display: "flex", justifyContent: "space-around" }}>

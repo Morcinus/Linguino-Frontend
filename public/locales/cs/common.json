@@ -125,5 +125,14 @@
       "Vytváření vlastních lekcí"
     ],
     "successfullyUnsubscibed": "Odběr byl úspěšně zrušen."
+  },
+
+  "challenges": {
+    "monthlyChallenge": "Měsíční výzva"
+  },
+
+  "achievements": {
+    "achievements": "Ocenění",
+    "collectReward": "Sebrat odměnu"
   }
 }

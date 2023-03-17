@@ -48,6 +48,17 @@ const Navigation: React.FC<INavigation> = () => {
         return <DrawerContainer child={{ component: ShopNavigationBar }} />;
       case "/favorites":
         return <BackNavigationBar header="favorites" />;
+      case "/challenges":
+        return (
+          <DrawerContainer
+            child={{
+              component: DefaultNavigationBar,
+              props: {
+                header: t("navigation.challenges"),
+              },
+            }}
+          />
+        );
       default:
         return <DrawerContainer child={{ component: DefaultNavigationBar }} />;
     }
