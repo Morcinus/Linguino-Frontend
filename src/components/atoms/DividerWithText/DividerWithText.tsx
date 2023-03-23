@@ -2,12 +2,12 @@ import { Divider, Typography, TypographyVariant } from "@mui/material";
 
 export interface IDividerWithText {
   text: string;
-  variant: TypographyVariant;
+  variant?: TypographyVariant;
 }
 
 const DividerWithText: React.FC<IDividerWithText> = ({ text, variant }) => {
   return (
-    <Divider sx={{ mb: 3 }}>
+    <Divider>
       <Typography variant={variant}>{text}</Typography>
     </Divider>
   );

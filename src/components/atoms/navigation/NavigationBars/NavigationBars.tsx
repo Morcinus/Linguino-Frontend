@@ -59,6 +59,17 @@ const Navigation: React.FC<INavigation> = () => {
             }}
           />
         );
+      case "/feed":
+        return (
+          <DrawerContainer
+            child={{
+              component: DefaultNavigationBar,
+              props: {
+                header: t("navigation.feed"),
+              },
+            }}
+          />
+        );
       default:
         return <DrawerContainer child={{ component: DefaultNavigationBar }} />;
     }
