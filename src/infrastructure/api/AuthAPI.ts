@@ -75,6 +75,13 @@ const AuthAPI = {
   async resetPassword(data: { email: string }): Promise<void> {
     return axios.post("/resetPassword", data);
   },
+
+  async changePassword(data: {
+    password: string;
+    resetToken: string;
+  }): Promise<void> {
+    return axios.post("/changePassword", data);
+  },
 };
 
 export default AuthAPI;

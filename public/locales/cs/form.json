@@ -25,12 +25,21 @@
     "invalid-email-address": "Neplatná emailová adresa!",
     "wrong-email-or-password": "Zadali jste nesprávný email nebo heslo.",
     "username-taken": "Toto jméno už někdo používá!",
-    "email-taken": "Tento email už někdo používá!"
+    "email-taken": "Tento email už někdo používá!",
+    "passwords-dont-match": "Hesla se musí shodovat!"
   },
   "forgotPassword": {
     "title": "Obnova hesla",
     "reset": "Obnovit heslo",
     "passwordSent": "Email odeslán!",
     "passwordSentDescription": "Odeslali jsme Vám email s odkazem pro změnu hesla."
+  },
+  "changePassword": {
+    "title": "Změnit heslo",
+    "newPassword": "Nové heslo",
+    "reenterPassword": "Heslo znovu",
+    "changePassword": "Změnit heslo",
+    "passwordChanged": "Heslo změněno",
+    "login": "Přihlásit"
   }
 }
