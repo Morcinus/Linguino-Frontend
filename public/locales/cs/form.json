@@ -26,5 +26,11 @@
     "wrong-email-or-password": "Zadali jste nesprávný email nebo heslo.",
     "username-taken": "Toto jméno už někdo používá!",
     "email-taken": "Tento email už někdo používá!"
+  },
+  "forgotPassword": {
+    "title": "Obnova hesla",
+    "reset": "Obnovit heslo",
+    "passwordSent": "Email odeslán!",
+    "passwordSentDescription": "Odeslali jsme Vám email s odkazem pro změnu hesla."
   }
 }

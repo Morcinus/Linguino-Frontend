@@ -71,6 +71,10 @@ const AuthAPI = {
       return LocalStorageManager.getUser();
     } else return Promise.reject("No user found.");
   },
+
+  async resetPassword(data: { email: string }): Promise<void> {
+    return axios.post("/resetPassword", data);
+  },
 };
 
 export default AuthAPI;

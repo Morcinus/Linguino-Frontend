@@ -3,13 +3,18 @@ import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
 
+import { AppBarProps } from "@mui/material";
+
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
 
 export interface IBackNavigationBar {
   header?: string;
 }
 
-const BackNavigationBar: React.FC<IBackNavigationBar> = ({ header }) => {
+const BackNavigationBar: React.FC<IBackNavigationBar & AppBarProps> = ({
+  header,
+  ...rest
+}) => {
   const { t } = useTranslation("cs", "common");
   const router = useRouter();
   return (
@@ -22,6 +27,7 @@ const BackNavigationBar: React.FC<IBackNavigationBar> = ({ header }) => {
         },
       }}
       color="neutral"
+      {...rest}
     />
   );
 };

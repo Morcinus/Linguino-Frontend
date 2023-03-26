@@ -41,10 +41,12 @@ const Navigation: React.FC<INavigation> = () => {
     if (/^\/lesson-items\//.test(pathname)) return <BackNavigationBar />;
 
     switch (pathname) {
-      case "login":
+      case "/login":
         return <></>;
-      case "signup":
+      case "/signup":
         return <></>;
+      case "/forgot-password":
+        return <BackNavigationBar color="transparent" />;
       case "/lessons":
         return <DrawerContainer child={{ component: LessonsNavigationBar }} />;
       case "/shop":
