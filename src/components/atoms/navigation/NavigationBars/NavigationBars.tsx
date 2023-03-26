@@ -14,7 +14,6 @@ import BackNavigationBar from "../top-navigation-bars/BackNavigationBar/BackNavi
 import DefaultNavigationBar from "../top-navigation-bars/DefaultNavigationBar/DefaultNavigationBar";
 import LessonsNavigationBar from "../top-navigation-bars/LessonsNavigationBar/LessonsNavigationBar";
 import ShopNavigationBar from "../top-navigation-bars/ShopNavigationBar/ShopNavigationBar";
-import UnauthenticatedNavigationBar from "../top-navigation-bars/UnauthenticatedNavigationBar/UnauthenticatedNavigationBar";
 
 export interface INavigation {}
 
@@ -42,6 +41,10 @@ const Navigation: React.FC<INavigation> = () => {
     if (/^\/lesson-items\//.test(pathname)) return <BackNavigationBar />;
 
     switch (pathname) {
+      case "login":
+        return <></>;
+      case "signup":
+        return <></>;
       case "/lessons":
         return <DrawerContainer child={{ component: LessonsNavigationBar }} />;
       case "/shop":
@@ -81,7 +84,7 @@ const Navigation: React.FC<INavigation> = () => {
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
 
-          {user ? renderNavBar(pathname) : <UnauthenticatedNavigationBar />}
+          {renderNavBar(pathname)}
 
           {user ? (
             desktop === true ? (

@@ -20,6 +20,11 @@ const theme = createTheme({
       fontFamily: "Poppins",
       fontWeight: "bold",
     },
+    h3: {
+      fontSize: 36,
+      fontFamily: "Poppins",
+      fontWeight: "bold",
+    },
   },
   palette: {
     primary: {

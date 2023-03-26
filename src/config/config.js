@@ -1,7 +1,8 @@
 const config = {
-  publicRoutes: ["/signup", "/login"],
   pagesWithoutToolbar: ["/study"],
   pagesWithoutContentContainer: ["/study"],
+  termsAndConditionsURL: "https://www.example.com",
+  privacyPolicyURL: "https://www.example.com",
 
   // TODO fetchnout ze serveru a uložit do globálního contextu
   categories: [

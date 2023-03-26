@@ -3,6 +3,7 @@
 
 import { Box } from "@mui/material";
 
+import ProtectedRoute from "components/layouts/authentication/ProtectedRoute/ProtectedRoute";
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";
 
 export interface ILayout {
@@ -11,9 +12,11 @@ export interface ILayout {
 
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
-    <ContentContainer>
-      <Box sx={{ pt: 8, width: "100%" }}>{children}</Box>
-    </ContentContainer>
+    <ProtectedRoute>
+      <ContentContainer>
+        <Box sx={{ pt: 8, width: "100%" }}>{children}</Box>
+      </ContentContainer>
+    </ProtectedRoute>
   );
 };
 

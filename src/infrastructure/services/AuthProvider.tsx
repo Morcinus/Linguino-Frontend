@@ -1,3 +1,4 @@
+import errorCodes from "infrastructure/api/error-codes";
 import { useSnackbar } from "notistack";
 
 import {
@@ -11,11 +12,9 @@ import {
 
 import { usePathname, useRouter } from "next/navigation";
 
-import config from "../../config/config";
 import { User } from "../../domain/models/types/user";
 import { useTranslation } from "../../i18n/client";
 import AuthAPI from "../api/AuthAPI";
-import { LocalStorageManager } from "../repositories/LocalStorageManager";
 
 export interface AuthContextType {
   user?: User;
@@ -52,20 +51,22 @@ export function AuthProvider({
     // Reset error state
     if (errors) setError(() => []);
 
-    authCheck();
+    setInitialLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   useEffect(() => {
+    setLoading(true);
+
     AuthAPI.getCurrentUser()
       .then(async (user) => {
         setUser(user);
       })
       .finally(() => {
-        authCheck();
+        setLoading(false);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pathname]);
 
   function login(email: string, password: string) {
     setLoading(true);
@@ -100,36 +101,24 @@ export function AuthProvider({
   }
 
   function logout() {
+    setLoading(true);
     setError(() => []);
     AuthAPI.logout();
     setUser(undefined);
+    setLoading(false);
     router.push("/login");
-  }
-
-  function authCheck() {
-    if (
-      !user &&
-      pathname &&
-      !config.publicRoutes.includes(pathname) &&
-      !LocalStorageManager.userExists()
-    ) {
-      router.push("/login");
-      setInitialLoading(false);
-    } else {
-      setInitialLoading(false);
-    }
   }
 
   function handleError(error: string) {
     switch (error) {
-      case "WRONG_EMAIL_OR_PASSWORD":
-        setError((errors) => [...errors, "WRONG_EMAIL_OR_PASSWORD"]);
+      case errorCodes.wrongEmailOrPassword:
+        setError((errors) => [...errors, errorCodes.wrongEmailOrPassword]);
         break;
-      case "USERNAME_TAKEN":
-        setError((errors) => [...errors, "USERNAME_TAKEN"]);
+      case errorCodes.usernameTaken:
+        setError((errors) => [...errors, errorCodes.usernameTaken]);
         break;
-      case "EMAIL_ADDDRESS_TAKEN":
-        setError((errors) => [...errors, "EMAIL_ADDDRESS_TAKEN"]);
+      case errorCodes.emailAddressTaken:
+        setError((errors) => [...errors, errorCodes.emailAddressTaken]);
         break;
       default:
         enqueueSnackbar(t("general-error-message"), {

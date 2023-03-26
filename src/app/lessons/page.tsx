@@ -1,3 +1,4 @@
+// prettier-ignore
 "use client"
 
 import { LessonType } from "infrastructure/api/lessons/Lessons";
