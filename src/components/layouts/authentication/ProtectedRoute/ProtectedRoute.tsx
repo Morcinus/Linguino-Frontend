@@ -1,7 +1,7 @@
 import { useTranslation } from "i18n/client";
 import useAuth from "infrastructure/services/AuthProvider";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 import { usePathname, useRouter } from "next/navigation";
 
@@ -17,21 +17,37 @@ const ProtectedRoute: React.FC<IProtectedRoute> = ({ children }) => {
   const { t } = useTranslation("cs", "common");
   const pathname = usePathname();
 
-  if (loading) {
-    return <Typography>{t("loading")}</Typography>;
-  }
+  useEffect(() => {
+    if (
+      !loading &&
+      user &&
+      user?.accountInitialized !== true &&
+      pathname !== "/account-setup"
+    ) {
+      router.push("/account-setup");
+    }
+  }, [loading, user, pathname, router]);
 
-  if (!loading && !user) {
-    router.push("/login");
-    return <></>;
-  }
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/login");
+    }
+  }, [loading, user, router]);
 
-  if (pathname !== "/account-setup" && user?.accountInitialized !== true) {
-    router.push("/account-setup");
-    return <></>;
-  }
-
-  return <>{children}</>;
+  return (
+    <>
+      {loading ||
+      (!loading && !user) ||
+      (!loading &&
+        user &&
+        user?.accountInitialized !== true &&
+        pathname !== "/account-setup") ? (
+        <Typography>{t("loading")}</Typography>
+      ) : (
+        children
+      )}
+    </>
+  );
 };
 
 export default ProtectedRoute;

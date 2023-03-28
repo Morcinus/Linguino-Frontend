@@ -1,7 +1,7 @@
 import { useTranslation } from "i18n/client";
 import useAuth from "infrastructure/services/AuthProvider";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 import { useRouter } from "next/navigation";
 
@@ -18,16 +18,15 @@ const UnauthenticatedOnlyRoute: React.FC<IUnauthenticatedOnlyRoute> = ({
   const router = useRouter();
   const { t } = useTranslation("cs", "common");
 
-  if (loading) {
-    return <Typography>{t("loading")}</Typography>;
-  }
+  useEffect(() => {
+    if (!loading && user) {
+      router.push("/");
+    }
+  }, [loading, user, router]);
 
-  if (!loading && user) {
-    router.push("/");
-    return <></>;
-  }
-
-  return <>{children}</>;
+  return (
+    <>{loading || user ? <Typography>{t("loading")}</Typography> : children}</>
+  );
 };
 
 export default UnauthenticatedOnlyRoute;
