@@ -3,10 +3,7 @@ import errorCodes from "infrastructure/api/error-codes";
 import useAuth from "infrastructure/services/AuthProvider";
 import theme from "styles/theme";
 
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-
-import { useRouter } from "next/navigation";
 
 import { LoadingButton } from "@mui/lab";
 import {
@@ -33,18 +30,13 @@ const LoginForm: React.FC<ILoginForm> = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<InputTypes>();
-  const { login, loading, errors: authErrors, user } = useAuth();
+  const { login, loading, errors: authErrors } = useAuth();
   const { t } = useTranslation("cs", "form");
-  const router = useRouter();
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const onSubmit = (data: { email: string; password: string }) => {
     login(data.email, data.password);
   };
-
-  useEffect(() => {
-    if (user) router.push("/");
-  }, [user, router]);
 
   return (
     <Stack direction="column" justifyContent="center" spacing={2} sx={{ m: 3 }}>

@@ -3,7 +3,7 @@ import useAuth from "infrastructure/services/AuthProvider";
 
 import { ReactNode } from "react";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { Typography } from "@mui/material";
 
@@ -15,6 +15,7 @@ const ProtectedRoute: React.FC<IProtectedRoute> = ({ children }) => {
   const { user, loading } = useAuth();
   const router = useRouter();
   const { t } = useTranslation("cs", "common");
+  const pathname = usePathname();
 
   if (loading) {
     return <Typography>{t("loading")}</Typography>;
@@ -22,6 +23,11 @@ const ProtectedRoute: React.FC<IProtectedRoute> = ({ children }) => {
 
   if (!loading && !user) {
     router.push("/login");
+    return <></>;
+  }
+
+  if (pathname !== "/account-setup" && user?.accountInitialized !== true) {
+    router.push("/account-setup");
     return <></>;
   }
 

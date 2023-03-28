@@ -7,15 +7,16 @@ export interface ICardGrid {
     component: ElementType;
     props: ComponentProps<ElementType>;
   }>;
+  align?: "left" | "center";
 }
 
-const CardGrid: React.FC<ICardGrid> = ({ cards }) => {
+const CardGrid: React.FC<ICardGrid> = ({ cards, align = "center" }) => {
   return (
     <Box
       sx={{
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "center",
+        justifyContent: align,
       }}
     >
       {cards.map((card, i) => {

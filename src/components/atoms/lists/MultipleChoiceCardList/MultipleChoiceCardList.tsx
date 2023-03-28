@@ -6,6 +6,7 @@ import CardList from "../CardList/CardList";
 
 export interface Choice {
   name: string;
+  description?: string;
 }
 
 export interface IMultipleChoiceCardList {
@@ -38,7 +39,7 @@ const MultipleChoiceCardList: React.FC<IMultipleChoiceCardList> = ({
               }}
               onClick={() => onChange(i)}
             >
-              <ListItemText primary={item.name} />
+              <ListItemText primary={item.name} secondary={item.description} />
             </ListItemButton>
           </ListItem>
         );

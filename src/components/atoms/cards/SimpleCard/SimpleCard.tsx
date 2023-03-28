@@ -1,3 +1,5 @@
+import theme from "styles/theme";
+
 import {
   Card,
   CardActionArea,
@@ -13,6 +15,7 @@ export interface ISimpleCard {
   imageURL: string;
   onClick: () => void;
   highlightCard?: boolean;
+  highlightVariant?: "text" | "outlined";
 }
 
 const SimpleCard: React.FC<ISimpleCard> = ({
@@ -21,9 +24,19 @@ const SimpleCard: React.FC<ISimpleCard> = ({
   imageURL,
   onClick,
   highlightCard,
+  highlightVariant,
 }) => {
   return (
-    <Card sx={{ maxWidth: 150, maxHeight: 150 }}>
+    <Card
+      sx={{
+        maxWidth: 150,
+        maxHeight: 150,
+        outline:
+          highlightCard && highlightVariant === "outlined"
+            ? `4px solid ${theme.palette.primary.main}`
+            : undefined,
+      }}
+    >
       <CardActionArea
         sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
         onClick={onClick}

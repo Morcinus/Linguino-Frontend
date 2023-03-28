@@ -69,7 +69,9 @@
     "logout": "Odhlásit",
 
     "followers": "Sledující",
-    "following": "Sleduji"
+    "following": "Sleduji",
+
+    "continue": "Pokračovat"
   },
 
   "levels": [

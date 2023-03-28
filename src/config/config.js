@@ -1,5 +1,5 @@
 const config = {
-  pagesWithoutToolbar: ["/study"],
+  pagesWithoutToolbar: ["/study", "/account-setup"],
   pagesWithoutContentContainer: ["/study"],
   termsAndConditionsURL: "https://www.example.com",
   privacyPolicyURL: "https://www.example.com",

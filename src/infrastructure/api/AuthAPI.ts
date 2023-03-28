@@ -1,8 +1,8 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
-import { User } from "../../domain/models/types/user";
 import { LocalStorageManager } from "../repositories/LocalStorageManager";
+import { User } from "./users/Users";
 
 const AuthAPI = {
   signUp(data: {

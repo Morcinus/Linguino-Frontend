@@ -4,10 +4,7 @@ import errorCodes from "infrastructure/api/error-codes";
 import useAuth from "infrastructure/services/AuthProvider";
 import theme from "styles/theme";
 
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-
-import { useRouter } from "next/navigation";
 
 import LoadingButton from "@mui/lab/LoadingButton";
 import { FormHelperText, useMediaQuery } from "@mui/material";
@@ -36,10 +33,9 @@ const SignupForm: React.FC<ISignupForm> = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<InputTypes>();
-  const { signUp, loading, errors: authErrors, user } = useAuth();
+  const { signUp, loading, errors: authErrors } = useAuth();
   const { t } = useTranslation("cs", "form");
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
-  const router = useRouter();
 
   const onSubmit = (data: {
     username: string;
@@ -48,10 +44,6 @@ const SignupForm: React.FC<ISignupForm> = () => {
   }) => {
     signUp(data.username, data.email, data.password);
   };
-
-  useEffect(() => {
-    if (user) router.push("/");
-  }, [user, router]);
 
   return (
     <Stack direction="column" justifyContent="center" spacing={2} sx={{ m: 3 }}>

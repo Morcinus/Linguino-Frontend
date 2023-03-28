@@ -1,4 +1,6 @@
 import errorCodes from "infrastructure/api/error-codes";
+import { User } from "infrastructure/api/users/Users";
+import { LocalStorageManager } from "infrastructure/repositories/LocalStorageManager";
 import { useSnackbar } from "notistack";
 
 import {
@@ -12,7 +14,6 @@ import {
 
 import { usePathname, useRouter } from "next/navigation";
 
-import { User } from "../../domain/models/types/user";
 import { useTranslation } from "../../i18n/client";
 import AuthAPI from "../api/AuthAPI";
 
@@ -23,6 +24,7 @@ export interface AuthContextType {
   login: (email: string, password: string) => void;
   signUp: (username: string, email: string, password: string) => void;
   logout: () => void;
+  mutateUser: (userChange: Partial<User>) => void;
 }
 
 export const AuthContext = createContext<AuthContextType>(
@@ -92,7 +94,6 @@ export function AuthProvider({
     AuthAPI.signUp({ username, email, password })
       .then((user) => {
         setUser(user);
-        router.push("/");
       })
       .catch((res) => {
         handleError(res.response.data.error);
@@ -128,6 +129,15 @@ export function AuthProvider({
     }
   }
 
+  function mutateUser(userChange: Partial<User>) {
+    if (user) {
+      const newUser = { ...user, ...userChange };
+
+      setUser(newUser);
+      LocalStorageManager.setUser(newUser);
+    }
+  }
+
   const memoedValue = useMemo(
     () => ({
       user,
@@ -136,6 +146,7 @@ export function AuthProvider({
       login,
       signUp,
       logout,
+      mutateUser,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [user, loading, errors]

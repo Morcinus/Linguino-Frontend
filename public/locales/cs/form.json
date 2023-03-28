@@ -18,6 +18,7 @@
     "here": "zde",
     "forgot-password": "Zapomněli jste heslo?"
   },
+
   "error": {
     "agree-with-terms": "Musíte souhlasit s podmínkami!",
     "field-is-required": "Toto pole je povinné!",
@@ -28,12 +29,14 @@
     "email-taken": "Tento email už někdo používá!",
     "passwords-dont-match": "Hesla se musí shodovat!"
   },
+
   "forgotPassword": {
     "title": "Obnova hesla",
     "reset": "Obnovit heslo",
     "passwordSent": "Email odeslán!",
     "passwordSentDescription": "Odeslali jsme Vám email s odkazem pro změnu hesla."
   },
+
   "changePassword": {
     "title": "Změnit heslo",
     "newPassword": "Nové heslo",
@@ -41,5 +44,88 @@
     "changePassword": "Změnit heslo",
     "passwordChanged": "Heslo změněno",
     "login": "Přihlásit"
+  },
+
+  "accountSetup": {
+    "selectCourse": "Vyberte kurz",
+    "iSpeak": "Mluvím",
+    "language": "Jazyk",
+    "iWantToLearn": "Chci se naučit",
+
+    "selectTopic": "Vyberte si témata",
+    "selectTopicDescription": "Zde si můžete zvolit, která témata se chcete učit. Volbu můžete kdykoliv změnit v nastavení.",
+
+    "initialSurveyQuestion": "Jak jste se dozvěděli o této aplikaci?",
+    "initialSurveyOptions": {
+      "friendsOrFamily": "Přátelé / rodina",
+      "youtube": "YouTube",
+      "instagram": "Instagram",
+      "articles": "Články / blog",
+      "other": "ostatní"
+    },
+
+    "goalSelectTitle": "Vyberte si svůj denní cíl",
+    "goalSelectOptions": {
+      "casual": {
+        "name": "Ležérní",
+        "description": "~5 min / den"
+      },
+      "medium": {
+        "name": "Normální",
+        "description": "~10 min / den"
+      },
+      "dedicated": {
+        "name": "Oddaný",
+        "description": "~15 min / den"
+      },
+      "intense": {
+        "name": "Intenzivní",
+        "description": "~20 min / den"
+      }
+    },
+
+    "levelOptionsTitle": "Jaká je vaše (odhadovaná) úroveň?",
+    "levelOptions": {
+      "a1": {
+        "name": "A1 Úplný začátečník",
+        "description": "Rozumím jen základním slovům a frázím. Umím položit jednoduchou otázku a formulovat odpověď. Umím pomalu mluvit a sestavovat jednoduché věty."
+      },
+      "a2": {
+        "name": "A2 Začátečník",
+        "description": "Rozumím jen nejčastější slovní zásobě (rodina, práce, nakupování). Zvládnu přečíst krátkou zprávu, dokážu napsat jednoduchý text. Vést konverzaci je pro mě těžké."
+      },
+      "b1": {
+        "name": "B1 Mírně pokročilý",
+        "description": "Rozumím konverzacím a textům o tématech, která mi jsou blízká. Dokážu o těchto tématech konverzovat s občasnými chybami. Zvládnu vyjádřit svůj názor, plány, vyprávět jednoduchý příběh apod."
+      },
+      "b2": {
+        "name": "B2 Středně pokročilý",
+        "description": "Rozumím přednáškám, dokážu se podívat na film nebo přečíst knížku v angličtině. Dokážu se účastnit pokročilých konverzací o novinkách ve světě, životním prostředí apod. Zvládnu napsat dlouhé články a eseje o složitějších tématech, v nichž umím vyjádřit svůj názor a obhájit ho. V běžných konverzacích mluvím plynule a bez chyb."
+      },
+      "c1": {
+        "name": "C1 Pokročilý",
+        "description": "Rozumím dlouhým přednáškám a odborným textům. Dokážu se plynule a pohotově vyjadřovat. V konverzaci se nezasekávám. Zvládnu podrobně popisovat složitá nebo odborná témata. Dokážu napsat odborný článek nebo esej. Mám správnou výslovnost slov a vět bez silného přízvuku."
+      },
+      "c2": {
+        "name": "C2 Expert",
+        "description": "Nemám žádné potíže vést plynulé konverzace, psát složité texty, porozumět jakýmkoliv textům nebo mluvenému projevu. Orientuju se v hovorových výrazech a idiomech a umím je používat. Prakticky jediné, co mě dělí od rodilého mluvčího je slovní zásoba a lehký přízvuk."
+      }
+    },
+
+    "startOptionsTitle": "Vyberte si začátek",
+    "startOptions": {
+      "startFromZero": {
+        "name": "Začít od nuly",
+        "description": "Začnete od první lekce. Dobré pro začátečníky."
+      },
+      "takeTest": {
+        "name": "Test znalostí",
+        "description": "Udělejte si 5 minutový test, který určí vaší úroveň."
+      },
+      "selectLevel": {
+        "name": "Nastavte si vlastní úroveň",
+        "description": "Nastavte si vlastní úroveň angličtiny."
+      }
+    }
   }
 }

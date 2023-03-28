@@ -29,7 +29,9 @@ const BaseTemplatesAPI = {
     return { baseTemplates: data, ...rest };
   },
 
-  async createBaseTemplate(baseTemplate: BaseTemplate): Promise<BaseTemplate> {
+  async createBaseTemplate(
+    baseTemplate: Omit<BaseTemplate, "id">
+  ): Promise<BaseTemplate> {
     return API.post(`${this.URI}`, baseTemplate);
   },
 
