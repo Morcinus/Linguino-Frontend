@@ -1,0 +1,19 @@
+{
+  "artificialDelayMilliseconds": 700,
+  "keepExistingTerminalsOpen": false,
+  "runOnStartup": true,
+  "terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "client",
+          "commands": ["yarn install", "yarn dev"]
+        },
+        {
+          "name": "storybook",
+          "commands": ["yarn storybook"]
+        }
+      ]
+    }
+  ]
+}
