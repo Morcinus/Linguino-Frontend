@@ -6,12 +6,17 @@
     {
       "splitTerminals": [
         {
+          "name": "storybook",
+          "commands": ["yarn storybook"],
+          "shouldRunCommands": false
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
           "name": "client",
           "commands": ["yarn install", "yarn dev"]
-        },
-        {
-          "name": "storybook",
-          "commands": ["yarn storybook"]
         }
       ]
     }
