@@ -35,6 +35,8 @@ const icons: Record<string, string> = {
   star: "star_border",
 
   addReaction: "add_reaction",
+
+  add: "add"
 };
 
 export default icons;

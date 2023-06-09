@@ -62,6 +62,7 @@
     "lessons": "Lekce",
     "favorites": "Oblíbené",
     "myVocabulary": "Moje slovíčka",
+    "myCourses": "Moje kurzy",
     "courses": "Kurzy",
     "help": "Nápověda",
     "bugReport": "Nahlášení chyby",
@@ -72,6 +73,10 @@
     "following": "Sleduji",
 
     "continue": "Pokračovat"
+  },
+
+  "accountSetup": {
+    "selectCourse": "Vybrat kurz"
   },
 
   "levels": [

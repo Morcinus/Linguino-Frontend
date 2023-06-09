@@ -91,7 +91,7 @@ const SelectCourseForm: React.FC<ISelectCourseForm> = ({ onSubmit }) => {
         }}
         disabled={selectedCourseId === undefined}
       >
-        {tCommon("navigation.continue")}
+        {tCommon("accountSetup.selectCourse")}
         <Icon>{icons.next}</Icon>
       </FullWidthButton>
     </Box>

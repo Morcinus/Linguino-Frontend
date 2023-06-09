@@ -20,7 +20,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@mui/icons-material": "^5.8.4",
+    "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.94",
     "@mui/material": "^5.8.3",
     "@nivo/calendar": "^0.80.0",

@@ -4,7 +4,7 @@
 import { CourseTopic } from "infrastructure/api/courses/Courses";
 import { SurveyAnswer } from "infrastructure/api/survey-answers/SurveyAnswers";
 import SurveyAnswersAPI from "infrastructure/api/survey-answers/SurveyAnswersAPI";
-import CourseSettingsAPI from "infrastructure/api/users/course-settings/CourseSettingsAPI";
+import Courses from "infrastructure/api/users/courses/CoursesAPI";
 import UsersAPI from "infrastructure/api/users/UsersAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
@@ -52,7 +52,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
       if (!user) return;
 
       if (selectedTopics)
-        CourseSettingsAPI.createCourseSetting(user.id, {
+        Courses.createCourse(user.id, {
           selectedTopics: selectedTopics,
         });
 
