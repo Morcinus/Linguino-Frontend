@@ -36,11 +36,11 @@ const LessonCard: React.FC<ILessonCard> = ({
               {lesson?.name}
             </Typography>
             <VisibilityButton
-              active={lesson?.visible}
+              active={lesson?.visible || true}
               onClick={() => onVisibleChange(!lesson.visible)}
             />
             <FavoriteButton
-              active={lesson?.favorite}
+              active={lesson?.favorite || false}
               onClick={() => onFavoriteChange(!lesson.favorite)}
             />
           </Box>

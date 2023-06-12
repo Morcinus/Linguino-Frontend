@@ -16,11 +16,12 @@ export interface Lesson {
   learningOrder?: number;
   videoId?: string;
   description?: string;
-  favorite: boolean;
-  visible: boolean;
-  feedback: Feedback;
+  favorite?: boolean;
+  visible?: boolean;
+  feedback?: Feedback;
   background?: Background;
   items?: Array<LessonItem>;
+  author?: ID;
 }
 
 export type Feedback = {

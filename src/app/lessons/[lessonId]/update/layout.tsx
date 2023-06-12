@@ -6,12 +6,7 @@ export interface ILayout {
 }
 
 const Layout: React.FC<ILayout> = ({ children }) => {
-
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };
 
 export default Layout;

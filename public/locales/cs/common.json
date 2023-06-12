@@ -62,6 +62,7 @@
     "lessons": "Lekce",
     "favorites": "Oblíbené",
     "myVocabulary": "Moje slovíčka",
+    "myLessons": "Moje lekce",
     "myCourses": "Moje kurzy",
     "courses": "Kurzy",
     "help": "Nápověda",
@@ -145,5 +146,27 @@
 
   "feed": {
     "earlier": "dříve"
+  },
+
+  "userLessons": {
+    "vocabulary": "Slovíčka",
+    "lessonName": "Název balíčku",
+    "lessonDescription": "Popis balíčku",
+    "lessonSaved": "Balíček byl uložen.",
+    "lessonCreated": "Balíček byl vytvořen.",
+    "removeLesson": "Odstranit balíček",
+    "removeDialogText": "Opravdu chcete smazat balíček? Tato akce se nedá vrátit.",
+    "emptyLesson": "V balíčku zatím nejsou žádná slovíčka.",
+
+    "addVocabulary": "Přidat slovíčka",
+    "searchVocabulary": "Vyhledat slovíčka",
+    "noWordsFound": "Nebyla nalezena žádná slovíčka"
+  },
+
+  "userActions": {
+    "delete": "Smazat",
+    "cancel": "Zrušit",
+    "save": "Uložit",
+    "create": "Vytvořit"
   }
 }

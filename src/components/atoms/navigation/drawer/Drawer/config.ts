@@ -77,7 +77,7 @@ export const studying = [
   {
     label: "navigation.myVocabulary",
     icon: icons.myVocabulary,
-    path: "/my-vocabulary",
+    path: "/user-lessons",
   },
   {
     label: "navigation.courses",

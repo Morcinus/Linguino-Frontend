@@ -36,7 +36,11 @@ const icons: Record<string, string> = {
 
   addReaction: "add_reaction",
 
-  add: "add"
+  add: "add",
+  edit: "edit",
+  remove: "remove",
+  save: "save",
+  search: "search",
 };
 
 export default icons;

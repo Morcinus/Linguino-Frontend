@@ -9,6 +9,7 @@ export interface LessonParams {
   type?: LessonType;
   categoryId?: ID;
   favorite?: boolean;
+  author?: ID;
 }
 
 const LessonsAPI = {
@@ -28,8 +29,16 @@ const LessonsAPI = {
     return { lessons: data, ...rest };
   },
 
+  async createLesson(lesson: Omit<Lesson, "id">): Promise<Lesson> {
+    return API.post(`${this.URI}`, lesson);
+  },
+
   async updateLesson(lesson: Partial<Lesson>): Promise<Lesson> {
     return API.put(`${this.URI}/${lesson.id}`, lesson);
+  },
+
+  async deleteLesson(lesson: Lesson): Promise<Lesson> {
+    return API.delete(`${this.URI}/${lesson.id}`);
   },
 };
 

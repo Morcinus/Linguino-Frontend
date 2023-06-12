@@ -12,9 +12,13 @@ import {
 import { Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 
+import BottomFab from "components/atoms/BottomFab/BottomFab";
 import FeedbackCard from "components/atoms/cards/FeedbackCard/FeedbackCard";
 import LessonCard from "components/atoms/cards/LessonCard/LessonCard";
 import LessonItemList from "components/atoms/lists/LessonItemList/LessonItemList";
+import { useTranslation } from "i18n/client";
+import { useRouter } from "next/navigation";
+import icons from "styles/icons";
 
 export interface ILessonPage {
   params: {
@@ -23,6 +27,8 @@ export interface ILessonPage {
 }
 
 const LessonPage: React.FC<ILessonPage> = ({ params }) => {
+  const { t } = useTranslation("cs", "common");
+  const router = useRouter();
   const { lesson, mutate } = LessonsAPI.useLesson(params.lessonId);
 
   function handleFavoriteChange(value: boolean) {
@@ -71,7 +77,7 @@ const LessonPage: React.FC<ILessonPage> = ({ params }) => {
   return (
     <>
       {lesson && (
-        <>
+        <Box sx={{ pt: 8 }}>
           <Box
             sx={{
               width: "100%",
@@ -103,7 +109,12 @@ const LessonPage: React.FC<ILessonPage> = ({ params }) => {
               onFeedbackChange={handleFeedbackChange}
             />
           </Box>
-        </>
+          <BottomFab
+        header={t("studying.studyLesson")}
+        icon={icons.next}
+        onClick={() => router.push(`/study?lessonId=${params.lessonId}`)}
+      />
+        </Box>
       )}
     </>
   );

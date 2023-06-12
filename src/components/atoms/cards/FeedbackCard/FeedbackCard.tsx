@@ -20,7 +20,7 @@ import OutlinedIcon from "../../OutlinedIcon/OutlinedIcon";
 
 export interface IFeedbackCard {
   onFeedbackChange: (value: Feedback) => void;
-  feedback: Feedback;
+  feedback?: Feedback;
 }
 
 const FeedbackCard: React.FC<IFeedbackCard> = ({
@@ -44,7 +44,7 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
           <IconButton
             onClick={() => onFeedbackChange({ ...feedback, state: "LIKED" })}
           >
-            {feedback.state === "LIKED" ? (
+            {feedback && feedback.state === "LIKED" ? (
               <Icon>{icons.like}</Icon>
             ) : (
               <OutlinedIcon>{icons.like}</OutlinedIcon>
@@ -53,14 +53,14 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
           <IconButton
             onClick={() => onFeedbackChange({ ...feedback, state: "DISLIKED" })}
           >
-            {feedback.state === "DISLIKED" ? (
+            {feedback && feedback.state === "DISLIKED" ? (
               <Icon>{icons.dislike}</Icon>
             ) : (
               <OutlinedIcon>{icons.dislike}</OutlinedIcon>
             )}
           </IconButton>
         </Box>
-        {feedback.state === "DISLIKED" && !feedback.textFeedback && (
+        {feedback && feedback.state === "DISLIKED" && !feedback.textFeedback && (
           <Box
             sx={{
               display: "flex",
