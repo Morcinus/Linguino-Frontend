@@ -73,7 +73,8 @@
     "followers": "Sledující",
     "following": "Sleduji",
 
-    "continue": "Pokračovat"
+    "continue": "Pokračovat",
+    "topicSelection": "Výběr témat"
   },
 
   "accountSetup": {
@@ -180,5 +181,10 @@
     "stats": "Statistiky",
 
     "streak": "Denní řada"
+  },
+
+  "topics": {
+    "main": "Hlavní témata",
+    "extra": "Extra témata"
   }
 }

@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
-import { CourseTopic } from "infrastructure/api/courses/Courses";
 import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
+import { Topic } from "infrastructure/api/courses/topics/Topics";
 import icons from "styles/icons";
 
 import { useState } from "react";
@@ -13,7 +13,7 @@ import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
 
 export interface ISelectTopicsForm {
-  onSubmit: (topics: Array<CourseTopic>) => void;
+  onSubmit: (topics: Array<Topic>) => void;
   courseId: ID;
 }
 
@@ -21,14 +21,14 @@ const SelectTopicsForm: React.FC<ISelectTopicsForm> = ({
   onSubmit,
   courseId,
 }) => {
-  const [selectedTopics, setSelectedTopics] = useState<Array<CourseTopic>>([]);
+  const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>([]);
   const { t: tForm } = useTranslation("cs", "form");
   const { t: tCommon } = useTranslation("cs", "common");
   const { course } = CoursesAPI.useCourse(courseId);
 
-  function handleTopicToggle(topic: CourseTopic) {
+  function handleTopicToggle(topic: Topic) {
     const newTopics = [...selectedTopics];
-    const index = newTopics.findIndex((t: CourseTopic) => t.id === topic.id);
+    const index = newTopics.findIndex((t: Topic) => t.id === topic.id);
 
     if (index === -1) {
       newTopics.push(topic);

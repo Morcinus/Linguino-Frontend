@@ -1,7 +1,6 @@
 // prettier-ignore
 "use client"
 
-import { CourseTopic } from "infrastructure/api/courses/Courses";
 import { SurveyAnswer } from "infrastructure/api/survey-answers/SurveyAnswers";
 import SurveyAnswersAPI from "infrastructure/api/survey-answers/SurveyAnswersAPI";
 import Courses from "infrastructure/api/users/courses/CoursesAPI";
@@ -24,6 +23,7 @@ import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLe
 import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
 import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
 import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/SelectTopicsForm";
+import { Topic } from "infrastructure/api/courses/topics/Topics";
 
 export interface IAccountSetupPage {}
 
@@ -31,7 +31,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   const { user, mutateUser } = useAuth();
   const [page, setPage] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState<string>();
-  const [selectedTopics, setSelectedTopics] = useState<Array<CourseTopic>>();
+  const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>();
   const [surveyAnswer, setSurveyAnswer] = useState<Omit<SurveyAnswer, "id">>();
   const [selectedGoal, setSelectedGoal] = useState<GoalOption>();
   const [startOptionId, setStartOptionId] = useState<StartOptionId>();

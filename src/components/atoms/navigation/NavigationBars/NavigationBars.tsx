@@ -39,6 +39,8 @@ const Navigation: React.FC<INavigation> = () => {
         />
       );
     if (/^\/lesson-items\//.test(pathname)) return <BackNavigationBar />;
+    if (/^\/topic-selection\//.test(pathname))
+      return <BackNavigationBar header="topicSelection" />;
 
     switch (pathname) {
       case "/login":
