@@ -3,12 +3,12 @@
 
 import styles from "./page.module.css";
 
-export interface IBaseTemplate {
+export interface IBaseTemplatePage {
   sampleTextProp: string;
 }
 
-const BaseTemplate: React.FC<IBaseTemplate> = ({ sampleTextProp }) => {
+const BaseTemplatePage: React.FC<IBaseTemplatePage> = ({ sampleTextProp }) => {
   return <div className={styles.container}>{sampleTextProp}</div>;
 };
 
-export default BaseTemplate;
+export default BaseTemplatePage;
