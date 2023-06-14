@@ -5,7 +5,9 @@ import { parseQueryParams } from "util/functions/api";
 
 import { Achievement } from "./Achievements";
 
-export interface AchievementParams {}
+export interface AchievementParams {
+  userId?: ID;
+}
 
 const AchievementsAPI = {
   URI: "achievements",

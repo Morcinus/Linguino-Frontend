@@ -25,6 +25,7 @@
     "@mui/material": "^5.8.3",
     "@nivo/calendar": "^0.80.0",
     "@nivo/core": "^0.80.0",
+    "@nivo/line": "^0.80.0",
     "@nivo/pie": "^0.80.0",
     "@nivo/tooltip": "^0.80.0",
     "@storybook/addon-queryparams": "^6.2.9",

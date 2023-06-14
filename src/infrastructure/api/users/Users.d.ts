@@ -4,7 +4,6 @@ export interface User {
   email: string;
   dailyGoal?: number;
   completedDailyGoal?: boolean;
-  streak?: number;
   selectedCourse: Course;
   balance?: number;
   currentSubscriptionId?: ID;

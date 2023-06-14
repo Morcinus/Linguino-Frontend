@@ -4,6 +4,7 @@ import AchievementsAPI from "infrastructure/api/achievements/AchievementsAPI";
 import { Challenge } from "infrastructure/api/challenges/Challenges";
 import ChallengesAPI from "infrastructure/api/challenges/ChallengesAPI";
 import mutateArrayItem from "infrastructure/api/utils/mutateArrayItem";
+import useAuth from "infrastructure/services/AuthProvider";
 
 import { useState } from "react";
 
@@ -18,7 +19,9 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
   // TODO add filter to show only challenges that are currently running (today is between startDate and endDate)
   const { challenges, mutate: mutateChallenges } =
     ChallengesAPI.useChallenges();
-  const { achievements, mutate } = AchievementsAPI.useAchievements();
+  const { achievements, mutate } = AchievementsAPI.useAchievements({
+    userId: useAuth().user?.id,
+  });
 
   const { t } = useTranslation("cs", "common");
   const [popup, setPopup] = useState<IPopup | null>(null);

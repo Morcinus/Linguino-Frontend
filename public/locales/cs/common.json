@@ -168,5 +168,17 @@
     "cancel": "Zrušit",
     "save": "Uložit",
     "create": "Vytvořit"
+  },
+
+  "userProfile": {
+    "level": "Úroveň",
+    "followers": "Sledující",
+    "following": "Sleduje",
+    "userIsFollowing": "Sleduji",
+    "userIsNotFollowing": "Sledovat",
+
+    "stats": "Statistiky",
+
+    "streak": "Denní řada"
   }
 }

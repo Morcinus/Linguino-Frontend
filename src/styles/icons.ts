@@ -41,6 +41,8 @@ const icons: Record<string, string> = {
   remove: "remove",
   save: "save",
   search: "search",
+
+  streak: "local_fire_department",
 };
 
 export default icons;

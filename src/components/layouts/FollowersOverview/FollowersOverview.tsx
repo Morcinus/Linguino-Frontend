@@ -14,10 +14,14 @@ import UsersList from "components/atoms/lists/UsersList/UsersList";
 
 export interface IFollowersOverview {
   userId: ID;
+  initialState?: "followers" | "following";
 }
 
-const FollowersOverview: React.FC<IFollowersOverview> = ({ userId }) => {
-  const [value, setValue] = useState("followers");
+const FollowersOverview: React.FC<IFollowersOverview> = ({
+  userId,
+  initialState,
+}) => {
+  const [value, setValue] = useState<string>(initialState || "followers");
   const { followers, mutate: mutateFollowers } =
     FollowersAPI.useFollowers(userId);
   const { following, mutate: mutateFollowing } =
