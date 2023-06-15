@@ -15,6 +15,20 @@
     {
       "splitTerminals": [
         {
+          "name": "lint",
+          "commands": ["yarn lint"],
+          "shouldRunCommands": false
+        },
+        {
+          "name": "build",
+          "commands": ["yarn build"],
+          "shouldRunCommands": false
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
           "name": "client",
           "commands": ["yarn install", "yarn dev"]
         }
