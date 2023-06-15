@@ -16,7 +16,7 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-const EMAIL_REGEX = /\S+@\S+\.\S+/;
+export const EMAIL_REGEX = /\S+@\S+\.\S+/;
 
 interface InputTypes {
   username: string;

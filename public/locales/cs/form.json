@@ -127,5 +127,38 @@
         "description": "Nastavte si vlastní úroveň angličtiny."
       }
     }
+  },
+
+  "settings": {
+    "saved": "Nastavení uloženo.",
+
+    "accountAndProfile": "Účet a profil",
+    "username": "Uživatelské jméno",
+    "name": "Jméno",
+    "email": "Emailová adresa",
+    "changePassword": "Změnit heslo",
+
+    "customizeTopics": "Přizpůsobit témata kurzu",
+
+    "notifications": "Oznámení",
+    "sendOnMobile": "Posílat na mobil",
+    "sendOnEmail": "Posílat na email",
+    "sendOnDesktop": "Posílat na počítač",
+
+    "notifyWhen": "Pošlete mi oznámení",
+    "friendsActivities": "Při aktivitě přátel",
+    "somebodyFollowsMe": "Když mě někdo začne sledovat",
+    "forgetToPracticeBy": "Když se zapomenu učit do",
+
+    "wantToStudyOnDays": "Chci se učit tyto dny",
+    "wantToStudyOnDaysDescription": "V tyto dny se vám bude počítat denní řada.",
+
+    "other": "Ostatní",
+    "animace": "Animace",
+    "reviewFromPreviousLevels": "Opakovat cvičení z předchozích úrovní",
+    "publicProfile": "Veřejný profil",
+
+    "premium": "Prémium",
+    "manageSubscription": "Spravovat předplatné"
   }
 }
