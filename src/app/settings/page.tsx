@@ -11,9 +11,10 @@ import icons from "styles/icons";
 
 import { useState } from "react";
 
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import BottomFab from "components/atoms/BottomFab/BottomFab";
+import DayPicker from "components/atoms/DayPicker/DayPicker";
 import AccountSettings from "components/molecules/settings/AccountSettings/AccountSettings";
 import NotificationSettings from "components/molecules/settings/NotificationSettings/NotificationSettings";
 
@@ -100,6 +101,17 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
               setChange({ ...change, practiceNotificationTime: value })
             }
           />
+          <Box display="flex" flexDirection="column" gap={2} width="100%">
+            <Typography variant="subtitle1">
+              {t("settings.wantToStudyOnDays")}
+            </Typography>
+            <DayPicker
+              days={settings.learnOnDays}
+              onDaysChange={(value) =>
+                setChange({ ...change, learnOnDays: value })
+              }
+            />
+          </Box>
         </Box>
       )}
 

@@ -160,5 +160,15 @@
 
     "premium": "Prémium",
     "manageSubscription": "Spravovat předplatné"
+  },
+
+  "dayLabels": {
+    "monday": "P",
+    "tuesday": "Ú",
+    "wednesday": "S",
+    "thursday": "Č",
+    "friday": "P",
+    "saturday": "S",
+    "sunday": "N"
   }
 }

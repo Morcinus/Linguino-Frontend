@@ -11,15 +11,7 @@ export interface Settings {
   notifyOn: NotifyOnSettings;
   practiceNotificationTime: Dayjs;
 
-  learnOnDays: {
-    monday: boolean;
-    tuesday: boolean;
-    wednesday: boolean;
-    thursday: boolean;
-    friday: boolean;
-    saturday: boolean;
-    sunday: boolean;
-  };
+  learnOnDays: Array<Day>;
 
   animations: boolean;
   reviewPreviousLevels: boolean;
@@ -37,3 +29,12 @@ export interface NotifyOnSettings {
   somebodyFollowsUser: boolean;
   userForgetsPractice: boolean;
 }
+
+export type Day =
+  | "monday"
+  | "tuesday"
+  | "wednesday"
+  | "thursday"
+  | "friday"
+  | "saturday"
+  | "sunday";
