@@ -1,3 +1,5 @@
+import { Course } from "../courses/Courses";
+
 export interface User {
   id: ID;
   username: string;

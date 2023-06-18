@@ -6,6 +6,8 @@ export interface Settings {
   name: string;
   email: string;
 
+  dailyGoal: number;
+
   notifications: NotificationSettings;
 
   notifyOn: NotifyOnSettings;

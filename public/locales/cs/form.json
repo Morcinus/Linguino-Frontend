@@ -138,7 +138,18 @@
     "email": "Emailová adresa",
     "changePassword": "Změnit heslo",
 
+    "courseCustomization": "Přizpůsobení kurzu",
     "customizeTopics": "Přizpůsobit témata kurzu",
+
+    "dailyGoal": "Denní cíl",
+    "goalOptions": {
+      "casual": "Ležérní",
+      "basic": "Základní",
+      "medium": "Střední",
+      "serious": "Seriózní",
+      "intense": "Intenzivní"
+    },
+    "exercisesPerDay": "cvičení za den",
 
     "notifications": "Oznámení",
     "sendOnMobile": "Posílat na mobil",
@@ -154,8 +165,8 @@
     "wantToStudyOnDaysDescription": "V tyto dny se vám bude počítat denní řada.",
 
     "other": "Ostatní",
-    "animace": "Animace",
-    "reviewFromPreviousLevels": "Opakovat cvičení z předchozích úrovní",
+    "animation": "Animace",
+    "reviewPreviousLevels": "Opakovat cvičení z předchozích úrovní",
     "publicProfile": "Veřejný profil",
 
     "premium": "Prémium",

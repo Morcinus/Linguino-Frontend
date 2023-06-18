@@ -11,18 +11,23 @@ import icons from "styles/icons";
 
 import { useState } from "react";
 
-import { Box, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
+
+import { Box, Button, Typography } from "@mui/material";
 
 import BottomFab from "components/atoms/BottomFab/BottomFab";
 import DayPicker from "components/atoms/DayPicker/DayPicker";
 import AccountSettings from "components/molecules/settings/AccountSettings/AccountSettings";
+import DailyGoalSettings from "components/molecules/settings/DailyGoalSettings/DailyGoalSettings";
 import NotificationSettings from "components/molecules/settings/NotificationSettings/NotificationSettings";
+import OtherSettings from "components/molecules/settings/OtherSettings/OtherSettings";
 
 export interface ISettingsPage {}
 
 const SettingsPage: React.FC<ISettingsPage> = () => {
   const { t } = useTranslation("cs", "form");
   const { user } = useAuth();
+  const router = useRouter();
   const { settings, mutate } = SettingsAPI.useSettings(user?.id);
   const [errors, setErrors] = useState<Array<string>>([]);
   const [change, setChange] = useState({});
@@ -75,7 +80,12 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
   return (
     <>
       {settings && (
-        <Box display="flex" flexDirection="column" sx={{ width: "100%" }}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          gap={2}
+          sx={{ width: "100%", mb: 4 }}
+        >
           <AccountSettings
             username={settings.username}
             name={settings.name}
@@ -86,6 +96,24 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
             onNameChange={(value) => setChange({ ...change, name: value })}
             onEmailChange={(value) => setChange({ ...change, email: value })}
             accountErrors={errors}
+          />
+          <Box display="flex" flexDirection="column" gap={2} width="100%">
+            <Typography variant="subtitle1">
+              {t("settings.courseCustomization")}
+            </Typography>
+            <Button
+              variant="outlined"
+              onClick={() =>
+                router.push(`/topic-selection/${user?.selectedCourse.id}`)
+              }
+              sx={{ width: "50%", alignSelf: "center" }}
+            >
+              {t("settings.customizeTopics")}
+            </Button>
+          </Box>
+          <DailyGoalSettings
+            dailyGoal={settings.dailyGoal}
+            onGoalChange={(value) => setChange({ ...change, dailyGoal: value })}
           />
           <NotificationSettings
             notifications={settings.notifications}
@@ -111,6 +139,30 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
                 setChange({ ...change, learnOnDays: value })
               }
             />
+          </Box>
+          <OtherSettings
+            animations={settings.animations}
+            reviewPreviousLevels={settings.reviewPreviousLevels}
+            publicProfile={settings.publicProfile}
+            onAnimationsChange={(value) =>
+              setChange({ ...change, animations: value })
+            }
+            onReviewPreviousLevelsChange={(value) =>
+              setChange({ ...change, reviewPreviousLevels: value })
+            }
+            onPublicProfileChange={(value) =>
+              setChange({ ...change, publicProfile: value })
+            }
+          />
+          <Box display="flex" flexDirection="column" gap={2} width="100%">
+            <Typography variant="subtitle1">{t("settings.premium")}</Typography>
+            <Button
+              variant="outlined"
+              onClick={() => router.push("/subscription")}
+              sx={{ width: "50%", alignSelf: "center" }}
+            >
+              {t("settings.manageSubscription")}
+            </Button>
           </Box>
         </Box>
       )}

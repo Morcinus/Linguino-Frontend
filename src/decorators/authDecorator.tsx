@@ -12,9 +12,11 @@ export default function AuthDecorator(Story: Story) {
       email: "example@example.com",
       id: "123",
       selectedCourse: {
+        id: "abcd",
         name: "Czech course",
         language1: "cs",
         language2: "cs",
+        thumbnailURL: "https://picsum.photos/id/168/512/512",
       },
       username: "Pepa Okurka",
       balance: 999,

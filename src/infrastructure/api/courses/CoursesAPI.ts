@@ -1,5 +1,5 @@
 import { Modify } from "domain/models/utils/modify";
-import { FetchHook } from "infrastructure/api/API";
+import API, { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 import { parseQueryParams } from "util/functions/api";
 
@@ -11,6 +11,10 @@ export interface CourseParams {
 
 const CoursesAPI = {
   URI: "courses",
+
+  async getCourse(id: ID): Promise<Course> {
+    return API.get(`${this.URI}/${id}`);
+  },
 
   useCourse(id: ID): Modify<FetchHook<Course>, { course: Course }> {
     const { data, ...rest } = useAPI<Course>(`${this.URI}/${id}`);

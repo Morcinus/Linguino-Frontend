@@ -2,7 +2,7 @@
 "use client"
 
 import { useTranslation } from "i18n/client";
-import CoursesAPI from "infrastructure/api/users/courses/CoursesAPI";
+import { default as UserCoursesAPI } from "infrastructure/api/users/courses/CoursesAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
@@ -10,6 +10,7 @@ import { Box, Icon, IconButton, Typography } from "@mui/material";
 
 import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
+import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
 import { useRouter } from "next/navigation";
 
 export interface ICoursesPage {
@@ -22,7 +23,7 @@ const CoursesPage: React.FC<ICoursesPage> = ({ params }) => {
   const { user, mutateUser } = useAuth();
   const { t: tCommon } = useTranslation("cs", "common");
   const router = useRouter();
-  const { courses } = CoursesAPI.useCourses(params.userId);
+  const { courses } = UserCoursesAPI.useCourses(params.userId);
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       <Box>
@@ -47,9 +48,10 @@ const CoursesPage: React.FC<ICoursesPage> = ({ params }) => {
                   highlightCard: user?.selectedCourse === course.id,
                   highlightVariant: "outlined",
                   onClick: async () => {
-                    await mutateUser({
-                      selectedCourse: course.id,
-                    });
+                    if(course.id)
+                      await mutateUser({
+                        selectedCourse: await CoursesAPI.getCourse(course.id),
+                      });
                     router.push("/");
                   },
                 },

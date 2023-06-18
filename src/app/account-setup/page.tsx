@@ -23,6 +23,7 @@ import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLe
 import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
 import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
 import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/SelectTopicsForm";
+import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
 import { Topic } from "infrastructure/api/courses/topics/Topics";
 
 export interface IAccountSetupPage {}
@@ -30,7 +31,7 @@ export interface IAccountSetupPage {}
 const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   const { user, mutateUser } = useAuth();
   const [page, setPage] = useState(0);
-  const [selectedCourse, setSelectedCourse] = useState<string>();
+  const [selectedCourse, setSelectedCourse] = useState<ID>();
   const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>();
   const [surveyAnswer, setSurveyAnswer] = useState<Omit<SurveyAnswer, "id">>();
   const [selectedGoal, setSelectedGoal] = useState<GoalOption>();
@@ -48,7 +49,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   useEffect(() => {
     if (startingLevel) submitSetup();
 
-    function submitSetup() {
+    async function submitSetup() {
       if (!user) return;
 
       if (selectedTopics)
@@ -66,7 +67,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
         const userChange = {
           id: user.id,
           startingLevel,
-          selectedCourse,
+          selectedCourse: await CoursesAPI.getCourse(selectedCourse),
           dailyGoal: selectedGoal.value,
           accountInitialized: true,
         };
