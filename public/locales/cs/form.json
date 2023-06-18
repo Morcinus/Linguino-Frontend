@@ -145,10 +145,10 @@
     "sendOnEmail": "Posílat na email",
     "sendOnDesktop": "Posílat na počítač",
 
-    "notifyWhen": "Pošlete mi oznámení",
+    "notifyOn": "Pošlete mi oznámení",
     "friendsActivities": "Při aktivitě přátel",
-    "somebodyFollowsMe": "Když mě někdo začne sledovat",
-    "forgetToPracticeBy": "Když se zapomenu učit do",
+    "somebodyFollowsUser": "Když mě někdo začne sledovat",
+    "userForgetsPractice": "Když se zapomenu učit do",
 
     "wantToStudyOnDays": "Chci se učit tyto dny",
     "wantToStudyOnDaysDescription": "V tyto dny se vám bude počítat denní řada.",

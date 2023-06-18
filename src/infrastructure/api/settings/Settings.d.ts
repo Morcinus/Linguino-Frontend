@@ -1,20 +1,15 @@
+import { Dayjs } from "dayjs";
+
 export interface Settings {
   id: ID;
   username: string;
   name: string;
   email: string;
 
-  notifications: {
-    sendOnMobile: boolean;
-    sendOnEmail: boolean;
-    sendOnDesktop: boolean;
+  notifications: NotificationSettings;
 
-    notifyOn: {
-      friendsActivities: boolean;
-      somebodyFollowsUser: boolean;
-      userForgetsPractice: boolean;
-    };
-  };
+  notifyOn: NotifyOnSettings;
+  practiceNotificationTime: Dayjs;
 
   learnOnDays: {
     monday: boolean;
@@ -29,4 +24,16 @@ export interface Settings {
   animations: boolean;
   reviewPreviousLevels: boolean;
   publicProfile: boolean;
+}
+
+export interface NotificationSettings {
+  sendOnMobile: boolean;
+  sendOnEmail: boolean;
+  sendOnDesktop: boolean;
+}
+
+export interface NotifyOnSettings {
+  friendsActivities: boolean;
+  somebodyFollowsUser: boolean;
+  userForgetsPractice: boolean;
 }

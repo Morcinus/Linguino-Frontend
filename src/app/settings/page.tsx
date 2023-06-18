@@ -2,51 +2,51 @@
 "use client"
 
 import { useTranslation } from "i18n/client";
+import { optimisticMutationOption } from "infrastructure/api/API";
+import errorCodes from "infrastructure/api/error-codes";
 import SettingsAPI from "infrastructure/api/settings/SettingsAPI";
 import useAuth from "infrastructure/services/AuthProvider";
+import { useSnackbar } from "notistack";
 import icons from "styles/icons";
 
 import { useState } from "react";
 
+import { Box } from "@mui/material";
 
 import BottomFab from "components/atoms/BottomFab/BottomFab";
 import AccountSettings from "components/molecules/settings/AccountSettings/AccountSettings";
-import { optimisticMutationOption } from "infrastructure/api/API";
-import errorCodes from "infrastructure/api/error-codes";
-import { useSnackbar } from "notistack";
+import NotificationSettings from "components/molecules/settings/NotificationSettings/NotificationSettings";
 
 export interface ISettingsPage {}
 
 const SettingsPage: React.FC<ISettingsPage> = () => {
   const { t } = useTranslation("cs", "form");
-  const {user} = useAuth();
+  const { user } = useAuth();
   const { settings, mutate } = SettingsAPI.useSettings(user?.id);
   const [errors, setErrors] = useState<Array<string>>([]);
   const [change, setChange] = useState({});
   const { enqueueSnackbar } = useSnackbar();
 
   function handleSave() {
-    mutate(
-      async () => {
-        try {
-          const newSettings = await SettingsAPI.updateSettings({id: settings.id, ...change});
+    mutate(async () => {
+      try {
+        const newSettings = await SettingsAPI.updateSettings({
+          id: settings.id,
+          ...change,
+        });
 
-          enqueueSnackbar(t("settings.saved"), {
-            variant: "success",
-          });
+        enqueueSnackbar(t("settings.saved"), {
+          variant: "success",
+        });
 
-          setErrors([]);
-          setChange({});
-          return newSettings;
-        } catch (err) {
-          handleError(err);
-          return {...settings, ...change};
-        }
-      },
-      optimisticMutationOption(
-        {...settings, ...change}
-      )
-    );
+        setErrors([]);
+        setChange({});
+        return newSettings;
+      } catch (err) {
+        handleError(err);
+        return { ...settings, ...change };
+      }
+    }, optimisticMutationOption({ ...settings, ...change }));
   }
 
   function handleError(error: unknown) {
@@ -74,22 +74,35 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
   return (
     <>
       {settings && (
-        <AccountSettings
-          username={settings.username}
-          name={settings.name}
-          email={settings.email}
-          onUsernameChange={(value) =>
-            setChange({ ...change, username: value })
-          }
-          onNameChange={(value) =>
-            setChange({ ...change, name: value })
-          }
-          onEmailChange={(value) =>
-            setChange({ ...change, email: value })
-          }
-          accountErrors={errors}
-        />
+        <Box display="flex" flexDirection="column" sx={{ width: "100%" }}>
+          <AccountSettings
+            username={settings.username}
+            name={settings.name}
+            email={settings.email}
+            onUsernameChange={(value) =>
+              setChange({ ...change, username: value })
+            }
+            onNameChange={(value) => setChange({ ...change, name: value })}
+            onEmailChange={(value) => setChange({ ...change, email: value })}
+            accountErrors={errors}
+          />
+          <NotificationSettings
+            notifications={settings.notifications}
+            notifyOn={settings.notifyOn}
+            practiceNotificationTime={settings.practiceNotificationTime}
+            onNotificationsChange={(value) =>
+              setChange({ ...change, notifications: { ...value } })
+            }
+            onNotifyOnChange={(value) =>
+              setChange({ ...change, notifyOn: { ...value } })
+            }
+            onTimeChange={(value) =>
+              setChange({ ...change, practiceNotificationTime: value })
+            }
+          />
+        </Box>
       )}
+
       {displaySaveButton() && (
         <BottomFab
           header={t("userActions.save")}
