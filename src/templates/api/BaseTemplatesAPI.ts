@@ -35,6 +35,16 @@ const BaseTemplatesAPI = {
     return API.post(`${this.URI}`, baseTemplate);
   },
 
+  async getBaseTemplate(id: ID): Promise<BaseTemplate> {
+    return API.get(`${this.URI}/${id}`);
+  },
+
+  async getBaseTemplates(
+    params: BaseTemplateParams = {}
+  ): Promise<Array<BaseTemplate>> {
+    return API.get(`${this.URI}?${parseQueryParams(params)}`);
+  },
+
   async updateBaseTemplate(
     baseTemplate: Partial<BaseTemplate>
   ): Promise<BaseTemplate> {
