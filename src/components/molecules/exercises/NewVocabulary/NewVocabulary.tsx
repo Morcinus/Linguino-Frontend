@@ -22,13 +22,14 @@ const NewVocabulary: React.FC<INewVocabulary> = ({
   const { lessonItem, mutate } = LessonItemsAPI.useLessonItem(lessonItemId);
 
   function handleLessonItemChange(change: { [key: string]: boolean | string }) {
-    const data = {
-      ...lessonItem,
-      ...change,
-    };
     mutate(
-      LessonItemsAPI.updateLessonItem(data),
-      optimisticMutationOption(data)
+      LessonItemsAPI.updateLessonItem({
+        ...change,
+      }),
+      optimisticMutationOption({
+        ...lessonItem,
+        ...change,
+      })
     );
   }
 
