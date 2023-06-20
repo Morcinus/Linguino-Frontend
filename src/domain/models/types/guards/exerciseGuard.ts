@@ -1,3 +1,5 @@
+import { NewVocabulary } from "infrastructure/api/users/exercises/Exercises";
+
 import {
   Exercise,
   ListeningExercise,
@@ -47,4 +49,8 @@ export function isReadAloudExercise(
   exercise: Exercise
 ): exercise is ReadAloudExercise {
   return (exercise as ReadAloudExercise).type === "READ_ALOUD";
+}
+
+export function isNewVocabulary(exercise: Exercise): exercise is NewVocabulary {
+  return (exercise as NewVocabulary).type === "NEW_VOCABULARY";
 }

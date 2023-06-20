@@ -3,6 +3,7 @@ import { ISpeechExercise } from "./SpeechExercise";
 const base: ISpeechExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
+    lessonItemId: "asljfnvkduexi",
     type: "SPEECH",
 
     assignmentTitle: "Mluvte na téma",

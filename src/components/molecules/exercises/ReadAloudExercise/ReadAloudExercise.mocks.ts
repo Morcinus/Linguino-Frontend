@@ -3,6 +3,7 @@ import { IReadAloudExercise } from "./ReadAloudExercise";
 const base: IReadAloudExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
+    lessonItemId: "asljfnvkduexi",
     type: "READ_ALOUD",
     assignmentTitle: "Read the sentence aloud!",
     imageURL: "https://picsum.photos/id/168/512/512",

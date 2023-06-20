@@ -30,7 +30,10 @@
     "alternativeAnswer": "Další možná odpověď:",
     "check": "Zkontrolovat",
     "continue": "Pokračovat",
-    "topic": "Téma"
+    "topic": "Téma",
+
+    "newVocabulary": "Nové slovíčko!",
+    "iKnowWord": "Toto slovíčko už znám!"
   },
 
   "other": {

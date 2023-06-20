@@ -1,3 +1,5 @@
+import { NewVocabulary } from "infrastructure/api/users/exercises/Exercises";
+
 import {
   FillInBlankQuestionAnswer,
   QuestionAnswer,
@@ -12,7 +14,8 @@ export type Exercise =
   | ShortListeningExercise
   | ReadingExercise
   | RepeatAudioExercise
-  | ReadAloudExercise;
+  | ReadAloudExercise
+  | NewVocabulary;
 
 export interface IExerciseComponent {
   exercise: Exercise;
@@ -28,6 +31,7 @@ export interface IQuestionAnswerComponent {
 
 export interface ListeningExercise {
   id: ID;
+  lessonItemId: ID;
   type: "LISTENING";
   assignmentTitle: string;
   audioURL: string;
@@ -38,6 +42,7 @@ export interface ListeningExercise {
 
 export interface ShortListeningExercise {
   id: ID;
+  lessonItemId: ID;
   type: "SHORT_LISTENING";
   assignmentTitle: string;
   audioURL: string;
@@ -47,6 +52,7 @@ export interface ShortListeningExercise {
 
 export interface RepeatAudioExercise {
   id: ID;
+  lessonItemId: ID;
   type: "REPEAT_AUDIO";
   assignmentTitle: string;
   audioURL: string;
@@ -56,6 +62,7 @@ export interface RepeatAudioExercise {
 
 export interface ReadAloudExercise {
   id: ID;
+  lessonItemId: ID;
   type: "READ_ALOUD";
   assignmentTitle: string;
   audioURL: string;
@@ -65,6 +72,7 @@ export interface ReadAloudExercise {
 
 export interface SpeechExercise {
   id: ID;
+  lessonItemId: ID;
   type: "SPEECH";
   assignmentTitle: string;
   assignmentTopic: string;
@@ -78,6 +86,7 @@ export interface SpeechExercise {
 
 export interface TextExercise {
   id: ID;
+  lessonItemId: ID;
   type: "TEXT";
   assignmentTitle: string;
   explanation?: string;
@@ -88,6 +97,7 @@ export interface TextExercise {
 
 export interface ReadingExercise {
   id: ID;
+  lessonItemId: ID;
   type: "READING";
   assignmentTitle: string;
   imageURL: string;

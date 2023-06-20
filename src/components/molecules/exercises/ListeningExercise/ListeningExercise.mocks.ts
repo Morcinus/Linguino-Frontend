@@ -3,6 +3,7 @@ import { IListeningExercise } from "./ListeningExercise";
 const base: IListeningExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
+    lessonItemId: "asljfnvkduexi",
     type: "LISTENING",
     assignmentTitle: "Listen and answer questions!",
     audioURL:

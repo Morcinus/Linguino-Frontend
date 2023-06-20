@@ -1,3 +1,7 @@
+import { isNewVocabulary } from "domain/models/types/guards/exerciseGuard";
+import ExercisesAPI from "infrastructure/api/users/exercises/ExercisesAPI";
+import useAuth from "infrastructure/services/AuthProvider";
+
 import { useEffect, useState } from "react";
 
 import { Box, Container } from "@mui/material";
@@ -11,6 +15,7 @@ import { useScroll } from "../../../util/hooks/useScroll";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";
 import ExerciseContainer from "../ExerciseContainer/ExerciseContainer";
+import NewVocabulary from "../exercises/NewVocabulary/NewVocabulary";
 
 export interface IStudySession {
   session: StudySessionType;
@@ -23,6 +28,7 @@ const StudySession: React.FC<IStudySession> = ({
   onFinish,
   onContinue,
 }) => {
+  const { user } = useAuth();
   const [finishedSession, setFinishedSession] = useState(false);
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
@@ -81,6 +87,36 @@ const StudySession: React.FC<IStudySession> = ({
     if (openExpansion) executeScroll();
   }, [openExpansion, executeScroll]);
 
+  function renderNewVocabulary(exercise: Exercise) {
+    if (isNewVocabulary(exercise))
+      return (
+        <NewVocabulary
+          lessonItemId={exercise.lessonItemId}
+          onContinue={() => {
+            nextExercise();
+            if (index >= exerciseQueue.length - 1) handleFinished(attemptArray);
+          }}
+          onMarkAsLearned={async () => {
+            const queue: Array<Exercise> = exerciseQueue.filter(
+              (e) => e.lessonItemId !== exercise.lessonItemId
+            );
+
+            const itemAmountToFetch = exerciseQueue.length - queue.length;
+            const offset = queue.length;
+
+            if (user) {
+              const exercises = await ExercisesAPI.getExercises(user.id, {
+                pagination: { start: offset, limit: itemAmountToFetch },
+              });
+
+              setExerciseQueue([...queue, ...exercises]);
+            }
+          }}
+        />
+      );
+    else return "";
+  }
+
   return (
     <>
       <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
@@ -88,11 +124,17 @@ const StudySession: React.FC<IStudySession> = ({
           <Container maxWidth="sm">
             {!isLoading && exerciseQueue[index] ? (
               !finishedSession ? (
-                <ExerciseContainer
-                  key={index}
-                  exercise={exerciseQueue[index]}
-                  onContinue={handleContinue}
-                />
+                <>
+                  {isNewVocabulary(exerciseQueue[index]) ? (
+                    renderNewVocabulary(exerciseQueue[index])
+                  ) : (
+                    <ExerciseContainer
+                      key={index}
+                      exercise={exerciseQueue[index]}
+                      onContinue={handleContinue}
+                    />
+                  )}
+                </>
               ) : (
                 <p>session finished</p>
               )

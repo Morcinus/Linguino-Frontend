@@ -3,6 +3,7 @@ import { IRepeatAudioExercise } from "./RepeatAudioExercise";
 const base: IRepeatAudioExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
+    lessonItemId: "asljfnvkduexi",
     type: "REPEAT_AUDIO",
     assignmentTitle: "Listen and repeat the sentence!",
     audioURL:

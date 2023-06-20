@@ -3,6 +3,7 @@ import { IReadingExercise } from "./ReadingExercise";
 const base: IReadingExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
+    lessonItemId: "asljfnvkduexi",
     type: "READING",
     assignmentTitle: "Read the article and answer the questions!",
     imageURL: "https://picsum.photos/id/168/512/512",

@@ -3,6 +3,7 @@ import { IShortListeningExercise } from "./ShortListeningExercise";
 const base: IShortListeningExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
+    lessonItemId: "asljfnvkduexi",
     type: "SHORT_LISTENING",
     assignmentTitle: "Listen and write what you hear!",
     audioURL:

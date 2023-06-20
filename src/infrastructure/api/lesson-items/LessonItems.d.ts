@@ -12,6 +12,8 @@ export interface LessonItem {
   examples?: Array<ExampleSentence>;
   background?: Background;
   progress: number;
+
+  markAsLearned?: boolean;
 }
 
 export interface ExampleSentence {
