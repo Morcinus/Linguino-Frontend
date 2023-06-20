@@ -33,7 +33,10 @@
     "topic": "Téma",
 
     "newVocabulary": "Nové slovíčko!",
-    "iKnowWord": "Toto slovíčko už znám!"
+    "iKnowWord": "Toto slovíčko už znám!",
+
+    "newGrammar": "Nová gramatika!",
+    "iKnowGrammar": "Tuto gramatiku už znám!"
   },
 
   "other": {

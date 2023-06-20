@@ -1,4 +1,7 @@
-import { NewVocabulary } from "infrastructure/api/users/exercises/Exercises";
+import {
+  NewGrammar,
+  NewVocabulary,
+} from "infrastructure/api/users/exercises/Exercises";
 
 import {
   Exercise,
@@ -53,4 +56,8 @@ export function isReadAloudExercise(
 
 export function isNewVocabulary(exercise: Exercise): exercise is NewVocabulary {
   return (exercise as NewVocabulary).type === "NEW_VOCABULARY";
+}
+
+export function isNewGrammar(exercise: Exercise): exercise is NewGrammar {
+  return (exercise as NewGrammar).type === "NEW_GRAMMAR";
 }

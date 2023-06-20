@@ -22,6 +22,8 @@ export interface Lesson {
   background?: Background;
   items?: Array<LessonItem>;
   author?: ID;
+
+  markAsLearned?: boolean;
 }
 
 export type Feedback = {

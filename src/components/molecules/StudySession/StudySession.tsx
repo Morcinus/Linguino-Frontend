@@ -1,4 +1,7 @@
-import { isNewVocabulary } from "domain/models/types/guards/exerciseGuard";
+import {
+  isNewGrammar,
+  isNewVocabulary,
+} from "domain/models/types/guards/exerciseGuard";
 import ExercisesAPI from "infrastructure/api/users/exercises/ExercisesAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 
@@ -15,6 +18,7 @@ import { useScroll } from "../../../util/hooks/useScroll";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";
 import ExerciseContainer from "../ExerciseContainer/ExerciseContainer";
+import NewGrammar from "../exercises/NewGrammar/NewGrammar";
 import NewVocabulary from "../exercises/NewVocabulary/NewVocabulary";
 
 export interface IStudySession {
@@ -97,9 +101,46 @@ const StudySession: React.FC<IStudySession> = ({
             if (index >= exerciseQueue.length - 1) handleFinished(attemptArray);
           }}
           onMarkAsLearned={async () => {
-            const queue: Array<Exercise> = exerciseQueue.filter(
-              (e) => e.lessonItemId !== exercise.lessonItemId
-            );
+            const queue: Array<Exercise> = exerciseQueue.filter((e) => {
+              if (isNewGrammar(e)) return true;
+              else return e.lessonItemId !== exercise.lessonItemId;
+            });
+
+            const itemAmountToFetch = exerciseQueue.length - queue.length;
+            const offset = queue.length;
+
+            if (user) {
+              const exercises = await ExercisesAPI.getExercises(user.id, {
+                pagination: { start: offset, limit: itemAmountToFetch },
+              });
+
+              setExerciseQueue([...queue, ...exercises]);
+            }
+          }}
+        />
+      );
+    else return "";
+  }
+
+  function renderNewGrammar(exercise: Exercise) {
+    if (isNewGrammar(exercise))
+      return (
+        <NewGrammar
+          lessonId={exercise.lessonId}
+          onContinue={() => {
+            nextExercise();
+            if (index >= exerciseQueue.length - 1) handleFinished(attemptArray);
+          }}
+          onMarkAsLearned={async () => {
+            const queue: Array<Exercise> = exerciseQueue.filter((e) => {
+              if (isNewGrammar(e)) {
+                return e.lessonId !== exercise.lessonId;
+              } else {
+                return !exercise.lessonItemIds.some(
+                  (id) => e.lessonItemId === id
+                );
+              }
+            });
 
             const itemAmountToFetch = exerciseQueue.length - queue.length;
             const offset = queue.length;
@@ -127,6 +168,8 @@ const StudySession: React.FC<IStudySession> = ({
                 <>
                   {isNewVocabulary(exerciseQueue[index]) ? (
                     renderNewVocabulary(exerciseQueue[index])
+                  ) : isNewGrammar(exerciseQueue[index]) ? (
+                    renderNewGrammar(exerciseQueue[index])
                   ) : (
                     <ExerciseContainer
                       key={index}

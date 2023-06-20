@@ -1,4 +1,7 @@
-import { NewVocabulary } from "infrastructure/api/users/exercises/Exercises";
+import {
+  NewGrammar,
+  NewVocabulary,
+} from "infrastructure/api/users/exercises/Exercises";
 
 import {
   FillInBlankQuestionAnswer,
@@ -15,7 +18,8 @@ export type Exercise =
   | ReadingExercise
   | RepeatAudioExercise
   | ReadAloudExercise
-  | NewVocabulary;
+  | NewVocabulary
+  | NewGrammar;
 
 export interface IExerciseComponent {
   exercise: Exercise;
