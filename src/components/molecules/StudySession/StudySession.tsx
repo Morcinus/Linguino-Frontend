@@ -89,6 +89,7 @@ const StudySession: React.FC<IStudySession> = ({
             {!isLoading && exerciseQueue[index] ? (
               !finishedSession ? (
                 <ExerciseContainer
+                  key={index}
                   exercise={exerciseQueue[index]}
                   onContinue={handleContinue}
                 />
