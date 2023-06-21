@@ -1,9 +1,16 @@
 import { useTranslation } from "i18n/client";
 import { Notice } from "infrastructure/api/users/notices/Notices";
-import { isAchievementNotice } from "infrastructure/api/users/notices/NoticesGuard";
+import {
+  isAchievementNotice,
+  isFreeTrialEndNotice,
+} from "infrastructure/api/users/notices/NoticesGuard";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useEffect, useState } from "react";
+
+import { useRouter } from "next/navigation";
+
+import { List, ListItem } from "@mui/material";
 
 import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";
 
@@ -16,9 +23,10 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
   userId,
   fetchNewNotices = false,
 }) => {
-  const { notices, popNotice, fetchNotices } = useNotices();
+  const { notices, popNotice, deleteNotice, fetchNotices } = useNotices();
   const [fetched, setFetched] = useState(false);
   const { t } = useTranslation("cs", "common");
+  const router = useRouter();
 
   useEffect(() => {
     if (fetchNewNotices && !fetched) {
@@ -41,6 +49,35 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
             text: t("userActions.continue"),
           }}
         />
+      );
+    }
+
+    if (isFreeTrialEndNotice(notice)) {
+      return (
+        <FullscreenDialog
+          header1={t("notices.freeTrialEnded")}
+          header2={notice.name}
+          imageURL={notice.imageURL}
+          primaryButton={{
+            onClick: () => {
+              deleteNotice(userId, notice.id);
+              router.push("/subscription");
+            },
+            text: t("notices.extendSubscription"),
+          }}
+          secondaryButton={{
+            onClick: () => deleteNotice(userId, notice.id),
+            text: t("notices.continueWithFreeAccount"),
+          }}
+        >
+          <List sx={{ listStyleType: "disc", pl: 4 }}>
+            {notice.featureList.map((item, i) => (
+              <ListItem sx={{ display: "list-item" }} key={i}>
+                {item}
+              </ListItem>
+            ))}
+          </List>
+        </FullscreenDialog>
       );
     }
   }

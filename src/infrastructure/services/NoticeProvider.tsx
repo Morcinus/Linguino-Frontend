@@ -8,6 +8,7 @@ export interface NoticeContextType {
   addNotice: (notice: Notice, local?: boolean) => void;
   popNotice: () => void;
   fetchNotices: (userId: ID) => Promise<void>;
+  deleteNotice: (userId: ID, noticeId: ID) => void;
 }
 
 export const NoticeContext = createContext<NoticeContextType>(
@@ -38,12 +39,18 @@ export function NoticeProvider({
     return Promise.resolve();
   }
 
+  async function deleteNotice(userId: ID, noticeId: ID) {
+    setNotices(notices.filter((e) => e.id !== noticeId));
+    await NoticesAPI.deleteNotice(userId, noticeId);
+  }
+
   return (
     <NoticeContext.Provider
       value={{
         notices,
         addNotice,
         popNotice,
+        deleteNotice,
         fetchNotices,
       }}
     >

@@ -15,8 +15,8 @@ const NoticesAPI = {
     return API.get(`${this.URI(userId)}?${parseQueryParams(params)}`);
   },
 
-  async deleteNotice(userId: ID, notice: Notice): Promise<Notice> {
-    return API.delete(`${this.URI(userId)}/${notice.id}`);
+  async deleteNotice(userId: ID, noticeId: ID): Promise<void> {
+    return API.delete(`${this.URI(userId)}/${noticeId}`);
   },
 };
 
