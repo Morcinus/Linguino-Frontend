@@ -35,8 +35,8 @@ const BaseTemplatesAPI = {
     return API.post(`${this.URI}`, baseTemplate);
   },
 
-  async getBaseTemplate(id: ID): Promise<BaseTemplate> {
-    return API.get(`${this.URI}/${id}`);
+  async getBaseTemplate(baseTemplateId: ID): Promise<BaseTemplate> {
+    return API.get(`${this.URI}/${baseTemplateId}`);
   },
 
   async getBaseTemplates(
@@ -51,8 +51,8 @@ const BaseTemplatesAPI = {
     return API.put(`${this.URI}/${baseTemplate.id}`, baseTemplate);
   },
 
-  async deleteBaseTemplate(baseTemplate: BaseTemplate): Promise<BaseTemplate> {
-    return API.delete(`${this.URI}/${baseTemplate.id}`);
+  async deleteBaseTemplate(baseTemplateId: ID): Promise<void> {
+    return API.delete(`${this.URI}/${baseTemplateId}`);
   },
 };
 
