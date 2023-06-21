@@ -1,5 +1,6 @@
 import {
   AchievementNotice,
+  AdvertisementNotice,
   FreeTrialEndNotice,
   Notice,
   RatingSurveyNotice,
@@ -26,4 +27,10 @@ export function isRatingSurveyNotice(
 
 export function isRewardNotice(notice: Notice): notice is RewardNotice {
   return (notice as RewardNotice).type === "REWARD";
+}
+
+export function isAdvertisementNotice(
+  notice: Notice
+): notice is AdvertisementNotice {
+  return (notice as AdvertisementNotice).type === "ADVERTISEMENT";
 }

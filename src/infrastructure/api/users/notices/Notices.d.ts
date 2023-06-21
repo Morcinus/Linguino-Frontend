@@ -2,7 +2,8 @@ export type Notice =
   | AchievementNotice
   | FreeTrialEndNotice
   | RatingSurveyNotice
-  | RewardNotice;
+  | RewardNotice
+  | AdvertisementNotice;
 
 export interface AchievementNotice {
   id: ID;
@@ -34,4 +35,9 @@ export interface RewardNotice {
   id: ID;
   reward: number;
   type: "REWARD";
+}
+
+export interface AdvertisementNotice {
+  id: ID;
+  type: "ADVERTISEMENT";
 }

@@ -5,7 +5,7 @@ import { ReactNode, createContext, useContext, useState } from "react";
 
 export interface NoticeContextType {
   notices: Array<Notice>;
-  addNotice: (notice: Notice, local?: boolean) => void;
+  addNotices: (noticesToAdd: Array<Notice>) => void;
   popNotice: () => void;
   fetchNotices: (userId: ID) => Promise<void>;
   deleteNotice: (userId: ID, noticeId: ID) => void;
@@ -23,8 +23,8 @@ export function NoticeProvider({
 }): JSX.Element {
   const [notices, setNotices] = useState<Array<Notice>>([]);
 
-  function addNotice(notice: Notice) {
-    setNotices([...notices, notice]);
+  function addNotices(noticesToAdd: Array<Notice>) {
+    setNotices([...notices, ...noticesToAdd]);
   }
 
   function popNotice() {
@@ -48,7 +48,7 @@ export function NoticeProvider({
     <NoticeContext.Provider
       value={{
         notices,
-        addNotice,
+        addNotices,
         popNotice,
         deleteNotice,
         fetchNotices,

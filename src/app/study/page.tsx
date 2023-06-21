@@ -1,21 +1,21 @@
 // prettier-ignore
 "use client"
 
+import { StudySession as StudySessionType } from "domain/models/types/studySessions";
+import UserAPI from "infrastructure/api/UserAPI";
+import useAuth from "infrastructure/services/AuthProvider";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, Container, IconButton, Toolbar } from "@mui/material";
 
 import MultiProgressBar from "components/atoms/MultiProgressBar/MultiProgressBar";
 import StudySession from "components/molecules/StudySession/StudySession";
-import { StudySession as StudySessionType } from "domain/models/types/studySessions";
-import UserAPI from "infrastructure/api/UserAPI";
-import useAuth from "infrastructure/services/AuthProvider";
-import { useRouter } from "next/navigation";
 
 export interface IStudyPage {}
 
@@ -23,9 +23,11 @@ const StudyPage: React.FC<IStudyPage> = () => {
   const [index, setIndex] = useState(0);
 
   const { data, isLoading } = UserAPI.useUserSettings(useAuth().user?.id);
-  const [progressArray, setProgressArray] = useState<Array<StudySessionType>>([]);
+  const [progressArray, setProgressArray] = useState<Array<StudySessionType>>(
+    []
+  );
   const [rewardSum, setRewardSum] = useState<number>(0);
-  const { addNotice } = useNotices();
+  const { addNotices } = useNotices();
   const router = useRouter();
 
   function handleContinue(reschedule: boolean) {
@@ -47,13 +49,18 @@ const StudyPage: React.FC<IStudyPage> = () => {
     if (index < progressArray.length - 1) {
       setIndex(index + 1);
     } else {
-      console.log("Notice Reward", newRewardSum)
-      addNotice({
-        id: "study_reward_notice",
-        type: "REWARD",
-        reward: newRewardSum,
-      });
-      router.push("/")
+      addNotices([
+        {
+          id: "study_advertisement_notice",
+          type: "ADVERTISEMENT",
+        },
+        {
+          id: "study_reward_notice",
+          type: "REWARD",
+          reward: newRewardSum,
+        },
+      ]);
+      router.push("/");
     }
   }
 
