@@ -2,11 +2,13 @@
 "use client";
 
 import axios from "axios";
+import { NoticeProvider } from "infrastructure/services/NoticeProvider";
 import { SnackbarProvider } from "notistack";
 
 import { ThemeProvider } from "@mui/material/styles";
 
 import Navigation from "components/atoms/navigation/NavigationBars/NavigationBars";
+
 import { AuthProvider } from "../infrastructure/services/AuthProvider";
 import { ErrorHandler } from "../infrastructure/services/ErrorHandler";
 import "../styles/globals.css";
@@ -32,8 +34,10 @@ export default function RootLayout({
           >
             <ErrorHandler>
               <AuthProvider>
-                <Navigation />
-                {children}
+                <NoticeProvider>
+                  <Navigation />
+                  {children}
+                </NoticeProvider>
               </AuthProvider>
             </ErrorHandler>
           </SnackbarProvider>

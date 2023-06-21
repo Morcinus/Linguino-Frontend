@@ -1,6 +1,14 @@
+import theme from "styles/theme";
+
 import { ReactNode } from "react";
 
-import { Box, Button, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Dialog,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
 import FullWidthButton from "../FullWidthButton/FullWidthButton";
 import KeyPress from "../KeyPress/KeyPress";
@@ -10,7 +18,7 @@ export interface IFullscreenDialog {
   header1?: string;
   imageURL?: string;
   header2?: string;
-  body?: string;
+  text?: string;
   children?: ReactNode;
   primaryButton?: {
     onClick?: () => void;
@@ -28,58 +36,58 @@ const FullscreenDialog: React.FC<IFullscreenDialog> = ({
   imageURL,
   header1,
   header2,
-  body,
+  text,
   children,
 }) => {
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        width: "90%",
-        margin: "auto",
-        gap: 1,
-        mb: 4,
-      }}
-    >
-      <KeyPress onPress={() => primaryButton?.onClick?.()} keys={["Enter"]} />
-      <Typography variant="h5" sx={{ textAlign: "center" }}>
-        {header1}
-      </Typography>
+    <Dialog fullScreen open={true}>
+      <Container
+        maxWidth="sm"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 1,
+          pt: desktop ? 12 : 4,
+          mb: 4,
+        }}
+      >
+        <KeyPress onPress={() => primaryButton?.onClick?.()} keys={["Enter"]} />
+        <Typography variant="h5" sx={{ textAlign: "center" }}>
+          {header1}
+        </Typography>
 
-      {imageURL && <ImageCard url={imageURL} />}
+        {imageURL && <ImageCard url={imageURL} />}
 
-      <Typography variant="h5" sx={{ textAlign: "center" }}>
-        {header2}
-      </Typography>
+        <Typography variant="h5" sx={{ textAlign: "center" }}>
+          {header2}
+        </Typography>
 
-      <Typography variant="body1" sx={{ textAlign: "center" }}>
-        {body}
-      </Typography>
+        <Typography variant="body1" sx={{ textAlign: "center" }}>
+          {text}
+        </Typography>
 
-      {children}
+        {children}
 
-      {secondaryButton && (
-        <Button
-          onClick={() => secondaryButton.onClick?.()}
-          sx={{
-            position: "fixed",
-            bottom: 42,
-            left: 0,
-            width: "100%",
-            borderRadius: 0,
-          }}
-          size="large"
-        >
-          {secondaryButton.text}
-        </Button>
-      )}
-      {primaryButton && (
-        <FullWidthButton onClick={() => primaryButton.onClick?.()}>
-          {primaryButton.text}
-        </FullWidthButton>
-      )}
-    </Box>
+        <Box display="flex" flexDirection="column" sx={{ mt: 8 }}>
+          {secondaryButton && (
+            <FullWidthButton
+              variant="text"
+              bottomOffset
+              onClick={() => secondaryButton.onClick?.()}
+            >
+              {secondaryButton.text}
+            </FullWidthButton>
+          )}
+          {primaryButton && (
+            <FullWidthButton onClick={() => primaryButton.onClick?.()}>
+              {primaryButton.text}
+            </FullWidthButton>
+          )}
+        </Box>
+      </Container>
+    </Dialog>
   );
 };
 
