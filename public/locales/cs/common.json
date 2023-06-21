@@ -205,5 +205,10 @@
     "coins": "penízků",
 
     "advertisementNote": "Díky reklamám můžeme poskytovat aplikaci zdarma."
+  },
+
+  "404": {
+    "header": "404 Stránka nebyla nalezena",
+    "backToHome": "Zpátky na hlavní stránku"
   }
 }
