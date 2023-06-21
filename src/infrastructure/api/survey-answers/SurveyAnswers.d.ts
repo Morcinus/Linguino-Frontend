@@ -1,5 +1,6 @@
 export interface SurveyAnswer {
-  id: ID;
-  answer: string;
-  userId?: ID;
+  id?: ID;
+  answer: string | number;
+  userId: ID;
+  surveyId: ID;
 }

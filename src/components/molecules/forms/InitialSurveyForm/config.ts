@@ -16,6 +16,8 @@ export const surveyOptions = [
   },
 ];
 
+export const initialSurveyId = "INITIAL_SURVEY";
+
 export interface SurveyOption {
   id: ID;
 }

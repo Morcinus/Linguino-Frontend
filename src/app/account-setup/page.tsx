@@ -33,7 +33,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   const [page, setPage] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState<ID>();
   const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>();
-  const [surveyAnswer, setSurveyAnswer] = useState<Omit<SurveyAnswer, "id">>();
+  const [surveyAnswer, setSurveyAnswer] = useState<Omit<SurveyAnswer, "userId">>();
   const [selectedGoal, setSelectedGoal] = useState<GoalOption>();
   const [startOptionId, setStartOptionId] = useState<StartOptionId>();
   const [startingLevel, setStartingLevel] = useState<LevelOptionId>();

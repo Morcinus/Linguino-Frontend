@@ -9,10 +9,10 @@ import { Box, Icon, Typography } from "@mui/material";
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
 import MultipleChoiceCardList from "components/atoms/lists/MultipleChoiceCardList/MultipleChoiceCardList";
 
-import { surveyOptions } from "./config";
+import { initialSurveyId, surveyOptions } from "./config";
 
 export interface IInitialSurveyForm {
-  onSubmit: (answer: Omit<SurveyAnswer, "id">) => void;
+  onSubmit: (answer: Omit<SurveyAnswer, "userId">) => void;
 }
 
 const InitialSurveyForm: React.FC<IInitialSurveyForm> = ({ onSubmit }) => {
@@ -39,7 +39,10 @@ const InitialSurveyForm: React.FC<IInitialSurveyForm> = ({ onSubmit }) => {
       <FullWidthButton
         onClick={() => {
           if (selectedIndex !== undefined)
-            onSubmit({ answer: surveyOptions[selectedIndex].id });
+            onSubmit({
+              answer: surveyOptions[selectedIndex].id,
+              surveyId: initialSurveyId,
+            });
         }}
         disabled={selectedIndex === undefined}
       >
