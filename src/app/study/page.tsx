@@ -1,3 +1,8 @@
+// prettier-ignore
+"use client"
+
+import useNotices from "infrastructure/services/NoticeProvider";
+
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
@@ -5,17 +10,23 @@ import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, Container, IconButton, Toolbar } from "@mui/material";
 
-import MultiProgressBar from "../components/atoms/MultiProgressBar/MultiProgressBar";
-import { default as StudySessionComponent } from "../components/molecules/StudySession/StudySession";
-import { StudySession } from "../domain/models/types/studySessions";
-import UserAPI from "../infrastructure/api/UserAPI";
-import useAuth from "../infrastructure/services/AuthProvider";
+import MultiProgressBar from "components/atoms/MultiProgressBar/MultiProgressBar";
+import StudySession from "components/molecules/StudySession/StudySession";
+import { StudySession as StudySessionType } from "domain/models/types/studySessions";
+import UserAPI from "infrastructure/api/UserAPI";
+import useAuth from "infrastructure/services/AuthProvider";
+import { useRouter } from "next/navigation";
 
-export default function Study() {
+export interface IStudyPage {}
+
+const StudyPage: React.FC<IStudyPage> = () => {
   const [index, setIndex] = useState(0);
 
   const { data, isLoading } = UserAPI.useUserSettings(useAuth().user?.id);
-  const [progressArray, setProgressArray] = useState<Array<StudySession>>([]);
+  const [progressArray, setProgressArray] = useState<Array<StudySessionType>>([]);
+  const [rewardSum, setRewardSum] = useState<number>(0);
+  const { addNotice } = useNotices();
+  const router = useRouter();
 
   function handleContinue(reschedule: boolean) {
     setProgressArray(() => {
@@ -29,9 +40,20 @@ export default function Study() {
     });
   }
 
-  function handleSessionFinish() {
+  function handleSessionFinish(reward: number) {
+    const newRewardSum = rewardSum + reward;
+    setRewardSum(newRewardSum);
+
     if (index < progressArray.length - 1) {
       setIndex(index + 1);
+    } else {
+      console.log("Notice Reward", newRewardSum)
+      addNotice({
+        id: "study_reward_notice",
+        type: "REWARD",
+        reward: newRewardSum,
+      });
+      router.push("/")
     }
   }
 
@@ -66,7 +88,7 @@ export default function Study() {
             </Box>
           </Box>
 
-          <StudySessionComponent
+          <StudySession
             session={data.dailySessions[index]}
             onContinue={handleContinue}
             onFinish={handleSessionFinish}
@@ -76,4 +98,6 @@ export default function Study() {
       )}
     </>
   );
-}
+};
+
+export default StudyPage;

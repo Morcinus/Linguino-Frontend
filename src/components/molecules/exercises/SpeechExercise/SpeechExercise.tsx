@@ -1,6 +1,6 @@
-import useKeypress from "react-use-keypress";
+import { useTranslation } from "i18n/client";
 
-import { useTranslation } from "next-i18next";
+import useKeypress from "react-use-keypress";
 
 import { Typography } from "@mui/material";
 
@@ -21,7 +21,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("cs", "common");
 
   const handleContinue = () => {
     onContinue?.(getQuestionProgress(), false);

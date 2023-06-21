@@ -37,6 +37,7 @@ const FreeTrialEndNotice: React.FC<IFreeTrialEndNotice> = ({
         onClick: () => deleteNotice(userId, notice.id),
         text: t("notices.continueWithFreeAccount"),
       }}
+      transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
     >
       <List sx={{ listStyleType: "disc", pl: 4 }}>
         {notice.featureList.map((item, i) => (

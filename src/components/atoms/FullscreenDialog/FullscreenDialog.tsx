@@ -6,6 +6,8 @@ import {
   Box,
   Container,
   Dialog,
+  DialogProps,
+  Icon,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -23,14 +25,18 @@ export interface IFullscreenDialog {
   primaryButton?: {
     onClick?: () => void;
     text?: string;
+    icon?: string;
   };
   secondaryButton?: {
     onClick?: () => void;
     text?: string;
+    icon?: string;
   };
 }
 
-const FullscreenDialog: React.FC<IFullscreenDialog> = ({
+const FullscreenDialog: React.FC<
+  IFullscreenDialog & Omit<DialogProps, "open" | "fullScreen">
+> = ({
   primaryButton,
   secondaryButton,
   imageURL,
@@ -38,11 +44,12 @@ const FullscreenDialog: React.FC<IFullscreenDialog> = ({
   header2,
   text,
   children,
+  ...rest
 }) => {
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Dialog fullScreen open={true}>
+    <Dialog fullScreen open={true} {...rest}>
       <Container
         maxWidth="sm"
         sx={{
@@ -76,12 +83,24 @@ const FullscreenDialog: React.FC<IFullscreenDialog> = ({
               variant="text"
               bottomOffset
               onClick={() => secondaryButton.onClick?.()}
+              endIcon={
+                secondaryButton.icon ? (
+                  <Icon>{secondaryButton.icon}</Icon>
+                ) : undefined
+              }
             >
               {secondaryButton.text}
             </FullWidthButton>
           )}
           {primaryButton && (
-            <FullWidthButton onClick={() => primaryButton.onClick?.()}>
+            <FullWidthButton
+              onClick={() => primaryButton.onClick?.()}
+              endIcon={
+                primaryButton.icon ? (
+                  <Icon>{primaryButton.icon}</Icon>
+                ) : undefined
+              }
+            >
               {primaryButton.text}
             </FullWidthButton>
           )}

@@ -199,6 +199,9 @@
     "achievementGet": "Dosáhli jste úspěchu!",
     "freeTrialEnded": "Zkušební období předplatného skončilo",
     "extendSubscription": "Prodloužit předplatné",
-    "continueWithFreeAccount": "Pokračovat s plánem zdarma"
+    "continueWithFreeAccount": "Pokračovat s plánem zdarma",
+
+    "rewardGet": "Získali jste odměnu",
+    "coins": "penízků"
   }
 }

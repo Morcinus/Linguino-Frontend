@@ -1,14 +1,12 @@
 import { Component, ComponentProps, ElementType, ReactNode } from "react";
 
-import { WithTranslation, withTranslation } from "next-i18next";
-
 import { Box, Typography } from "@mui/material";
 
 import { AnswerState } from "../../../domain/models/types/exercises";
 import { QuestionAnswer } from "../../../domain/models/types/questionAnswers";
 import { UserAnswer } from "../../../domain/models/types/questionAttempts";
 import theme from "../../../styles/theme";
-import FullWidthButton from "../FullWidthButton/FullWidthButton";
+import ExerciseContinueButton from "../ExerciseContinueButton/ExerciseContinueButton";
 import KeyPress from "../KeyPress/KeyPress";
 import ImageCard from "../cards/ImageCard/ImageCard";
 
@@ -32,8 +30,8 @@ type IExerciseState = {
   readyToSubmit: boolean;
 };
 
-class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
-  constructor(props: IExercise & WithTranslation) {
+class Exercise extends Component<IExercise, IExerciseState> {
+  constructor(props: IExercise) {
     super(props);
     this.state = {
       userAnswers: [],
@@ -124,8 +122,6 @@ class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
   }
 
   render() {
-    const { t } = this.props;
-    console.log("Rendering");
     return (
       <Box
         sx={{
@@ -171,17 +167,18 @@ class Exercise extends Component<IExercise & WithTranslation, IExerciseState> {
 
         {this.props.componentsBelowQuestions}
 
-        <FullWidthButton
+        <ExerciseContinueButton
           onClick={this.handleClick}
           disabled={!this.state.readyToSubmit}
-        >
-          {this.state.submitted || this.props.submitBeforeContinue === false
-            ? t("exercise.continue")
-            : t("exercise.check")}
-        </FullWidthButton>
+          text={
+            this.state.submitted || this.props.submitBeforeContinue === false
+              ? "exercise.continue"
+              : "exercise.check"
+          }
+        />
       </Box>
     );
   }
 }
 
-export default withTranslation()(Exercise);
+export default Exercise;

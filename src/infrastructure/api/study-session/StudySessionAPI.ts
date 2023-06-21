@@ -1,10 +1,9 @@
-import axios from "axios";
-
-import { Exercise } from "../../domain/models/types/exercises";
-import { QuestionAttempt } from "../../domain/models/types/questionAttempts";
-import { StudySession } from "../../domain/models/types/studySessions";
-import { SWRHook } from "./API";
-import useAPI from "./hooks/useAPI";
+import { Exercise } from "../../../domain/models/types/exercises";
+import { QuestionAttempt } from "../../../domain/models/types/questionAttempts";
+import { StudySession } from "../../../domain/models/types/studySessions";
+import API, { SWRHook } from "../API";
+import useAPI from "../hooks/useAPI";
+import { Reward } from "./StudySession";
 
 const StudySessionAPI = {
   URI: "study-sessions",
@@ -21,13 +20,13 @@ const StudySessionAPI = {
   async updateStudySession(
     session: StudySession,
     attempts: Array<QuestionAttempt>
-  ): Promise<Array<QuestionAttempt>> {
+  ): Promise<Reward> {
     const url =
       session.lessonId === undefined
         ? `${this.URI}/${session.type}`
         : `${this.URI}/${session.type}/lessons/${session.lessonId}`;
 
-    return axios.post(url, attempts);
+    return API.post(url, attempts);
   },
 };
 

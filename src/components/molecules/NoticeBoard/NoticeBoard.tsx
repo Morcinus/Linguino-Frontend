@@ -3,6 +3,7 @@ import {
   isAchievementNotice,
   isFreeTrialEndNotice,
   isRatingSurveyNotice,
+  isRewardNotice,
 } from "infrastructure/api/users/notices/NoticesGuard";
 import useNotices from "infrastructure/services/NoticeProvider";
 
@@ -11,6 +12,7 @@ import { useEffect, useState } from "react";
 import AchievementNotice from "components/atoms/notices/AchievementNotice/AchievementNotice";
 import FreeTrialEndNotice from "components/atoms/notices/FreeTrialEndNotice/FreeTrialEndNotice";
 import RatingSurveyNotice from "components/atoms/notices/RatingSurveyNotice/RatingSurveyNotice";
+import RewardNotice from "components/atoms/notices/RewardNotice/RewardNotice";
 
 export interface INoticeBoard {
   userId: ID;
@@ -44,12 +46,16 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
     if (isRatingSurveyNotice(notice)) {
       return <RatingSurveyNotice notice={notice} userId={userId} />;
     }
+
+    if (isRewardNotice(notice)) {
+      return <RewardNotice notice={notice} />;
+    }
   }
 
   return (
     <>
       {notices &&
-        notices.length >= 0 &&
+        notices.length > 0 &&
         notices[0] !== undefined &&
         renderNotice(notices[0])}
     </>

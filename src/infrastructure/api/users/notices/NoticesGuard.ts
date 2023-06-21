@@ -3,6 +3,7 @@ import {
   FreeTrialEndNotice,
   Notice,
   RatingSurveyNotice,
+  RewardNotice,
 } from "./Notices";
 
 export function isAchievementNotice(
@@ -21,4 +22,8 @@ export function isRatingSurveyNotice(
   notice: Notice
 ): notice is RatingSurveyNotice {
   return (notice as RatingSurveyNotice).type === "RATING_SURVEY";
+}
+
+export function isRewardNotice(notice: Notice): notice is RewardNotice {
+  return (notice as RewardNotice).type === "REWARD";
 }

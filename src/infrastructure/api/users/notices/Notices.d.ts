@@ -1,7 +1,8 @@
 export type Notice =
   | AchievementNotice
   | FreeTrialEndNotice
-  | RatingSurveyNotice;
+  | RatingSurveyNotice
+  | RewardNotice;
 
 export interface AchievementNotice {
   id: ID;
@@ -27,4 +28,10 @@ export interface RatingSurveyNotice {
   answerLabel1: string;
   answerLabel2: string;
   maxPoints: number;
+}
+
+export interface RewardNotice {
+  id: ID;
+  reward: number;
+  type: "REWARD";
 }

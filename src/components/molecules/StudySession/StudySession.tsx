@@ -13,7 +13,7 @@ import { Exercise } from "../../../domain/models/types/exercises";
 import { QuestionAttempt } from "../../../domain/models/types/questionAttempts";
 import { StudySession as StudySessionType } from "../../../domain/models/types/studySessions";
 import { getExplanation } from "../../../domain/models/utils/type-guards";
-import StudySessionAPI from "../../../infrastructure/api/StudySessionAPI";
+import StudySessionAPI from "../../../infrastructure/api/study-session/StudySessionAPI";
 import { useScroll } from "../../../util/hooks/useScroll";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";
@@ -23,7 +23,7 @@ import NewVocabulary from "../exercises/NewVocabulary/NewVocabulary";
 
 export interface IStudySession {
   session: StudySessionType;
-  onFinish?: () => void;
+  onFinish?: (reward: number) => void;
   onContinue?: (reschedule: boolean) => void;
 }
 
@@ -53,10 +53,13 @@ const StudySession: React.FC<IStudySession> = ({
     }
   }
 
-  function handleFinished(attemptArray: Array<QuestionAttempt>) {
+  async function handleFinished(attemptArray: Array<QuestionAttempt>) {
     setFinishedSession(true);
-    StudySessionAPI.updateStudySession(session, attemptArray);
-    onFinish?.();
+    const reward = await StudySessionAPI.updateStudySession(
+      session,
+      attemptArray
+    );
+    onFinish?.(reward.reward);
   }
 
   function handleContinue(

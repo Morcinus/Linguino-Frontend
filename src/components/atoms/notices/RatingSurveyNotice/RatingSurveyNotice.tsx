@@ -38,6 +38,7 @@ const RatingSurveyNotice: React.FC<IRatingSurveyNotice> = ({
         },
         text: t("userActions.continue"),
       }}
+      transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
     >
       <Box alignSelf="center">
         <Rating

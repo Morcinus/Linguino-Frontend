@@ -4,6 +4,7 @@
 import axios from "axios";
 import { NoticeProvider } from "infrastructure/services/NoticeProvider";
 import { SnackbarProvider } from "notistack";
+import "regenerator-runtime/runtime";
 
 import { ThemeProvider } from "@mui/material/styles";
 

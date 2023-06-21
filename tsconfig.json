@@ -27,7 +27,6 @@
     "**/*.tsx",
     "./src/infrastructure/decs.d.ts",
     ".next/types/**/*.ts",
-    "C:\\Morcinus\\Git repositories\\Linguino-Frontend\\.next/types/**/*.ts",
     "src/styles/componentOverrides.js"
   ],
   "exclude": ["node_modules"]

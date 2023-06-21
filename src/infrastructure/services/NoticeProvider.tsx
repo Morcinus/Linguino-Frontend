@@ -23,8 +23,8 @@ export function NoticeProvider({
 }): JSX.Element {
   const [notices, setNotices] = useState<Array<Notice>>([]);
 
-  function addNotice() {
-    console.log("TODO");
+  function addNotice(notice: Notice) {
+    setNotices([...notices, notice]);
   }
 
   function popNotice() {

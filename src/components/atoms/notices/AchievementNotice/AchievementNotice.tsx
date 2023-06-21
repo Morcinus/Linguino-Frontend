@@ -23,6 +23,7 @@ const AchievementNotice: React.FC<IAchievementNotice> = ({
         onClick: () => popNotice(),
         text: t("userActions.continue"),
       }}
+      transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
     />
   );
 };
