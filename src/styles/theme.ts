@@ -60,7 +60,7 @@ const theme = createTheme({
     },
     speaking: {
       light: "#fff9c4",
-      main: "#fbc02d",
+      main: "#F5C207",
       dark: "#c49000",
       background: "#FFF4E3",
       onMain: "#ffffff",
@@ -74,14 +74,14 @@ const theme = createTheme({
     },
     vocabulary: {
       light: "#C5F2C7",
-      main: "#2AB930",
+      main: "#7DD956",
       dark: "#155D18",
       background: "#E9FFE0",
       onMain: "#ffffff",
     },
     grammar: {
       light: "#C5DCFA",
-      main: "#1672EC",
+      main: "#52C3FF",
       dark: "#0A3977",
       background: "#E9F6FF",
       onMain: "#ffffff",

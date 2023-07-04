@@ -13,9 +13,13 @@ import { SIDE_NAV_BAR_WIDTH } from "components/atoms/navigation/main-navigation-
 
 export interface IContentContainer {
   children?: ReactNode;
+  disablePadding?: boolean;
 }
 
-const ContentContainer: React.FC<IContentContainer> = ({ children }) => {
+const ContentContainer: React.FC<IContentContainer> = ({
+  children,
+  disablePadding = false,
+}) => {
   const { user } = useAuth();
   const pathname = usePathname();
 
@@ -26,7 +30,7 @@ const ContentContainer: React.FC<IContentContainer> = ({ children }) => {
     !config.pagesWithoutContentContainer.includes(pathname) ? (
     <Box
       sx={{
-        pt: 3,
+        pt: disablePadding ? undefined : 3,
         minHeight: "100vh",
         pl: desktop ? SIDE_NAV_BAR_WIDTH : undefined,
         pb: !desktop ? `${BOTTOM_NAV_BAR_HEIGHT}px` : undefined,

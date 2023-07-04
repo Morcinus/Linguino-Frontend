@@ -20,7 +20,7 @@ const BottomFab: React.FC<IBottomFab> = ({ icon, onClick, header }) => {
       sx={{
         position: "fixed",
         right: 16,
-        bottom: desktop ? 16 : `${16 + BOTTOM_NAV_BAR_HEIGHT}`,
+        bottom: desktop ? 16 : `${16 + BOTTOM_NAV_BAR_HEIGHT}px`,
       }}
       onClick={onClick}
     >

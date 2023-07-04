@@ -1,15 +1,14 @@
-import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";
 import { useTranslation } from "i18n/client";
-import { AchievementNotice } from "infrastructure/api/users/notices/Notices";
+import { AchievementNotice as AchievementNoticeType } from "infrastructure/api/users/notices/Notices";
 import useNotices from "infrastructure/services/NoticeProvider";
 
+import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";
+
 export interface IAchievementNotice {
-  notice: AchievementNotice;
+  notice: AchievementNoticeType;
 }
 
-const AchievementNotice: React.FC<IAchievementNotice> = ({
-  notice,
-}) => {
+const AchievementNotice: React.FC<IAchievementNotice> = ({ notice }) => {
   const { popNotice } = useNotices();
   const { t } = useTranslation("cs", "common");
 

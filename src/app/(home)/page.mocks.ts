@@ -1,7 +1,9 @@
 import { IHomePage } from "./page";
 
 const base: IHomePage = {
-  sampleTextProp: "Hello world!",
+  searchParams: {
+    level: 2,
+  },
 };
 
 export const mockHomePageProps = {

@@ -43,6 +43,7 @@ const icons: Record<string, string> = {
   search: "search",
 
   streak: "local_fire_department",
+  start: "play_arrow",
 };
 
 export default icons;

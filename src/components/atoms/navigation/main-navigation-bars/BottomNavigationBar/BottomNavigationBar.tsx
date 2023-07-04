@@ -27,6 +27,7 @@ const BottomNavigationBar: React.FC<IBottomNavigationBar> = () => {
         left: 0,
         width: "100%",
         height: `${BOTTOM_NAV_BAR_HEIGHT}px`,
+        zIndex: 1,
       }}
     >
       <BottomNavigation
