@@ -19,7 +19,8 @@ export type Exercise =
   | RepeatAudioExercise
   | ReadAloudExercise
   | NewVocabulary
-  | NewGrammar;
+  | NewGrammar
+  | BuildWordExercise;
 
 export interface IExerciseComponent {
   exercise: Exercise;
@@ -108,6 +109,16 @@ export interface ReadingExercise {
   article: string;
 
   questions: Array<FillInBlankQuestionAnswer | TextQuestionAnswer>;
+}
+
+export interface BuildWordExercise {
+  id: ID;
+  lessonItemId: ID;
+  type: "BUILD_WORD";
+  assignmentTitle: string;
+  imageURL?: string;
+
+  question: BuildWordQuestionAnswer;
 }
 
 export type AnswerState = "NONE" | "RIGHT" | "WRONG";

@@ -4,6 +4,15 @@ const componentOverrides = {
       root: { boxShadow: "0px 1px 3px 2px rgba(0, 0, 0, .06)" },
     },
   },
+  MuiButton: {
+    styleOverrides: {
+      root: ({ ownerState }) => ({
+        ...(ownerState.variant === "contained" && {
+          boxShadow: "0px 1px 3px 2px rgba(0, 0, 0, .06)",
+        }),
+      }),
+    },
+  },
   MuiAppBar: {
     styleOverrides: {
       root: { boxShadow: "0px 1px 3px 2px rgba(0, 0, 0, .1)" },

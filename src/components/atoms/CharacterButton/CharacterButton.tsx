@@ -4,23 +4,28 @@ export interface ICharacterButton {
   onClick: () => void;
   character: string;
   disabled?: boolean;
+  elevated?: boolean;
 }
+
+export const CHARACTER_BUTTON_SIZE = 35;
 
 const CharacterButton: React.FC<ICharacterButton> = ({
   onClick,
   character,
   disabled,
+  elevated,
 }) => {
   return (
     <Button
-      variant="outlined"
-      color="inherit"
+      variant={elevated ? "contained" : "outlined"}
+      color={elevated ? "neutral" : "inherit"}
       sx={{
-        maxWidth: "35px",
-        maxHeight: "35px",
-        minWidth: "35px",
-        minHeight: "35px",
+        maxWidth: `${CHARACTER_BUTTON_SIZE}px`,
+        maxHeight: `${CHARACTER_BUTTON_SIZE}px`,
+        minWidth: `${CHARACTER_BUTTON_SIZE}px`,
+        minHeight: `${CHARACTER_BUTTON_SIZE}px`,
         borderRadius: 0.2,
+        backgroundColor: elevated ? "neutral" : undefined,
       }}
       onClick={onClick}
       disabled={disabled}

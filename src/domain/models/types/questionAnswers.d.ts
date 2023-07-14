@@ -1,7 +1,8 @@
 export type QuestionAnswer =
   | FillInBlankQuestionAnswer
   | TextQuestionAnswer
-  | AudioQuestionAnswer;
+  | AudioQuestionAnswer
+  | BuildWordQuestionAnswer;
 
 export interface Question {
   id: ID;
@@ -33,4 +34,12 @@ export interface AudioQuestionAnswer {
   id: ID;
   question?: string;
   answer: string;
+}
+
+export interface BuildWordQuestionAnswer {
+  type: "BUILD_WORD";
+  id: ID;
+  question: string;
+  answer: string;
+  letters: Array<string>;
 }

@@ -164,4 +164,10 @@ declare module "@mui/material/Fab" {
   }
 }
 
+declare module "@mui/material/Button" {
+  interface ButtonPropsColorOverrides {
+    neutral: true;
+  }
+}
+
 export default theme;

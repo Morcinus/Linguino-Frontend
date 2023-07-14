@@ -4,6 +4,7 @@ import {
 } from "infrastructure/api/users/exercises/Exercises";
 
 import {
+  BuildWordExercise,
   Exercise,
   ListeningExercise,
   ReadAloudExercise,
@@ -60,4 +61,10 @@ export function isNewVocabulary(exercise: Exercise): exercise is NewVocabulary {
 
 export function isNewGrammar(exercise: Exercise): exercise is NewGrammar {
   return (exercise as NewGrammar).type === "NEW_GRAMMAR";
+}
+
+export function isBuildWordExercise(
+  exercise: Exercise
+): exercise is BuildWordExercise {
+  return (exercise as BuildWordExercise).type === "BUILD_WORD";
 }
