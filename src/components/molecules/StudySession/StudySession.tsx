@@ -163,7 +163,7 @@ const StudySession: React.FC<IStudySession> = ({
 
   return (
     <>
-      <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+      <Box sx={{ height: "85vh", display: "flex", flexDirection: "column" }}>
         <Box sx={{ flexGrow: 1 }}>
           <Container maxWidth="sm">
             {!isLoading && exerciseQueue[index] ? (
