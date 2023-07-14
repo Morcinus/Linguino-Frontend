@@ -204,7 +204,11 @@
     "rewardGet": "Získali jste odměnu",
     "coins": "penízků",
 
-    "advertisementNote": "Díky reklamám můžeme poskytovat aplikaci zdarma."
+    "advertisementNote": "Díky reklamám můžeme poskytovat aplikaci zdarma.",
+
+    "studySessionEnded": "Dobrá práce! Učení dokončeno.",
+    "rightAnswers": "Správné odpovědi",
+    "wrongAnswers": "Špatné odpovědi"
   },
 
   "404": {

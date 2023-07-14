@@ -5,6 +5,7 @@ import {
   Notice,
   RatingSurveyNotice,
   RewardNotice,
+  StudyStatsNotice,
 } from "./Notices";
 
 export function isAchievementNotice(
@@ -33,4 +34,8 @@ export function isAdvertisementNotice(
   notice: Notice
 ): notice is AdvertisementNotice {
   return (notice as AdvertisementNotice).type === "ADVERTISEMENT";
+}
+
+export function isStudyStatsNotice(notice: Notice): notice is StudyStatsNotice {
+  return (notice as StudyStatsNotice).type === "STUDY_STATS";
 }

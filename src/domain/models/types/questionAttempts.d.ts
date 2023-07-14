@@ -1,3 +1,5 @@
+import { AnswerState } from "./exercises";
+
 export type QuestionAttempt = UserAnswer;
 
 export interface UserAnswer {

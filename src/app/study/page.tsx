@@ -16,6 +16,7 @@ import { Box, Container, IconButton, Toolbar } from "@mui/material";
 
 import MultiProgressBar from "components/atoms/MultiProgressBar/MultiProgressBar";
 import StudySession from "components/molecules/StudySession/StudySession";
+import { StudyStats } from "infrastructure/api/users/notices/Notices";
 
 export interface IStudyPage {}
 
@@ -42,7 +43,7 @@ const StudyPage: React.FC<IStudyPage> = () => {
     });
   }
 
-  function handleSessionFinish(reward: number) {
+  function handleSessionFinish(reward: number, studyStats: StudyStats) {
     const newRewardSum = rewardSum + reward;
     setRewardSum(newRewardSum);
 
@@ -53,6 +54,11 @@ const StudyPage: React.FC<IStudyPage> = () => {
         {
           id: "study_advertisement_notice",
           type: "ADVERTISEMENT",
+        },
+        {
+          id: "study_stats_notice",
+          type: "STUDY_STATS",
+          stats: studyStats,
         },
         {
           id: "study_reward_notice",

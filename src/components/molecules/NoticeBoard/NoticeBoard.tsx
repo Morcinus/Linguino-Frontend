@@ -4,7 +4,8 @@ import {
   isAdvertisementNotice,
   isFreeTrialEndNotice,
   isRatingSurveyNotice,
-  isRewardNotice
+  isRewardNotice,
+  isStudyStatsNotice,
 } from "infrastructure/api/users/notices/NoticesGuard";
 import useNotices from "infrastructure/services/NoticeProvider";
 
@@ -15,6 +16,7 @@ import AdvertisementNotice from "components/atoms/notices/AdvertisementNotice/Ad
 import FreeTrialEndNotice from "components/atoms/notices/FreeTrialEndNotice/FreeTrialEndNotice";
 import RatingSurveyNotice from "components/atoms/notices/RatingSurveyNotice/RatingSurveyNotice";
 import RewardNotice from "components/atoms/notices/RewardNotice/RewardNotice";
+import StudyStatsNotice from "components/atoms/notices/StudyStatsNotice/StudyStatsNotice";
 
 export interface INoticeBoard {
   userId: ID;
@@ -55,6 +57,10 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
 
     if (isAdvertisementNotice(notice)) {
       return <AdvertisementNotice />;
+    }
+
+    if (isStudyStatsNotice(notice)) {
+      return <StudyStatsNotice notice={notice} />;
     }
   }
 

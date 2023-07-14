@@ -3,6 +3,7 @@ import {
   isNewVocabulary,
 } from "domain/models/types/guards/exerciseGuard";
 import ExercisesAPI from "infrastructure/api/users/exercises/ExercisesAPI";
+import { StudyStats } from "infrastructure/api/users/notices/Notices";
 import useAuth from "infrastructure/services/AuthProvider";
 
 import { useEffect, useState } from "react";
@@ -23,7 +24,7 @@ import NewVocabulary from "../exercises/NewVocabulary/NewVocabulary";
 
 export interface IStudySession {
   session: StudySessionType;
-  onFinish?: (reward: number) => void;
+  onFinish?: (reward: number, studyStats: StudyStats) => void;
   onContinue?: (reschedule: boolean) => void;
 }
 
@@ -59,7 +60,7 @@ const StudySession: React.FC<IStudySession> = ({
       session,
       attemptArray
     );
-    onFinish?.(reward.reward);
+    onFinish?.(reward.reward, evaluateStats(attemptArray));
   }
 
   function handleContinue(
@@ -159,6 +160,20 @@ const StudySession: React.FC<IStudySession> = ({
         />
       );
     else return "";
+  }
+
+  function evaluateStats(attemptArray: Array<QuestionAttempt>) {
+    let rightAnswers = 0;
+    let wrongAnswers = 0;
+
+    attemptArray.forEach((attempt) => {
+      attempt.states.forEach((state) => {
+        if (state === "RIGHT") rightAnswers++;
+        else if (state === "WRONG") wrongAnswers++;
+      });
+    });
+
+    return { rightAnswers, wrongAnswers };
   }
 
   return (

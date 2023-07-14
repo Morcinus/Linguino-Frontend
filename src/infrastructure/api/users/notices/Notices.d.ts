@@ -3,7 +3,8 @@ export type Notice =
   | FreeTrialEndNotice
   | RatingSurveyNotice
   | RewardNotice
-  | AdvertisementNotice;
+  | AdvertisementNotice
+  | StudyStatsNotice;
 
 export interface AchievementNotice {
   id: ID;
@@ -40,4 +41,15 @@ export interface RewardNotice {
 export interface AdvertisementNotice {
   id: ID;
   type: "ADVERTISEMENT";
+}
+
+export interface StudyStatsNotice {
+  id: ID;
+  type: "STUDY_STATS";
+  stats: StudyStats;
+}
+
+export interface StudyStats {
+  rightAnswers: number;
+  wrongAnswers: number;
 }
