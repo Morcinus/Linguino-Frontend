@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import { Exercise } from "../../../domain/models/types/exercises";
 import {
   isBuildWordExercise,
+  isFillInTableExercise,
   isListeningExercise,
   isReadAloudExercise,
   isReadingExercise,
@@ -13,6 +14,7 @@ import {
 } from "../../../domain/models/types/guards/exerciseGuard";
 import { QuestionAttempt } from "../../../domain/models/types/questionAttempts";
 import BuildWordExercise from "../exercises/BuildWordExercise/BuildWordExercise";
+import FillInTableExercise from "../exercises/FillInTableExercise/FillInTableExercise";
 import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
 import ReadAloudExercise from "../exercises/ReadAloudExercise/ReadAloudExercise";
 import ReadingExercise from "../exercises/ReadingExercise/ReadingExercise";
@@ -67,7 +69,11 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
       return <BuildWordExercise exercise={exercise} onContinue={onContinue} />;
     }
 
-    return <></>;
+    if (isFillInTableExercise(exercise)) {
+      return (
+        <FillInTableExercise exercise={exercise} onContinue={onContinue} />
+      );
+    }
   }
 
   return <Box>{renderExercise()}</Box>;

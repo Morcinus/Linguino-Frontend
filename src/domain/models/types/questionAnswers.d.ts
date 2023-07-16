@@ -2,7 +2,8 @@ export type QuestionAnswer =
   | FillInBlankQuestionAnswer
   | TextQuestionAnswer
   | AudioQuestionAnswer
-  | BuildWordQuestionAnswer;
+  | BuildWordQuestionAnswer
+  | TableQuestionAnswerType;
 
 export interface Question {
   id: ID;
@@ -42,4 +43,12 @@ export interface BuildWordQuestionAnswer {
   question: string;
   answer: string;
   letters: Array<string>;
+}
+
+export interface TableQuestionAnswer {
+  type: "TABLE";
+  id: ID;
+  question: string;
+  tableRows: Array<Array<string>>;
+  blankCellCoords: Array<Array<number>>;
 }

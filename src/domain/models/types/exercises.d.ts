@@ -20,7 +20,8 @@ export type Exercise =
   | ReadAloudExercise
   | NewVocabulary
   | NewGrammar
-  | BuildWordExercise;
+  | BuildWordExercise
+  | FillInTableExercise;
 
 export interface IExerciseComponent {
   exercise: Exercise;
@@ -119,6 +120,15 @@ export interface BuildWordExercise {
   imageURL?: string;
 
   question: BuildWordQuestionAnswer;
+}
+
+export interface FillInTableExercise {
+  id: ID;
+  lessonItemId: ID;
+  type: "FILL_TABLE";
+  assignmentTitle: string;
+
+  question: TableQuestionAnswer;
 }
 
 export type AnswerState = "NONE" | "RIGHT" | "WRONG";
