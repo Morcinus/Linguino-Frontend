@@ -8,7 +8,7 @@ import { Box, Paper, Typography } from "@mui/material";
 
 import CharacterButton, {
   CHARACTER_BUTTON_SIZE,
-} from "../CharacterButton/CharacterButton";
+} from "../../CharacterButton/CharacterButton";
 
 export interface IBuildWordQuestionAnswer extends IQuestionAnswerComponent {
   questionAnswer: BuildWordQuestionAnswerType;

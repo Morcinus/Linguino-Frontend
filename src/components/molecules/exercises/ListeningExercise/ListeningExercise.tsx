@@ -7,7 +7,7 @@ import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import AudioPlayer from "../../../atoms/AudioPlayer/AudioPlayer";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import FillTheBlank from "../../../atoms/FillTheBlank/FillTheBlank";
-import { default as TextQuestionAnswerComponent } from "../../../atoms/TextQuestionAnswer/TextQuestionAnswer";
+import { default as TextQuestionAnswerComponent } from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";
 
 export interface IListeningExercise extends IExerciseComponent {
   exercise: ListeningExerciseType;

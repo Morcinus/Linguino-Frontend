@@ -4,7 +4,7 @@ import {
 } from "../../../../domain/models/types/exercises";
 import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import Exercise from "../../../atoms/Exercise/Exercise";
-import TextQuestionAnswer from "../../../atoms/TextQuestionAnswer/TextQuestionAnswer";
+import TextQuestionAnswer from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";
 
 export interface ITextExercise extends IExerciseComponent {
   exercise: TextExerciseType;

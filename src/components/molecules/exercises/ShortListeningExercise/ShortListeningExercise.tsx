@@ -5,7 +5,7 @@ import {
 import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import ListenButton from "../../../atoms/ListenButton/ListenButton";
-import TextQuestionAnswer from "../../../atoms/TextQuestionAnswer/TextQuestionAnswer";
+import TextQuestionAnswer from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";
 
 export interface IShortListeningExercise extends IExerciseComponent {
   exercise: ShortListeningExerciseType;

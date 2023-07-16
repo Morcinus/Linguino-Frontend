@@ -4,8 +4,8 @@ import {
 } from "domain/models/types/exercises";
 import { UserAnswer } from "domain/models/types/questionAttempts";
 
-import BuildWordQuestionAnswer from "components/atoms/BuildWordQuestionAnswer/BuildWordQuestionAnswer";
 import Exercise from "components/atoms/Exercise/Exercise";
+import BuildWordQuestionAnswer from "components/atoms/question-answers/BuildWordQuestionAnswer/BuildWordQuestionAnswer";
 
 export interface IBuildWordExercise extends IExerciseComponent {
   exercise: BuildWordExerciseType;

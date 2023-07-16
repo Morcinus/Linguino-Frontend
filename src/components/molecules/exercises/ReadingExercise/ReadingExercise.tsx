@@ -6,7 +6,7 @@ import { isFillInBlankQuestionAnswer } from "../../../../domain/models/types/gua
 import Exercise from "../../../atoms/Exercise/Exercise";
 import FillTheBlank from "../../../atoms/FillTheBlank/FillTheBlank";
 import MarkdownText from "../../../atoms/MarkdownText/MarkdownText";
-import { default as TextQuestionAnswerComponent } from "../../../atoms/TextQuestionAnswer/TextQuestionAnswer";
+import { default as TextQuestionAnswerComponent } from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";
 
 export interface IReadingExercise extends IExerciseComponent {
   exercise: ReadingExerciseType;

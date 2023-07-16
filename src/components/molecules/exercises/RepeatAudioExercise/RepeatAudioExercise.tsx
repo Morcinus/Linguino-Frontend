@@ -3,9 +3,9 @@ import {
   RepeatAudioExercise as RepeatAudioExerciseType,
 } from "../../../../domain/models/types/exercises";
 import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
-import AudioQuestionAnswer from "../../../atoms/AudioQuestionAnswer/AudioQuestionAnswer";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import ListenButton from "../../../atoms/ListenButton/ListenButton";
+import AudioQuestionAnswer from "../../../atoms/question-answers/AudioQuestionAnswer/AudioQuestionAnswer";
 
 export interface IRepeatAudioExercise extends IExerciseComponent {
   exercise: RepeatAudioExerciseType;
