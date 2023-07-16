@@ -6,6 +6,7 @@ import {
 import {
   BuildWordExercise,
   Exercise,
+  FillInSentenceExercise,
   FillInTableExercise,
   ListeningExercise,
   ReadAloudExercise,
@@ -74,4 +75,10 @@ export function isFillInTableExercise(
   exercise: Exercise
 ): exercise is FillInTableExercise {
   return (exercise as FillInTableExercise).type === "FILL_TABLE";
+}
+
+export function isFillInSentenceExercise(
+  exercise: Exercise
+): exercise is FillInSentenceExercise {
+  return (exercise as FillInSentenceExercise).type === "FILL_IN_SENTENCE";
 }

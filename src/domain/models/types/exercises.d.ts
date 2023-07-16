@@ -21,7 +21,8 @@ export type Exercise =
   | NewVocabulary
   | NewGrammar
   | BuildWordExercise
-  | FillInTableExercise;
+  | FillInTableExercise
+  | FillInSentenceExercise;
 
 export interface IExerciseComponent {
   exercise: Exercise;
@@ -129,6 +130,17 @@ export interface FillInTableExercise {
   assignmentTitle: string;
 
   question: TableQuestionAnswer;
+}
+
+export interface FillInSentenceExercise {
+  id: ID;
+  lessonItemId: ID;
+  type: "FILL_IN_SENTENCE";
+  assignmentTitle: string;
+  imageURL?: string;
+
+  question: FillInBlankQuestionAnswer;
+  options: Array<string>;
 }
 
 export type AnswerState = "NONE" | "RIGHT" | "WRONG";
