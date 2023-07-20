@@ -6,6 +6,7 @@ import {
   isFillInSentenceExercise,
   isFillInTableExercise,
   isListeningExercise,
+  isMatchingExercise,
   isReadAloudExercise,
   isReadingExercise,
   isRepeatAudioExercise,
@@ -18,6 +19,7 @@ import BuildWordExercise from "../exercises/BuildWordExercise/BuildWordExercise"
 import FillInSentenceExercise from "../exercises/FillInSentenceExercise/FillInSentenceExercise";
 import FillInTableExercise from "../exercises/FillInTableExercise/FillInTableExercise";
 import ListeningExercise from "../exercises/ListeningExercise/ListeningExercise";
+import MatchingExercise from "../exercises/MatchingExercise/MatchingExercise";
 import ReadAloudExercise from "../exercises/ReadAloudExercise/ReadAloudExercise";
 import ReadingExercise from "../exercises/ReadingExercise/ReadingExercise";
 import RepeatAudioExercise from "../exercises/RepeatAudioExercise/RepeatAudioExercise";
@@ -81,6 +83,10 @@ const ExerciseContainer: React.FC<IExerciseContainer> = ({
       return (
         <FillInSentenceExercise exercise={exercise} onContinue={onContinue} />
       );
+    }
+
+    if (isMatchingExercise(exercise)) {
+      return <MatchingExercise exercise={exercise} onContinue={onContinue} />;
     }
   }
 

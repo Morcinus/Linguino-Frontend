@@ -52,3 +52,28 @@ export interface TableQuestionAnswer {
   tableRows: Array<Array<string>>;
   blankCellCoords: Array<Array<number>>;
 }
+
+export interface MatchingQuestionAnswer {
+  type: "MATCHING";
+  id: ID;
+
+  options1: Array<MatchOption>;
+  options2: Array<MatchOption>;
+}
+
+export type MatchOption = MatchTextOption | MatchAudioOption | MatchImageOption;
+
+export interface MatchTextOption {
+  text: string;
+  matchIndex?: number;
+}
+
+export interface MatchAudioOption {
+  audioURL: string;
+  matchIndex?: number;
+}
+
+export interface MatchImageOption {
+  imageURL: string;
+  matchIndex?: number;
+}

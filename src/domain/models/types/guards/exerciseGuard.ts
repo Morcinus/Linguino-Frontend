@@ -9,6 +9,7 @@ import {
   FillInSentenceExercise,
   FillInTableExercise,
   ListeningExercise,
+  MatchingExercise,
   ReadAloudExercise,
   ReadingExercise,
   RepeatAudioExercise,
@@ -81,4 +82,10 @@ export function isFillInSentenceExercise(
   exercise: Exercise
 ): exercise is FillInSentenceExercise {
   return (exercise as FillInSentenceExercise).type === "FILL_IN_SENTENCE";
+}
+
+export function isMatchingExercise(
+  exercise: Exercise
+): exercise is MatchingExercise {
+  return (exercise as MatchingExercise).type === "MATCHING";
 }

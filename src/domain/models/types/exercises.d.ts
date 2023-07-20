@@ -22,7 +22,8 @@ export type Exercise =
   | NewGrammar
   | BuildWordExercise
   | FillInTableExercise
-  | FillInSentenceExercise;
+  | FillInSentenceExercise
+  | MatchingExercise;
 
 export interface IExerciseComponent {
   exercise: Exercise;
@@ -141,6 +142,15 @@ export interface FillInSentenceExercise {
 
   question: FillInBlankQuestionAnswer;
   options: Array<string>;
+}
+
+export interface MatchingExercise {
+  id: ID;
+  lessonItemId: ID;
+  type: "MATCHING";
+  assignmentTitle: string;
+
+  question: MatchingQuestionAnswer;
 }
 
 export type AnswerState = "NONE" | "RIGHT" | "WRONG";
