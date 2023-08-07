@@ -39,7 +39,7 @@ const PaymentPage: React.FC<IPaymentPage> = () => {
 
   useEffect(() => {
     if (router && user?.currentSubscriptionId) {
-      router.push("/subscription");
+      router.push("/manage-subscription");
     }
   }, [user, router]);
 

@@ -158,7 +158,7 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
             <Typography variant="subtitle1">{t("settings.premium")}</Typography>
             <Button
               variant="outlined"
-              onClick={() => router.push("/subscription")}
+              onClick={() => router.push("/manage-subscription")}
               sx={{ width: "50%", alignSelf: "center" }}
             >
               {t("settings.manageSubscription")}

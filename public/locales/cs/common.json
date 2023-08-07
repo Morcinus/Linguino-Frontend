@@ -119,7 +119,7 @@
     "thanks": "Děkujeme za zpětnou vazbu!"
   },
 
-  "subscription": {
+  "manageSubscription": {
     "current": "Momentální předplatné",
     "nextPayment": "Další platba",
     "cancel": "Odhlásit předplatné",
@@ -236,5 +236,26 @@
   "subscribed": {
     "thankYou": "Děkujeme!",
     "subscriptionActivated": "Vaše předplatné bylo aktivováno."
+  },
+
+  "subscription": {
+    "subscriptionHeader": "Získejte premium!",
+    "valuePropositions": [
+      "Učte se pokročilá slovíčka",
+      "Vytvářejte vlastní balíčky slovíček",
+      "Dělejte pokročilá cvičení",
+      "Žádné reklamy při učení"
+    ],
+    "getSubscription": "Získat premium",
+
+    "subscribedHeader": "Váš premium účet",
+    "subscribedFeaturesHeader": "Můžete naplno využívat tyto funkce",
+    "subscribedFeatures": [
+      "Učte se pokročilá slovíčka",
+      "Vytvářejte vlastní balíčky slovíček",
+      "Dělejte pokročilá cvičení",
+      "Žádné reklamy při učení"
+    ],
+    "manageSubscription": "Spravovat předplatné"
   }
 }

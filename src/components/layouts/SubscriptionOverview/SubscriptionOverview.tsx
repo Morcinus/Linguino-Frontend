@@ -39,7 +39,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
       ...subscription,
       subscriptionState: "CANCELLED",
       unsubscribeReason: selectedIndex
-        ? common.subscription.unsubscribeReasons[selectedIndex]
+        ? common.manageSubscription.unsubscribeReasons[selectedIndex]
         : undefined,
     };
     mutate(
@@ -64,22 +64,22 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
               <Card sx={{ width: "100%" }}>
                 <CardContent>
                   <Typography variant="subtitle1">
-                    {t("subscription.current")}
+                    {t("manageSubscription.current")}
                   </Typography>
                   <Typography>
-                    {`${t("subscription.subscriptionState")}: ${t(
+                    {`${t("manageSubscription.subscriptionState")}: ${t(
                       `subscription.subscriptionStates.${subscription.subscriptionState.toLowerCase()}`
                     )}`}
                   </Typography>
                   <Typography>
-                    {`${t("subscription.nextPayment")}: ${new Date(
+                    {`${t("manageSubscription.nextPayment")}: ${new Date(
                       subscription.nextPayment
                     ).toLocaleDateString()}`}
                   </Typography>
                 </CardContent>
               </Card>
               <Button onClick={() => setPage(1)}>
-                {t("subscription.cancel")}
+                {t("manageSubscription.cancel")}
               </Button>
             </Box>
           ) : page === 1 ? (
@@ -91,11 +91,11 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
               }}
             >
               <Typography variant="subtitle1">
-                {t("subscription.whyUnsubscribe")}
+                {t("manageSubscription.whyUnsubscribe")}
               </Typography>
               <MultipleChoiceCardList
                 selectedIndex={selectedIndex}
-                choices={common.subscription.unsubscribeReasons.map(
+                choices={common.manageSubscription.unsubscribeReasons.map(
                   (reason) => {
                     return {
                       name: reason,
@@ -111,7 +111,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                 sx={{ alignSelf: "center" }}
                 disabled={selectedIndex === undefined}
               >
-                {t("subscription.continue")}
+                {t("manageSubscription.continue")}
               </Button>
             </Box>
           ) : page === 2 ? (
@@ -122,13 +122,15 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                 gap: 2,
               }}
             >
-              <Typography variant="h5">{t("subscription.keep")}</Typography>
+              <Typography variant="h5">
+                {t("manageSubscription.keep")}
+              </Typography>
               <Box>
                 <Typography variant="subtitle2">
-                  {t("subscription.youWontHaveAccessToThese")}
+                  {t("manageSubscription.youWontHaveAccessToThese")}
                 </Typography>
                 <ul>
-                  {common.subscription.premiumFeatures.map((_, i) => {
+                  {common.manageSubscription.premiumFeatures.map((_, i) => {
                     return (
                       <li key={i}>
                         <Typography>
@@ -140,7 +142,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                 </ul>
               </Box>
               <Button onClick={() => router.push("/")} variant="contained">
-                {t("subscription.keepPremium")}
+                {t("manageSubscription.keepPremium")}
               </Button>
               <Button
                 onClick={() => {
@@ -148,7 +150,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                   handleUnsubscribe();
                 }}
               >
-                {t("subscription.confirmCancellation")}
+                {t("manageSubscription.confirmCancellation")}
               </Button>
             </Box>
           ) : (
@@ -161,7 +163,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
               }}
             >
               <Typography variant="subtitle1">
-                {t("subscription.successfullyUnsubscibed")}
+                {t("manageSubscription.successfullyUnsubscibed")}
               </Typography>
               <Button onClick={() => router.push("/")} variant="contained">
                 {t("navigation.home")}
