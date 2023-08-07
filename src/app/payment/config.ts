@@ -12,4 +12,4 @@ export const PLAN_PRICING_OPTIONS: {
   currency: "usd",
 };
 
-export const PAYMENT_SUCCESS_URL = "http://localhost:3000/payment/success";
+export const PAYMENT_SUCCESS_URL = "http://localhost:3000/subscribed";

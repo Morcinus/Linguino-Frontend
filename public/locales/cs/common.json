@@ -223,5 +223,10 @@
     "perMonth": "{{val, currency(USD)}} za měsíc",
     "subscriptionDisclaimer": "Částka vám bude automaticky naúčtována jednou za měsíc počínaje dneškem. Předplatné můžete kdykoliv zrušit v nastavení.",
     "iWantToReceiveInvoice": "Chci dostat fakturu"
+  },
+
+  "subscribed": {
+    "thankYou": "Děkujeme!",
+    "subscriptionActivated": "Vaše předplatné bylo aktivováno."
   }
 }
