@@ -1,5 +1,6 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
+import { Subscription } from "infrastructure/api/users/subscriptions/Subscriptions";
 import SubscriptionsAPI from "infrastructure/api/users/subscriptions/SubscriptionsAPI";
 
 import { useState } from "react";
@@ -34,9 +35,9 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
   );
 
   function handleUnsubscribe() {
-    const data = {
+    const data: Subscription = {
       ...subscription,
-      subscribed: false,
+      subscriptionState: "CANCELLED",
       unsubscribeReason: selectedIndex
         ? common.subscription.unsubscribeReasons[selectedIndex]
         : undefined,
@@ -64,6 +65,11 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                 <CardContent>
                   <Typography variant="subtitle1">
                     {t("subscription.current")}
+                  </Typography>
+                  <Typography>
+                    {`${t("subscription.subscriptionState")}: ${t(
+                      `subscription.subscriptionStates.${subscription.subscriptionState.toLowerCase()}`
+                    )}`}
                   </Typography>
                   <Typography>
                     {`${t("subscription.nextPayment")}: ${new Date(

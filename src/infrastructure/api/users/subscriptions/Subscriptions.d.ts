@@ -1,7 +1,7 @@
 export interface Subscription {
   id: ID;
   nextPayment: Date;
-  subscribed: boolean;
+  subscriptionState: "ORDERED" | "PAID" | "CANCELLED" | "TRIAL";
   unsubscribeReason?: string;
 
   planId: string;

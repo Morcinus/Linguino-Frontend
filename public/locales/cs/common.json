@@ -120,10 +120,10 @@
   },
 
   "subscription": {
-    "current": "Momentální odběr",
+    "current": "Momentální předplatné",
     "nextPayment": "Další platba",
-    "cancel": "Odhlásit odběr",
-    "whyUnsubscribe": "Proč rušíte odběr?",
+    "cancel": "Odhlásit předplatné",
+    "whyUnsubscribe": "Proč rušíte předplatné?",
     "continue": "Pokračovat",
     "unsubscribeReasons": [
       "Stačí mi aplikace zdarma",
@@ -139,7 +139,15 @@
       "Pokročilá slovní zásoba",
       "Vytváření vlastních lekcí"
     ],
-    "successfullyUnsubscibed": "Odběr byl úspěšně zrušen."
+    "successfullyUnsubscibed": "Předplatné bylo úspěšně zrušeno.",
+    "notSubscribed": "Nemáte žádné předplatné",
+    "subscriptionState": "Stav předplatného",
+    "subscriptionStates": {
+      "cancelled": "zrušeno",
+      "trial": "zkušební doba",
+      "ordered": "objednáno",
+      "paid": "zaplaceno"
+    }
   },
 
   "challenges": {

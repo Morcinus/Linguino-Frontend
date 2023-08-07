@@ -1,7 +1,10 @@
 // prettier-ignore
 "use client"
 
+import { useTranslation } from "i18n/client";
 import useAuth from "infrastructure/services/AuthProvider";
+
+import { Typography } from "@mui/material";
 
 import SubscriptionOverview from "components/layouts/SubscriptionOverview/SubscriptionOverview";
 
@@ -9,6 +12,7 @@ export interface ISubscriptionPage {}
 
 const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
   const { user } = useAuth();
+  const { t } = useTranslation("cs", "common");
 
   return (
     <>
@@ -18,7 +22,9 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
           subscriptionId={user.currentSubscriptionId}
         />
       ) : (
-        "Not subscribed"
+        <Typography variant="body1">
+          {t("subscription.notSubscribed")}
+        </Typography>
       )}
     </>
   );
