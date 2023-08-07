@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 import { Box, Button, Typography } from "@mui/material";
 
+import ImageCard from "components/atoms/cards/ImageCard/ImageCard";
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";
 
 export default function NotFound() {
@@ -15,8 +16,11 @@ export default function NotFound() {
 
   return (
     <ContentContainer>
-      <Box display="flex" flexDirection="column" gap={4} sx={{ pt: 12 }}>
-        <Typography variant="subtitle1">{t("404.header")}</Typography>
+      <Box display="flex" flexDirection="column" sx={{ pt: 8 }}>
+        <ImageCard url="/images/not-found.png" />
+        <Typography variant="subtitle1" sx={{ mb: 4 }}>
+          {t("404.header")}
+        </Typography>
         <Button onClick={() => router.push("/")} variant="contained">
           {t("404.backToHome")}
         </Button>
