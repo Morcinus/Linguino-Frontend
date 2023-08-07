@@ -214,5 +214,14 @@
   "404": {
     "header": "404 Stránka nebyla nalezena",
     "backToHome": "Zpátky na hlavní stránku"
+  },
+
+  "payment": {
+    "monthlySubscription": "Měsíční předplatné",
+    "buySubscription": "Koupit předplatné",
+    "generalPaymentErrorMessage": "Při ověření karty došlo k chybě. Zkuste to prosím znovu později.",
+    "perMonth": "{{val, currency(USD)}} za měsíc",
+    "subscriptionDisclaimer": "Částka vám bude automaticky naúčtována jednou za měsíc počínaje dneškem. Předplatné můžete kdykoliv zrušit v nastavení.",
+    "iWantToReceiveInvoice": "Chci dostat fakturu"
   }
 }

@@ -2,7 +2,7 @@ import { Modify } from "domain/models/utils/modify";
 import API, { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 
-import { Subscription } from "./Subscriptions";
+import { CreateSubscriptionResponseDTO, Subscription } from "./Subscriptions";
 
 export interface SubscriptionParams {}
 
@@ -19,8 +19,8 @@ const SubscriptionsAPI = {
 
   async createSubscription(
     userId: ID,
-    subscription: Subscription
-  ): Promise<Subscription> {
+    subscription: Pick<Subscription, "planId">
+  ): Promise<CreateSubscriptionResponseDTO> {
     return API.post(`${this.URI(userId)}`, subscription);
   },
 

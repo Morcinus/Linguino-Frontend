@@ -30,6 +30,8 @@
     "@nivo/pie": "^0.80.0",
     "@nivo/tooltip": "^0.80.0",
     "@storybook/addon-queryparams": "^6.2.9",
+    "@stripe/react-stripe-js": "^2.1.1",
+    "@stripe/stripe-js": "^1.54.2",
     "axios": "^0.27.2",
     "dayjs": "^1.11.8",
     "i18next-chained-backend": "^3.0.2",

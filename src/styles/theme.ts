@@ -4,7 +4,7 @@ import componentOverrides from "./componentOverrides";
 
 const theme = createTheme({
   typography: {
-    fontFamily: ["Nunito", "Poppins"].join(","),
+    fontFamily: ["Nunito", "Poppins", "sans-serif"].join(","),
     subtitle1: {
       fontSize: 18,
       fontFamily: "Poppins",
