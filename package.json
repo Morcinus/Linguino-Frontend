@@ -33,6 +33,7 @@
     "@stripe/react-stripe-js": "^2.1.1",
     "@stripe/stripe-js": "^1.54.2",
     "axios": "^0.27.2",
+    "core-js": "3",
     "dayjs": "^1.11.8",
     "i18next-chained-backend": "^3.0.2",
     "i18next-http-backend": "^1.4.1",
