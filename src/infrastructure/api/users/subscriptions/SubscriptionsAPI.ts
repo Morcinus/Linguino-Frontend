@@ -19,7 +19,9 @@ const SubscriptionsAPI = {
 
   async createSubscription(
     userId: ID,
-    subscription: Pick<Subscription, "planId">
+    subscription:
+      | Pick<Subscription, "planId">
+      | Pick<Subscription, "subscriptionState">
   ): Promise<CreateSubscriptionResponseDTO> {
     return API.post(`${this.URI(userId)}`, subscription);
   },

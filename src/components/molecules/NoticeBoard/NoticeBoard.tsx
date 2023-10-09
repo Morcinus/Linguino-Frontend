@@ -3,6 +3,7 @@ import {
   isAchievementNotice,
   isAdvertisementNotice,
   isFreeTrialEndNotice,
+  isFreeTrialOfferNotice,
   isRatingSurveyNotice,
   isRewardNotice,
   isStudyStatsNotice,
@@ -14,6 +15,7 @@ import { useEffect, useState } from "react";
 import AchievementNotice from "components/atoms/notices/AchievementNotice/AchievementNotice";
 import AdvertisementNotice from "components/atoms/notices/AdvertisementNotice/AdvertisementNotice";
 import FreeTrialEndNotice from "components/atoms/notices/FreeTrialEndNotice/FreeTrialEndNotice";
+import FreeTrialOfferNotice from "components/atoms/notices/FreeTrialOfferNotice/FreeTrialOfferNotice";
 import RatingSurveyNotice from "components/atoms/notices/RatingSurveyNotice/RatingSurveyNotice";
 import RewardNotice from "components/atoms/notices/RewardNotice/RewardNotice";
 import StudyStatsNotice from "components/atoms/notices/StudyStatsNotice/StudyStatsNotice";
@@ -61,6 +63,10 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
 
     if (isStudyStatsNotice(notice)) {
       return <StudyStatsNotice notice={notice} />;
+    }
+
+    if (isFreeTrialOfferNotice(notice)) {
+      return <FreeTrialOfferNotice notice={notice} userId={userId} />;
     }
   }
 

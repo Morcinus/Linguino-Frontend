@@ -2,6 +2,7 @@ import {
   AchievementNotice,
   AdvertisementNotice,
   FreeTrialEndNotice,
+  FreeTrialOfferNotice,
   Notice,
   RatingSurveyNotice,
   RewardNotice,
@@ -38,4 +39,10 @@ export function isAdvertisementNotice(
 
 export function isStudyStatsNotice(notice: Notice): notice is StudyStatsNotice {
   return (notice as StudyStatsNotice).type === "STUDY_STATS";
+}
+
+export function isFreeTrialOfferNotice(
+  notice: Notice
+): notice is FreeTrialOfferNotice {
+  return (notice as FreeTrialOfferNotice).type === "FREE_TRIAL_OFFER";
 }

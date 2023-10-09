@@ -216,7 +216,11 @@
 
     "studySessionEnded": "Dobrá práce! Učení dokončeno.",
     "rightAnswers": "Správné odpovědi",
-    "wrongAnswers": "Špatné odpovědi"
+    "wrongAnswers": "Špatné odpovědi",
+
+    "freeTrialOfferHeader": "Vyzkoušejte premium na 14 dní zdarma!",
+    "tryForFree": "Vyzkoušet zdarma",
+    "declineFreeTrialOffer": "Nemám zájem"
   },
 
   "404": {
