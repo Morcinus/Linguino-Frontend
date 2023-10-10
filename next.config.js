@@ -5,9 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   // Had to be turned off otherwise dynamic segments don't work
   // i18n,
-  experimental: {
-    appDir: true,
-  },
   images: {
     remotePatterns: [
       {
