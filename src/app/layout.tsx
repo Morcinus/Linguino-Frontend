@@ -1,8 +1,6 @@
 // prettier-ignore
 "use client";
 
-import "regenerator-runtime/runtime";
-
 import axios from "axios";
 import { NoticeProvider } from "infrastructure/services/NoticeProvider";
 import { SnackbarProvider } from "notistack";
