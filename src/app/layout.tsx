@@ -10,6 +10,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import GoogleAnalytics from "components/atoms/GoogleAnalytics/GoogleAnalytics";
 import Navigation from "components/atoms/navigation/NavigationBars/NavigationBars";
 
+import GoogleAdsense from "components/atoms/GoogleAdsense/GoogleAdsense";
 import { AuthProvider } from "../infrastructure/services/AuthProvider";
 import { ErrorHandler } from "../infrastructure/services/ErrorHandler";
 import "../styles/globals.css";
@@ -38,6 +39,7 @@ export default function RootLayout({
                 <NoticeProvider>
                   <Navigation />
                   <GoogleAnalytics />
+                  <GoogleAdsense />
                   {children}
                 </NoticeProvider>
               </AuthProvider>
