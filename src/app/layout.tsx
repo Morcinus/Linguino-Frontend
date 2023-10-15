@@ -7,6 +7,7 @@ import { SnackbarProvider } from "notistack";
 
 import { ThemeProvider } from "@mui/material/styles";
 
+import GoogleAnalytics from "components/atoms/GoogleAnalytics/GoogleAnalytics";
 import Navigation from "components/atoms/navigation/NavigationBars/NavigationBars";
 
 import { AuthProvider } from "../infrastructure/services/AuthProvider";
@@ -36,6 +37,7 @@ export default function RootLayout({
               <AuthProvider>
                 <NoticeProvider>
                   <Navigation />
+                  <GoogleAnalytics />
                   {children}
                 </NoticeProvider>
               </AuthProvider>
