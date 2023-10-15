@@ -1,26 +1,23 @@
 import axios from "axios";
 import i18n from "i18next";
 
-import common from '../public/locales/cs/common.json' assert { type: 'json' };
-import form from '../public/locales/cs/form.json' assert { type: 'json' };
-import snack from '../public/locales/cs/snack.json' assert { type: 'json' };
-
 import { initReactI18next } from "react-i18next";
 
-import AuthDecorator from "../src/decorators/authDecorator";
-
-import { ThemeProvider } from '@mui/material/styles';
-import theme from '../src/styles/theme';
-
-import * as NextImage from "next/image";
-
 import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+
+import { ThemeProvider } from "@mui/material/styles";
+
+import common from "../public/locales/cs/common.json";
+import form from "../public/locales/cs/form.json";
+import snack from "../public/locales/cs/snack.json";
+import AuthDecorator from "../src/decorators/authDecorator";
 import "../src/styles/globals.css";
+import theme from "../src/styles/theme";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const decorators = [
-  Story => (
+  (Story) => (
     <ThemeProvider theme={theme}>
       <Story />
     </ThemeProvider>
@@ -73,17 +70,12 @@ const customViewports = Object.fromEntries(
   })
 );
 
-// Allow Storybook to handle Next's <Image> component
-const OriginalNextImage = NextImage.default;
-
-Object.defineProperty(NextImage, "default", {
-  configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />,
-});
-
 export const parameters = {
   nextRouter: {
     Provider: AppRouterContext.Provider,
+  },
+  nextjs: {
+    appDirectory: true,
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
