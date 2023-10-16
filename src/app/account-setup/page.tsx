@@ -22,6 +22,7 @@ import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLe
 import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
 import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
 import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/SelectTopicsForm";
+import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
 import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
 import { Topic } from "infrastructure/api/courses/topics/Topics";
 
@@ -30,7 +31,7 @@ export interface IAccountSetupPage {}
 const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   const { user, mutateUser } = useAuth();
   const [page, setPage] = useState(0);
-  const [selectedCourse, setSelectedCourse] = useState<ID>();
+  const [selectedCourseId, setSelectedCourseId] = useState<ID>();
   const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>();
   const [surveyAnswer, setSurveyAnswer] = useState<Omit<SurveyAnswer, "userId">>();
   const [selectedGoal, setSelectedGoal] = useState<GoalOption>();
@@ -62,11 +63,11 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
           userId: user.id,
         });
 
-      if (startingLevel && selectedCourse && selectedGoal) {
+      if (startingLevel && selectedCourseId && selectedGoal) {
         const userChange = {
           id: user.id,
           startingLevel,
-          selectedCourse: await CoursesAPI.getCourse(selectedCourse),
+          selectedCourseId: await CoursesAPI.getCourse(selectedCourseId),
           dailyGoal: selectedGoal.value,
           accountInitialized: true,
         };
@@ -77,7 +78,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
     }
   }, [
     startingLevel,
-    selectedCourse,
+    selectedCourseId,
     selectedGoal,
     selectedTopics,
     surveyAnswer,
@@ -93,7 +94,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
 
   return (
     <>
-      {page !== 0 && (
+      {page !== 0 && (page !== 5 || startOptionId !== "takeTest") && (
         <NavigationBar
           leftIconButton={{
             icon: icons.back,
@@ -109,15 +110,15 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
         {page === 0 ? (
           <SelectCourseForm
             onSubmit={(courseId) => {
-              setSelectedCourse(courseId);
+              setSelectedCourseId(courseId);
               incrementPage();
             }}
           />
         ) : page === 1 ? (
           <>
-            {selectedCourse && (
+            {selectedCourseId && (
               <SelectTopicsForm
-                courseId={selectedCourse}
+                courseId={selectedCourseId}
                 onSubmit={(topics) => {
                   setSelectedTopics(topics);
                   incrementPage();
@@ -155,7 +156,16 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
               />
             )}
 
-            {/* TODO startOptionId === "takeTest" */}
+            {startOptionId === "takeTest" && selectedCourseId && (
+              <PlacementTest
+                courseId={selectedCourseId}
+                onSubmit={(levelOption) => setStartingLevel(levelOption)}
+                onCancel={() => {
+                  decrementPage()
+                  setStartOptionId(undefined);
+                }}
+              />
+            )}
           </>
         )}
       </Container>

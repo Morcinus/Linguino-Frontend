@@ -22,7 +22,7 @@ const LessonStudy: React.FC<ILessonStudy> = ({ lessonId }) => {
     studyStats: StudyStats,
     attempts: Array<QuestionAttempt>
   ) {
-    const reward = await StudySessionAPI.updateStudySession(attempts);
+    const { reward } = await StudySessionAPI.updateStudySession(attempts);
 
     addNotices([
       {
@@ -37,7 +37,7 @@ const LessonStudy: React.FC<ILessonStudy> = ({ lessonId }) => {
       {
         id: "study_reward_notice",
         type: "REWARD",
-        reward: reward.reward,
+        reward: reward,
       },
     ]);
     router.push("/");
@@ -46,7 +46,11 @@ const LessonStudy: React.FC<ILessonStudy> = ({ lessonId }) => {
   return (
     <>
       {!isLoading && exercises && (
-        <StudySession exercises={exercises} onFinish={handleSessionFinish} />
+        <StudySession
+          exercises={exercises}
+          onFinish={handleSessionFinish}
+          onExit={() => router.push("/")}
+        />
       )}
     </>
   );

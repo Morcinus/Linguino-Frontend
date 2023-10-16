@@ -18,7 +18,7 @@ const DailyStudy: React.FC<IDailyStudy> = () => {
     studyStats: StudyStats,
     attempts: Array<QuestionAttempt>
   ) {
-    const reward = await StudySessionAPI.updateStudySession(attempts);
+    const { reward } = await StudySessionAPI.updateStudySession(attempts);
 
     addNotices([
       {
@@ -33,7 +33,7 @@ const DailyStudy: React.FC<IDailyStudy> = () => {
       {
         id: "study_reward_notice",
         type: "REWARD",
-        reward: reward.reward,
+        reward: reward,
       },
     ]);
     router.push("/");
@@ -42,7 +42,11 @@ const DailyStudy: React.FC<IDailyStudy> = () => {
   return (
     <>
       {!isLoading && exercises && (
-        <StudySession exercises={exercises} onFinish={handleSessionFinish} />
+        <StudySession
+          exercises={exercises}
+          onFinish={handleSessionFinish}
+          onExit={() => router.push("/")}
+        />
       )}
     </>
   );

@@ -43,6 +43,7 @@ const base: IStudySession = {
     },
   ],
   onFinish: action("onFinish"),
+  onExit: action("onExit"),
 };
 
 export const mockStudySessionProps = {

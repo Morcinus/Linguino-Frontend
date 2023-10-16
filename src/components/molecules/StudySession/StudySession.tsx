@@ -7,8 +7,6 @@ import icons from "styles/icons";
 
 import { useEffect, useState } from "react";
 
-import { useRouter } from "next/navigation";
-
 import { Box, Container, Icon, IconButton, Toolbar } from "@mui/material";
 
 import StudySessionProgressBar from "components/atoms/StudySessionProgressBar/StudySessionProgressBar";
@@ -26,14 +24,20 @@ import NewVocabulary from "../exercises/NewVocabulary/NewVocabulary";
 export interface IStudySession {
   exercises: Array<Exercise>;
   onFinish: (studyStats: StudyStats, attempts: Array<QuestionAttempt>) => void;
+  onExit: () => void;
+  displayExplanations?: boolean;
 }
 
-const StudySession: React.FC<IStudySession> = ({ exercises, onFinish }) => {
+const StudySession: React.FC<IStudySession> = ({
+  exercises,
+  onFinish,
+  onExit,
+  displayExplanations = true,
+}) => {
   const [finishedSession, setFinishedSession] = useState(false);
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
   const [executeScroll, elRef] = useScroll();
-  const router = useRouter();
 
   const [attemptArray, setAttemptArray] = useState<Array<QuestionAttempt>>([]);
   const [exerciseQueue, setExerciseQueue] =
@@ -131,7 +135,7 @@ const StudySession: React.FC<IStudySession> = ({ exercises, onFinish }) => {
             maxValue={exerciseQueue.length}
           />
 
-          <IconButton onClick={() => router.push("/")}>
+          <IconButton onClick={() => onExit()}>
             <Icon>{icons.close}</Icon>
           </IconButton>
         </Toolbar>
@@ -158,7 +162,8 @@ const StudySession: React.FC<IStudySession> = ({ exercises, onFinish }) => {
           </Container>
         </Box>
 
-        {exerciseQueue !== undefined &&
+        {displayExplanations &&
+        exerciseQueue !== undefined &&
         exerciseQueue[index] !== undefined &&
         "explanation" in exerciseQueue[index] ? (
           <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
@@ -167,7 +172,8 @@ const StudySession: React.FC<IStudySession> = ({ exercises, onFinish }) => {
         )}
       </Box>
 
-      {exerciseQueue !== undefined &&
+      {displayExplanations &&
+      exerciseQueue !== undefined &&
       exerciseQueue[index] !== undefined &&
       "explanation" in exerciseQueue[index] ? (
         <StudyExpansionContent
