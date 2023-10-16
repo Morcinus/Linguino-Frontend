@@ -10,13 +10,11 @@ import LessonItemCard from "components/atoms/cards/LessonItemCard/LessonItemCard
 export interface INewVocabulary {
   lessonItemId: ID;
   onContinue: () => void;
-  onMarkAsLearned: () => void;
 }
 
 const NewVocabulary: React.FC<INewVocabulary> = ({
   lessonItemId,
   onContinue,
-  onMarkAsLearned,
 }) => {
   const { t } = useTranslation("cs", "common");
   const { lessonItem, mutate } = LessonItemsAPI.useLessonItem(lessonItemId);
@@ -68,7 +66,6 @@ const NewVocabulary: React.FC<INewVocabulary> = ({
           bottomOffset
           onClick={async () => {
             await handleLessonItemChange({ markAsLearned: true });
-            onMarkAsLearned();
           }}
         >
           {t("exercise.iKnowWord")}

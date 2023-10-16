@@ -10,14 +10,9 @@ import LessonCard from "components/atoms/cards/LessonCard/LessonCard";
 export interface INewGrammar {
   lessonId: ID;
   onContinue: () => void;
-  onMarkAsLearned: () => void;
 }
 
-const NewGrammar: React.FC<INewGrammar> = ({
-  lessonId,
-  onContinue,
-  onMarkAsLearned,
-}) => {
+const NewGrammar: React.FC<INewGrammar> = ({ lessonId, onContinue }) => {
   const { t } = useTranslation("cs", "common");
   const { lesson, mutate } = LessonsAPI.useLesson(lessonId);
 
@@ -66,7 +61,6 @@ const NewGrammar: React.FC<INewGrammar> = ({
           bottomOffset
           onClick={async () => {
             await handleLessonChange({ markAsLearned: true });
-            onMarkAsLearned();
           }}
         >
           {t("exercise.iKnowGrammar")}

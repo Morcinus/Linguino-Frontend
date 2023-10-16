@@ -1,7 +1,7 @@
 import {
   NewGrammar,
   NewVocabulary,
-} from "infrastructure/api/users/exercises/Exercises";
+} from "infrastructure/api/user/study-session/Exercises";
 
 import {
   BuildWordExercise,

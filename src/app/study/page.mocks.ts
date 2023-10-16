@@ -1,6 +1,10 @@
 import { IStudyPage } from "./page";
 
-const base: IStudyPage = {};
+const base: IStudyPage = {
+  searchParams: {
+    lessonId: "ajdfnfjslfjsf",
+  },
+};
 
 export const mockStudyPageProps = {
   base,

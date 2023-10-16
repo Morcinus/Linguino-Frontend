@@ -2,19 +2,20 @@ import {
   isNewGrammar,
   isNewVocabulary,
 } from "domain/models/types/guards/exerciseGuard";
-import ExercisesAPI from "infrastructure/api/users/exercises/ExercisesAPI";
 import { StudyStats } from "infrastructure/api/users/notices/Notices";
-import useAuth from "infrastructure/services/AuthProvider";
+import icons from "styles/icons";
 
 import { useEffect, useState } from "react";
 
-import { Box, Container } from "@mui/material";
+import { useRouter } from "next/navigation";
+
+import { Box, Container, Icon, IconButton, Toolbar } from "@mui/material";
+
+import StudySessionProgressBar from "components/atoms/StudySessionProgressBar/StudySessionProgressBar";
 
 import { Exercise } from "../../../domain/models/types/exercises";
 import { QuestionAttempt } from "../../../domain/models/types/questionAttempts";
-import { StudySession as StudySessionType } from "../../../domain/models/types/studySessions";
 import { getExplanation } from "../../../domain/models/utils/type-guards";
-import StudySessionAPI from "../../../infrastructure/api/study-session/StudySessionAPI";
 import { useScroll } from "../../../util/hooks/useScroll";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";
@@ -23,30 +24,20 @@ import NewGrammar from "../exercises/NewGrammar/NewGrammar";
 import NewVocabulary from "../exercises/NewVocabulary/NewVocabulary";
 
 export interface IStudySession {
-  session: StudySessionType;
-  onFinish?: (reward: number, studyStats: StudyStats) => void;
-  onContinue?: (reschedule: boolean) => void;
+  exercises: Array<Exercise>;
+  onFinish: (studyStats: StudyStats, attempts: Array<QuestionAttempt>) => void;
 }
 
-const StudySession: React.FC<IStudySession> = ({
-  session,
-  onFinish,
-  onContinue,
-}) => {
-  const { user } = useAuth();
+const StudySession: React.FC<IStudySession> = ({ exercises, onFinish }) => {
   const [finishedSession, setFinishedSession] = useState(false);
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
   const [executeScroll, elRef] = useScroll();
-  const { data, isLoading } = StudySessionAPI.useStudySession(session);
-  const [attemptArray, setAttemptArray] = useState<Array<QuestionAttempt>>([]);
-  const [exerciseQueue, setExerciseQueue] = useState<Array<Exercise>>([]);
+  const router = useRouter();
 
-  useEffect(() => {
-    if (!isLoading && data && exerciseQueue.length === 0) {
-      setExerciseQueue(data);
-    }
-  }, [data, isLoading, exerciseQueue.length]);
+  const [attemptArray, setAttemptArray] = useState<Array<QuestionAttempt>>([]);
+  const [exerciseQueue, setExerciseQueue] =
+    useState<Array<Exercise>>(exercises);
 
   function nextExercise() {
     if (index < exerciseQueue.length - 1) {
@@ -56,11 +47,7 @@ const StudySession: React.FC<IStudySession> = ({
 
   async function handleFinished(attemptArray: Array<QuestionAttempt>) {
     setFinishedSession(true);
-    const reward = await StudySessionAPI.updateStudySession(
-      session,
-      attemptArray
-    );
-    onFinish?.(reward.reward, evaluateStats(attemptArray));
+    onFinish(evaluateStats(attemptArray), attemptArray);
   }
 
   function handleContinue(
@@ -71,7 +58,7 @@ const StudySession: React.FC<IStudySession> = ({
     setAttemptArray(arr);
 
     if (reschedule) {
-      setExerciseQueue((old) => {
+      setExerciseQueue((old: Array<Exercise>) => {
         return [...old, old[index]];
       });
       setIndex(index + 1);
@@ -80,8 +67,6 @@ const StudySession: React.FC<IStudySession> = ({
 
       if (index >= exerciseQueue.length - 1) handleFinished(arr);
     }
-
-    onContinue?.(reschedule);
   }
 
   function toggleExpansion() {
@@ -104,23 +89,6 @@ const StudySession: React.FC<IStudySession> = ({
             nextExercise();
             if (index >= exerciseQueue.length - 1) handleFinished(attemptArray);
           }}
-          onMarkAsLearned={async () => {
-            const queue: Array<Exercise> = exerciseQueue.filter((e) => {
-              if (isNewGrammar(e)) return true;
-              else return e.lessonItemId !== exercise.lessonItemId;
-            });
-
-            const itemAmountToFetch = exerciseQueue.length - queue.length;
-            const offset = queue.length;
-
-            if (user) {
-              const exercises = await ExercisesAPI.getExercises(user.id, {
-                pagination: { start: offset, limit: itemAmountToFetch },
-              });
-
-              setExerciseQueue([...queue, ...exercises]);
-            }
-          }}
         />
       );
     else return "";
@@ -134,28 +102,6 @@ const StudySession: React.FC<IStudySession> = ({
           onContinue={() => {
             nextExercise();
             if (index >= exerciseQueue.length - 1) handleFinished(attemptArray);
-          }}
-          onMarkAsLearned={async () => {
-            const queue: Array<Exercise> = exerciseQueue.filter((e) => {
-              if (isNewGrammar(e)) {
-                return e.lessonId !== exercise.lessonId;
-              } else {
-                return !exercise.lessonItemIds.some(
-                  (id) => e.lessonItemId === id
-                );
-              }
-            });
-
-            const itemAmountToFetch = exerciseQueue.length - queue.length;
-            const offset = queue.length;
-
-            if (user) {
-              const exercises = await ExercisesAPI.getExercises(user.id, {
-                pagination: { start: offset, limit: itemAmountToFetch },
-              });
-
-              setExerciseQueue([...queue, ...exercises]);
-            }
           }}
         />
       );
@@ -177,36 +123,42 @@ const StudySession: React.FC<IStudySession> = ({
   }
 
   return (
-    <>
+    <Box>
+      <Container maxWidth="md">
+        <Toolbar sx={{ display: "flex", alignItems: "center" }}>
+          <StudySessionProgressBar
+            value={index}
+            maxValue={exerciseQueue.length}
+          />
+
+          <IconButton onClick={() => router.push("/")}>
+            <Icon>{icons.close}</Icon>
+          </IconButton>
+        </Toolbar>
+      </Container>
+
       <Box sx={{ height: "85vh", display: "flex", flexDirection: "column" }}>
         <Box sx={{ flexGrow: 1 }}>
           <Container maxWidth="sm">
-            {!isLoading && exerciseQueue[index] ? (
-              !finishedSession ? (
-                <>
-                  {isNewVocabulary(exerciseQueue[index]) ? (
-                    renderNewVocabulary(exerciseQueue[index])
-                  ) : isNewGrammar(exerciseQueue[index]) ? (
-                    renderNewGrammar(exerciseQueue[index])
-                  ) : (
-                    <ExerciseContainer
-                      key={index}
-                      exercise={exerciseQueue[index]}
-                      onContinue={handleContinue}
-                    />
-                  )}
-                </>
-              ) : (
-                <p>session finished</p>
-              )
-            ) : (
-              "Loading..."
+            {exerciseQueue[index] && !finishedSession && (
+              <>
+                {isNewVocabulary(exerciseQueue[index]) ? (
+                  renderNewVocabulary(exerciseQueue[index])
+                ) : isNewGrammar(exerciseQueue[index]) ? (
+                  renderNewGrammar(exerciseQueue[index])
+                ) : (
+                  <ExerciseContainer
+                    key={index}
+                    exercise={exerciseQueue[index]}
+                    onContinue={handleContinue}
+                  />
+                )}
+              </>
             )}
           </Container>
         </Box>
 
-        {!isLoading &&
-        exerciseQueue !== undefined &&
+        {exerciseQueue !== undefined &&
         exerciseQueue[index] !== undefined &&
         "explanation" in exerciseQueue[index] ? (
           <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
@@ -215,8 +167,7 @@ const StudySession: React.FC<IStudySession> = ({
         )}
       </Box>
 
-      {!isLoading &&
-      exerciseQueue !== undefined &&
+      {exerciseQueue !== undefined &&
       exerciseQueue[index] !== undefined &&
       "explanation" in exerciseQueue[index] ? (
         <StudyExpansionContent
@@ -227,7 +178,7 @@ const StudySession: React.FC<IStudySession> = ({
       ) : (
         <></>
       )}
-    </>
+    </Box>
   );
 };
 

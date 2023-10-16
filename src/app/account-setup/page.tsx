@@ -10,7 +10,6 @@ import icons from "styles/icons";
 
 import { useEffect, useState } from "react";
 
-
 import { Container } from "@mui/material";
 
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
