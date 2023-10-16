@@ -26,6 +26,7 @@ export default function AuthDecorator(Story: Story) {
       isFollowed: false,
       name: "Pepa Okurka",
       profileImageURL: "https://picsum.photos/id/168/512/512",
+      accountInitialized: true,
     },
     login: () => console.log("login"),
     logout: () => console.log("logout"),
