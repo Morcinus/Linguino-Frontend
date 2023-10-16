@@ -10,6 +10,7 @@ export interface LessonParams {
   categoryId?: ID;
   favorite?: boolean;
   author?: ID;
+  searchName?: string;
 }
 
 const LessonsAPI = {

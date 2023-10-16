@@ -1,6 +1,6 @@
-export interface Follower {
-  id: ID;
-  username: string;
-  name: string;
-  isFollowed: boolean;
-}
+import { User } from "../Users";
+
+export type Follower = Pick<
+  User,
+  "id" | "name" | "username" | "isFollowed" | "profileImageURL"
+>;

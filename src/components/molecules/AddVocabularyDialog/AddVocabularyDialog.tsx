@@ -13,7 +13,7 @@ import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
 import Toolbar from "@mui/material/Toolbar";
 
-import LessonItemsSearchResults from "components/atoms/LessonItemsSearchResults/LessonItemsSearchResults";
+import AddLessonItemsSearchResults from "components/atoms/AddLessonItemsSearchResults/AddLessonItemsSearchResults";
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";
 
@@ -76,7 +76,7 @@ const AddVocabularyDialog: React.FC<IAddVocabularyDialog> = ({
           </Box>
           <Box>
             {searchPrompt && (
-              <LessonItemsSearchResults
+              <AddLessonItemsSearchResults
                 searchPrompt={searchPrompt}
                 onItemAdd={onItemAdd}
                 onItemRemove={onItemRemove}

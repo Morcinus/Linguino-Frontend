@@ -13,4 +13,8 @@ export interface User {
   currentSubscriptionId?: ID;
   accountInitialized?: boolean;
   startingLevel?: ID;
+
+  name: string;
+  profileImageURL: string;
+  isFollowed: boolean;
 }

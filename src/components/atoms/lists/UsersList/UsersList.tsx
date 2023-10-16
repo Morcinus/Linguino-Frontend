@@ -1,13 +1,14 @@
-import { Follower } from "infrastructure/api/users/followers/Followers";
-import { Following } from "infrastructure/api/users/following/Following";
+import { User } from "infrastructure/api/users/Users";
 import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
 
 import {
+  Avatar,
   Icon,
   IconButton,
   ListItem,
+  ListItemAvatar,
   ListItemButton,
   ListItemText,
 } from "@mui/material";
@@ -15,9 +16,11 @@ import {
 import CardList from "../CardList/CardList";
 
 export interface IUsersList {
-  users: Array<Follower> | Array<Following>;
-  onFollow: (userId: ID) => void;
-  onUnfollow: (userId: ID) => void;
+  users: Array<
+    Pick<User, "id" | "name" | "username" | "profileImageURL" | "isFollowed">
+  >;
+  onFollow?: (userId: ID) => void;
+  onUnfollow?: (userId: ID) => void;
 }
 
 const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {
@@ -25,31 +28,42 @@ const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {
 
   return (
     <CardList>
-      {users.map((user, i) => {
-        return (
-          <ListItem
-            key={i}
-            secondaryAction={
-              user.isFollowed ? (
-                <IconButton edge="end" onClick={() => onUnfollow(user.id)}>
-                  <Icon>{icons.unfollow}</Icon>
-                </IconButton>
-              ) : (
-                <IconButton edge="end" onClick={() => onFollow(user.id)}>
-                  <Icon>{icons.follow}</Icon>
-                </IconButton>
-              )
-            }
-          >
-            <ListItemButton
-              component="a"
-              onClick={() => router.push(`/users/${user.id}`)}
+      {users &&
+        users.map((user, i) => {
+          return (
+            <ListItem
+              key={i}
+              secondaryAction={
+                onFollow && onUnfollow ? (
+                  user.isFollowed ? (
+                    <IconButton edge="end" onClick={() => onUnfollow(user.id)}>
+                      <Icon>{icons.unfollow}</Icon>
+                    </IconButton>
+                  ) : (
+                    <IconButton edge="end" onClick={() => onFollow(user.id)}>
+                      <Icon>{icons.follow}</Icon>
+                    </IconButton>
+                  )
+                ) : undefined
+              }
             >
-              <ListItemText primary={user.name} />
-            </ListItemButton>
-          </ListItem>
-        );
-      })}
+              <ListItemButton
+                component="a"
+                onClick={() => router.push(`/users/${user.id}`)}
+              >
+                {user.profileImageURL && (
+                  <ListItemAvatar>
+                    <Avatar src={user.profileImageURL} variant="rounded" />
+                  </ListItemAvatar>
+                )}
+                <ListItemText
+                  primary={user.name}
+                  secondary={`@${user.username}`}
+                />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
     </CardList>
   );
 };
