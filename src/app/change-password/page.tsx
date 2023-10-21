@@ -52,7 +52,7 @@ const ChangePasswordPage: React.FC<IChangePasswordPage> = ({ params }) => {
           </>
         ) : (
           <>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <Typography variant="h3">
                 {t("changePassword.passwordChanged")}
               </Typography>
