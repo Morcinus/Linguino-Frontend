@@ -1,5 +1,5 @@
 import axios from "axios";
-import { User } from "infrastructure/api/users/Users";
+import { UserPrivate } from "infrastructure/api/user/User";
 
 export const LocalStorageManager = {
   setAuthorizationHeader(idToken: string): void {
@@ -35,11 +35,11 @@ export const LocalStorageManager = {
     localStorage.removeItem("RefreshToken");
   },
 
-  setUser(user: User): void {
+  setUser(user: UserPrivate): void {
     localStorage.setItem("User", JSON.stringify(user));
   },
 
-  getUser(): User {
+  getUser(): UserPrivate {
     return JSON.parse(localStorage.User);
   },
 

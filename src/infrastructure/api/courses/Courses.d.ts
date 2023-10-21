@@ -6,6 +6,6 @@ export interface Course {
   name: string;
   language1: Language;
   language2: Language;
-  thumbnailURL: string;
+  thumbnailURL?: string;
   featuredTopics?: Array<Topic>;
 }

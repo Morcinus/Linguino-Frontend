@@ -16,10 +16,10 @@ const ManageSubscriptionPage: React.FC<IManageSubscriptionPage> = () => {
 
   return (
     <>
-      {user && user.currentSubscriptionId ? (
+      {user && user.activeSubscription ? (
         <SubscriptionOverview
           userId={user.id}
-          subscriptionId={user.currentSubscriptionId}
+          subscriptionId={user.activeSubscription.id}
         />
       ) : (
         <Typography variant="body1">

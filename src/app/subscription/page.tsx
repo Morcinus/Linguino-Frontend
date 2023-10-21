@@ -42,7 +42,7 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
       alignItems="center"
       sx={{ width: "100%" }}
     >
-      {user?.currentSubscriptionId ? (
+      {user?.activeSubscription ? (
         <>
           <Typography variant="h5" sx={{ textAlign: "center" }}>
             {t("subscription.subscribedHeader")}

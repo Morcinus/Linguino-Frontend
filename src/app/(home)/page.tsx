@@ -7,8 +7,8 @@ import BottomFab from "components/atoms/BottomFab/BottomFab";
 import StudyMap from "components/atoms/StudyMap/StudyMap";
 import NoticeBoard from "components/molecules/NoticeBoard/NoticeBoard";
 import { useTranslation } from "i18n/client";
-import { User } from "infrastructure/api/users/Users";
-import UsersAPI from "infrastructure/api/users/UsersAPI";
+import { UserPrivate } from "infrastructure/api/user/User";
+import UserAPI from "infrastructure/api/user/UserAPI";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import icons from "styles/icons";
@@ -26,10 +26,10 @@ const HomePage: React.FC<IHomePage> = ({searchParams}) => {
 
   useEffect(()=> {
     if(searchParams.level !== user?.lastViewedStudyMapLevel) {
-      const change: Partial<User> = {
+      const change: Partial<UserPrivate> = {
         lastViewedStudyMapLevel: searchParams.level
       }
-      UsersAPI.updateUser(change);
+      UserAPI.updateUser(change);
       mutateUser(change);
     }
   }, [searchParams, mutateUser, user?.lastViewedStudyMapLevel])

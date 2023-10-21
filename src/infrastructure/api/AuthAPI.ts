@@ -2,26 +2,15 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 
 import { LocalStorageManager } from "../repositories/LocalStorageManager";
-import { User } from "./users/Users";
+import { UserPrivate } from "./user/User";
 
 const AuthAPI = {
   signUp(data: {
     username: string;
     email: string;
     password: string;
-  }): Promise<User> {
+  }): Promise<UserPrivate> {
     return axios.post("/signup", data).then((res) => {
-      LocalStorageManager.setAuthorizationHeader(res.data.idToken);
-      LocalStorageManager.setIdToken(res.data.idToken);
-      LocalStorageManager.setRefreshToken(res.data.refreshToken);
-      LocalStorageManager.setUser(res.data.user);
-
-      return res.data.user;
-    });
-  },
-
-  login(data: { email: string; password: string }): Promise<User> {
-    return axios.post("/login", data).then((res) => {
       LocalStorageManager.setAuthorizationHeader(res.data.idToken);
       LocalStorageManager.setIdToken(res.data.idToken);
       LocalStorageManager.setRefreshToken(res.data.refreshToken);
@@ -58,7 +47,7 @@ const AuthAPI = {
       });
   },
 
-  async getCurrentUser(): Promise<User> {
+  async getCurrentUser(): Promise<UserPrivate> {
     const token = LocalStorageManager.getIdToken();
 
     if (token) {

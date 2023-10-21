@@ -38,7 +38,7 @@ const PaymentPage: React.FC<IPaymentPage> = () => {
   const [needInvoice, setNeedInvoice] = useState(false);
 
   useEffect(() => {
-    if (router && user?.currentSubscriptionId) {
+    if (router && user?.activeSubscription) {
       router.push("/manage-subscription");
     }
   }, [user, router]);

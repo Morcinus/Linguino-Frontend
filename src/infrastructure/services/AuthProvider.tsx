@@ -1,5 +1,6 @@
 import errorCodes from "infrastructure/api/error-codes";
-import { User } from "infrastructure/api/users/Users";
+import LoginAPI from "infrastructure/api/login/LoginAPI";
+import { UserPrivate } from "infrastructure/api/user/User";
 import { LocalStorageManager } from "infrastructure/repositories/LocalStorageManager";
 import { useSnackbar } from "notistack";
 
@@ -18,13 +19,13 @@ import { useTranslation } from "../../i18n/client";
 import AuthAPI from "../api/AuthAPI";
 
 export interface AuthContextType {
-  user?: User;
+  user?: UserPrivate;
   loading: boolean;
   errors?: string[];
   login: (email: string, password: string) => void;
   signUp: (username: string, email: string, password: string) => void;
   logout: () => void;
-  mutateUser: (userChange: Partial<User>) => void;
+  mutateUser: (userChange: Partial<UserPrivate>) => void;
 }
 
 export const AuthContext = createContext<AuthContextType>(
@@ -37,7 +38,7 @@ export function AuthProvider({
 }: {
   children: ReactNode;
 }): JSX.Element {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<UserPrivate>();
   const [errors, setError] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -74,7 +75,7 @@ export function AuthProvider({
     setLoading(true);
     setError(() => []);
 
-    AuthAPI.login({ email, password })
+    LoginAPI.login({ email, password })
       .then((user) => {
         setUser(user);
         router.push("/");
@@ -129,7 +130,7 @@ export function AuthProvider({
     }
   }
 
-  function mutateUser(userChange: Partial<User>) {
+  function mutateUser(userChange: Partial<UserPrivate>) {
     if (user) {
       const newUser = { ...user, ...userChange };
 

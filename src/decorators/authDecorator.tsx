@@ -9,24 +9,26 @@ export default function AuthDecorator(Story: Story) {
   const mock: AuthContextType = {
     loading: false,
     user: {
-      email: "example@example.com",
       id: "123",
+      role: "PREMIUM_USER",
       selectedCourse: {
         id: "abcd",
         name: "Czech course",
         language1: "cs",
         language2: "cs",
-        thumbnailURL: "https://picsum.photos/id/168/512/512",
       },
       username: "pepaokurka",
       balance: 999,
       completedDailyGoal: true,
       lastViewedStudyMapLevel: 2,
       streak: 114,
-      isFollowed: false,
-      name: "Pepa Okurka",
-      profileImageURL: "https://picsum.photos/id/168/512/512",
       accountInitialized: true,
+      activeSubscription: {
+        id: "abcd",
+        subscriptionState: "PAID",
+        nextPayment: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // One week from now
+        planId: "abcd",
+      },
     },
     login: () => console.log("login"),
     logout: () => console.log("logout"),

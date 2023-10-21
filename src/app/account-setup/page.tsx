@@ -4,7 +4,6 @@
 import { SurveyAnswer } from "infrastructure/api/survey-answers/SurveyAnswers";
 import SurveyAnswersAPI from "infrastructure/api/survey-answers/SurveyAnswersAPI";
 import Courses from "infrastructure/api/users/courses/CoursesAPI";
-import UsersAPI from "infrastructure/api/users/UsersAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
@@ -25,6 +24,7 @@ import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/Select
 import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
 import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
 import { Topic } from "infrastructure/api/courses/topics/Topics";
+import UserAPI from "infrastructure/api/user/UserAPI";
 
 export interface IAccountSetupPage {}
 
@@ -72,7 +72,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
           accountInitialized: true,
         };
 
-        UsersAPI.updateUser(userChange);
+        UserAPI.updateUser(userChange);
         mutateUser(userChange);
       }
     }
