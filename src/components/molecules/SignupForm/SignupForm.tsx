@@ -66,12 +66,15 @@ const SignupForm: React.FC<ISignupForm> = () => {
           helperText={
             errors.username?.type === "required"
               ? t("error.field-is-required")
-              : authErrors?.includes(errorCodes.emailAddressTaken) &&
+              : authErrors?.includes(errorCodes.invalidUsername)
+              ? t("error.invalid-username")
+              : authErrors?.includes(errorCodes.usernameTaken) &&
                 t("error.username-taken")
           }
           error={
             errors.username !== undefined ||
-            authErrors?.includes(errorCodes.emailAddressTaken)
+            authErrors?.includes(errorCodes.usernameTaken) ||
+            authErrors?.includes(errorCodes.invalidUsername)
           }
           {...register("username", {
             required: true,
@@ -86,14 +89,16 @@ const SignupForm: React.FC<ISignupForm> = () => {
           helperText={
             errors.email?.type === "required"
               ? t("error.field-is-required")
-              : errors.email?.type === "pattern"
+              : errors.email?.type === "pattern" ||
+                authErrors?.includes(errorCodes.invalidEmailAddress)
               ? t("error.invalid-email-address")
               : authErrors?.includes(errorCodes.emailAddressTaken) &&
                 t("error.email-taken")
           }
           error={
             errors.email !== undefined ||
-            authErrors?.includes(errorCodes.emailAddressTaken)
+            authErrors?.includes(errorCodes.emailAddressTaken) ||
+            authErrors?.includes(errorCodes.invalidEmailAddress)
           }
           {...register("email", {
             required: true,
@@ -109,10 +114,14 @@ const SignupForm: React.FC<ISignupForm> = () => {
           helperText={
             errors.password?.type === "required"
               ? t("error.field-is-required")
-              : errors.password?.type === "minLength" &&
+              : (errors.password?.type === "minLength" ||
+                  authErrors?.includes(errorCodes.passwordTooShort)) &&
                 t("error.password-too-short")
           }
-          error={errors.password !== undefined}
+          error={
+            errors.password !== undefined ||
+            authErrors?.includes(errorCodes.passwordTooShort)
+          }
           {...register("password", {
             required: true,
             minLength: 6,

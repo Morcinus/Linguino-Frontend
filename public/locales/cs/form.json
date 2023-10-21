@@ -27,7 +27,8 @@
     "wrong-email-or-password": "Zadali jste nesprávný email nebo heslo.",
     "username-taken": "Toto jméno už někdo používá!",
     "email-taken": "Tento email už někdo používá!",
-    "passwords-dont-match": "Hesla se musí shodovat!"
+    "passwords-dont-match": "Hesla se musí shodovat!",
+    "invalid-username": "Uživatelské jméno může obsahovat pouze písmena a čísla."
   },
 
   "forgotPassword": {

@@ -5,21 +5,6 @@ import { LocalStorageManager } from "../repositories/LocalStorageManager";
 import { UserPrivate } from "./user/User";
 
 const AuthAPI = {
-  signUp(data: {
-    username: string;
-    email: string;
-    password: string;
-  }): Promise<UserPrivate> {
-    return axios.post("/signup", data).then((res) => {
-      LocalStorageManager.setAuthorizationHeader(res.data.idToken);
-      LocalStorageManager.setIdToken(res.data.idToken);
-      LocalStorageManager.setRefreshToken(res.data.refreshToken);
-      LocalStorageManager.setUser(res.data.user);
-
-      return res.data.user;
-    });
-  },
-
   logout(): void {
     LocalStorageManager.removeAuthorizationHeader();
     LocalStorageManager.removeIdToken();

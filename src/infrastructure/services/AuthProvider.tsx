@@ -1,5 +1,6 @@
 import errorCodes from "infrastructure/api/error-codes";
 import LoginAPI from "infrastructure/api/login/LoginAPI";
+import SignupAPI from "infrastructure/api/signup/SignupAPI";
 import { UserPrivate } from "infrastructure/api/user/User";
 import { LocalStorageManager } from "infrastructure/repositories/LocalStorageManager";
 import { useSnackbar } from "notistack";
@@ -80,8 +81,8 @@ export function AuthProvider({
         setUser(user);
         router.push("/");
       })
-      .catch((res) => {
-        handleError(res.response.data.error);
+      .catch((errorCode) => {
+        handleError(errorCode);
       })
       .finally(() => {
         setLoading(false);
@@ -92,12 +93,12 @@ export function AuthProvider({
     setLoading(true);
     setError(() => []);
 
-    AuthAPI.signUp({ username, email, password })
+    SignupAPI.signUp({ username, email, password })
       .then((user) => {
         setUser(user);
       })
-      .catch((res) => {
-        handleError(res.response.data.error);
+      .catch((errorCode) => {
+        handleError(errorCode);
       })
       .finally(() => setLoading(false));
   }
@@ -121,6 +122,15 @@ export function AuthProvider({
         break;
       case errorCodes.emailAddressTaken:
         setError((errors) => [...errors, errorCodes.emailAddressTaken]);
+        break;
+      case errorCodes.passwordTooShort:
+        setError((errors) => [...errors, errorCodes.passwordTooShort]);
+        break;
+      case errorCodes.invalidEmailAddress:
+        setError((errors) => [...errors, errorCodes.invalidEmailAddress]);
+        break;
+      case errorCodes.invalidUsername:
+        setError((errors) => [...errors, errorCodes.invalidUsername]);
         break;
       default:
         enqueueSnackbar(t("general-error-message"), {
