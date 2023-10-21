@@ -22,7 +22,7 @@
   "error": {
     "agree-with-terms": "Musíte souhlasit s podmínkami!",
     "field-is-required": "Toto pole je povinné!",
-    "password-too-short": "Heslo musí být dlouhé alespoň 6 znaků!",
+    "password-too-short": "Heslo musí být dlouhé alespoň 8 znaků!",
     "invalid-email-address": "Neplatná emailová adresa!",
     "wrong-email-or-password": "Zadali jste nesprávný email nebo heslo.",
     "username-taken": "Toto jméno už někdo používá!",

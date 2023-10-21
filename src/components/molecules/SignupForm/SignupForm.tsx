@@ -124,7 +124,7 @@ const SignupForm: React.FC<ISignupForm> = () => {
           }
           {...register("password", {
             required: true,
-            minLength: 6,
+            minLength: 8,
           })}
           fullWidth
           autoComplete="new-password"
