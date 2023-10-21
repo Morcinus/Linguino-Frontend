@@ -46,10 +46,6 @@ const AuthAPI = {
     } else return Promise.reject("No user found.");
   },
 
-  async resetPassword(data: { email: string }): Promise<void> {
-    return axios.post("/resetPassword", data);
-  },
-
   async changePassword(data: {
     password: string;
     resetToken: string;

@@ -1,7 +1,9 @@
 import { useTranslation } from "i18n/client";
-import AuthAPI from "infrastructure/api/AuthAPI";
+import errorCodes from "infrastructure/api/error-codes";
+import ResetPasswordAPI from "infrastructure/api/reset-password/ResetPasswordAPI";
 import theme from "styles/theme";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { LoadingButton } from "@mui/lab";
@@ -26,10 +28,16 @@ const ForgotPasswordForm: React.FC<IForgotPasswordForm> = ({ onEmailSent }) => {
   } = useForm<InputTypes>();
   const { t } = useTranslation("cs", "form");
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
+  const [invalidEmail, setInvalidEmail] = useState(false);
 
   const onSubmit = (data: { email: string }) => {
-    AuthAPI.resetPassword(data);
-    onEmailSent();
+    ResetPasswordAPI.resetPassword(data)
+      .catch((err) => {
+        if (err === errorCodes.invalidEmailAddress) setInvalidEmail(true);
+      })
+      .then(() => {
+        onEmailSent();
+      });
   };
 
   return (
@@ -53,10 +61,10 @@ const ForgotPasswordForm: React.FC<IForgotPasswordForm> = ({ onEmailSent }) => {
           helperText={
             errors.email?.type === "required"
               ? t("error.field-is-required")
-              : errors.email?.type === "pattern" &&
+              : (errors.email?.type === "pattern" || invalidEmail) &&
                 t("error.invalid-email-address")
           }
-          error={errors.email !== undefined}
+          error={errors.email !== undefined || invalidEmail}
           {...register("email", {
             required: true,
             pattern: EMAIL_REGEX,

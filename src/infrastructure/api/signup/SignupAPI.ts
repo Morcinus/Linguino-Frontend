@@ -9,7 +9,7 @@ export interface SignupParams {}
 const SignupAPI = {
   URI: "signup",
 
-  signUp(data: SignupRequestBody): Promise<UserPrivate> {
+  async signUp(data: SignupRequestBody): Promise<UserPrivate> {
     return API.post(`${this.URI}`, data).then((resData: SignupResponseBody) => {
       LocalStorageManager.setAuthorizationHeader(resData.idToken);
       LocalStorageManager.setIdToken(resData.idToken);
