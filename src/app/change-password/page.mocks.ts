@@ -1,8 +1,9 @@
 import { IChangePasswordPage } from "./page";
 
 const base: IChangePasswordPage = {
-  params: {
+  searchParams: {
     resetToken: "fdlknfdsalfn",
+    email: "pepa@example.com",
   },
 };
 

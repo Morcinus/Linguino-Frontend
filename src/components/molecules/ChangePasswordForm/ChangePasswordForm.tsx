@@ -1,5 +1,5 @@
 import { useTranslation } from "i18n/client";
-import AuthAPI from "infrastructure/api/AuthAPI";
+import ChangePasswordAPI from "infrastructure/api/change-password/ChangePasswordAPI";
 import theme from "styles/theme";
 
 import { useForm } from "react-hook-form";
@@ -17,11 +17,13 @@ interface InputTypes {
 }
 
 export interface IChangePasswordForm {
+  email: string;
   resetToken: string;
   onPasswordChanged: () => void;
 }
 
 const ChangePasswordForm: React.FC<IChangePasswordForm> = ({
+  email,
   resetToken,
   onPasswordChanged,
 }) => {
@@ -35,8 +37,13 @@ const ChangePasswordForm: React.FC<IChangePasswordForm> = ({
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const onSubmit = (data: { password: string }) => {
-    AuthAPI.changePassword({ ...data, resetToken });
-    onPasswordChanged();
+    ChangePasswordAPI.changePassword({
+      password: data.password,
+      resetToken,
+      email,
+    }).then(() => {
+      onPasswordChanged();
+    });
   };
 
   return (
@@ -94,7 +101,11 @@ const ChangePasswordForm: React.FC<IChangePasswordForm> = ({
           <LoadingButton
             type="submit"
             variant="contained"
-            disabled={Object.keys(errors).length !== 0}
+            disabled={
+              Object.keys(errors).length !== 0 ||
+              email === undefined ||
+              resetToken === undefined
+            }
             fullWidth={!desktop}
             size="large"
           >

@@ -20,33 +20,36 @@ import {
 import ChangePasswordForm from "components/molecules/ChangePasswordForm/ChangePasswordForm";
 
 export interface IChangePasswordPage {
-  params: {
+  searchParams: {
     resetToken: string;
+    email: string;
   };
 }
 
-const ChangePasswordPage: React.FC<IChangePasswordPage> = ({ params }) => {
+const ChangePasswordPage: React.FC<IChangePasswordPage> = ({ searchParams }) => {
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
   const { t } = useTranslation("cs", "form");
-  const [emailSent, setEmailSent] = useState(false);
+  const [passwordChanged, setPasswordChanged] = useState(false);
   const router = useRouter();
 
   return (
     <Container maxWidth="xs" sx={{ pt: 3 }}>
       <Box>
-        {emailSent === false ? (
+        {passwordChanged === false ? (
           <>
             {desktop ? (
               <Card sx={{ textAlign: "center" }}>
                 <ChangePasswordForm
-                  onPasswordChanged={() => setEmailSent(true)}
-                  resetToken={params.resetToken}
+                  onPasswordChanged={() => setPasswordChanged(true)}
+                  resetToken={searchParams.resetToken}
+                  email={searchParams.email}
                 />
               </Card>
             ) : (
               <ChangePasswordForm
-                onPasswordChanged={() => setEmailSent(true)}
-                resetToken={params.resetToken}
+                onPasswordChanged={() => setPasswordChanged(true)}
+                resetToken={searchParams.resetToken}
+                email={searchParams.email}
               />
             )}
           </>
