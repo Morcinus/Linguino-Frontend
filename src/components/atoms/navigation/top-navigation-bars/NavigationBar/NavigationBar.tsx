@@ -31,7 +31,8 @@ const NavigationBar: React.FC<INavigationBar & AppBarProps> = ({
       position="fixed"
       sx={{
         boxShadow: rest.color === "transparent" ? "none" : undefined,
-        backgroundColor: "background.paper",
+        backgroundColor:
+          rest.color === "transparent" ? "transparent" : "background.paper",
       }}
       {...rest}
     >
