@@ -1,6 +1,4 @@
 import errorCodes from "infrastructure/api/error-codes";
-import LoginAPI from "infrastructure/api/login/LoginAPI";
-import SignupAPI from "infrastructure/api/signup/SignupAPI";
 import { UserPrivate } from "infrastructure/api/user/User";
 import { LocalStorageManager } from "infrastructure/repositories/LocalStorageManager";
 import { useSnackbar } from "notistack";
@@ -17,7 +15,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 
 import { useTranslation } from "../../i18n/client";
-import AuthAPI from "../api/AuthAPI";
+import AuthManager from "../repositories/AuthManager";
 
 export interface AuthContextType {
   user?: UserPrivate;
@@ -62,7 +60,7 @@ export function AuthProvider({
   useEffect(() => {
     setLoading(true);
 
-    AuthAPI.getCurrentUser()
+    AuthManager.getCurrentUser()
       .then(async (user) => {
         setUser(user);
       })
@@ -76,7 +74,7 @@ export function AuthProvider({
     setLoading(true);
     setError(() => []);
 
-    LoginAPI.login({ email, password })
+    AuthManager.login({ email, password })
       .then((user) => {
         setUser(user);
         router.push("/");
@@ -93,7 +91,7 @@ export function AuthProvider({
     setLoading(true);
     setError(() => []);
 
-    SignupAPI.signUp({ username, email, password })
+    AuthManager.signUp({ username, email, password })
       .then((user) => {
         setUser(user);
       })
@@ -106,7 +104,7 @@ export function AuthProvider({
   function logout() {
     setLoading(true);
     setError(() => []);
-    AuthAPI.logout();
+    AuthManager.logout();
     setUser(undefined);
     setLoading(false);
     router.push("/login");
