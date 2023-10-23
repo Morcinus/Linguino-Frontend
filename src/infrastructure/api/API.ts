@@ -23,6 +23,15 @@ const API = {
       });
   },
 
+  patch(url: string, object: unknown) {
+    return axios
+      .patch(url, object)
+      .then((res) => res.data)
+      .catch((res) => {
+        throw res?.response?.data?.error;
+      });
+  },
+
   delete(url: string) {
     return axios
       .delete(url)

@@ -3,12 +3,12 @@ import API, { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 import { parseQueryParams } from "util/functions/api";
 
-import { Challenge } from "./Challenges";
+import { Challenge } from "./ActiveChallenges";
 
 export interface ChallengeParams {}
 
-const ChallengesAPI = {
-  URI: "challenges",
+const ActiveChallengesAPI = {
+  URI: "user/active-challenges",
 
   useChallenges(
     params: ChallengeParams = {}
@@ -20,8 +20,8 @@ const ChallengesAPI = {
   },
 
   async updateChallenge(challenge: Partial<Challenge>): Promise<Challenge> {
-    return API.put(`${this.URI}/${challenge.id}`, challenge);
+    return API.patch(`${this.URI}/${challenge.id}`, challenge);
   },
 };
 
-export default ChallengesAPI;
+export default ActiveChallengesAPI;

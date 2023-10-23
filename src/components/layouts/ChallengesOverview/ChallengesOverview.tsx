@@ -1,8 +1,8 @@
 import { useTranslation } from "i18n/client";
 import { Achievement } from "infrastructure/api/achievements/Achievements";
 import AchievementsAPI from "infrastructure/api/achievements/AchievementsAPI";
-import { Challenge } from "infrastructure/api/challenges/Challenges";
-import ChallengesAPI from "infrastructure/api/challenges/ChallengesAPI";
+import { Challenge } from "infrastructure/api/user/active-challenges/ActiveChallenges";
+import ActiveChallengesAPI from "infrastructure/api/user/active-challenges/ActiveChallengesAPI";
 import mutateArrayItem from "infrastructure/api/utils/mutateArrayItem";
 import useAuth from "infrastructure/services/AuthProvider";
 
@@ -16,9 +16,8 @@ import ProgressCard from "components/atoms/cards/ProgressCard/ProgressCard";
 export interface IChallengesOverview {}
 
 const ChallengesOverview: React.FC<IChallengesOverview> = () => {
-  // TODO add filter to show only challenges that are currently running (today is between startDate and endDate)
   const { challenges, mutate: mutateChallenges } =
-    ChallengesAPI.useChallenges();
+    ActiveChallengesAPI.useChallenges();
   const { achievements, mutate } = AchievementsAPI.useAchievements({
     userId: useAuth().user?.id,
   });
@@ -28,7 +27,7 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
 
   function updateChallenge(id: ID, change: Partial<Challenge>) {
     mutateArrayItem(challenges, id, change, mutateChallenges, (params) =>
-      ChallengesAPI.updateChallenge(params)
+      ActiveChallengesAPI.updateChallenge(params)
     );
   }
 
