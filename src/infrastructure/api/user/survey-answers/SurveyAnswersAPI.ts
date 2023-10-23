@@ -5,11 +5,9 @@ import { SurveyAnswer } from "./SurveyAnswers";
 export interface SurveyAnswerParams {}
 
 const SurveyAnswersAPI = {
-  URI: "survey-answers",
+  URI: "user/survey-answers",
 
-  async createSurveyAnswer(
-    surveyAnswer: Omit<SurveyAnswer, "id">
-  ): Promise<SurveyAnswer> {
+  async createSurveyAnswer(surveyAnswer: SurveyAnswer): Promise<void> {
     return API.post(`${this.URI}`, surveyAnswer);
   },
 };

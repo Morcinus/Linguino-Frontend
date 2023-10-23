@@ -1,7 +1,6 @@
 import { IRatingSurveyNotice } from "./RatingSurveyNotice";
 
 const base: IRatingSurveyNotice = {
-  userId: "abcdef",
   notice: {
     id: "0646445",
     surveyId: "897898",

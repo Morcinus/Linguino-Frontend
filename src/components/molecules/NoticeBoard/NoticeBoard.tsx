@@ -50,7 +50,7 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
     }
 
     if (isRatingSurveyNotice(notice)) {
-      return <RatingSurveyNotice notice={notice} userId={userId} />;
+      return <RatingSurveyNotice notice={notice} />;
     }
 
     if (isRewardNotice(notice)) {

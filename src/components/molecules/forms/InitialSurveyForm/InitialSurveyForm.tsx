@@ -1,5 +1,5 @@
 import { useTranslation } from "i18n/client";
-import { SurveyAnswer } from "infrastructure/api/survey-answers/SurveyAnswers";
+import { SurveyAnswer } from "infrastructure/api/user/survey-answers/SurveyAnswers";
 import icons from "styles/icons";
 
 import { useState } from "react";

@@ -1,8 +1,8 @@
 // prettier-ignore
 "use client"
 
-import { SurveyAnswer } from "infrastructure/api/survey-answers/SurveyAnswers";
-import SurveyAnswersAPI from "infrastructure/api/survey-answers/SurveyAnswersAPI";
+import { SurveyAnswer } from "infrastructure/api/user/survey-answers/SurveyAnswers";
+import SurveyAnswersAPI from "infrastructure/api/user/survey-answers/SurveyAnswersAPI";
 import Courses from "infrastructure/api/users/courses/CoursesAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
@@ -58,10 +58,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
         });
 
       if (surveyAnswer)
-        SurveyAnswersAPI.createSurveyAnswer({
-          ...surveyAnswer,
-          userId: user.id,
-        });
+        SurveyAnswersAPI.createSurveyAnswer(surveyAnswer);
 
       if (startingLevel && selectedCourseId && selectedGoal) {
         const userChange = {
