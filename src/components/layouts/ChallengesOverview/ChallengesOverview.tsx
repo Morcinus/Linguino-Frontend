@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
-import { Achievement } from "infrastructure/api/achievements/Achievements";
-import AchievementsAPI from "infrastructure/api/achievements/AchievementsAPI";
+import { Achievement } from "infrastructure/api/user/achievements/Achievements";
+import AchievementsAPI from "infrastructure/api/user/achievements/AchievementsAPI";
 import { Challenge } from "infrastructure/api/user/active-challenges/ActiveChallenges";
 import ActiveChallengesAPI from "infrastructure/api/user/active-challenges/ActiveChallengesAPI";
 import mutateArrayItem from "infrastructure/api/utils/mutateArrayItem";

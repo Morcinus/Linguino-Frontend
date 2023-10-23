@@ -1,3 +1,5 @@
+import { Achievement } from "infrastructure/api/user/achievements/Achievements";
+
 export interface UserProfile {
   id: ID;
   userId: ID;
@@ -11,7 +13,13 @@ export interface UserProfile {
   username: string;
   learningStats: Array<LearningDataPoint>;
   streak: number;
+  achievements: Array<ProfileAchievement>;
 }
+
+export type ProfileAchievement = Pick<
+  Achievement,
+  "id" | "title" | "description" | "imageURL" | "progress"
+>;
 
 export interface LearningDataPoint {
   date: string;

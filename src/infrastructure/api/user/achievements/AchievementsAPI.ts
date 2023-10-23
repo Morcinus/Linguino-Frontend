@@ -5,12 +5,10 @@ import { parseQueryParams } from "util/functions/api";
 
 import { Achievement } from "./Achievements";
 
-export interface AchievementParams {
-  userId?: ID;
-}
+export interface AchievementParams {}
 
 const AchievementsAPI = {
-  URI: "achievements",
+  URI: "user/achievements",
 
   useAchievements(
     params: AchievementParams = {}
@@ -27,7 +25,7 @@ const AchievementsAPI = {
   async updateAchievement(
     achievement: Partial<Achievement>
   ): Promise<Achievement> {
-    return API.put(`${this.URI}/${achievement.id}`, achievement);
+    return API.patch(`${this.URI}/${achievement.id}`, achievement);
   },
 };
 

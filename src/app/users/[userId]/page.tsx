@@ -3,7 +3,6 @@
 
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
-import AchievementsAPI from "infrastructure/api/achievements/AchievementsAPI";
 import UserProfilesAPI from "infrastructure/api/users/profile/UserProfilesAPI";
 
 import { useState } from "react";
@@ -11,10 +10,10 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import Popup, { IPopup } from "components/atoms/Popup/Popup";
 import ProgressCard from "components/atoms/cards/ProgressCard/ProgressCard";
 import UserProfileCard from "components/atoms/cards/UserProfileCard/UserProfileCard";
 import UserStatsCard from "components/atoms/cards/UserStatsCard/UserStatsCard";
+import Popup, { IPopup } from "components/atoms/Popup/Popup";
 
 export interface IUsersPage {
   params: {
@@ -24,9 +23,6 @@ export interface IUsersPage {
 
 const UsersPage: React.FC<IUsersPage> = ({ params }) => {
   const { userProfile, mutate } = UserProfilesAPI.useUserProfile(params.userId);
-  const { achievements } = AchievementsAPI.useAchievements({
-    userId: params.userId,
-  });
   const [popup, setPopup] = useState<IPopup | null>(null);
   const { t } = useTranslation("cs", "common");
 
@@ -58,8 +54,8 @@ const UsersPage: React.FC<IUsersPage> = ({ params }) => {
         {t("achievements.achievements")}
       </Typography>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-        {achievements &&
-          achievements.map((achievement) => {
+        {userProfile &&
+          userProfile.achievements.map((achievement) => {
             return (
               <ProgressCard
                 key={achievement.id}
