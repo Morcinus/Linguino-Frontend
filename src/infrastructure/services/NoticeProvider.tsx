@@ -1,5 +1,5 @@
-import { Notice } from "infrastructure/api/users/notices/Notices";
-import NoticesAPI from "infrastructure/api/users/notices/NoticesAPI";
+import { Notice } from "infrastructure/api/user/notices/Notices";
+import NoticesAPI from "infrastructure/api/user/notices/NoticesAPI";
 
 import { ReactNode, createContext, useContext, useState } from "react";
 
@@ -7,8 +7,8 @@ export interface NoticeContextType {
   notices: Array<Notice>;
   addNotices: (noticesToAdd: Array<Notice>) => void;
   popNotice: () => void;
-  fetchNotices: (userId: ID) => Promise<void>;
-  deleteNotice: (userId: ID, noticeId: ID) => void;
+  fetchNotices: () => Promise<void>;
+  deleteNotice: (noticeId: ID) => void;
 }
 
 export const NoticeContext = createContext<NoticeContextType>(
@@ -31,17 +31,17 @@ export function NoticeProvider({
     setNotices(notices.slice(1));
   }
 
-  async function fetchNotices(userId: ID) {
-    const newNotices = await NoticesAPI.getNotices(userId);
+  async function fetchNotices() {
+    const newNotices = await NoticesAPI.getNotices();
 
     setNotices([...notices, ...newNotices]);
 
     return Promise.resolve();
   }
 
-  async function deleteNotice(userId: ID, noticeId: ID) {
+  async function deleteNotice(noticeId: ID) {
     setNotices(notices.filter((e) => e.id !== noticeId));
-    await NoticesAPI.deleteNotice(userId, noticeId);
+    await NoticesAPI.deleteNotice(noticeId);
   }
 
   return (

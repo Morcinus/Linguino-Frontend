@@ -270,5 +270,14 @@
     "noWordsFound": "Nebyla nalezena žádná slovíčka.",
     "noLessonsFound": "Nebyly nalezeny žádné lekce.",
     "noUsersFound": "Nebyli nalezeni žádní uživatelé."
+  },
+
+  "freeTrialEndNotice": {
+    "title": "Prodlužte si předplatné a užívejte si tyto výhody",
+
+    "advancedVocabulary": "Učte se pokročilá slovíčka",
+    "customVocabulary": "Vytvářejte vlastní balíčky slovíček",
+    "advancedExercises": "Dělejte pokročilá cvičení",
+    "noAds": "Žádné reklamy při učení"
   }
 }

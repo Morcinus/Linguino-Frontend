@@ -1,5 +1,5 @@
 import { useTranslation } from "i18n/client";
-import { RewardNotice as RewardNoticeType } from "infrastructure/api/users/notices/Notices";
+import { RewardNotice as RewardNoticeType } from "infrastructure/api/user/notices/Notices";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";

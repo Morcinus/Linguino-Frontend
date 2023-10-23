@@ -23,9 +23,6 @@ export interface FreeTrialOfferNotice {
 export interface FreeTrialEndNotice {
   id: ID;
   type: "FREE_TRIAL_END";
-  name: string;
-  featureList: Array<string>;
-  imageURL: string;
 }
 
 export interface RatingSurveyNotice {

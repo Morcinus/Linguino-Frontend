@@ -2,7 +2,7 @@ import {
   isNewGrammar,
   isNewVocabulary,
 } from "domain/models/types/guards/exerciseGuard";
-import { StudyStats } from "infrastructure/api/users/notices/Notices";
+import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import icons from "styles/icons";
 
 import { useEffect, useState } from "react";

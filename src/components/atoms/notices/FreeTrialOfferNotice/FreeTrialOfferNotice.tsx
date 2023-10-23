@@ -1,5 +1,5 @@
 import { useTranslation } from "i18n/client";
-import { FreeTrialOfferNotice as FreeTrialOfferNoticeType } from "infrastructure/api/users/notices/Notices";
+import { FreeTrialOfferNotice as FreeTrialOfferNoticeType } from "infrastructure/api/user/notices/Notices";
 import SubscriptionsAPI from "infrastructure/api/users/subscriptions/SubscriptionsAPI";
 import useNotices from "infrastructure/services/NoticeProvider";
 
@@ -33,13 +33,13 @@ const FreeTrialOfferNotice: React.FC<IFreeTrialOfferNotice> = ({
           await SubscriptionsAPI.createSubscription(userId, {
             subscriptionState: "TRIAL",
           });
-          deleteNotice(userId, notice.id);
+          deleteNotice(notice.id);
           router.push("/subscription");
         },
         text: t("notices.tryForFree"),
       }}
       secondaryButton={{
-        onClick: () => deleteNotice(userId, notice.id),
+        onClick: () => deleteNotice(notice.id),
         text: t("notices.declineFreeTrialOffer"),
       }}
       transitionDuration={{ appear: 0, enter: 0, exit: 0 }}

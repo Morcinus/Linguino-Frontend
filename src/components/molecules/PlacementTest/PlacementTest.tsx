@@ -1,6 +1,6 @@
 import { QuestionAttempt } from "domain/models/types/questionAttempts";
 import PlacementTestAPI from "infrastructure/api/courses/placement-test/PlacementTestAPI";
-import { StudyStats } from "infrastructure/api/users/notices/Notices";
+import { StudyStats } from "infrastructure/api/user/notices/Notices";
 
 import StudySession from "../StudySession/StudySession";
 import { LevelOptionId } from "../forms/SelectLevelForm/config";

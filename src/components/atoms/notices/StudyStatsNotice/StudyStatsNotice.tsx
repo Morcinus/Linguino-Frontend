@@ -1,6 +1,6 @@
 import { ResponsivePie } from "@nivo/pie";
 import { useTranslation } from "i18n/client";
-import { StudyStatsNotice as StudyStatsNoticeType } from "infrastructure/api/users/notices/Notices";
+import { StudyStatsNotice as StudyStatsNoticeType } from "infrastructure/api/user/notices/Notices";
 import useNotices from "infrastructure/services/NoticeProvider";
 import theme from "styles/theme";
 

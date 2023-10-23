@@ -1,4 +1,4 @@
-import { Notice } from "infrastructure/api/users/notices/Notices";
+import { Notice } from "infrastructure/api/user/notices/Notices";
 import {
   isAchievementNotice,
   isAdvertisementNotice,
@@ -7,7 +7,7 @@ import {
   isRatingSurveyNotice,
   isRewardNotice,
   isStudyStatsNotice,
-} from "infrastructure/api/users/notices/NoticesGuard";
+} from "infrastructure/api/user/notices/NoticesGuard";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useEffect, useState } from "react";
@@ -36,9 +36,9 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
     if (fetchNewNotices && !fetched) {
       setFetched(true);
 
-      fetchNotices(userId);
+      fetchNotices();
     }
-  }, [userId, fetchNewNotices, fetchNotices, fetched]);
+  }, [fetchNewNotices, fetchNotices, fetched]);
 
   function renderNotice(notice: Notice) {
     if (isAchievementNotice(notice)) {
@@ -46,7 +46,7 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
     }
 
     if (isFreeTrialEndNotice(notice)) {
-      return <FreeTrialEndNotice notice={notice} userId={userId} />;
+      return <FreeTrialEndNotice notice={notice} />;
     }
 
     if (isRatingSurveyNotice(notice)) {

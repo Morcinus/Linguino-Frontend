@@ -1,6 +1,6 @@
 import { QuestionAttempt } from "domain/models/types/questionAttempts";
+import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import StudySessionAPI from "infrastructure/api/user/study-session/StudySessionAPI";
-import { StudyStats } from "infrastructure/api/users/notices/Notices";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useRouter } from "next/navigation";

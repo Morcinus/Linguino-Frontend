@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
 import SurveyAnswersAPI from "infrastructure/api/survey-answers/SurveyAnswersAPI";
-import { RatingSurveyNotice as RatingSurveyNoticeType } from "infrastructure/api/users/notices/Notices";
+import { RatingSurveyNotice as RatingSurveyNoticeType } from "infrastructure/api/user/notices/Notices";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useState } from "react";
@@ -34,7 +34,7 @@ const RatingSurveyNotice: React.FC<IRatingSurveyNotice> = ({
             userId: userId,
             surveyId: notice.surveyId,
           });
-          deleteNotice(userId, notice.id);
+          deleteNotice(notice.id);
         },
         text: t("userActions.continue"),
       }}
