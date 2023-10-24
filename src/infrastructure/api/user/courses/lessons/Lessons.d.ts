@@ -1,5 +1,7 @@
 import { Category } from "domain/models/types/category";
 
+import { Feedback } from "./feedback/LessonFeedback";
+
 export type LessonType =
   | "VOCABULARY"
   | "GRAMMAR"
@@ -19,7 +21,7 @@ export interface Lesson {
   favorite?: boolean;
   visible?: boolean;
   feedback?: Feedback;
-  background?: Background;
+  backgroundImageUrl?: string;
   items?: Array<LessonItem>;
   author?: ID;
   icon?: string;
@@ -28,20 +30,4 @@ export interface Lesson {
   markAsLearned?: boolean;
 }
 
-export type Feedback = {
-  state?: FeedbackState;
-  textFeedback?: string;
-};
-
 export type FeedbackState = "LIKED" | "DISLIKED" | null;
-
-export type Background = ImageBackground | GradientBackground;
-
-export interface ImageBackground {
-  imageURL: string;
-}
-
-export interface GradientBackground {
-  // Any valid CSS "background" gradient property
-  gradient: string;
-}

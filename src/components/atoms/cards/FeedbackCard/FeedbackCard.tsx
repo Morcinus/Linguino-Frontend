@@ -1,5 +1,5 @@
 import { useTranslation } from "i18n/client";
-import { Feedback } from "infrastructure/api/lessons/Lessons";
+import { Feedback } from "infrastructure/api/user/courses/lessons/feedback/LessonFeedback";
 import { useSnackbar } from "notistack";
 import icons from "styles/icons";
 

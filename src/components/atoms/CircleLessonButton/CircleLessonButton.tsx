@@ -1,4 +1,4 @@
-import { LessonType } from "infrastructure/api/lessons/Lessons";
+import { LessonType } from "infrastructure/api/user/courses/lessons/Lessons";
 import theme from "styles/theme";
 import { getLessonColor } from "util/functions/lessons";
 

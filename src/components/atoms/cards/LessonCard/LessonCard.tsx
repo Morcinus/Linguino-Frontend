@@ -1,5 +1,5 @@
 import { useTranslation } from "i18n/client";
-import { Lesson } from "infrastructure/api/lessons/Lessons";
+import { Lesson } from "infrastructure/api/user/courses/lessons/Lessons";
 
 import { useState } from "react";
 

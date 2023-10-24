@@ -3,11 +3,11 @@ import PlacementTestAPI from "infrastructure/api/courses/placement-test/Placemen
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
 
 import StudySession from "../StudySession/StudySession";
-import { LevelOptionId } from "../forms/SelectLevelForm/config";
+import { LanguageLevel } from "../forms/SelectLevelForm/config";
 
 export interface IPlacementTest {
   courseId: ID;
-  onSubmit: (answer: LevelOptionId) => void;
+  onSubmit: (answer: LanguageLevel) => void;
   onCancel: () => void;
 }
 

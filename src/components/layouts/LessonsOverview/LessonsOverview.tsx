@@ -1,6 +1,6 @@
 import { categories } from "config/config";
-import { LessonType } from "infrastructure/api/lessons/Lessons";
-import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
+import { LessonType } from "infrastructure/api/user/courses/lessons/Lessons";
+import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 
 import React, { useState } from "react";
 
@@ -9,18 +9,23 @@ import { Box } from "@mui/system";
 
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
+import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
 
 import { useTranslation } from "../../../i18n/client";
 
 export interface ILessonsOverview {
+  courseId: ID;
   lessonType: LessonType;
 }
 
-const LessonsOverview: React.FC<ILessonsOverview> = ({ lessonType }) => {
+const LessonsOverview: React.FC<ILessonsOverview> = ({
+  courseId,
+  lessonType,
+}) => {
   const [value, setValue] = useState(categories[0].id);
-  const { lessons, isLoading } = LessonsAPI.useLessons({
+  const { lessons, isLoading } = LessonsAPI.useLessons(courseId, {
     type: lessonType,
-    categoryId: value,
+    level: value as LanguageLevel,
   });
   const { t } = useTranslation("cs", "common");
 

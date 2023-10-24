@@ -1,6 +1,6 @@
 import { DailyGoal } from "infrastructure/api/settings/Settings";
 
-import { LevelOptionId } from "components/molecules/forms/SelectLevelForm/config";
+import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
 
 export interface AccountSetup {
   dailyGoal: DailyGoal;
@@ -11,4 +11,4 @@ export interface AccountSetup {
   };
 }
 
-export type StartingLevel = LevelOptionId;
+export type StartingLevel = LanguageLevel;

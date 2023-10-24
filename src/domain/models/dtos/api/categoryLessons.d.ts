@@ -1,4 +1,4 @@
-import { Lesson } from "infrastructure/api/lessons/Lessons";
+import { Lesson } from "infrastructure/api/user/courses/lessons/Lessons";
 
 import { Category } from "../../types/category";
 

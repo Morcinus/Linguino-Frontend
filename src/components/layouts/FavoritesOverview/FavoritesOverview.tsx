@@ -1,5 +1,5 @@
 import LessonItemsAPI from "infrastructure/api/lesson-items/LessonItemsAPI";
-import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
+import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 
 import React, { useState } from "react";
 
@@ -11,11 +11,13 @@ import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
 
 import { useTranslation } from "../../../i18n/client";
 
-export interface IFavoritesOverview {}
+export interface IFavoritesOverview {
+  courseId: ID;
+}
 
-const FavoritesOverview: React.FC<IFavoritesOverview> = () => {
+const FavoritesOverview: React.FC<IFavoritesOverview> = ({ courseId }) => {
   const [value, setValue] = useState("lessons");
-  const { lessons } = LessonsAPI.useLessons({
+  const { lessons } = LessonsAPI.useLessons(courseId, {
     favorite: true,
   });
   const { lessonItems } = LessonItemsAPI.useLessonItems({ favorite: true });

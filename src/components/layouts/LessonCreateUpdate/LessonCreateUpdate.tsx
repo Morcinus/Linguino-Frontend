@@ -1,6 +1,7 @@
 import { useTranslation } from "i18n/client";
 import { LessonItem } from "infrastructure/api/lesson-items/LessonItems";
-import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
+import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
+import { useSnackbar } from "notistack";
 import icons from "styles/icons";
 
 import { useState } from "react";
@@ -35,12 +36,14 @@ interface Lesson {
 }
 
 export interface ILessonCreateUpdate {
+  courseId: ID;
   lesson: Lesson;
   onSave: (lesson: Lesson) => void;
   isCreate?: boolean;
 }
 
 const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
+  courseId,
   lesson,
   onSave,
   isCreate = false,
@@ -52,6 +55,7 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
   const [description, setDescription] = useState(lesson.description);
   const { t } = useTranslation("cs", "common");
   const router = useRouter();
+  const { enqueueSnackbar } = useSnackbar();
 
   function displaySaveButton() {
     if (
@@ -114,8 +118,14 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
               primaryAction={{
                 text: t("userActions.delete"),
                 onClick: () => {
-                  LessonsAPI.deleteLesson({ ...lesson, id: lesson.id || "" });
+                  LessonsAPI.deleteLesson(courseId, {
+                    ...lesson,
+                    id: lesson.id || "",
+                  });
                   router.push("/user-lessons");
+                  enqueueSnackbar(t("userLessons.lessonDeleted"), {
+                    variant: "success",
+                  });
                 },
               }}
               secondaryAction={{

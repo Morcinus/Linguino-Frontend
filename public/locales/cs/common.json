@@ -170,6 +170,7 @@
     "lessonDescription": "Popis balíčku",
     "lessonSaved": "Balíček byl uložen.",
     "lessonCreated": "Balíček byl vytvořen.",
+    "lessonDeleted": "Balíček byl odstraněn.",
     "removeLesson": "Odstranit balíček",
     "removeDialogText": "Opravdu chcete smazat balíček? Tato akce se nedá vrátit.",
     "emptyLesson": "V balíčku zatím nejsou žádná slovíčka.",

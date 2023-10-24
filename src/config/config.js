@@ -4,7 +4,6 @@ const config = {
   termsAndConditionsURL: "https://www.example.com",
   privacyPolicyURL: "https://www.example.com",
 
-  // TODO fetchnout ze serveru a uložit do globálního contextu
   categories: [
     {
       id: "0",

@@ -9,9 +9,7 @@ const base: ILessonCard = {
     id: "akjdnfldan",
     name: "Lorem ipsum",
     visible: true,
-    background: {
-      imageURL: "https://picsum.photos/id/168/1920/1080",
-    },
+    backgroundImageUrl: "https://picsum.photos/id/168/1920/1080",
   },
   onFavoriteChange: action("onFavoriteChange"),
   onVisibleChange: action("onVisibleChange"),

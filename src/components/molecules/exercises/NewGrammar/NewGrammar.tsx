@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
-import LessonsAPI from "infrastructure/api/lessons/LessonsAPI";
+import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 
 import { Box, Typography } from "@mui/material";
 
@@ -8,17 +8,22 @@ import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
 import LessonCard from "components/atoms/cards/LessonCard/LessonCard";
 
 export interface INewGrammar {
+  courseId: ID;
   lessonId: ID;
   onContinue: () => void;
 }
 
-const NewGrammar: React.FC<INewGrammar> = ({ lessonId, onContinue }) => {
+const NewGrammar: React.FC<INewGrammar> = ({
+  courseId,
+  lessonId,
+  onContinue,
+}) => {
   const { t } = useTranslation("cs", "common");
-  const { lesson, mutate } = LessonsAPI.useLesson(lessonId);
+  const { lesson, mutate } = LessonsAPI.useLesson(courseId, lessonId);
 
   function handleLessonChange(change: { [key: string]: boolean | string }) {
     mutate(
-      LessonsAPI.updateLesson({
+      LessonsAPI.updateLesson(courseId, {
         ...change,
       }),
       optimisticMutationOption({

@@ -3,11 +3,6 @@
 
 import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonItemsAPI from "infrastructure/api/lesson-items/LessonItemsAPI";
-import { Background } from "infrastructure/api/lessons/Lessons";
-import {
-  isGradientBackground,
-  isImageBackground
-} from "infrastructure/api/lessons/LessonsGuard";
 
 import { Box, Toolbar } from "@mui/material";
 
@@ -46,21 +41,17 @@ const LessonItemPage: React.FC<ILessonItemPage> = ({ params }) => {
     );
   }
 
-  function backgroundCSS(background?: Background) {
-    if (!background) return undefined;
-
-    if (isImageBackground(background)) {
+  function backgroundCSS(backgroundImageUrl?: string) {
+    if (backgroundImageUrl) {
       return {
-        backgroundImage: `url("${background.imageURL}")`,
+        backgroundImage: `url("${backgroundImageUrl}")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center center",
       };
-    }
-
-    if (isGradientBackground(background)) {
+    } else {
       return {
-        background: `linear-gradient(${background.gradient})`,
+        background: `linear-gradient(90deg, rgba(212,255,193,1) 0%, rgba(137,232,97,1) 100%)`,
       };
     }
   }
@@ -84,7 +75,7 @@ const LessonItemPage: React.FC<ILessonItemPage> = ({ params }) => {
               sx={{
                 width: "100%",
                 height: "100%",
-                ...backgroundCSS(lessonItem.background),
+                ...backgroundCSS(lessonItem.backgroundImageUrl),
               }}
             />
           </Box>

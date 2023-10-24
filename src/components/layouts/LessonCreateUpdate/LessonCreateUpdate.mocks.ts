@@ -3,6 +3,7 @@ import { action } from "@storybook/addon-actions";
 import { ILessonCreateUpdate } from "./LessonCreateUpdate";
 
 const base: ILessonCreateUpdate = {
+  courseId: "abc",
   lesson: {
     name: "Lorem ipsum",
     description: "Lorem ipsum dolor sit amet,...",

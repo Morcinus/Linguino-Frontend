@@ -17,7 +17,7 @@ import SelectCourseForm from "components/molecules/forms/SelectCourseForm/Select
 import SelectGoalForm from "components/molecules/forms/SelectGoalForm/SelectGoalForm";
 import { GoalOption } from "components/molecules/forms/SelectGoalForm/config";
 import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLevelForm";
-import { LevelOptionId } from "components/molecules/forms/SelectLevelForm/config";
+import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
 import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
 import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
 import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/SelectTopicsForm";
@@ -35,7 +35,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   const [surveyAnswer, setSurveyAnswer] = useState<Omit<SurveyAnswer, "userId">>();
   const [selectedGoal, setSelectedGoal] = useState<GoalOption>();
   const [startOptionId, setStartOptionId] = useState<StartOptionId>();
-  const [startingLevel, setStartingLevel] = useState<LevelOptionId>();
+  const [startingLevel, setStartingLevel] = useState<LanguageLevel>();
   const router = useRouter();
 
   function incrementPage() {

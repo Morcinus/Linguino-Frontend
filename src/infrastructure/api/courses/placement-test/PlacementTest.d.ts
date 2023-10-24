@@ -1,5 +1,5 @@
-import { LevelOptionId } from "components/molecules/forms/SelectLevelForm/config";
+import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
 
 export interface PlacementTestResult {
-  userLevel: LevelOptionId;
+  userLevel: LanguageLevel;
 }

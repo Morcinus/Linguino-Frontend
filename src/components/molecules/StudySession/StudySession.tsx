@@ -3,6 +3,7 @@ import {
   isNewVocabulary,
 } from "domain/models/types/guards/exerciseGuard";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
+import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
 import { useEffect, useState } from "react";
@@ -34,6 +35,7 @@ const StudySession: React.FC<IStudySession> = ({
   onExit,
   displayExplanations = true,
 }) => {
+  const { user } = useAuth();
   const [finishedSession, setFinishedSession] = useState(false);
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
@@ -101,13 +103,19 @@ const StudySession: React.FC<IStudySession> = ({
   function renderNewGrammar(exercise: Exercise) {
     if (isNewGrammar(exercise))
       return (
-        <NewGrammar
-          lessonId={exercise.lessonId}
-          onContinue={() => {
-            nextExercise();
-            if (index >= exerciseQueue.length - 1) handleFinished(attemptArray);
-          }}
-        />
+        <>
+          {user && (
+            <NewGrammar
+              courseId={user.selectedCourse.id}
+              lessonId={exercise.lessonId}
+              onContinue={() => {
+                nextExercise();
+                if (index >= exerciseQueue.length - 1)
+                  handleFinished(attemptArray);
+              }}
+            />
+          )}
+        </>
       );
     else return "";
   }

@@ -1,5 +1,5 @@
 import i18next from "i18next";
-import { LessonType } from "infrastructure/api/lessons/Lessons";
+import { LessonType } from "infrastructure/api/user/courses/lessons/Lessons";
 
 import { ColorType } from "../../domain/models/types/colors";
 import theme from "../../styles/theme";

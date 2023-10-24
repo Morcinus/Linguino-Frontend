@@ -1,5 +1,3 @@
-import { Background } from "../lessons/Lessons";
-
 export interface LessonItem {
   id: ID;
   nameL1: string;
@@ -10,7 +8,7 @@ export interface LessonItem {
   favorite: boolean;
   description?: string;
   examples?: Array<ExampleSentence>;
-  background?: Background;
+  backgroundImageUrl?: string;
   progress: number;
 
   markAsLearned?: boolean;
