@@ -19,8 +19,8 @@ const ActiveChallengesAPI = {
     return { challenges: data, ...rest };
   },
 
-  async updateChallenge(challenge: Partial<Challenge>): Promise<Challenge> {
-    return API.patch(`${this.URI}/${challenge.id}`, challenge);
+  async collectReward(challenge: Partial<Challenge>): Promise<Challenge> {
+    return API.put(`${this.URI}/${challenge.id}/collect-reward`, {});
   },
 };
 

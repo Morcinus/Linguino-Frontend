@@ -27,13 +27,13 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
 
   function updateChallenge(id: ID, change: Partial<Challenge>) {
     mutateArrayItem(challenges, id, change, mutateChallenges, (params) =>
-      ActiveChallengesAPI.updateChallenge(params)
+      ActiveChallengesAPI.collectReward(params)
     );
   }
 
   function updateAchievement(id: ID, change: Partial<Achievement>) {
     mutateArrayItem(achievements, id, change, mutate, (params) =>
-      AchievementsAPI.updateAchievement(params)
+      AchievementsAPI.collectReward(params)
     );
   }
 

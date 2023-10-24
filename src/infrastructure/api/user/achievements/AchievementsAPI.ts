@@ -22,10 +22,8 @@ const AchievementsAPI = {
     return { achievements: data, ...rest };
   },
 
-  async updateAchievement(
-    achievement: Partial<Achievement>
-  ): Promise<Achievement> {
-    return API.patch(`${this.URI}/${achievement.id}`, achievement);
+  async collectReward(achievement: Partial<Achievement>): Promise<Achievement> {
+    return API.put(`${this.URI}/${achievement.id}/collect-reward`, {});
   },
 };
 
