@@ -6,7 +6,7 @@ export interface Settings {
   name: string;
   email: string;
 
-  dailyGoal: number;
+  dailyGoal: DailyGoal;
 
   notifications: NotificationSettings;
 
@@ -40,3 +40,5 @@ export type Day =
   | "friday"
   | "saturday"
   | "sunday";
+
+export type DailyGoal = number;

@@ -1,5 +1,6 @@
 import errorCodes from "infrastructure/api/error-codes";
 import { UserPrivate } from "infrastructure/api/user/User";
+import UserAPI from "infrastructure/api/user/UserAPI";
 import { LocalStorageManager } from "infrastructure/repositories/LocalStorageManager";
 import { useSnackbar } from "notistack";
 
@@ -25,6 +26,7 @@ export interface AuthContextType {
   signUp: (username: string, email: string, password: string) => void;
   logout: () => void;
   mutateUser: (userChange: Partial<UserPrivate>) => void;
+  revalidateUser: () => void;
 }
 
 export const AuthContext = createContext<AuthContextType>(
@@ -147,6 +149,13 @@ export function AuthProvider({
     }
   }
 
+  async function revalidateUser() {
+    const user = await UserAPI.getUser();
+
+    setUser(user);
+    LocalStorageManager.setUser(user);
+  }
+
   const memoedValue = useMemo(
     () => ({
       user,
@@ -156,6 +165,7 @@ export function AuthProvider({
       signUp,
       logout,
       mutateUser,
+      revalidateUser,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [user, loading, errors]

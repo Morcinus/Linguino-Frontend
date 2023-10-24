@@ -1,3 +1,4 @@
+import { Language } from "domain/models/types/languages";
 import { useTranslation } from "i18n/client";
 import { languages } from "i18n/settings";
 import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
@@ -24,12 +25,14 @@ export interface ISelectCourseForm {
 }
 
 const SelectCourseForm: React.FC<ISelectCourseForm> = ({ onSubmit }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(
+    languages[0]
+  );
   const [selectedCourseId, setSelectedCourseId] = useState<ID | undefined>();
   const { t: tLanguages } = useTranslation("cs", "languages");
   const { t: tForm } = useTranslation("cs", "form");
   const { t: tCommon } = useTranslation("cs", "common");
-  const { courses } = CoursesAPI.useCourses({ languageL1: selectedLanguage });
+  const { courses } = CoursesAPI.useCourses({ language1: selectedLanguage });
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -47,7 +50,7 @@ const SelectCourseForm: React.FC<ISelectCourseForm> = ({ onSubmit }) => {
             value={selectedLanguage}
             label={tForm("accountSetup.iSpeak")}
             onChange={(e) => {
-              setSelectedLanguage(e.target.value);
+              setSelectedLanguage(e.target.value as Language);
               setSelectedCourseId(undefined);
             }}
           >

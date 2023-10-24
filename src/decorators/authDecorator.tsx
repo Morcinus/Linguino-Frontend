@@ -34,6 +34,7 @@ export default function AuthDecorator(Story: Story) {
     logout: () => console.log("logout"),
     signUp: () => console.log("signup"),
     mutateUser: () => console.log("mutateUser"),
+    revalidateUser: () => console.log("revalidateUser"),
   };
 
   return (

@@ -3,7 +3,6 @@
 
 import { SurveyAnswer } from "infrastructure/api/user/survey-answers/SurveyAnswers";
 import SurveyAnswersAPI from "infrastructure/api/user/survey-answers/SurveyAnswersAPI";
-import Courses from "infrastructure/api/users/courses/CoursesAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
@@ -12,24 +11,24 @@ import { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
+import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
 import InitialSurveyForm from "components/molecules/forms/InitialSurveyForm/InitialSurveyForm";
 import SelectCourseForm from "components/molecules/forms/SelectCourseForm/SelectCourseForm";
-import { GoalOption } from "components/molecules/forms/SelectGoalForm/config";
 import SelectGoalForm from "components/molecules/forms/SelectGoalForm/SelectGoalForm";
-import { LevelOptionId } from "components/molecules/forms/SelectLevelForm/config";
+import { GoalOption } from "components/molecules/forms/SelectGoalForm/config";
 import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLevelForm";
-import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
+import { LevelOptionId } from "components/molecules/forms/SelectLevelForm/config";
 import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
+import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
 import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/SelectTopicsForm";
-import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
-import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
 import { Topic } from "infrastructure/api/courses/topics/Topics";
-import UserAPI from "infrastructure/api/user/UserAPI";
+import AccountSetupAPI from "infrastructure/api/user/account-setup/AccountSetupAPI";
+import { useRouter } from "next/navigation";
 
 export interface IAccountSetupPage {}
 
 const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
-  const { user, mutateUser } = useAuth();
+  const { revalidateUser } = useAuth();
   const [page, setPage] = useState(0);
   const [selectedCourseId, setSelectedCourseId] = useState<ID>();
   const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>();
@@ -37,6 +36,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   const [selectedGoal, setSelectedGoal] = useState<GoalOption>();
   const [startOptionId, setStartOptionId] = useState<StartOptionId>();
   const [startingLevel, setStartingLevel] = useState<LevelOptionId>();
+  const router = useRouter();
 
   function incrementPage() {
     setPage(page + 1);
@@ -49,28 +49,23 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   useEffect(() => {
     if (startingLevel) submitSetup();
 
-    async function submitSetup() {
-      if (!user) return;
-
-      if (selectedTopics)
-        Courses.createCourse(user.id, {
-          selectedTopics: selectedTopics,
-        });
-
+    async function submitSetup() {      
       if (surveyAnswer)
         SurveyAnswersAPI.createSurveyAnswer(surveyAnswer);
 
-      if (startingLevel && selectedCourseId && selectedGoal) {
-        const userChange = {
-          id: user.id,
-          startingLevel,
-          selectedCourseId: await CoursesAPI.getCourse(selectedCourseId),
+      if (startingLevel && selectedCourseId && selectedGoal && selectedTopics) {
+        const accountSetupSettings = {
           dailyGoal: selectedGoal.value,
-          accountInitialized: true,
+          selectedCourse: {
+            id: selectedCourseId,
+            startingLevel: startingLevel,
+            selectedTopicIds: selectedTopics.map(topic => topic.id),
+          }
         };
 
-        UserAPI.updateUser(userChange);
-        mutateUser(userChange);
+        await AccountSetupAPI.setupAccount(accountSetupSettings);
+        await revalidateUser();
+        router.push("/");
       }
     }
   }, [
@@ -79,8 +74,8 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
     selectedGoal,
     selectedTopics,
     surveyAnswer,
-    user,
-    mutateUser
+    revalidateUser,
+    router
   ]);
 
   useEffect(() => {

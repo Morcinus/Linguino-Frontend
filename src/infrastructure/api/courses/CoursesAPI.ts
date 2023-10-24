@@ -1,3 +1,4 @@
+import { Language } from "domain/models/types/languages";
 import { Modify } from "domain/models/utils/modify";
 import API, { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
@@ -6,7 +7,7 @@ import { parseQueryParams } from "util/functions/api";
 import { Course } from "./Courses";
 
 export interface CourseParams {
-  languageL1?: string;
+  language1?: Language;
 }
 
 const CoursesAPI = {
