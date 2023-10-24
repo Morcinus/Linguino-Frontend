@@ -26,7 +26,7 @@ export interface ISettingsPage {}
 
 const SettingsPage: React.FC<ISettingsPage> = () => {
   const { t } = useTranslation("cs", "form");
-  const { user } = useAuth();
+  const { user, revalidateUser } = useAuth();
   const router = useRouter();
   const { settings, mutate } = SettingsAPI.useSettings(user?.id);
   const [errors, setErrors] = useState<Array<string>>([]);
@@ -47,6 +47,7 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
 
         setErrors([]);
         setChange({});
+        revalidateUser();
         return newSettings;
       } catch (err) {
         handleError(err);
