@@ -3,7 +3,6 @@
 
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
-import UserProfilesAPI from "infrastructure/api/users/profile/UserProfilesAPI";
 
 import { useState } from "react";
 
@@ -14,6 +13,8 @@ import ProgressCard from "components/atoms/cards/ProgressCard/ProgressCard";
 import UserProfileCard from "components/atoms/cards/UserProfileCard/UserProfileCard";
 import UserStatsCard from "components/atoms/cards/UserStatsCard/UserStatsCard";
 import Popup, { IPopup } from "components/atoms/Popup/Popup";
+import UserFollowingAPI from "infrastructure/api/user/following/UserFollowingAPI";
+import UsersAPI from "infrastructure/api/users/UsersAPI";
 
 export interface IUsersPage {
   params: {
@@ -22,7 +23,7 @@ export interface IUsersPage {
 }
 
 const UsersPage: React.FC<IUsersPage> = ({ params }) => {
-  const { userProfile, mutate } = UserProfilesAPI.useUserProfile(params.userId);
+  const { userProfile, mutate } = UsersAPI.useUser(params.userId);
   const [popup, setPopup] = useState<IPopup | null>(null);
   const { t } = useTranslation("cs", "common");
 
@@ -34,7 +35,15 @@ const UsersPage: React.FC<IUsersPage> = ({ params }) => {
           userId={params.userId}
           onFollowChange={(isFollowed) => {
             mutate(
-              UserProfilesAPI.updateUserProfile(params.userId, { isFollowed }),
+              async () => {
+                if(isFollowed) {
+                  await UserFollowingAPI.followUser(params.userId);
+                } else {
+                  await UserFollowingAPI.unfollowUser(params.userId);
+                }
+
+                return { ...userProfile, isFollowed };
+              },
               optimisticMutationOption({ ...userProfile, isFollowed })
             );
           }}

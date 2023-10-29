@@ -1,4 +1,4 @@
-import { UserPublic } from "infrastructure/api/users/Users";
+import { UserSummary } from "infrastructure/api/users/Users";
 import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
@@ -16,7 +16,7 @@ import {
 import CardList from "../CardList/CardList";
 
 export interface IUsersList {
-  users: Array<UserPublic>;
+  users: Array<UserSummary>;
   onFollow?: (userId: ID) => void;
   onUnfollow?: (userId: ID) => void;
 }

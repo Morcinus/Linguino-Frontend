@@ -3,7 +3,7 @@ import { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 import { parseQueryParams } from "util/functions/api";
 
-import { UserPublic } from "./Users";
+import { UserProfile, UserSummary } from "./Users";
 
 export interface UserParams {
   searchName?: string;
@@ -14,11 +14,18 @@ const UsersAPI = {
 
   useUsers(
     params: UserParams = {}
-  ): Modify<FetchHook<Array<UserPublic>>, { users: Array<UserPublic> }> {
-    const { data, ...rest } = useAPI<Array<UserPublic>>(
+  ): Modify<FetchHook<Array<UserSummary>>, { users: Array<UserSummary> }> {
+    const { data, ...rest } = useAPI<Array<UserSummary>>(
       `${this.URI}?${parseQueryParams(params)}`
     );
     return { users: data, ...rest };
+  },
+
+  useUser(
+    userId: ID
+  ): Modify<FetchHook<UserProfile>, { userProfile: UserProfile }> {
+    const { data, ...rest } = useAPI<UserProfile>(`${this.URI}/${userId}`);
+    return { userProfile: data, ...rest };
   },
 };
 

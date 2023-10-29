@@ -1,7 +1,7 @@
 import { ResponsiveLine } from "@nivo/line";
 import { BasicTooltip } from "@nivo/tooltip";
 import { useTranslation } from "i18n/client";
-import { LearningDataPoint } from "infrastructure/api/users/profile/UserProfiles";
+import { LearningDataPoint } from "infrastructure/api/users/Users";
 import icons from "styles/icons";
 
 import { Icon } from "@mui/material";

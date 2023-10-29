@@ -1,5 +1,5 @@
 import { useTranslation } from "i18n/client";
-import { UserProfile } from "infrastructure/api/users/profile/UserProfiles";
+import { UserProfile } from "infrastructure/api/users/Users";
 import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";

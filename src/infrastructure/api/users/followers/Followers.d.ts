@@ -1,3 +1,6 @@
-import { UserPublic } from "../Users";
+import { UserProfile } from "../Users";
 
-export type Follower = UserPublic;
+export type Follower = Pick<
+  UserProfile,
+  "id" | "name" | "username" | "profileImageURL" | "isFollowed"
+>;
