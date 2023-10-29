@@ -1,5 +1,6 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
+import UserFollowingAPI from "infrastructure/api/user/following/UserFollowingAPI";
 import { Follower } from "infrastructure/api/users/followers/Followers";
 import FollowersAPI from "infrastructure/api/users/followers/FollowersAPI";
 import { Following } from "infrastructure/api/users/following/Following";
@@ -28,52 +29,46 @@ const FollowersOverview: React.FC<IFollowersOverview> = ({
     FollowingAPI.useFollowing(userId);
   const { t } = useTranslation("cs", "common");
 
-  const updateFollowers = (itemId: ID, change: Partial<Follower>) => {
+  const updateFollower = (itemId: ID, isFollowed: boolean) => {
     mutateFollowers(
       async () => {
-        try {
-          await FollowersAPI.updateFollower(userId, {
-            id: itemId,
-            ...change,
-          });
-        } catch (err) {
-          return Promise.reject(err);
+        if (isFollowed) {
+          await UserFollowingAPI.followUser(itemId);
+        } else {
+          await UserFollowingAPI.unfollowUser(itemId);
         }
 
         return followers.map((item) => {
-          if (item.id === itemId) return { ...item, ...change };
+          if (item.id === itemId) return { ...item, isFollowed };
           else return item;
         });
       },
       optimisticMutationOption<Array<Follower>>(
         followers.map((item) => {
-          if (item.id === itemId) return { ...item, ...change };
+          if (item.id === itemId) return { ...item, isFollowed };
           else return item;
         })
       )
     );
   };
 
-  const updateFollowing = (itemId: ID, change: Partial<Following>) => {
+  const updateFollowing = (itemId: ID, isFollowed: boolean) => {
     mutateFollowing(
       async () => {
-        try {
-          await FollowingAPI.updateFollowing(userId, {
-            id: itemId,
-            ...change,
-          });
-        } catch (err) {
-          return Promise.reject(err);
+        if (isFollowed) {
+          await UserFollowingAPI.followUser(itemId);
+        } else {
+          await UserFollowingAPI.unfollowUser(itemId);
         }
 
         return following.map((item) => {
-          if (item.id === itemId) return { ...item, ...change };
+          if (item.id === itemId) return { ...item, isFollowed };
           else return item;
         });
       },
       optimisticMutationOption<Array<Following>>(
         following.map((item) => {
-          if (item.id === itemId) return { ...item, ...change };
+          if (item.id === itemId) return { ...item, isFollowed };
           else return item;
         })
       )
@@ -100,24 +95,16 @@ const FollowersOverview: React.FC<IFollowersOverview> = ({
             ? followers && (
                 <UsersList
                   users={followers}
-                  onFollow={(userId) =>
-                    updateFollowers(userId, { isFollowed: true })
-                  }
-                  onUnfollow={(userId) =>
-                    updateFollowers(userId, { isFollowed: false })
-                  }
+                  onFollow={(userId) => updateFollower(userId, true)}
+                  onUnfollow={(userId) => updateFollower(userId, false)}
                 />
               )
             : value === "following"
             ? following && (
                 <UsersList
                   users={following}
-                  onFollow={(userId) =>
-                    updateFollowing(userId, { isFollowed: true })
-                  }
-                  onUnfollow={(userId) =>
-                    updateFollowing(userId, { isFollowed: false })
-                  }
+                  onFollow={(userId) => updateFollowing(userId, true)}
+                  onUnfollow={(userId) => updateFollowing(userId, false)}
                 />
               )
             : undefined

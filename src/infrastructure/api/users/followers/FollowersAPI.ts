@@ -1,5 +1,5 @@
 import { Modify } from "domain/models/utils/modify";
-import API, { FetchHook } from "infrastructure/api/API";
+import { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 import { parseQueryParams } from "util/functions/api";
 
@@ -18,13 +18,6 @@ const FollowersAPI = {
       `${this.URI(userId)}?${parseQueryParams(params)}`
     );
     return { followers: data, ...rest };
-  },
-
-  async updateFollower(
-    userId: ID,
-    follower: Partial<Follower>
-  ): Promise<Follower> {
-    return API.put(`${this.URI(userId)}/${follower.id}`, follower);
   },
 };
 
