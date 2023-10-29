@@ -10,7 +10,7 @@ export interface ShopItemParams {
 }
 
 const ShopItemsAPI = {
-  URI: "shop-items",
+  URI: "user/shop-items",
 
   useShopItems(
     params: ShopItemParams
@@ -21,8 +21,16 @@ const ShopItemsAPI = {
     return { shopItems: data, ...rest };
   },
 
-  async updateShopItem(shopItem: Partial<ShopItem>): Promise<ShopItem> {
-    return API.put(`${this.URI}/${shopItem.id}`, shopItem);
+  async equipItem(shopItemId: ID): Promise<void> {
+    return API.put(`${this.URI}/${shopItemId}/equip`, {});
+  },
+
+  async unequipItem(shopItemId: ID): Promise<void> {
+    return API.delete(`${this.URI}/${shopItemId}/equip`);
+  },
+
+  async buyItem(shopItemId: ID): Promise<void> {
+    return API.put(`${this.URI}/${shopItemId}/buy`, {});
   },
 };
 

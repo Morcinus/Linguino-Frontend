@@ -4,6 +4,7 @@ export interface ShopItem {
   imageURL: string;
   price: number;
   categoryId: ID;
+
   bought: boolean;
   equipped: boolean;
 }

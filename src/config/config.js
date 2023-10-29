@@ -31,19 +31,10 @@ const config = {
     },
   ],
 
-  // TODO fetchnout ze serveru a uložit do globálního contextu?
   shopCategories: [
     {
-      id: "0",
+      id: "avatars",
       name: "shop.categories.0",
-    },
-    {
-      id: "1",
-      name: "shop.categories.1",
-    },
-    {
-      id: "2",
-      name: "shop.categories.2",
     },
   ],
 };

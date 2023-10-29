@@ -110,7 +110,7 @@
     "buy": "Koupit",
     "equip": "Zapnout",
     "unequip": "Vypnout",
-    "categories": ["Motivy", "Položky", "Postavy"],
+    "categories": ["Profilové obrázky"],
     "bought": "koupeno",
     "equipped": "zapnuto"
   },
