@@ -2,7 +2,7 @@
 "use client"
 
 import { useTranslation } from "i18n/client";
-import { default as UserCoursesAPI } from "infrastructure/api/users/courses/CoursesAPI";
+import { default as UserCoursesAPI } from "infrastructure/api/user/courses/UserCoursesAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
@@ -10,20 +10,16 @@ import { Box, Icon, IconButton, Typography } from "@mui/material";
 
 import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
-import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
 import { useRouter } from "next/navigation";
 
-export interface ICoursesPage {
-  params: {
-    userId: string;
-  };
-}
+export interface ICoursesPage {}
 
-const CoursesPage: React.FC<ICoursesPage> = ({ params }) => {
-  const { user, mutateUser } = useAuth();
+const CoursesPage: React.FC<ICoursesPage> = () => {
+  const { user, revalidateUser } = useAuth();
   const { t: tCommon } = useTranslation("cs", "common");
   const router = useRouter();
-  const { courses } = UserCoursesAPI.useCourses(params.userId);
+  const { courses } = UserCoursesAPI.useUserCourses();
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       <Box>
@@ -36,7 +32,7 @@ const CoursesPage: React.FC<ICoursesPage> = ({ params }) => {
           </IconButton>
         </Box>
 
-        {courses && (
+        {courses && user && (
           <CardGrid
             align="left"
             cards={courses.map((course) => {
@@ -45,13 +41,11 @@ const CoursesPage: React.FC<ICoursesPage> = ({ params }) => {
                 props: {
                   header: course.name,
                   imageURL: course.thumbnailURL,
-                  highlightCard: user?.selectedCourse === course.id,
+                  highlightCard: user.selectedCourse.id === course.id,
                   highlightVariant: "outlined",
                   onClick: async () => {
-                    if(course.id)
-                      await mutateUser({
-                        selectedCourse: await CoursesAPI.getCourse(course.id),
-                      });
+                    await UserCoursesAPI.selectCourse(course.id);
+                    await revalidateUser();
                     router.push("/");
                   },
                 },

@@ -22,9 +22,13 @@ import CardGrid from "components/layouts/CardGrid/CardGrid";
 
 export interface ISelectCourseForm {
   onSubmit: (courseId: ID) => void;
+  omitCourseIds?: Array<ID>;
 }
 
-const SelectCourseForm: React.FC<ISelectCourseForm> = ({ onSubmit }) => {
+const SelectCourseForm: React.FC<ISelectCourseForm> = ({
+  onSubmit,
+  omitCourseIds,
+}) => {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(
     languages[0]
   );
@@ -70,18 +74,23 @@ const SelectCourseForm: React.FC<ISelectCourseForm> = ({ onSubmit }) => {
         {courses && (
           <CardGrid
             align="left"
-            cards={courses.map((course) => {
-              return {
-                component: SimpleCard,
-                props: {
-                  header: course.name,
-                  imageURL: course.thumbnailURL,
-                  highlightCard: selectedCourseId === course.id,
-                  highlightVariant: "outlined",
-                  onClick: () => setSelectedCourseId(course.id),
-                },
-              };
-            })}
+            cards={courses
+              .filter(
+                (course) =>
+                  !omitCourseIds?.some((courseId) => courseId === course.id)
+              )
+              .map((course) => {
+                return {
+                  component: SimpleCard,
+                  props: {
+                    header: course.name,
+                    imageURL: course.thumbnailURL,
+                    highlightCard: selectedCourseId === course.id,
+                    highlightVariant: "outlined",
+                    onClick: () => setSelectedCourseId(course.id),
+                  },
+                };
+              })}
           />
         )}
       </Box>
