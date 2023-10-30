@@ -1,14 +1,19 @@
 import { useTranslation } from "i18n/client";
-import { FeedMessage } from "infrastructure/api/users/feed/Feed";
-import FeedAPI from "infrastructure/api/users/feed/FeedAPI";
+import { optimisticMutationOption } from "infrastructure/api/API";
+import { FeedItem, FeedMessage } from "infrastructure/api/user/feed/Feed";
+import FeedAPI from "infrastructure/api/user/feed/FeedAPI";
 import {
   isFeedArticle,
   isFeedMessage,
   isFeedVideo,
-} from "infrastructure/api/users/feed/FeedGuard";
-import mutateArrayItem from "infrastructure/api/utils/mutateArrayItem";
+} from "infrastructure/api/user/feed/FeedGuard";
+import {
+  Reaction,
+  ReactionId,
+} from "infrastructure/api/user/feed/reactions/Reactions";
+import ReactionsAPI from "infrastructure/api/user/feed/reactions/ReactionsAPI";
 
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 
 import { Box } from "@mui/system";
 
@@ -18,94 +23,79 @@ import FeedMessageCard from "components/atoms/cards/FeedMessageCard/FeedMessageC
 import FeedVideoCard from "components/atoms/cards/FeedVideoCard/FeedVideoCard";
 
 export interface IFeedPaginationPage {
-  userId: ID;
   index: number;
+  onDividerDisplayed: () => void;
+  displayDivider: boolean;
 }
 
 const FeedPaginationPage: React.FC<IFeedPaginationPage> = ({
-  userId,
   index,
+  onDividerDisplayed,
+  displayDivider,
 }) => {
   const { t } = useTranslation("cs", "common");
-  const { feed, mutate } = FeedAPI.useFeed(userId, { page: index });
-  const [seenByUser, setSeenByUser] = useState(false);
+  const { feed, mutate } = FeedAPI.useFeed({ page: index });
 
-  function handleReactionClick(feedItem: FeedMessage, reactionText: ID) {
-    mutateArrayItem(
-      feed,
-      feedItem.id,
-      {
-        reactions: feedItem.reactions
-          .map((reaction) => {
-            if (reaction.text === reactionText) {
-              if (reaction.reactedByUser === false)
-                return {
-                  ...reaction,
-                  reactedByUser: true,
-                  counter: reaction.counter + 1,
-                };
-              else
-                return {
-                  ...reaction,
-                  reactedByUser: false,
-                  counter: reaction.counter - 1,
-                };
-            }
-            return reaction;
-          })
-          .filter((reaction) => reaction.counter !== 0),
-      },
-      mutate,
-      (params) => FeedAPI.updateFeed(userId, params)
+  function handleReactionUpdate(
+    feedItem: FeedMessage,
+    reactionId: ReactionId,
+    reacted: boolean
+  ) {
+    const reactions = updateReactionArray(
+      feedItem.reactions,
+      reactionId,
+      reacted
     );
-  }
 
-  function handleAddReaction(feedItem: FeedMessage, reactionText: string) {
-    let reactionExists = false;
-
-    const reactions = feedItem.reactions.map((reaction) => {
-      if (reaction.text === reactionText) {
-        reactionExists = true;
-        if (reaction.reactedByUser === false)
-          return {
-            ...reaction,
-            reactedByUser: true,
-            counter: reaction.counter + 1,
-          };
-        else
-          return {
-            ...reaction,
-            reactedByUser: false,
-            counter: reaction.counter - 1,
-          };
-      }
-      return reaction;
+    const newFeed = feed.map((item) => {
+      if (item.id === feedItem.id) return { ...item, reactions };
+      else return item;
     });
 
-    if (!reactionExists)
-      reactions.push({
-        counter: 1,
-        reactedByUser: true,
-        text: reactionText,
-      });
+    mutate(async () => {
+      if (reacted) await ReactionsAPI.addReaction(feedItem.id, reactionId);
+      else await ReactionsAPI.deleteReaction(feedItem.id, reactionId);
 
-    mutateArrayItem(
-      feed,
-      feedItem.id,
-      {
-        reactions,
-      },
-      mutate,
-      (params) => FeedAPI.updateFeed(userId, params)
-    );
+      return newFeed;
+    }, optimisticMutationOption<Array<FeedItem>>(newFeed));
   }
 
-  useEffect(() => {
-    if (feed !== undefined && !seenByUser) {
-      FeedAPI.updateFeed(userId, { id: feed[0].id, seenByUser: true });
-      setSeenByUser(true);
-    }
-  }, [feed, userId, seenByUser]);
+  function updateReactionArray(
+    reactions: Array<Reaction>,
+    reactionId: ReactionId,
+    reacted: boolean
+  ): Array<Reaction> {
+    let reactionExists = false;
+
+    const newReactions: Array<Reaction> = reactions
+      .map((reaction) => {
+        if (reaction.id === reactionId) {
+          reactionExists = true;
+
+          return {
+            ...reaction,
+            reactedByUser: reacted,
+            counter:
+              !reaction.reactedByUser && reacted
+                ? reaction.counter + 1
+                : reaction.reactedByUser && !reacted
+                ? reaction.counter - 1
+                : reaction.counter,
+          };
+        }
+        return reaction;
+      })
+      .filter((reaction) => reaction.counter !== 0);
+
+    if (reacted && !reactionExists)
+      newReactions.push({
+        counter: 1,
+        reactedByUser: true,
+        id: reactionId,
+      });
+
+    return newReactions;
+  }
 
   function renderFeed() {
     const markup: Array<ReactNode> = [];
@@ -113,8 +103,9 @@ const FeedPaginationPage: React.FC<IFeedPaginationPage> = ({
 
     feed.forEach((feedItem, i) => {
       console.log(feedItem);
-      if (!hasDivider && feedItem.seenByUser === true) {
+      if (!hasDivider && displayDivider && feedItem.seenByUser === true) {
         hasDivider = true;
+        onDividerDisplayed();
 
         if (i !== 0)
           markup.push(
@@ -138,11 +129,11 @@ const FeedPaginationPage: React.FC<IFeedPaginationPage> = ({
           <FeedMessageCard
             key={feedItem.id}
             feedMessage={feedItem}
-            onReactionClick={(reactionText) =>
-              handleReactionClick(feedItem, reactionText)
+            onAddReaction={(reactionId) =>
+              handleReactionUpdate(feedItem, reactionId, true)
             }
-            onAddReaction={(reactionText) =>
-              handleAddReaction(feedItem, reactionText)
+            onRemoveReaction={(reactionId) =>
+              handleReactionUpdate(feedItem, reactionId, false)
             }
           />
         );

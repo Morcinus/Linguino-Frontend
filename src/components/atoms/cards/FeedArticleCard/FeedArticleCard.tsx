@@ -1,4 +1,4 @@
-import { FeedArticle } from "infrastructure/api/users/feed/Feed";
+import { FeedArticle } from "infrastructure/api/user/feed/Feed";
 
 import { useRouter } from "next/navigation";
 

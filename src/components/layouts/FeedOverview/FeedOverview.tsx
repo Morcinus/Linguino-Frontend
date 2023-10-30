@@ -4,17 +4,25 @@ import { Box } from "@mui/system";
 
 import FeedPaginationPage from "../FeedPaginationPage/FeedPaginationPage";
 
-export interface IFeedOverview {
-  userId: ID;
-}
+export interface IFeedOverview {}
 
-const FeedOverview: React.FC<IFeedOverview> = ({ userId }) => {
+const FeedOverview: React.FC<IFeedOverview> = () => {
   const loader = useRef(null);
   const [pageCounter, setPageCounter] = useState(1);
+  const [pagewithDivider, setPageWithDivider] = useState<number | undefined>(
+    undefined
+  );
 
   const pages = [];
   for (let i = 0; i < pageCounter; i++) {
-    pages.push(<FeedPaginationPage key={i} index={i} userId={userId} />);
+    pages.push(
+      <FeedPaginationPage
+        key={i}
+        index={i}
+        onDividerDisplayed={() => setPageWithDivider(i)}
+        displayDivider={pagewithDivider === i || pagewithDivider === undefined}
+      />
+    );
   }
 
   // Source: https://medium.com/suyeonme/react-how-to-implement-an-infinite-scroll-749003e9896a

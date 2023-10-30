@@ -161,7 +161,13 @@
   },
 
   "feed": {
-    "earlier": "dříve"
+    "earlier": "dříve",
+
+    "messages": {
+      "reached_level_10": "Dosáhnul úrovně 10!",
+      "reached_level_50": "Dosáhnul úrovně 50!",
+      "reached_level_100": "Dosáhnul úrovně 100!"
+    }
   },
 
   "userLessons": {

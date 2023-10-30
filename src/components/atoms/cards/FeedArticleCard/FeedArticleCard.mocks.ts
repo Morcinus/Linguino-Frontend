@@ -7,6 +7,7 @@ const base: IFeedArticleCard = {
     link: "https://example.com",
     imageURL: "https://picsum.photos/id/168/512/512",
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    publishedAt: new Date(),
   },
 };
 

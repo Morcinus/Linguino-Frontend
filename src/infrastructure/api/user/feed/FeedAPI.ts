@@ -1,27 +1,24 @@
 import { Modify } from "domain/models/utils/modify";
-import API, { FetchHook } from "infrastructure/api/API";
+import { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 import { parseQueryParams } from "util/functions/api";
 
 import { FeedItem } from "./Feed";
 
-export interface FeedParams {}
+export interface FeedParams {
+  page?: number;
+}
 
 const FeedAPI = {
-  URI: (userId: ID) => `users/${userId}/feed`,
+  URI: "user/feed",
 
   useFeed(
-    userId: ID,
     params: FeedParams = {}
   ): Modify<FetchHook<Array<FeedItem>>, { feed: Array<FeedItem> }> {
     const { data, ...rest } = useAPI<Array<FeedItem>>(
-      `${this.URI(userId)}?${parseQueryParams(params)}`
+      `${this.URI}?${parseQueryParams(params)}`
     );
     return { feed: data, ...rest };
-  },
-
-  async updateFeed(userId: ID, feed: Partial<FeedItem>): Promise<FeedItem> {
-    return API.put(`${this.URI(userId)}/${feed.id}`, feed);
   },
 };
 

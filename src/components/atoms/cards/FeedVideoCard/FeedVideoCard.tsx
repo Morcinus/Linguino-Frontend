@@ -1,4 +1,4 @@
-import { FeedVideo } from "infrastructure/api/users/feed/Feed";
+import { FeedVideo } from "infrastructure/api/user/feed/Feed";
 
 import { Card, CardMedia, Typography } from "@mui/material";
 import { Box } from "@mui/system";
