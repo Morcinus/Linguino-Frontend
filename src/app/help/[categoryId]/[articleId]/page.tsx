@@ -1,12 +1,8 @@
 // prettier-ignore
 "use client"
 
-import ArticlesAPI from "infrastructure/api/articles/ArticlesAPI";
-
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
-
-import MarkdownText from "components/atoms/MarkdownText/MarkdownText";
+import HelpArticle from "components/molecules/HelpArticle/HelpArticle";
+import useAuth from "infrastructure/services/AuthProvider";
 
 export interface IHelpArticlePage {
   params: {
@@ -16,17 +12,17 @@ export interface IHelpArticlePage {
 }
 
 const HelpArticlePage: React.FC<IHelpArticlePage> = ({ params }) => {
-  const { article } = ArticlesAPI.useArticle(params.articleId);
+  const { user } = useAuth();
 
   return (
-    <Box sx={{ width: "100%" }}>
-      {article && (
-        <>
-          <Typography variant="subtitle1">{article.name}</Typography>
-          <MarkdownText text={article.text}></MarkdownText>
-        </>
+    <>
+      {user && (
+        <HelpArticle
+          courseId={user.selectedCourse.id}
+          articleId={params.articleId}
+        />
       )}
-    </Box>
+    </>
   );
 };
 

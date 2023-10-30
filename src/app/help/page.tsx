@@ -1,30 +1,17 @@
 // prettier-ignore
 "use client"
 
-import { Box } from "@mui/material";
-import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
-import ArticleCategoriesAPI from "infrastructure/api/article-categories/ArticleCategoriesAPI";
+import useAuth from "infrastructure/services/AuthProvider";
 
+import HelpCategoriesOverview from "components/layouts/HelpCategoriesOverview/HelpCategoriesOverview";
 
 export interface IHelpPage {}
 
 const HelpPage: React.FC<IHelpPage> = () => {
-  const { articleCategories } = ArticleCategoriesAPI.useArticleCategories();
+  const { user } = useAuth();
 
   return (
-    <Box sx={{ width: "100%" }}>
-      {articleCategories && (
-        <LinkCardList
-          links={articleCategories.map((category) => {
-            return {
-              id: category.id,
-              name: category.name,
-              url: `/help/${category.id}`,
-            };
-          })}
-        />
-      )}
-    </Box>
+    <>{user && <HelpCategoriesOverview courseId={user.selectedCourse.id} />}</>
   );
 };
 

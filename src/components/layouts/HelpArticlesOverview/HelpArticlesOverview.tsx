@@ -1,0 +1,37 @@
+import ArticlesAPI from "infrastructure/api/courses/articles/ArticlesAPI";
+
+import { Box } from "@mui/material";
+
+import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
+
+export interface IHelpArticlesOverview {
+  courseId: ID;
+  categoryId: ID;
+}
+
+const HelpArticlesOverview: React.FC<IHelpArticlesOverview> = ({
+  courseId,
+  categoryId,
+}) => {
+  const { articles } = ArticlesAPI.useArticles(courseId, {
+    categoryId: categoryId,
+  });
+
+  return (
+    <Box sx={{ width: "100%" }}>
+      {articles && (
+        <LinkCardList
+          links={articles.map((article) => {
+            return {
+              id: article.id,
+              name: article.name,
+              url: `/help/${categoryId}/${article.id}`,
+            };
+          })}
+        />
+      )}
+    </Box>
+  );
+};
+
+export default HelpArticlesOverview;
