@@ -1,5 +1,5 @@
 import { useTranslation } from "i18n/client";
-import LessonItemsAPI from "infrastructure/api/lesson-items/LessonItemsAPI";
+import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
 import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
@@ -19,13 +19,15 @@ import CardList from "../lists/CardList/CardList";
 
 export interface ILessonItemsSearchResults {
   searchPrompt: string;
+  courseId: ID;
 }
 
 const LessonItemsSearchResults: React.FC<ILessonItemsSearchResults> = ({
   searchPrompt,
+  courseId,
 }) => {
   const router = useRouter();
-  const { lessonItems } = LessonItemsAPI.useLessonItems({
+  const { lessonItems } = LessonItemsAPI.useLessonItems(courseId, {
     searchVocabulary: searchPrompt,
   });
   const { t } = useTranslation("cs", "common");

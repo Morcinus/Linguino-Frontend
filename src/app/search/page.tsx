@@ -58,7 +58,14 @@ const SearchPagePage: React.FC<ISearchPagePage> = () => {
                 )}
               </>
             ) : (
-              <LessonItemsSearchResults searchPrompt={searchPrompt} />
+              <>
+                {user && (
+                  <LessonItemsSearchResults
+                    searchPrompt={searchPrompt}
+                    courseId={user.selectedCourse.id}
+                  />
+                )}
+              </>
             )
           }
           value={value}

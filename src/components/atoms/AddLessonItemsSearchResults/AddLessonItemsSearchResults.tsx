@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
-import { LessonItem } from "infrastructure/api/lesson-items/LessonItems";
-import LessonItemsAPI from "infrastructure/api/lesson-items/LessonItemsAPI";
+import { LessonItemSummary } from "infrastructure/api/user/courses/lesson-items/LessonItems";
+import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
 import icons from "styles/icons";
 
 import {
@@ -19,9 +19,10 @@ import CardList from "../lists/CardList/CardList";
 
 export interface IAddLessonItemsSearchResults {
   searchPrompt: string;
-  onItemAdd: (lessonItem: LessonItem) => void;
-  onItemRemove: (lessonItem: LessonItem) => void;
-  items: Array<Pick<LessonItem, "id" | "nameL1" | "nameL2" | "imageURL">>;
+  onItemAdd: (lessonItem: LessonItemSummary) => void;
+  onItemRemove: (lessonItem: LessonItemSummary) => void;
+  items: Array<LessonItemSummary>;
+  courseId: ID;
 }
 
 const AddLessonItemsSearchResults: React.FC<IAddLessonItemsSearchResults> = ({
@@ -29,8 +30,9 @@ const AddLessonItemsSearchResults: React.FC<IAddLessonItemsSearchResults> = ({
   onItemAdd,
   onItemRemove,
   items,
+  courseId,
 }) => {
-  const { lessonItems } = LessonItemsAPI.useLessonItems({
+  const { lessonItems } = LessonItemsAPI.useLessonItems(courseId, {
     searchVocabulary: searchPrompt,
   });
   const { t } = useTranslation("cs", "common");

@@ -1,5 +1,6 @@
 import { useTranslation } from "i18n/client";
-import { LessonItem } from "infrastructure/api/lesson-items/LessonItems";
+import { LessonItemSummary } from "infrastructure/api/user/courses/lesson-items/LessonItems";
+import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
 import { useState } from "react";
@@ -19,10 +20,10 @@ import ContentContainer from "components/layouts/ContentContainer/ContentContain
 
 export interface IAddVocabularyDialog {
   open: boolean;
-  onItemAdd: (lessonItem: LessonItem) => void;
-  onItemRemove: (lessonItem: LessonItem) => void;
+  onItemAdd: (lessonItem: LessonItemSummary) => void;
+  onItemRemove: (lessonItem: LessonItemSummary) => void;
   onClose: () => void;
-  items: Array<Pick<LessonItem, "id" | "nameL1" | "nameL2" | "imageURL">>;
+  items: Array<LessonItemSummary>;
 }
 
 const AddVocabularyDialog: React.FC<IAddVocabularyDialog> = ({
@@ -32,6 +33,7 @@ const AddVocabularyDialog: React.FC<IAddVocabularyDialog> = ({
   onClose,
   items,
 }) => {
+  const { user } = useAuth();
   const { t } = useTranslation("cs", "common");
   const [text, setText] = useState("");
   const [searchPrompt, setSearchPrompt] = useState("");
@@ -75,12 +77,13 @@ const AddVocabularyDialog: React.FC<IAddVocabularyDialog> = ({
             />
           </Box>
           <Box>
-            {searchPrompt && (
+            {searchPrompt && user && (
               <AddLessonItemsSearchResults
                 searchPrompt={searchPrompt}
                 onItemAdd={onItemAdd}
                 onItemRemove={onItemRemove}
                 items={items}
+                courseId={user.selectedCourse.id}
               />
             )}
           </Box>

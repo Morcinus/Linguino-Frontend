@@ -89,13 +89,19 @@ const StudySession: React.FC<IStudySession> = ({
   function renderNewVocabulary(exercise: Exercise) {
     if (isNewVocabulary(exercise))
       return (
-        <NewVocabulary
-          lessonItemId={exercise.lessonItemId}
-          onContinue={() => {
-            nextExercise();
-            if (index >= exerciseQueue.length - 1) handleFinished(attemptArray);
-          }}
-        />
+        <>
+          {user && (
+            <NewVocabulary
+              courseId={user.selectedCourse.id}
+              lessonItemId={exercise.lessonItemId}
+              onContinue={() => {
+                nextExercise();
+                if (index >= exerciseQueue.length - 1)
+                  handleFinished(attemptArray);
+              }}
+            />
+          )}
+        </>
       );
     else return "";
   }

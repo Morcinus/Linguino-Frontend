@@ -1,5 +1,6 @@
 import { useTranslation } from "i18n/client";
-import { LessonItem } from "infrastructure/api/lesson-items/LessonItems";
+import { LessonItemSummary } from "infrastructure/api/user/courses/lesson-items/LessonItems";
+import { LessonCreateUpdateDTO } from "infrastructure/api/user/courses/lessons/Lessons";
 import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 import { useSnackbar } from "notistack";
 import icons from "styles/icons";
@@ -28,17 +29,10 @@ import AddVocabularyDialog from "components/molecules/AddVocabularyDialog/AddVoc
 
 import ContentContainer from "../ContentContainer/ContentContainer";
 
-interface Lesson {
-  id?: ID;
-  name: string;
-  description?: string;
-  items: Array<Pick<LessonItem, "id" | "nameL1" | "nameL2" | "imageURL">>;
-}
-
 export interface ILessonCreateUpdate {
   courseId: ID;
-  lesson: Lesson;
-  onSave: (lesson: Lesson) => void;
+  lesson: LessonCreateUpdateDTO;
+  onSave: (lesson: LessonCreateUpdateDTO) => void;
   isCreate?: boolean;
 }
 
@@ -48,7 +42,7 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
   onSave,
   isCreate = false,
 }) => {
-  const [items, setItems] = useState(lesson.items);
+  const [items, setItems] = useState<Array<LessonItemSummary>>(lesson.items);
   const [name, setName] = useState(lesson.name);
   const [popupOpen, setPopupOpen] = useState(false);
   const [searchDialogOpen, setSearchDialogOpen] = useState(false);
@@ -65,8 +59,12 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
     )
       return true;
 
-    const arr1 = items?.slice().sort((a, b) => a.id.localeCompare(b.id));
-    const arr2 = lesson.items?.slice().sort((a, b) => a.id.localeCompare(b.id));
+    const arr1 = items.slice().sort((a, b) => a.id.localeCompare(b.id));
+    const arr2 = lesson.items
+      .slice()
+      .sort((a: LessonItemSummary, b: LessonItemSummary) =>
+        a.id.localeCompare(b.id)
+      );
 
     if (arr1 && arr2) {
       for (let i = 0; i < arr1?.length; i++) {

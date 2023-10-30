@@ -1,5 +1,6 @@
 import { Category } from "domain/models/types/category";
 
+import { LessonItemSummary } from "../lesson-items/LessonItems";
 import { Feedback } from "./feedback/LessonFeedback";
 
 export type LessonType =
@@ -22,12 +23,20 @@ export interface Lesson {
   visible?: boolean;
   feedback?: Feedback;
   backgroundImageUrl?: string;
-  items?: Array<LessonItem>;
+  items: Array<LessonItemSummary>;
   author?: ID;
   icon?: string;
   type?: LessonType;
 
   markAsLearned?: boolean;
 }
+
+export type LessonCreateUpdateDTO = Pick<
+  Lesson,
+  "id",
+  "name",
+  "description",
+  "items"
+>;
 
 export type FeedbackState = "LIKED" | "DISLIKED" | null;

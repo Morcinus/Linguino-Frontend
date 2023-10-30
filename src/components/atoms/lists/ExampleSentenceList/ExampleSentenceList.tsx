@@ -1,4 +1,4 @@
-import { ExampleSentence } from "infrastructure/api/lesson-items/LessonItems";
+import { ExampleSentence } from "infrastructure/api/user/courses/lesson-items/LessonItems";
 
 import { ListItem, ListItemText } from "@mui/material";
 

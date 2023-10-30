@@ -14,6 +14,11 @@ export interface LessonItem {
   markAsLearned?: boolean;
 }
 
+export type LessonItemSummary = Pick<
+  LessonItem,
+  "id" | "nameL1" | "nameL2" | "imageURL" | "audioURL"
+>;
+
 export interface ExampleSentence {
   id: ID;
   textL1: string;

@@ -1,4 +1,4 @@
-import LessonItemsAPI from "infrastructure/api/lesson-items/LessonItemsAPI";
+import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
 import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 
 import React, { useState } from "react";
@@ -20,7 +20,9 @@ const FavoritesOverview: React.FC<IFavoritesOverview> = ({ courseId }) => {
   const { lessons } = LessonsAPI.useLessons(courseId, {
     favorite: true,
   });
-  const { lessonItems } = LessonItemsAPI.useLessonItems({ favorite: true });
+  const { lessonItems } = LessonItemsAPI.useLessonItems(courseId, {
+    favorite: true,
+  });
   const { t } = useTranslation("cs", "common");
 
   return (

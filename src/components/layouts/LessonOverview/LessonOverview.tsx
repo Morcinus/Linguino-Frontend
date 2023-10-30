@@ -124,7 +124,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
               onFavoriteChange={handleFavoriteChange}
               onVisibleChange={handleVisibleChange}
             />
-            {lesson.items && <LessonItemList lessonItems={lesson.items} />}
+            <LessonItemList lessonItems={lesson.items} />
             <FeedbackCard
               feedback={lesson.feedback}
               onFeedbackChange={handleFeedbackChange}

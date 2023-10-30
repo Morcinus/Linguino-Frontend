@@ -13,6 +13,7 @@ const base: IAddLessonItemsSearchResults = {
       id: "123",
     },
   ],
+  courseId: "abc",
 };
 
 export const mockAddLessonItemsSearchResultsProps = {

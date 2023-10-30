@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
-import LessonItemsAPI from "infrastructure/api/lesson-items/LessonItemsAPI";
+import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
 
 import { Box, Typography } from "@mui/material";
 
@@ -9,26 +9,34 @@ import LessonItemCard from "components/atoms/cards/LessonItemCard/LessonItemCard
 
 export interface INewVocabulary {
   lessonItemId: ID;
+  courseId: ID;
   onContinue: () => void;
 }
 
 const NewVocabulary: React.FC<INewVocabulary> = ({
   lessonItemId,
+  courseId,
   onContinue,
 }) => {
   const { t } = useTranslation("cs", "common");
-  const { lessonItem, mutate } = LessonItemsAPI.useLessonItem(lessonItemId);
+  const { lessonItem, mutate } = LessonItemsAPI.useLessonItem(
+    courseId,
+    lessonItemId
+  );
 
   function handleLessonItemChange(change: { [key: string]: boolean | string }) {
-    mutate(
-      LessonItemsAPI.updateLessonItem({
+    const newLessonItem = {
+      ...lessonItem,
+      ...change,
+    };
+
+    mutate(async () => {
+      await LessonItemsAPI.updateLessonItem(courseId, {
+        id: lessonItem.id,
         ...change,
-      }),
-      optimisticMutationOption({
-        ...lessonItem,
-        ...change,
-      })
-    );
+      });
+      return newLessonItem;
+    }, optimisticMutationOption(newLessonItem));
   }
 
   return (

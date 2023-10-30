@@ -1,4 +1,4 @@
-import { LessonItem } from "infrastructure/api/lesson-items/LessonItems";
+import { LessonItem } from "infrastructure/api/user/courses/lesson-items/LessonItems";
 
 import { Card, CardContent, Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";

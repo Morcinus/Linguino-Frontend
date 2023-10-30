@@ -5,7 +5,7 @@ import { parseQueryParams } from "util/functions/api";
 
 import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
 
-import { Lesson, LessonType } from "./Lessons";
+import { Lesson, LessonCreateUpdateDTO, LessonType } from "./Lessons";
 
 export interface LessonParams {
   type?: LessonType;
@@ -40,12 +40,15 @@ const LessonsAPI = {
 
   async createLesson(
     courseId: ID,
-    lesson: Pick<Lesson, "name" | "description" | "items">
+    lesson: Omit<LessonCreateUpdateDTO, "id">
   ): Promise<void> {
     return API.post(`${this.URI(courseId)}`, lesson);
   },
 
-  async updateLesson(courseId: ID, lesson: Partial<Lesson>): Promise<Lesson> {
+  async updateLesson(
+    courseId: ID,
+    lesson: LessonCreateUpdateDTO
+  ): Promise<Lesson> {
     return API.patch(`${this.URI(courseId)}/${lesson.id}`, lesson);
   },
 

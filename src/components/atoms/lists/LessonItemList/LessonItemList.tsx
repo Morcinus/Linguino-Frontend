@@ -1,4 +1,4 @@
-import { LessonItem } from "infrastructure/api/lesson-items/LessonItems";
+import { LessonItemSummary } from "infrastructure/api/user/courses/lesson-items/LessonItems";
 
 import { useRouter } from "next/navigation";
 
@@ -15,7 +15,7 @@ import ListenIconButton from "components/atoms/ListenIconButton/ListenIconButton
 import CardList from "../CardList/CardList";
 
 export interface ILessonItemList {
-  lessonItems: Array<LessonItem>;
+  lessonItems: Array<LessonItemSummary>;
 }
 
 const LessonItemList: React.FC<ILessonItemList> = ({ lessonItems }) => {
