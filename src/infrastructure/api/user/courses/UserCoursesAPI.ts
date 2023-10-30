@@ -20,7 +20,7 @@ const UserCoursesAPI = {
   },
 
   async addUserCourse(course: AddCourseDTO): Promise<void> {
-    return API.post(`${this.URI}`, course);
+    return API.put(`${this.URI}/${course.id}`, course);
   },
 
   async selectCourse(courseId: ID): Promise<void> {
