@@ -1,4 +1,4 @@
-import { Topic } from "infrastructure/api/courses/topics/Topics";
+import { Topic } from "infrastructure/api/user/topics/Topics";
 
 import { ListItem, ListItemText, Switch } from "@mui/material";
 

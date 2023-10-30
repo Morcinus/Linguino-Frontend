@@ -6,11 +6,11 @@ import { parseQueryParams } from "util/functions/api";
 import { Topic } from "./Topics";
 
 export interface TopicParams {
-  tag?: "main" | "extra";
+  category?: "main" | "extra";
 }
 
 const TopicsAPI = {
-  URI: (courseId: ID) => `courses/${courseId}/topics`,
+  URI: (courseId: ID) => `user/courses/${courseId}/topics`,
 
   useTopics(
     courseId: ID,
@@ -22,8 +22,12 @@ const TopicsAPI = {
     return { topics: data, ...rest };
   },
 
-  async updateTopic(courseId: ID, topic: Partial<Topic>): Promise<Topic> {
-    return API.put(`${this.URI(courseId)}/${topic.id}`, topic);
+  async enableTopic(courseId: ID, topicId: ID): Promise<void> {
+    return API.put(`${this.URI(courseId)}/${topicId}`, {});
+  },
+
+  async disableTopic(courseId: ID, topicId: ID): Promise<void> {
+    return API.delete(`${this.URI(courseId)}/${topicId}`);
   },
 };
 

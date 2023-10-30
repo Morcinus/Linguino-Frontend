@@ -11,18 +11,18 @@ import { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
-import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
 import InitialSurveyForm from "components/molecules/forms/InitialSurveyForm/InitialSurveyForm";
 import SelectCourseForm from "components/molecules/forms/SelectCourseForm/SelectCourseForm";
-import SelectGoalForm from "components/molecules/forms/SelectGoalForm/SelectGoalForm";
 import { GoalOption } from "components/molecules/forms/SelectGoalForm/config";
-import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLevelForm";
+import SelectGoalForm from "components/molecules/forms/SelectGoalForm/SelectGoalForm";
 import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
-import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
+import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLevelForm";
 import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
+import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
 import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/SelectTopicsForm";
-import { Topic } from "infrastructure/api/courses/topics/Topics";
+import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
 import AccountSetupAPI from "infrastructure/api/user/account-setup/AccountSetupAPI";
+import { Topic } from "infrastructure/api/user/topics/Topics";
 import { useRouter } from "next/navigation";
 
 export interface IAccountSetupPage {}

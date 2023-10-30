@@ -1,9 +1,9 @@
 // prettier-ignore
 "use client"
 
-import { Topic } from "infrastructure/api/courses/topics/Topics";
 import { AddCourseDTO } from "infrastructure/api/user/courses/UserCourses";
 import UserCoursesAPI from "infrastructure/api/user/courses/UserCoursesAPI";
+import { Topic } from "infrastructure/api/user/topics/Topics";
 import useAuth from "infrastructure/services/AuthProvider";
 
 import { useState } from "react";

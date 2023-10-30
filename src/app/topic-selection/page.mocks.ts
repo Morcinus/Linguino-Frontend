@@ -1,10 +1,6 @@
 import { ITopicSelectionPage } from "./page";
 
-const base: ITopicSelectionPage = {
-  params: {
-    courseId: "abc",
-  },
-};
+const base: ITopicSelectionPage = {};
 
 export const mockTopicSelectionPageProps = {
   base,

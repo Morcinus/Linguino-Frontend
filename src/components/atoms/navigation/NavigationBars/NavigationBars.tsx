@@ -40,8 +40,6 @@ const Navigation: React.FC<INavigation> = () => {
         />
       );
     if (/^\/lesson-items\//.test(pathname)) return <BackNavigationBar />;
-    if (/^\/topic-selection\//.test(pathname))
-      return <BackNavigationBar header="topicSelection" />;
 
     switch (pathname) {
       case "/login":
@@ -60,6 +58,8 @@ const Navigation: React.FC<INavigation> = () => {
         return <DrawerContainer child={{ component: HomeNavigationBar }} />;
       case "/favorites":
         return <BackNavigationBar header="favorites" />;
+      case "topic-selection":
+        return <BackNavigationBar header="topicSelection" />;
       case "/settings":
         return (
           <DrawerContainer

@@ -105,7 +105,7 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
             <Button
               variant="outlined"
               onClick={() =>
-                router.push(`/topic-selection/${user?.selectedCourse.id}`)
+                router.push(`/topic-selection`)
               }
               sx={{ width: "50%", alignSelf: "center" }}
             >

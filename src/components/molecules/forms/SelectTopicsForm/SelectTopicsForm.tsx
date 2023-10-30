@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
 import CoursesAPI from "infrastructure/api/courses/CoursesAPI";
-import { Topic } from "infrastructure/api/courses/topics/Topics";
+import { Topic } from "infrastructure/api/user/topics/Topics";
 import icons from "styles/icons";
 
 import { useState } from "react";

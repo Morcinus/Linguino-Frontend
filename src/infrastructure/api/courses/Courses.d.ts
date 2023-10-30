@@ -1,5 +1,5 @@
 import { Language } from "domain/models/types/languages";
-import { Topic } from "infrastructure/api/courses/topics/Topics";
+import { FeaturedTopic } from "infrastructure/api/user/topics/Topics";
 
 export interface Course {
   id: ID;
@@ -7,5 +7,5 @@ export interface Course {
   language1: Language;
   language2: Language;
   thumbnailURL?: string;
-  featuredTopics?: Array<Topic>;
+  featuredTopics?: Array<FeaturedTopic>;
 }
