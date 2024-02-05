@@ -156,6 +156,5 @@ export interface NewVocabulary {
 
 export interface NewGrammar {
   lessonId: ID;
-  lessonItemIds: Array<ID>;
   type: "NEW_GRAMMAR";
 }
