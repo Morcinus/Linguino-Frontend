@@ -34,13 +34,11 @@ export interface IQuestionAnswerComponent {
 
 export interface ListeningExercise {
   id: ID;
-  lessonItemId: ID;
   type: "LISTENING";
-  assignmentTitle: string;
   audioURL: string;
-  imageURL: string;
-
-  questions: Array<FillInBlankQuestionAnswer | TextQuestionAnswer>;
+  imageURL?: string;
+  questionL2: string;
+  answerL2: string;
 }
 
 export interface ShortListeningExercise {
