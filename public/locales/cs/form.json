@@ -152,24 +152,6 @@
     },
     "exercisesPerDay": "cvičení za den",
 
-    "notifications": "Oznámení",
-    "sendOnMobile": "Posílat na mobil",
-    "sendOnEmail": "Posílat na email",
-    "sendOnDesktop": "Posílat na počítač",
-
-    "notifyOn": "Pošlete mi oznámení",
-    "friendsActivities": "Při aktivitě přátel",
-    "somebodyFollowsUser": "Když mě někdo začne sledovat",
-    "userForgetsPractice": "Když se zapomenu učit do",
-
-    "wantToStudyOnDays": "Chci se učit tyto dny",
-    "wantToStudyOnDaysDescription": "V tyto dny se vám bude počítat denní řada.",
-
-    "other": "Ostatní",
-    "animation": "Animace",
-    "reviewPreviousLevels": "Opakovat cvičení z předchozích úrovní",
-    "publicProfile": "Veřejný profil",
-
     "premium": "Prémium",
     "manageSubscription": "Spravovat předplatné"
   },

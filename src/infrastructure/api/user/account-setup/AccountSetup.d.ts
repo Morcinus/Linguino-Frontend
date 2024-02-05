@@ -1,4 +1,4 @@
-import { DailyGoal } from "infrastructure/api/settings/Settings";
+import { DailyGoal } from "infrastructure/api/user/settings/Settings";
 
 import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
 

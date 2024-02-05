@@ -4,7 +4,7 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
 import errorCodes from "infrastructure/api/error-codes";
-import SettingsAPI from "infrastructure/api/settings/SettingsAPI";
+import SettingsAPI from "infrastructure/api/user/settings/SettingsAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 import { useSnackbar } from "notistack";
 import icons from "styles/icons";
@@ -16,11 +16,8 @@ import { useRouter } from "next/navigation";
 import { Box, Button, Typography } from "@mui/material";
 
 import BottomFab from "components/atoms/BottomFab/BottomFab";
-import DayPicker from "components/atoms/DayPicker/DayPicker";
 import AccountSettings from "components/molecules/settings/AccountSettings/AccountSettings";
 import DailyGoalSettings from "components/molecules/settings/DailyGoalSettings/DailyGoalSettings";
-import NotificationSettings from "components/molecules/settings/NotificationSettings/NotificationSettings";
-import OtherSettings from "components/molecules/settings/OtherSettings/OtherSettings";
 
 export interface ISettingsPage {}
 
@@ -37,7 +34,6 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
     mutate(async () => {
       try {
         const newSettings = await SettingsAPI.updateSettings({
-          id: settings.id,
           ...change,
         });
 
@@ -115,45 +111,6 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
           <DailyGoalSettings
             dailyGoal={settings.dailyGoal}
             onGoalChange={(value) => setChange({ ...change, dailyGoal: value })}
-          />
-          <NotificationSettings
-            notifications={settings.notifications}
-            notifyOn={settings.notifyOn}
-            practiceNotificationTime={settings.practiceNotificationTime}
-            onNotificationsChange={(value) =>
-              setChange({ ...change, notifications: { ...value } })
-            }
-            onNotifyOnChange={(value) =>
-              setChange({ ...change, notifyOn: { ...value } })
-            }
-            onTimeChange={(value) =>
-              setChange({ ...change, practiceNotificationTime: value })
-            }
-          />
-          <Box display="flex" flexDirection="column" gap={2} width="100%">
-            <Typography variant="subtitle1">
-              {t("settings.wantToStudyOnDays")}
-            </Typography>
-            <DayPicker
-              days={settings.learnOnDays}
-              onDaysChange={(value) =>
-                setChange({ ...change, learnOnDays: value })
-              }
-            />
-          </Box>
-          <OtherSettings
-            animations={settings.animations}
-            reviewPreviousLevels={settings.reviewPreviousLevels}
-            publicProfile={settings.publicProfile}
-            onAnimationsChange={(value) =>
-              setChange({ ...change, animations: value })
-            }
-            onReviewPreviousLevelsChange={(value) =>
-              setChange({ ...change, reviewPreviousLevels: value })
-            }
-            onPublicProfileChange={(value) =>
-              setChange({ ...change, publicProfile: value })
-            }
           />
           <Box display="flex" flexDirection="column" gap={2} width="100%">
             <Typography variant="subtitle1">{t("settings.premium")}</Typography>
