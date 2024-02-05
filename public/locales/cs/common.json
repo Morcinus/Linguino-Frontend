@@ -40,6 +40,9 @@
   },
 
   "exercises": {
+    "textExercise": {
+      "assignmentTitle": "Přelož text!"
+    },
     "buildTheWord": {
       "assignmentTitle": "Sestav slovíčko z písmen!"
     }

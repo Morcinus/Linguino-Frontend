@@ -89,13 +89,12 @@ export interface SpeechExercise {
 
 export interface TextExercise {
   id: ID;
-  lessonItemId: ID;
   type: "TEXT";
-  assignmentTitle: string;
-  explanation?: string;
+  textL1: string;
+  textL2: string;
   imageURL?: string;
-
-  question: TextQuestionAnswer;
+  textL2AudioURL?: string;
+  explanation?: string;
 }
 
 export interface ReadingExercise {

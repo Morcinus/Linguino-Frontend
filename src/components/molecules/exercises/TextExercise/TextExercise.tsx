@@ -1,3 +1,5 @@
+import { useTranslation } from "i18n/client";
+
 import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
@@ -13,22 +15,31 @@ export interface ITextExercise extends IExerciseComponent {
 const ANSWER_LENGTH_BREAKPOINT = 30;
 
 const TextExercise: React.FC<ITextExercise> = ({ exercise, onContinue }) => {
+  const { t } = useTranslation("cs", "common");
+  const questionAnswer = {
+    id: exercise.id,
+    type: "TEXT",
+    question: exercise.textL1,
+    answer: exercise.textL2,
+    answerAudioURL: exercise.textL2AudioURL,
+  };
+
   return (
     <Exercise
-      assignmentTitle={exercise.assignmentTitle}
+      assignmentTitle={t("exercises.textExercise.assignmentTitle")}
       onContinue={(arr: Array<UserAnswer>) => {
         onContinue?.(arr, false);
       }}
       imageURL={exercise.imageURL}
-      questionAnswers={[exercise.question]}
+      questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {
           component: TextQuestionAnswer,
           props: {
-            questionAnswer: exercise.question,
+            questionAnswer: questionAnswer,
             characterButtons: ["'"],
             rows:
-              exercise.question.answer.length > ANSWER_LENGTH_BREAKPOINT
+              questionAnswer.answer.length > ANSWER_LENGTH_BREAKPOINT
                 ? "long"
                 : "short",
           },

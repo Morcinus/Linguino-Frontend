@@ -5,41 +5,22 @@ import { IStudySession } from "./StudySession";
 const base: IStudySession = {
   exercises: [
     {
-      id: "fdsfsdfdsfsdfsd",
-      lessonItemId: "123",
+      id: "ifdsamlmlkafda",
       type: "TEXT",
-      assignmentTitle: "Přeložte do angličtiny 1",
-      explanation: "# Hello world \n Lorem opossum",
-      question: {
-        id: "dsmaljdsa",
-        question: "Brambora xx'x",
-        answer: "xx'x",
-        type: "TEXT",
-      },
+      textL1: "jablko",
+      textL2: "apple",
+      imageURL: "https://picsum.photos/id/168/512/512",
+      textL2AudioURL:
+        "https://www.chosic.com/wp-content/uploads/2021/02/Monkeys-Spinning-Monkeys.mp3",
     },
     {
-      id: "fdsfsdfdsfsdfsd",
-      lessonItemId: "123",
+      id: "ifdsamlmlkafda",
       type: "TEXT",
-      assignmentTitle: "Přeložte do angličtiny 1",
-      question: {
-        id: "dsmaljdsad",
-        question: "Brambora yyy",
-        answer: "yyy",
-        type: "TEXT",
-      },
-    },
-    {
-      id: "gsggdsggsgfdsg",
-      lessonItemId: "123",
-      type: "TEXT",
-      assignmentTitle: "Přeložte do angličtiny 1",
-      question: {
-        id: "dsmxaljdsa",
-        question: "Brambora zzz",
-        answer: "zzz",
-        type: "TEXT",
-      },
+      textL1: "brambora",
+      textL2: "potato",
+      imageURL: "https://picsum.photos/id/168/512/512",
+      textL2AudioURL:
+        "https://www.chosic.com/wp-content/uploads/2021/02/Monkeys-Spinning-Monkeys.mp3",
     },
   ],
   onFinish: action("onFinish"),

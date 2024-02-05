@@ -3,16 +3,12 @@ import { ITextExercise } from "./TextExercise";
 const base: ITextExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
-    lessonItemId: "asljfnvkduexi",
     type: "TEXT",
-    assignmentTitle: "Listen and answer questions!",
+    textL1: "jablko",
+    textL2: "apple",
     imageURL: "https://picsum.photos/id/168/512/512",
-    question: {
-      id: "asdndajdladb",
-      type: "TEXT",
-      answer: "xxx",
-      question: "Lorem ipsum?",
-    },
+    textL2AudioURL:
+      "https://www.chosic.com/wp-content/uploads/2021/02/Monkeys-Spinning-Monkeys.mp3",
   },
 };
 

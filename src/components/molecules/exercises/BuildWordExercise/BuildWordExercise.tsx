@@ -17,6 +17,13 @@ const BuildWordExercise: React.FC<IBuildWordExercise> = ({
   onContinue,
 }) => {
   const { t } = useTranslation("cs", "common");
+  const questionAnswer = {
+    type: "BUILD_WORD",
+    id: exercise.id,
+    question: exercise.wordL1,
+    answer: exercise.wordL2,
+    letters: exercise.letters,
+  };
 
   return (
     <Exercise
@@ -25,26 +32,12 @@ const BuildWordExercise: React.FC<IBuildWordExercise> = ({
         onContinue?.(arr, false);
       }}
       imageURL={exercise.imageURL}
-      questionAnswers={[
-        {
-          type: "BUILD_WORD",
-          id: exercise.id,
-          question: exercise.wordL1,
-          answer: exercise.wordL2,
-          letters: exercise.letters,
-        },
-      ]}
+      questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {
           component: BuildWordQuestionAnswer,
           props: {
-            questionAnswer: {
-              type: "BUILD_WORD",
-              id: exercise.id,
-              question: exercise.wordL1,
-              answer: exercise.wordL2,
-              letters: exercise.letters,
-            },
+            questionAnswer: questionAnswer,
           },
         },
       ]}
