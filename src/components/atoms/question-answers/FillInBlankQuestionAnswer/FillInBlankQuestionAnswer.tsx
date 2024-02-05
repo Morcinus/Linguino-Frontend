@@ -1,9 +1,9 @@
+import { FillInBlankQuestionAnswer as FillInBlankQuestionAnswerType } from "domain/models/types/questionAnswers";
+import { UserAnswer } from "domain/models/types/questionAttempts";
 import {
   AnswerState,
   IQuestionAnswerComponent,
-} from "domain/models/types/exercises";
-import { FillInBlankQuestionAnswer as FillInBlankQuestionAnswerType } from "domain/models/types/questionAnswers";
-import { UserAnswer } from "domain/models/types/questionAttempts";
+} from "infrastructure/api/user/study-session/Exercises";
 
 import { useState } from "react";
 

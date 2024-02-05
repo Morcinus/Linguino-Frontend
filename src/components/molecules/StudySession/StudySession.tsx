@@ -1,8 +1,8 @@
+import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import {
   isNewGrammar,
   isNewVocabulary,
-} from "domain/models/types/guards/exerciseGuard";
-import { StudyStats } from "infrastructure/api/user/notices/Notices";
+} from "infrastructure/api/user/study-session/ExercisesGuard";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
@@ -12,9 +12,9 @@ import { Box, Container, Icon, IconButton, Toolbar } from "@mui/material";
 
 import StudySessionProgressBar from "components/atoms/StudySessionProgressBar/StudySessionProgressBar";
 
-import { Exercise } from "../../../domain/models/types/exercises";
 import { QuestionAttempt } from "../../../domain/models/types/questionAttempts";
 import { getExplanation } from "../../../domain/models/utils/type-guards";
+import { Exercise } from "../../../infrastructure/api/user/study-session/Exercises";
 import { useScroll } from "../../../util/hooks/useScroll";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";

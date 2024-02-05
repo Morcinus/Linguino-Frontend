@@ -1,8 +1,8 @@
+import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
   ShortListeningExercise as ShortListeningExerciseType,
-} from "../../../../domain/models/types/exercises";
-import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
+} from "../../../../infrastructure/api/user/study-session/Exercises";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import ListenButton from "../../../atoms/ListenButton/ListenButton";
 import TextQuestionAnswer from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";

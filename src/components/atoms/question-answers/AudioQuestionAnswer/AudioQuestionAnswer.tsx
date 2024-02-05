@@ -3,8 +3,8 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import { IQuestionAnswerComponent } from "../../../../domain/models/types/exercises";
 import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
+import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/study-session/Exercises";
 import useAuth from "../../../../infrastructure/services/AuthProvider";
 import { removeInterpunction } from "../../../../util/functions/exercises";
 import AudioInputButton from "../../AudioInputButton/AudioInputButton";

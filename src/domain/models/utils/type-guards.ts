@@ -1,4 +1,4 @@
-import { Exercise } from "../types/exercises";
+import { Exercise } from "../../../infrastructure/api/user/study-session/Exercises";
 
 export function getExplanation(obj: Exercise): string | undefined {
   if ("explanation" in obj) {

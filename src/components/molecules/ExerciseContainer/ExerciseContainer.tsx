@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 
-import { Exercise } from "../../../domain/models/types/exercises";
+import { QuestionAttempt } from "../../../domain/models/types/questionAttempts";
+import { Exercise } from "../../../infrastructure/api/user/study-session/Exercises";
 import {
   isBuildWordExercise,
   isFillInSentenceExercise,
@@ -13,8 +14,7 @@ import {
   isShortListeningExercise,
   isSpeechExercise,
   isTextExercise,
-} from "../../../domain/models/types/guards/exerciseGuard";
-import { QuestionAttempt } from "../../../domain/models/types/questionAttempts";
+} from "../../../infrastructure/api/user/study-session/ExercisesGuard";
 import BuildWordExercise from "../exercises/BuildWordExercise/BuildWordExercise";
 import FillInSentenceExercise from "../exercises/FillInSentenceExercise/FillInSentenceExercise";
 import FillInTableExercise from "../exercises/FillInTableExercise/FillInTableExercise";

@@ -1,6 +1,6 @@
-import { IQuestionAnswerComponent } from "domain/models/types/exercises";
 import { BuildWordQuestionAnswer as BuildWordQuestionAnswerType } from "domain/models/types/questionAnswers";
 import { UserAnswer } from "domain/models/types/questionAttempts";
+import { IQuestionAnswerComponent } from "infrastructure/api/user/study-session/Exercises";
 
 import { useState } from "react";
 

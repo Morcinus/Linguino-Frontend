@@ -1,8 +1,8 @@
+import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
   ReadAloudExercise as ReadAloudExerciseType,
-} from "../../../../domain/models/types/exercises";
-import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
+} from "../../../../infrastructure/api/user/study-session/Exercises";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import AudioQuestionAnswer from "../../../atoms/question-answers/AudioQuestionAnswer/AudioQuestionAnswer";
 

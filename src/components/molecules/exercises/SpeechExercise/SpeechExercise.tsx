@@ -4,11 +4,11 @@ import useKeypress from "react-use-keypress";
 
 import { Typography } from "@mui/material";
 
+import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
   SpeechExercise as SpeechExerciseType,
-} from "../../../../domain/models/types/exercises";
-import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
+} from "../../../../infrastructure/api/user/study-session/Exercises";
 import FullWidthButton from "../../../atoms/FullWidthButton/FullWidthButton";
 import Timer from "../../../atoms/Timer/Timer";
 import CheckList from "../../../atoms/lists/CheckList/CheckList";

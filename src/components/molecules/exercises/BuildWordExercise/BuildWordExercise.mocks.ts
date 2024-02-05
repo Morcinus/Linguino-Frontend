@@ -2,18 +2,14 @@ import { IBuildWordExercise } from "./BuildWordExercise";
 
 const base: IBuildWordExercise = {
   exercise: {
-    id: "ifdsamlmlkafd",
-    lessonItemId: "asljfnvkduexi",
+    id: "vxcvavHpCn",
     type: "BUILD_WORD",
-    assignmentTitle: "Přeložte do angličtiny!",
+    wordL1: "jablko",
+    wordL2: "apple",
+    letters: ["a", "p", "p", "l", "e", "x", "y", "z"],
     imageURL: "https://picsum.photos/id/168/512/512",
-    question: {
-      id: "dsmaljdsax",
-      question: "jablko",
-      answer: "apple",
-      letters: ["a", "p", "p", "l", "e", "x", "y"],
-      type: "BUILD_WORD",
-    },
+    answerAudioURL:
+      "https://www.chosic.com/wp-content/uploads/2021/02/Monkeys-Spinning-Monkeys.mp3",
   },
 };
 

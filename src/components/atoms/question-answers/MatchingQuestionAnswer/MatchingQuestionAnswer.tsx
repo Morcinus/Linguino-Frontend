@@ -1,13 +1,13 @@
 import {
-  AnswerState,
-  IQuestionAnswerComponent,
-} from "domain/models/types/exercises";
-import {
   isMatchAudioOption,
   isMatchImageOption,
   isMatchTextOption,
 } from "domain/models/types/guards/matchingOptionsGuard";
 import { MatchingQuestionAnswer as MatchingQuestionAnswerType } from "domain/models/types/questionAnswers";
+import {
+  AnswerState,
+  IQuestionAnswerComponent,
+} from "infrastructure/api/user/study-session/Exercises";
 
 import { useEffect, useState } from "react";
 

@@ -1,4 +1,4 @@
-import { AnswerState } from "./exercises";
+import { AnswerState } from "../../../infrastructure/api/user/study-session/Exercises";
 
 export type QuestionAttempt = UserAnswer;
 

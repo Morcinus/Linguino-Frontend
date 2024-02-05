@@ -1,9 +1,9 @@
+import { isFillInBlankQuestionAnswer } from "../../../../domain/models/types/guards/questionGuard";
+import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
   ListeningExercise as ListeningExerciseType,
-} from "../../../../domain/models/types/exercises";
-import { isFillInBlankQuestionAnswer } from "../../../../domain/models/types/guards/questionGuard";
-import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
+} from "../../../../infrastructure/api/user/study-session/Exercises";
 import AudioPlayer from "../../../atoms/AudioPlayer/AudioPlayer";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import FillTheBlank from "../../../atoms/FillTheBlank/FillTheBlank";

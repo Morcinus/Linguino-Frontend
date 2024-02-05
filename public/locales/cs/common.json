@@ -39,6 +39,12 @@
     "iKnowGrammar": "Tuto gramatiku už znám!"
   },
 
+  "exercises": {
+    "buildTheWord": {
+      "assignmentTitle": "Sestav slovíčko z písmen!"
+    }
+  },
+
   "other": {
     "other": "Ostatní",
     "subscription": "Předplatné",

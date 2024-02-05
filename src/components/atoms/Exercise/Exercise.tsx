@@ -2,9 +2,9 @@ import { Component, ComponentProps, ElementType, ReactNode } from "react";
 
 import { Box, Typography } from "@mui/material";
 
-import { AnswerState } from "../../../domain/models/types/exercises";
 import { QuestionAnswer } from "../../../domain/models/types/questionAnswers";
 import { UserAnswer } from "../../../domain/models/types/questionAttempts";
+import { AnswerState } from "../../../infrastructure/api/user/study-session/Exercises";
 import theme from "../../../styles/theme";
 import ExerciseContinueButton from "../ExerciseContinueButton/ExerciseContinueButton";
 import KeyPress from "../KeyPress/KeyPress";

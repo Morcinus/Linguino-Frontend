@@ -2,8 +2,8 @@ import { MutableRefObject, useState } from "react";
 
 import { Box, InputAdornment, TextField, Typography } from "@mui/material";
 
-import { IQuestionAnswerComponent } from "../../../../domain/models/types/exercises";
 import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
+import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/study-session/Exercises";
 import useAuth from "../../../../infrastructure/services/AuthProvider";
 import AudioInputIconButton from "../../AudioInputIconButton/AudioInputIconButton";
 import CharacterButton from "../../CharacterButton/CharacterButton";

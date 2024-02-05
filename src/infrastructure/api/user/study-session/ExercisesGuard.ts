@@ -1,22 +1,19 @@
 import {
-  NewGrammar,
-  NewVocabulary,
-} from "infrastructure/api/user/study-session/Exercises";
-
-import {
   BuildWordExercise,
   Exercise,
   FillInSentenceExercise,
   FillInTableExercise,
   ListeningExercise,
   MatchingExercise,
+  NewGrammar,
+  NewVocabulary,
   ReadAloudExercise,
   ReadingExercise,
   RepeatAudioExercise,
   ShortListeningExercise,
   SpeechExercise,
   TextExercise,
-} from "../exercises";
+} from "./Exercises";
 
 export function isListeningExercise(
   exercise: Exercise

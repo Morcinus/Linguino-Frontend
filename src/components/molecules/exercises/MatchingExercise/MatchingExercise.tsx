@@ -1,8 +1,8 @@
+import { UserAnswer } from "domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
   MatchingExercise as MatchingExerciseType,
-} from "domain/models/types/exercises";
-import { UserAnswer } from "domain/models/types/questionAttempts";
+} from "infrastructure/api/user/study-session/Exercises";
 
 import Exercise from "components/atoms/Exercise/Exercise";
 import MatchingQuestionAnswer from "components/atoms/question-answers/MatchingQuestionAnswer/MatchingQuestionAnswer";

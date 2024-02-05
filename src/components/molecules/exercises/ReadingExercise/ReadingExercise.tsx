@@ -1,8 +1,8 @@
+import { isFillInBlankQuestionAnswer } from "../../../../domain/models/types/guards/questionGuard";
 import {
   IExerciseComponent,
   ReadingExercise as ReadingExerciseType,
-} from "../../../../domain/models/types/exercises";
-import { isFillInBlankQuestionAnswer } from "../../../../domain/models/types/guards/questionGuard";
+} from "../../../../infrastructure/api/user/study-session/Exercises";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import FillTheBlank from "../../../atoms/FillTheBlank/FillTheBlank";
 import MarkdownText from "../../../atoms/MarkdownText/MarkdownText";

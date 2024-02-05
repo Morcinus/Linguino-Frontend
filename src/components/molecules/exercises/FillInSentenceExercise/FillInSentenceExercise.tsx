@@ -1,8 +1,8 @@
+import { UserAnswer } from "domain/models/types/questionAttempts";
 import {
   FillInSentenceExercise as FillInSentenceExerciseType,
   IExerciseComponent,
-} from "domain/models/types/exercises";
-import { UserAnswer } from "domain/models/types/questionAttempts";
+} from "infrastructure/api/user/study-session/Exercises";
 
 import Exercise from "components/atoms/Exercise/Exercise";
 import FillInBlankQuestionAnswer from "components/atoms/question-answers/FillInBlankQuestionAnswer/FillInBlankQuestionAnswer";
