@@ -1,4 +1,5 @@
 import { UserAnswer } from "domain/models/types/questionAttempts";
+import { useTranslation } from "i18n/client";
 import {
   FillInTableExercise as FillInTableExerciseType,
   IExerciseComponent,
@@ -15,18 +16,27 @@ const FillInTableExercise: React.FC<IFillInTableExercise> = ({
   exercise,
   onContinue,
 }) => {
+  const { t } = useTranslation("cs", "common");
+  const questionAnswer = {
+    id: exercise.id,
+    type: "TABLE",
+    question: exercise.questionL2,
+    tableRows: exercise.tableRows,
+    blankCellCoords: exercise.blankCellCoords,
+  };
+
   return (
     <Exercise
-      assignmentTitle={exercise.assignmentTitle}
+      assignmentTitle={t("exercises.fillInTable.assignmentTitle")}
       onContinue={(arr: Array<UserAnswer>) => {
         onContinue?.(arr, false);
       }}
-      questionAnswers={[exercise.question]}
+      questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {
           component: TableQuestionAnswer,
           props: {
-            questionAnswer: exercise.question,
+            questionAnswer: questionAnswer,
             characterButtons: ["'"],
           },
         },

@@ -3,28 +3,17 @@ import { IFillInTableExercise } from "./FillInTableExercise";
 const base: IFillInTableExercise = {
   exercise: {
     id: "sfdajnlsnfads",
-    lessonItemId: "fsjngskdnlkngs",
     type: "FILL_TABLE",
-    assignmentTitle: "Doplňte chybějící slova do tabulky!",
-
-    question: {
-      id: "flsnajkadfnldfasj",
-      question: "Vyčasujte správně sloveso být",
-      type: "TABLE",
-      tableRows: [
-        ["I", "am"],
-        ["You", "are"],
-        ["He/she/it", "is"],
-        ["We", "are"],
-        ["You", "are"],
-        ["They", "are"],
-      ],
-      blankCellCoords: [
-        [1, 0],
-        [1, 2],
-        [1, 4],
-      ],
-    },
+    questionL2: "Complete the conjugation of the verb 'to be'",
+    tableRows: [
+      ["I", "am"],
+      ["you", "are"],
+      ["he/she/it", "is"],
+    ],
+    blankCellCoords: [
+      [1, 0],
+      [1, 2],
+    ],
   },
 };
 

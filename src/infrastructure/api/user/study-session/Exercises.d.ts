@@ -103,11 +103,10 @@ export interface BuildWordExercise {
 
 export interface FillInTableExercise {
   id: ID;
-  lessonItemId: ID;
   type: "FILL_TABLE";
-  assignmentTitle: string;
-
-  question: TableQuestionAnswer;
+  questionL2: string;
+  tableRows: Array<Array<string>>;
+  blankCellCoords: Array<Array<number>>;
 }
 
 export interface FillInSentenceExercise {
