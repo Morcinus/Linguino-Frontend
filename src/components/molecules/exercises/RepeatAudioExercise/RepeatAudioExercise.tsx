@@ -1,3 +1,5 @@
+import { useTranslation } from "i18n/client";
+
 import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
@@ -15,19 +17,25 @@ const RepeatAudioExercise: React.FC<IRepeatAudioExercise> = ({
   exercise,
   onContinue,
 }) => {
+  const { t } = useTranslation("cs", "common");
+  const questionAnswer = {
+    id: exercise.id,
+    type: "AUDIO",
+    answer: exercise.textL2,
+  };
+
   return (
     <Exercise
-      assignmentTitle={exercise.assignmentTitle}
+      assignmentTitle={t("exercises.repeatAudio.assignmentTitle")}
       onContinue={(arr: Array<UserAnswer>) => {
         onContinue?.(arr, false);
       }}
-      imageURL={exercise.imageURL}
-      questionAnswers={[exercise.question]}
+      questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {
           component: AudioQuestionAnswer,
           props: {
-            questionAnswer: exercise.question,
+            questionAnswer: questionAnswer,
           },
         },
       ]}

@@ -46,12 +46,9 @@ export interface ShortListeningExercise {
 
 export interface RepeatAudioExercise {
   id: ID;
-  lessonItemId: ID;
   type: "REPEAT_AUDIO";
-  assignmentTitle: string;
+  textL2: string;
   audioURL: string;
-  imageURL?: string;
-  question: AudioQuestionAnswer;
 }
 
 export interface ReadAloudExercise {

@@ -60,6 +60,9 @@
     },
     "readAloud": {
       "assignmentTitle": "Přečti text nahlas!"
+    },
+    "repeatAudio": {
+      "assignmentTitle": "Zopakuj co slyšíš!"
     }
   },
 
