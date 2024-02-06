@@ -69,7 +69,7 @@ const TableQuestionAnswer: React.FC<ITableQuestionAnswer> = ({
 
     onChange?.({
       answers: answerStrings,
-      questionAnswerId: questionAnswer.id,
+      exerciseId: questionAnswer.id,
       states: answerStates,
     });
   }

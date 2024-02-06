@@ -1,9 +1,9 @@
 import { FillInBlankQuestionAnswer as FillInBlankQuestionAnswerType } from "domain/models/types/questionAnswers";
-import { UserAnswer } from "domain/models/types/questionAttempts";
 import {
   AnswerState,
   IQuestionAnswerComponent,
 } from "infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import { useState } from "react";
 
@@ -79,7 +79,7 @@ const FillInBlankQuestionAnswer: React.FC<IFillInBlankQuestionAnswer> = ({
     return {
       answers,
       states,
-      questionAnswerId: questionAnswer.id,
+      exerciseId: questionAnswer.id,
     };
   }
 

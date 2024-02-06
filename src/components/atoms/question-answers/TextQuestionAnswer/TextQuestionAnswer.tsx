@@ -2,8 +2,8 @@ import { MutableRefObject, useState } from "react";
 
 import { Box, InputAdornment, TextField, Typography } from "@mui/material";
 
-import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
 import useAuth from "../../../../infrastructure/services/AuthProvider";
 import AudioInputIconButton from "../../AudioInputIconButton/AudioInputIconButton";
 import CharacterButton from "../../CharacterButton/CharacterButton";
@@ -35,7 +35,7 @@ const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({
     onChange?.(
       evaluateAnswer({
         answers: [text],
-        questionAnswerId: questionAnswer.id,
+        exerciseId: questionAnswer.id,
         states: ["NONE"],
       })
     );

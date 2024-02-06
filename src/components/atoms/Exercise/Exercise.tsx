@@ -3,8 +3,8 @@ import { Component, ComponentProps, ElementType, ReactNode } from "react";
 import { Box, Typography } from "@mui/material";
 
 import { QuestionAnswer } from "../../../domain/models/types/questionAnswers";
-import { UserAnswer } from "../../../domain/models/types/questionAttempts";
 import { AnswerState } from "../../../infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "../../../infrastructure/api/user/study-session/QuestionAttempt";
 import theme from "../../../styles/theme";
 import ExerciseContinueButton from "../ExerciseContinueButton/ExerciseContinueButton";
 import KeyPress from "../KeyPress/KeyPress";
@@ -54,7 +54,7 @@ class Exercise extends Component<IExercise, IExerciseState> {
 
   handleChange = (answer: UserAnswer) => {
     const questionAnswer = this.props.questionAnswers.find(
-      (qa) => qa.id === answer.questionAnswerId
+      (qa) => qa.id === answer.exerciseId
     );
 
     if (!questionAnswer) {
@@ -63,13 +63,13 @@ class Exercise extends Component<IExercise, IExerciseState> {
     }
 
     const prevUserAnswer = this.state.userAnswers.find(
-      (ua) => ua?.questionAnswerId === answer?.questionAnswerId
+      (ua) => ua?.exerciseId === answer?.exerciseId
     );
     answer.answers = this.patchAnswers(answer.answers, prevUserAnswer?.answers);
 
     const answers = [...this.state.userAnswers];
     const index = this.props.questionAnswers.findIndex(
-      (qa) => qa.id === answer.questionAnswerId
+      (qa) => qa.id === answer.exerciseId
     );
     answers[index] = answer;
 
@@ -108,7 +108,7 @@ class Exercise extends Component<IExercise, IExerciseState> {
   ) {
     let allQuestionsAnswered = true;
     questionAnswers.forEach((qa) => {
-      const answer = userAnswers.find((a) => a?.questionAnswerId === qa.id);
+      const answer = userAnswers.find((a) => a?.exerciseId === qa.id);
       if (answer === undefined) {
         allQuestionsAnswered = false;
       } else {

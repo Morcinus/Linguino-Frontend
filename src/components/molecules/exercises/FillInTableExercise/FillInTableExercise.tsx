@@ -1,9 +1,9 @@
-import { UserAnswer } from "domain/models/types/questionAttempts";
 import { useTranslation } from "i18n/client";
 import {
   FillInTableExercise as FillInTableExerciseType,
   IExerciseComponent,
 } from "infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
 import TableQuestionAnswer from "components/atoms/question-answers/TableQuestionAnswer/TableQuestionAnswer";

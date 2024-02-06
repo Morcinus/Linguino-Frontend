@@ -1,11 +1,11 @@
 import { Box, TextField, Typography } from "@mui/material";
 
 import { FillInBlankQuestionAnswer } from "../../../domain/models/types/questionAnswers";
-import { UserAnswer } from "../../../domain/models/types/questionAttempts";
 import {
   AnswerState,
   IQuestionAnswerComponent,
 } from "../../../infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "../../../infrastructure/api/user/study-session/QuestionAttempt";
 import { concatBlanks } from "../../../util/functions/sessions";
 
 export interface IFillTheBlank extends IQuestionAnswerComponent {
@@ -46,7 +46,7 @@ const FillTheBlank: React.FC<IFillTheBlank> = ({
       evaluateAnswer({
         answers,
         states,
-        questionAnswerId: questionAnswer.id,
+        exerciseId: questionAnswer.id,
       })
     );
   }

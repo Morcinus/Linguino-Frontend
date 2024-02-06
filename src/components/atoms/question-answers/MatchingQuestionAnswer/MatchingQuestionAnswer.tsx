@@ -98,7 +98,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
             return option.imageURL;
           } else return undefined;
         }),
-        questionAnswerId: questionAnswer.id,
+        exerciseId: questionAnswer.id,
         states: answerStates,
       });
     }

@@ -1,10 +1,10 @@
 import { useTranslation } from "i18n/client";
 
-import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
   ShortListeningExercise as ShortListeningExerciseType,
 } from "../../../../infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import ListenButton from "../../../atoms/ListenButton/ListenButton";
 import TextQuestionAnswer from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";

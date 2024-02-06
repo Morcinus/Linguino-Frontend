@@ -1,9 +1,9 @@
-import { UserAnswer } from "domain/models/types/questionAttempts";
 import { useTranslation } from "i18n/client";
 import {
   FillInSentenceExercise as FillInSentenceExerciseType,
   IExerciseComponent,
 } from "infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
 import FillInBlankQuestionAnswer from "components/atoms/question-answers/FillInBlankQuestionAnswer/FillInBlankQuestionAnswer";

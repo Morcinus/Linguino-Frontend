@@ -1,9 +1,9 @@
-import { UserAnswer } from "domain/models/types/questionAttempts";
 import { useTranslation } from "i18n/client";
 import {
   IExerciseComponent,
   MatchingExercise as MatchingExerciseType,
 } from "infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
 import MatchingQuestionAnswer from "components/atoms/question-answers/MatchingQuestionAnswer/MatchingQuestionAnswer";

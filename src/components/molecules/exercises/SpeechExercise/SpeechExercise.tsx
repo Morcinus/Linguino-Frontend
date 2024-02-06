@@ -4,11 +4,11 @@ import useKeypress from "react-use-keypress";
 
 import { Typography } from "@mui/material";
 
-import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
   SpeechExercise as SpeechExerciseType,
 } from "../../../../infrastructure/api/user/study-session/Exercises";
+import { QuestionAttempt } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
 import FullWidthButton from "../../../atoms/FullWidthButton/FullWidthButton";
 import Timer from "../../../atoms/Timer/Timer";
 import CheckList from "../../../atoms/lists/CheckList/CheckList";
@@ -32,7 +32,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
 
     exercise.questionsL2.forEach((question, i) => {
       arr.push({
-        questionAnswerId: i.toString(),
+        exerciseId: i.toString(),
         states: ["RIGHT"],
         answers: [],
       });

@@ -1,5 +1,5 @@
-import { QuestionAttempt } from "domain/models/types/questionAttempts";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
+import { QuestionAttempt } from "infrastructure/api/user/study-session/QuestionAttempt";
 import StudySessionAPI from "infrastructure/api/user/study-session/StudySessionAPI";
 import useNotices from "infrastructure/services/NoticeProvider";
 
@@ -18,7 +18,26 @@ const DailyStudy: React.FC<IDailyStudy> = () => {
     studyStats: StudyStats,
     attempts: Array<QuestionAttempt>
   ) {
-    const { reward } = await StudySessionAPI.updateStudySession(attempts);
+    const { reward } = await StudySessionAPI.updateStudySession(
+      attempts.map((attempt) => {
+        const totalAnswers = attempt.states.length;
+        const rightAnswers = attempt.states.filter(
+          (answer) => answer === "RIGHT"
+        ).length;
+
+        const answerRating =
+          rightAnswers === totalAnswers
+            ? 100
+            : rightAnswers === 0
+            ? 0
+            : (rightAnswers / totalAnswers) * 100;
+
+        return {
+          answerRating,
+          exerciseId: attempt.exerciseId,
+        };
+      })
+    );
 
     addNotices([
       {

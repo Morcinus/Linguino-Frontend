@@ -1,10 +1,10 @@
 import { useTranslation } from "i18n/client";
 
-import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import {
   IExerciseComponent,
   TextExercise as TextExerciseType,
 } from "../../../../infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import TextQuestionAnswer from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";
 

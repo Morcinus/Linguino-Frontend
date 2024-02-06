@@ -3,8 +3,8 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import { UserAnswer } from "../../../../domain/models/types/questionAttempts";
 import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/study-session/Exercises";
+import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
 import useAuth from "../../../../infrastructure/services/AuthProvider";
 import { removeInterpunction } from "../../../../util/functions/exercises";
 import AudioInputButton from "../../AudioInputButton/AudioInputButton";
@@ -29,7 +29,7 @@ const AudioQuestionAnswer: React.FC<IAudioQuestionAnswer> = ({
       evaluateAnswer(
         {
           answers: [text],
-          questionAnswerId: questionAnswer.id,
+          exerciseId: questionAnswer.id,
           states: ["NONE"],
         },
         similarityRatio
