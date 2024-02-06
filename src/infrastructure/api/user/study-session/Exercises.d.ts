@@ -124,13 +124,14 @@ export interface FillInTableExercise {
 
 export interface FillInSentenceExercise {
   id: ID;
-  lessonItemId: ID;
   type: "FILL_IN_SENTENCE";
-  assignmentTitle: string;
-  imageURL?: string;
 
-  question: FillInBlankQuestionAnswer;
+  textL1: string;
+  textL2: string;
+  blankIndexes: Array<number>;
   options: Array<string>;
+
+  imageURL?: string;
 }
 
 export interface MatchingExercise {
