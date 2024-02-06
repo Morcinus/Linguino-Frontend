@@ -6,7 +6,7 @@ import useAuth from "infrastructure/services/AuthProvider";
 
 import { useState } from "react";
 
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 import LessonItemsSearchResults from "components/atoms/LessonItemsSearchResults/LessonItemsSearchResults";
 import LessonsSearchResults from "components/atoms/LessonsSearchResults/LessonsSearchResults";

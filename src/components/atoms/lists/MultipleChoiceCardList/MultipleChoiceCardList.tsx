@@ -1,6 +1,8 @@
 import theme from "styles/theme";
 
-import { ListItem, ListItemButton, ListItemText } from "@mui/material";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 
 import CardList from "../CardList/CardList";
 

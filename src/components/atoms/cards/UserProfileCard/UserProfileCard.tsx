@@ -4,15 +4,13 @@ import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
 
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Icon,
-  Typography,
-} from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Icon from "@mui/material/Icon";
+import Typography from "@mui/material/Typography";
 
 export interface IUserProfileCard {
   userProfile: Pick<

@@ -1,15 +1,13 @@
 import { useTranslation } from "i18n/client";
 
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  LinearProgress,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import LinearProgress from "@mui/material/LinearProgress";
+import Typography from "@mui/material/Typography";
 
 export interface IProgressCard {
   header: string;

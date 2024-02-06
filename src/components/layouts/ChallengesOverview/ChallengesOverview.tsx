@@ -8,7 +8,8 @@ import useAuth from "infrastructure/services/AuthProvider";
 
 import { useState } from "react";
 
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import Popup, { IPopup } from "components/atoms/Popup/Popup";
 import ProgressCard from "components/atoms/cards/ProgressCard/ProgressCard";

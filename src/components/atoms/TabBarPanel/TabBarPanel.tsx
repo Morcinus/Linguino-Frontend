@@ -3,7 +3,10 @@ import { useTranslation } from "i18n/client";
 import { ReactNode } from "react";
 
 import { TabContext, TabPanel } from "@mui/lab";
-import { Card, CardContent, Tab, Tabs } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
 
 interface TabItem {
   name: string;

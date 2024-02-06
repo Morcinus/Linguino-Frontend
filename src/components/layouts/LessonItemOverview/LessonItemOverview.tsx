@@ -1,7 +1,8 @@
 import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
 
-import { Box, Toolbar } from "@mui/material";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
 
 import LevelProgressBar from "components/atoms/LevelProgressBar/LevelProgressBar";
 import LessonItemCard from "components/atoms/cards/LessonItemCard/LessonItemCard";

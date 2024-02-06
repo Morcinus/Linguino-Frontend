@@ -6,15 +6,13 @@ import icons from "styles/icons";
 
 import { useState } from "react";
 
-import {
-  FormControl,
-  Icon,
-  InputLabel,
-  MenuItem,
-  Select,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import Icon from "@mui/material/Icon";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import Typography from "@mui/material/Typography";
 
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
 import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";

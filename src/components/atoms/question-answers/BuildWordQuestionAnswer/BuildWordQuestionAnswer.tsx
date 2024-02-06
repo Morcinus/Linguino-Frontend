@@ -4,7 +4,9 @@ import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttemp
 
 import { useState } from "react";
 
-import { Box, Paper, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 
 import CharacterButton, {
   CHARACTER_BUTTON_SIZE,

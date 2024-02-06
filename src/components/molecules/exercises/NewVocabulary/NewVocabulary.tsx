@@ -2,7 +2,8 @@ import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
 
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
 import LessonItemCard from "components/atoms/cards/LessonItemCard/LessonItemCard";

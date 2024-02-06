@@ -5,17 +5,15 @@ import icons from "styles/icons";
 
 import { useState } from "react";
 
-import {
-  Avatar,
-  Card,
-  CardContent,
-  Chip,
-  Grid,
-  IconButton,
-  Menu,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Chip from "@mui/material/Chip";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import Typography from "@mui/material/Typography";
 
 import OutlinedIcon from "components/atoms/OutlinedIcon/OutlinedIcon";
 

@@ -4,7 +4,9 @@ import Forward10Icon from "@mui/icons-material/Forward10";
 import PauseIcon from "@mui/icons-material/Pause";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import Replay10Icon from "@mui/icons-material/Replay10";
-import { Box, IconButton, LinearProgress } from "@mui/material";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import LinearProgress from "@mui/material/LinearProgress";
 
 export interface IAudioPlayer {
   playOnMount: boolean;

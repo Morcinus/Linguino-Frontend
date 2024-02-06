@@ -1,6 +1,6 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { IconButton } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 
 export interface IFavoriteButton {
   onClick?: () => void;

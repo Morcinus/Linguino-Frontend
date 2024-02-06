@@ -5,7 +5,8 @@ import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useRouter } from "next/navigation";
 
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";
 import ImageCard from "components/atoms/cards/ImageCard/ImageCard";

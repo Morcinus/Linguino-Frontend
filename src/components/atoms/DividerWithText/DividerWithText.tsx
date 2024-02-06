@@ -1,4 +1,6 @@
-import { Divider, Typography, TypographyVariant } from "@mui/material";
+import { TypographyVariant } from "@mui/material";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
 
 export interface IDividerWithText {
   text: string;

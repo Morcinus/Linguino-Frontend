@@ -5,7 +5,7 @@ import { initReactI18next } from "react-i18next";
 
 import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
 
-import { ThemeProvider } from "@mui/material/styles";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 
 import common from "../public/locales/cs/common.json";
 import form from "../public/locales/cs/form.json";

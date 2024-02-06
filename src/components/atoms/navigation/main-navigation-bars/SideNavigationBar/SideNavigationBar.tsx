@@ -4,7 +4,9 @@ import { useState } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { Box, Tab, Tabs } from "@mui/material";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
 
 import { useTranslation } from "../../../../../i18n/client";
 import { primaryNavigation } from "../../config";

@@ -4,7 +4,7 @@ import { StudyStatsNotice as StudyStatsNoticeType } from "infrastructure/api/use
 import useNotices from "infrastructure/services/NoticeProvider";
 import theme from "styles/theme";
 
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";
 

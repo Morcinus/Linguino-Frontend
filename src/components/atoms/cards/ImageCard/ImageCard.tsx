@@ -1,4 +1,5 @@
-import { Card, CardMedia } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
 
 export interface IImageCard {
   url: string;

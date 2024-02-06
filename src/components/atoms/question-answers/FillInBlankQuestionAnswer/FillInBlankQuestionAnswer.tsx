@@ -7,7 +7,8 @@ import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttemp
 
 import { useState } from "react";
 
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import WordButton from "components/atoms/WordButton/WordButton";
 

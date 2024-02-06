@@ -5,8 +5,12 @@ import { useState } from "react";
 
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Button, Card, CardContent, Divider, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
 
 import FavoriteButton from "../../FavoriteButton/FavoriteButton";
 import VisibilityButton from "../../VisibilityButton/VisibilityButton";

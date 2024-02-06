@@ -1,7 +1,7 @@
 import { StudyMap } from "infrastructure/api/users/courses/study-map/StudyMap";
 import StudyMapAPI from "infrastructure/api/users/courses/study-map/StudyMapAPI";
 
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 import CircleLessonButton from "components/atoms/CircleLessonButton/CircleLessonButton";
 

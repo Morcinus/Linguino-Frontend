@@ -2,7 +2,7 @@ import { useTranslation } from "i18n/client";
 
 import useKeypress from "react-use-keypress";
 
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 import {
   IExerciseComponent,

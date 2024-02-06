@@ -7,8 +7,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { LoadingButton } from "@mui/lab";
-import { TextField, Typography, useMediaQuery } from "@mui/material";
-import { Box, Stack } from "@mui/system";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 

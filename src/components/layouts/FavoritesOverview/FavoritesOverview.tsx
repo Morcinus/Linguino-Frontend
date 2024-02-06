@@ -3,8 +3,8 @@ import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 
 import React, { useState } from "react";
 
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";

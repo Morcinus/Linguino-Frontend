@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
 
 import FeedPaginationPage from "../FeedPaginationPage/FeedPaginationPage";
 

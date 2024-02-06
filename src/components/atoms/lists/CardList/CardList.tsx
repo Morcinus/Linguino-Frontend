@@ -1,6 +1,9 @@
 import React, { ReactNode } from "react";
 
-import { Card, CardContent, Divider, List } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Divider from "@mui/material/Divider";
+import List from "@mui/material/List";
 
 export interface ICardList {
   children: ReactNode;

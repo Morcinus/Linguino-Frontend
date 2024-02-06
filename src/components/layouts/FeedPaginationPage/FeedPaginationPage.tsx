@@ -15,7 +15,7 @@ import ReactionsAPI from "infrastructure/api/user/feed/reactions/ReactionsAPI";
 
 import { ReactNode } from "react";
 
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
 
 import DividerWithText from "components/atoms/DividerWithText/DividerWithText";
 import FeedArticleCard from "components/atoms/cards/FeedArticleCard/FeedArticleCard";

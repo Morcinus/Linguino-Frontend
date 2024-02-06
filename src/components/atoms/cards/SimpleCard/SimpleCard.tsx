@@ -1,13 +1,11 @@
 import theme from "styles/theme";
 
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Icon,
-  Typography,
-} from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Icon from "@mui/material/Icon";
+import Typography from "@mui/material/Typography";
 
 export interface ISimpleCard {
   header: string;

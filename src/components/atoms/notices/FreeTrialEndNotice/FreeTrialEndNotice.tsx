@@ -4,7 +4,8 @@ import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useRouter } from "next/navigation";
 
-import { List, ListItem } from "@mui/material";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
 
 import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";
 

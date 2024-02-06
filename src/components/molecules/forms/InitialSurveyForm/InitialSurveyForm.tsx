@@ -4,7 +4,9 @@ import icons from "styles/icons";
 
 import { useState } from "react";
 
-import { Box, Icon, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Icon from "@mui/material/Icon";
+import Typography from "@mui/material/Typography";
 
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
 import MultipleChoiceCardList from "components/atoms/lists/MultipleChoiceCardList/MultipleChoiceCardList";

@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
-import { Icon, IconProps } from "@mui/material";
+import { IconProps } from "@mui/material";
+import Icon from "@mui/material/Icon";
 
 export interface IOutlinedIcon {
   children: ReactNode;

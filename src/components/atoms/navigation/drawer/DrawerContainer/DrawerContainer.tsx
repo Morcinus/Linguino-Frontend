@@ -1,6 +1,6 @@
 import React, { ComponentProps, ElementType, useState } from "react";
 
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
 
 import Drawer from "../Drawer/Drawer";
 

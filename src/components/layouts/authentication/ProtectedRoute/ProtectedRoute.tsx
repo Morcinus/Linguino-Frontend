@@ -5,7 +5,7 @@ import { ReactNode, useEffect } from "react";
 
 import { usePathname, useRouter } from "next/navigation";
 
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 export interface IProtectedRoute {
   children: ReactNode;

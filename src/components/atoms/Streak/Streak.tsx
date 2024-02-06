@@ -1,6 +1,8 @@
 import icons from "styles/icons";
 
-import { Icon, IconButton, Typography } from "@mui/material";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
 export interface IStreak {
   completedDailyGoal: boolean;

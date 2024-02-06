@@ -2,18 +2,16 @@ import icons from "styles/icons";
 
 import Image from "next/image";
 
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Icon,
-  IconButton,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { useTheme } from "@mui/material";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
 export interface IPopup {
   header?: string;

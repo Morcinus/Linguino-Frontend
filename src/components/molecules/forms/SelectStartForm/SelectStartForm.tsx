@@ -1,7 +1,7 @@
 import { useTranslation } from "i18n/client";
 
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import SimpleCardWide from "components/atoms/cards/SimpleCardWide/SimpleCardWide";
 

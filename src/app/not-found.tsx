@@ -5,7 +5,9 @@ import { useTranslation } from "i18n/client";
 
 import { useRouter } from "next/navigation";
 
-import { Box, Button, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 import ImageCard from "components/atoms/cards/ImageCard/ImageCard";
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";

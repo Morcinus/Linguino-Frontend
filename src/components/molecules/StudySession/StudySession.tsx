@@ -8,7 +8,11 @@ import icons from "styles/icons";
 
 import { useEffect, useState } from "react";
 
-import { Box, Container, Icon, IconButton, Toolbar } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import Toolbar from "@mui/material/Toolbar";
 
 import StudySessionProgressBar from "components/atoms/StudySessionProgressBar/StudySessionProgressBar";
 

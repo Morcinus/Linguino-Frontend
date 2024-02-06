@@ -12,8 +12,8 @@ import icons from "styles/icons";
 
 import { useState } from "react";
 
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import Popup, { IPopup } from "components/atoms/Popup/Popup";

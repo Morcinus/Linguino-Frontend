@@ -5,7 +5,7 @@ import axios from "axios";
 import { NoticeProvider } from "infrastructure/services/NoticeProvider";
 import { SnackbarProvider } from "notistack";
 
-import { ThemeProvider } from "@mui/material/styles";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 
 import GoogleAnalytics from "components/atoms/GoogleAnalytics/GoogleAnalytics";
 import Navigation from "components/atoms/navigation/NavigationBars/NavigationBars";

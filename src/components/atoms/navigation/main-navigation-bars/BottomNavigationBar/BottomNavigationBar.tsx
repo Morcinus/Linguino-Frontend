@@ -4,7 +4,9 @@ import { useState } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import Box from "@mui/material/Box";
 
 import { useTranslation } from "../../../../../i18n/client";
 import { primaryNavigation } from "../../config";

@@ -1,6 +1,7 @@
 import { AnswerState } from "infrastructure/api/user/study-session/Exercises";
 
-import { Button, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 export interface IWordButton {
   onClick?: () => void;

@@ -1,7 +1,10 @@
 import { LessonItem } from "infrastructure/api/user/courses/lesson-items/LessonItems";
 
-import { Card, CardContent, Divider, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
 
 import ListenIconButton from "components/atoms/ListenIconButton/ListenIconButton";
 import MarkdownText from "components/atoms/MarkdownText/MarkdownText";

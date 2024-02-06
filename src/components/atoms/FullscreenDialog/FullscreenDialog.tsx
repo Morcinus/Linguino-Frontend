@@ -2,15 +2,13 @@ import theme from "styles/theme";
 
 import { ReactNode } from "react";
 
-import {
-  Box,
-  Container,
-  Dialog,
-  DialogProps,
-  Icon,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { DialogProps } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Dialog from "@mui/material/Dialog";
+import Icon from "@mui/material/Icon";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import FullWidthButton from "../FullWidthButton/FullWidthButton";
 import KeyPress from "../KeyPress/KeyPress";

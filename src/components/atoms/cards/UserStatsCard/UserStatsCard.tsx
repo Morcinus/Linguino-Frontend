@@ -4,10 +4,10 @@ import { useTranslation } from "i18n/client";
 import { LearningDataPoint } from "infrastructure/api/users/Users";
 import icons from "styles/icons";
 
-import { Icon } from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
 
 export interface IUserStatsCard {

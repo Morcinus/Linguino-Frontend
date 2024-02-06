@@ -1,7 +1,10 @@
 // prettier-ignore
 "use client"
 
-import { Box, Card, Container, useMediaQuery } from "@mui/material";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Container from "@mui/material/Container";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import SignupForm from "components/molecules/SignupForm/SignupForm";
 import theme from "styles/theme";
 

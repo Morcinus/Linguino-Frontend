@@ -6,7 +6,10 @@ import { default as UserCoursesAPI } from "infrastructure/api/user/courses/UserC
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
-import { Box, Icon, IconButton, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
 import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";

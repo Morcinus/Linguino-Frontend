@@ -8,7 +8,8 @@ import FollowingAPI from "infrastructure/api/users/following/FollowingAPI";
 
 import { useState } from "react";
 
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 import UsersList from "components/atoms/lists/UsersList/UsersList";

@@ -2,14 +2,12 @@ import icons from "styles/icons";
 
 import { useEffect, useRef, useState } from "react";
 
-import {
-  Box,
-  Card,
-  CardActionArea,
-  Icon,
-  IconButton,
-  LinearProgress,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import LinearProgress from "@mui/material/LinearProgress";
 
 import styles from "./MatchAudioOption.module.css";
 

@@ -6,7 +6,9 @@ import { ReactNode } from "react";
 
 import { usePathname } from "next/navigation";
 
-import { Box, Container, useMediaQuery } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { BOTTOM_NAV_BAR_HEIGHT } from "components/atoms/navigation/main-navigation-bars/BottomNavigationBar/BottomNavigationBar";
 import { SIDE_NAV_BAR_WIDTH } from "components/atoms/navigation/main-navigation-bars/SideNavigationBar/SideNavigationBar";

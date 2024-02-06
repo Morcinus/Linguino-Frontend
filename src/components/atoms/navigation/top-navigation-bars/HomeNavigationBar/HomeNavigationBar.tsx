@@ -2,15 +2,13 @@ import { useTranslation } from "i18n/client";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
-import {
-  AppBar,
-  AppBarProps,
-  Icon,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import { AppBarProps } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
 import Streak from "components/atoms/Streak/Streak";
 

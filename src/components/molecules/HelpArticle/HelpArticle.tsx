@@ -1,7 +1,7 @@
 import ArticlesAPI from "infrastructure/api/courses/articles/ArticlesAPI";
 
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import MarkdownText from "components/atoms/MarkdownText/MarkdownText";
 

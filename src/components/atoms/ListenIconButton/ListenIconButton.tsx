@@ -2,7 +2,8 @@ import icons from "styles/icons";
 
 import { useEffect, useRef, useState } from "react";
 
-import { Icon, IconButton } from "@mui/material";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
 
 export interface IListenIconButton {
   playOnMount?: boolean;

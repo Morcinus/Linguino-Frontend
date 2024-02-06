@@ -6,7 +6,8 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 
 import MicIcon from "@mui/icons-material/Mic";
-import { Box, IconButton } from "@mui/material";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
 
 import { Language } from "../../../domain/models/types/languages";
 import styles from "./AudioInputIconButton.module.css";

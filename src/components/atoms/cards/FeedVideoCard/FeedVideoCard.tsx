@@ -1,7 +1,9 @@
 import { FeedVideo } from "infrastructure/api/user/feed/Feed";
 
-import { Card, CardMedia, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
 
 import YouTubeVideoEmbed from "components/atoms/YouTubeVideoEmbed/YouTubeVideoEmbed";
 

@@ -2,13 +2,11 @@ import theme from "styles/theme";
 
 import { MouseEvent } from "react";
 
-import {
-  Box,
-  Button,
-  ButtonProps,
-  Toolbar,
-  useMediaQuery,
-} from "@mui/material";
+import { ButtonProps } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Toolbar from "@mui/material/Toolbar";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export interface IFullWidthButton {
   onClick?: (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;

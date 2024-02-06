@@ -1,6 +1,9 @@
 import { MutableRefObject, useState } from "react";
 
-import { Box, InputAdornment, TextField, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
 import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/study-session/Exercises";
 import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";

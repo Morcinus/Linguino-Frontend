@@ -1,6 +1,6 @@
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import { IconButton } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 
 export interface IVisibilityButton {
   onClick?: () => void;

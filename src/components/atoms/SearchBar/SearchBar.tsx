@@ -1,13 +1,11 @@
 import icons from "styles/icons";
 
-import {
-  Box,
-  Icon,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  TextField,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import InputLabel from "@mui/material/InputLabel";
+import TextField from "@mui/material/TextField";
 
 export interface ISearchBar {
   title: string;

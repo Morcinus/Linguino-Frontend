@@ -6,19 +6,17 @@ import { useRouter } from "next/navigation";
 
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
-import {
-  Collapse,
-  Divider,
-  Icon,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import Collapse from "@mui/material/Collapse";
+import Divider from "@mui/material/Divider";
 import { default as MUIDrawer } from "@mui/material/Drawer";
+import Icon from "@mui/material/Icon";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
 import { useTranslation } from "../../../../../i18n/client";
 import { drawerWidth, lessons, levels, other, studying } from "./config";

@@ -8,7 +8,7 @@ import icons from "styles/icons";
 
 import { useEffect, useState } from "react";
 
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
 import InitialSurveyForm from "components/molecules/forms/InitialSurveyForm/InitialSurveyForm";

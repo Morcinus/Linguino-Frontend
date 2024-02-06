@@ -9,8 +9,8 @@ import React from "react";
 
 import { useRouter } from "next/navigation";
 
-import { Toolbar } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
 
 import BottomFab from "components/atoms/BottomFab/BottomFab";
 import FeedbackCard from "components/atoms/cards/FeedbackCard/FeedbackCard";

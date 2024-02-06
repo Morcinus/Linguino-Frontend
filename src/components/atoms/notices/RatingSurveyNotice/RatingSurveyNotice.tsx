@@ -5,7 +5,9 @@ import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useState } from "react";
 
-import { Box, Rating, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
 
 import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";
 

@@ -1,7 +1,7 @@
 // prettier-ignore
 "use client"
 
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 import ProtectedRoute from "components/layouts/authentication/ProtectedRoute/ProtectedRoute";
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";

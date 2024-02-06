@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import PauseIcon from "@mui/icons-material/Pause";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ReplayIcon from "@mui/icons-material/Replay";
-import { Box, IconButton, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
 import theme from "../../../styles/theme";
 import { timeMMSS } from "../../../util/functions/filters";

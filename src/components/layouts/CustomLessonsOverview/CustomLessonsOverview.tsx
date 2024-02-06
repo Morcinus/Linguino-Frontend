@@ -5,8 +5,10 @@ import React from "react";
 
 import { useRouter } from "next/navigation";
 
-import { Icon, IconButton, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
 import UserLessonsList from "components/atoms/lists/UserLessonsList/UserLessonsList";
 

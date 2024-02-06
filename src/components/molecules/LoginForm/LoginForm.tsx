@@ -6,14 +6,13 @@ import theme from "styles/theme";
 import { useForm } from "react-hook-form";
 
 import { LoadingButton } from "@mui/lab";
-import {
-  FormHelperText,
-  Link,
-  TextField,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import { Box, Stack } from "@mui/system";
+import Box from "@mui/material/Box";
+import FormHelperText from "@mui/material/FormHelperText";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 

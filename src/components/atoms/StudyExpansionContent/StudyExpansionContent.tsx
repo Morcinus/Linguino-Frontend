@@ -1,7 +1,7 @@
 import { MutableRefObject } from "react";
 
-import { Container } from "@mui/material";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 
 import MarkdownText from "../MarkdownText/MarkdownText";
 

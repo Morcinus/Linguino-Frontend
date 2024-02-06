@@ -1,6 +1,8 @@
 import theme from "styles/theme";
 
-import { Fab, Icon, useMediaQuery } from "@mui/material";
+import Fab from "@mui/material/Fab";
+import Icon from "@mui/material/Icon";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { BOTTOM_NAV_BAR_HEIGHT } from "../navigation/main-navigation-bars/BottomNavigationBar/BottomNavigationBar";
 

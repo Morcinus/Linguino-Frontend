@@ -1,6 +1,7 @@
 import { Component, ComponentProps, ElementType, ReactNode } from "react";
 
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 import { QuestionAnswer } from "../../../domain/models/types/questionAnswers";
 import { AnswerState } from "../../../infrastructure/api/user/study-session/Exercises";

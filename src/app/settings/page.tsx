@@ -13,7 +13,9 @@ import { useState } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { Box, Button, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 import BottomFab from "components/atoms/BottomFab/BottomFab";
 import AccountSettings from "components/molecules/settings/AccountSettings/AccountSettings";
