@@ -56,12 +56,9 @@ export interface RepeatAudioExercise {
 
 export interface ReadAloudExercise {
   id: ID;
-  lessonItemId: ID;
   type: "READ_ALOUD";
-  assignmentTitle: string;
-  audioURL: string;
+  textL2: string;
   imageURL?: string;
-  question: AudioQuestionAnswer;
 }
 
 export interface SpeechExercise {
