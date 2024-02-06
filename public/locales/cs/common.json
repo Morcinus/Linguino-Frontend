@@ -69,6 +69,9 @@
     },
     "speech": {
       "assignmentTitle": "Mluv co nejdéle o daném tématu!"
+    },
+    "matching": {
+      "assignmentTitle": "Spoj odpovídající dvojice!"
     }
   },
 

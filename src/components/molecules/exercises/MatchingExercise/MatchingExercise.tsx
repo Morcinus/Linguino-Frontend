@@ -1,4 +1,5 @@
 import { UserAnswer } from "domain/models/types/questionAttempts";
+import { useTranslation } from "i18n/client";
 import {
   IExerciseComponent,
   MatchingExercise as MatchingExerciseType,
@@ -15,19 +16,27 @@ const MatchingExercise: React.FC<IMatchingExercise> = ({
   exercise,
   onContinue,
 }) => {
+  const { t } = useTranslation("cs", "common");
+  const questionAnswer = {
+    id: exercise.id,
+    type: "MATCHING",
+    options1: exercise.options1,
+    options2: exercise.options2,
+  };
+
   return (
     <Exercise
       submitBeforeContinue={false}
-      assignmentTitle={exercise.assignmentTitle}
+      assignmentTitle={t("exercises.matching.assignmentTitle")}
       onContinue={(arr: Array<UserAnswer>) => {
         onContinue?.(arr, false);
       }}
-      questionAnswers={[exercise.question]}
+      questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {
           component: MatchingQuestionAnswer,
           props: {
-            questionAnswer: exercise.question,
+            questionAnswer: questionAnswer,
           },
         },
       ]}

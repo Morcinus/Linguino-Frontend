@@ -117,11 +117,10 @@ export interface FillInSentenceExercise {
 
 export interface MatchingExercise {
   id: ID;
-  lessonItemId: ID;
   type: "MATCHING";
-  assignmentTitle: string;
 
-  question: MatchingQuestionAnswer;
+  options1: Array<MatchOption>;
+  options2: Array<MatchOption>;
 }
 
 export type AnswerState = "NONE" | "RIGHT" | "WRONG";
