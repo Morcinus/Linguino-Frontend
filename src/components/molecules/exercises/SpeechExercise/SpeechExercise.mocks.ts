@@ -3,28 +3,14 @@ import { ISpeechExercise } from "./SpeechExercise";
 const base: ISpeechExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
-    lessonItemId: "asljfnvkduexi",
     type: "SPEECH",
-
-    assignmentTitle: "Mluvte na téma",
-    assignmentTopic: "What is my favourite music genre",
-
-    time: 120000,
-
-    questions: [
-      {
-        question: "Why do you like the genre?",
-        id: "dadadas",
-      },
-      {
-        question: "What genres do you hate?",
-        id: "qdwqd",
-      },
-      {
-        question: "Would you want to play an instrument? Why? Why not?",
-        id: "wdqqw",
-      },
+    assignmentTopicL2: "The best holiday of my life",
+    questionsL2: [
+      "What did you do?",
+      "Where did you travel?",
+      "Why was it the best holiday?",
     ],
+    timeMs: 60000,
   },
 };
 export const mockSpeechExerciseProps = {

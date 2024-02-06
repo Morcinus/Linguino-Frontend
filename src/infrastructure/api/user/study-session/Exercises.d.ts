@@ -60,16 +60,10 @@ export interface ReadAloudExercise {
 
 export interface SpeechExercise {
   id: ID;
-  lessonItemId: ID;
   type: "SPEECH";
-  assignmentTitle: string;
-  assignmentTopic: string;
-  time: number;
-
-  questions: Array<{
-    id: ID;
-    question: string;
-  }>;
+  assignmentTopicL2: string;
+  timeMs: number;
+  questionsL2: Array<string>;
 }
 
 export interface TextExercise {

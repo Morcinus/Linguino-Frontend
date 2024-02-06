@@ -30,9 +30,9 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
   function getQuestionProgress(): QuestionAttempt[] {
     const arr: Array<QuestionAttempt> = [];
 
-    exercise.questions.forEach((question) => {
+    exercise.questionsL2.forEach((question, i) => {
       arr.push({
-        questionAnswerId: question.id,
+        questionAnswerId: i.toString(),
         states: ["RIGHT"],
         answers: [],
       });
@@ -49,14 +49,14 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
   return (
     <>
       <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-        {exercise.assignmentTitle}
+        {t("exercises.speech.assignmentTitle")}
       </Typography>
-      <Timer milliseconds={exercise.time} />
+      <Timer milliseconds={exercise.timeMs} />
 
       <Typography variant="subtitle2">{t("exercise.topic")}:</Typography>
-      <Typography variant="subtitle1">{exercise.assignmentTopic}</Typography>
+      <Typography variant="subtitle1">{exercise.assignmentTopicL2}</Typography>
 
-      <CheckList items={exercise.questions.map((e) => e.question)} />
+      <CheckList items={exercise.questionsL2} />
 
       <FullWidthButton onClick={handleContinue}>
         {t("exercise.continue")}
