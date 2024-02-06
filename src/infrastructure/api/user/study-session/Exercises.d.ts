@@ -1,8 +1,4 @@
-import {
-  FillInBlankQuestionAnswer,
-  QuestionAnswer,
-  TextQuestionAnswer,
-} from "../../../../domain/models/types/questionAnswers";
+import { QuestionAnswer } from "../../../../domain/models/types/questionAnswers";
 import { QuestionAttempt } from "../../../../domain/models/types/questionAttempts";
 
 export type Exercise =
@@ -94,13 +90,11 @@ export interface TextExercise {
 
 export interface ReadingExercise {
   id: ID;
-  lessonItemId: ID;
   type: "READING";
-  assignmentTitle: string;
-  imageURL: string;
   article: string;
-
-  questions: Array<FillInBlankQuestionAnswer | TextQuestionAnswer>;
+  questionL2: string;
+  answerL2: string;
+  imageURL?: string;
 }
 
 export interface BuildWordExercise {

@@ -1,10 +1,10 @@
-import { isFillInBlankQuestionAnswer } from "../../../../domain/models/types/guards/questionGuard";
+import { useTranslation } from "i18n/client";
+
 import {
   IExerciseComponent,
   ReadingExercise as ReadingExerciseType,
 } from "../../../../infrastructure/api/user/study-session/Exercises";
 import Exercise from "../../../atoms/Exercise/Exercise";
-import FillTheBlank from "../../../atoms/FillTheBlank/FillTheBlank";
 import MarkdownText from "../../../atoms/MarkdownText/MarkdownText";
 import { default as TextQuestionAnswerComponent } from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";
 
@@ -16,34 +16,32 @@ const ReadingExercise: React.FC<IReadingExercise> = ({
   exercise,
   onContinue,
 }) => {
+  const { t } = useTranslation("cs", "common");
+  const questionAnswer = {
+    id: exercise.id,
+    type: "TEXT",
+    question: exercise.questionL2,
+    answer: exercise.answerL2,
+  };
+
   return (
     <Exercise
-      assignmentTitle={exercise.assignmentTitle}
+      assignmentTitle={t("exercises.reading.assignmentTitle")}
       onContinue={(arr) => {
         onContinue?.(arr, false);
       }}
       imageURL={exercise.imageURL}
-      questionAnswers={exercise.questions}
-      questionAnswerComponents={exercise.questions.map((questionAnswer) => {
-        if (isFillInBlankQuestionAnswer(questionAnswer)) {
-          return {
-            component: FillTheBlank,
-            props: {
-              questionAnswer: questionAnswer,
-            },
-          };
-        } else {
-          return {
-            component: TextQuestionAnswerComponent,
-            props: {
-              questionAnswer: questionAnswer,
-              enableAudioInput: true,
-              variant: "short",
-              size: "small",
-            },
-          };
-        }
-      })}
+      questionAnswers={[questionAnswer]}
+      questionAnswerComponents={[
+        {
+          component: TextQuestionAnswerComponent,
+          props: {
+            questionAnswer: questionAnswer,
+            variant: "short",
+            size: "small",
+          },
+        },
+      ]}
       componentsAboveQuestions={<MarkdownText text={exercise.article} />}
     />
   );
