@@ -1,3 +1,5 @@
+import useAuth from "infrastructure/services/AuthProvider";
+
 import { useState } from "react";
 
 import { useRouter } from "next/navigation";
@@ -32,6 +34,7 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
   const [value, setValue] = useState<string>();
   const [lessonsOpen, setLessonsOpen] = useState(false);
   const [levelsOpen, setlevelsOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <MUIDrawer
@@ -75,14 +78,12 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
         <Typography
           variant="h5"
           sx={{
-            color: "#CECECE", // TODO změnit barvu na theme
+            color: "#CECECE",
           }}
         >
           {t("project-name")}
         </Typography>
-        <Typography variant="subtitle2">
-          English Course {/* TODO getnout text z course contextu */}
-        </Typography>
+        <Typography variant="subtitle2">{user?.selectedCourse.name}</Typography>
       </Toolbar>
       <List sx={{ pt: 0 }}>
         <ListItemButton onClick={() => setlevelsOpen(!levelsOpen)}>
