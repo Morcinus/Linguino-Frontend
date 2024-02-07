@@ -12,6 +12,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+import Twemoji from "components/atoms/Twemoji/Twemoji";
+
 import { IDrawerController } from "../../drawer/DrawerContainer/DrawerContainer";
 import { SIDE_NAV_BAR_WIDTH } from "../../main-navigation-bars/SideNavigationBar/SideNavigationBar";
 
@@ -57,7 +59,7 @@ const ShopNavigationBar: React.FC<IShopNavigationBar & AppBarProps> = ({
           {user?.balance && (
             <>
               <Typography variant="subtitle2">{user?.balance}</Typography>
-              <Icon>{icons.coins}</Icon>
+              <Twemoji emoji="🪙" />
             </>
           )}
         </Box>
