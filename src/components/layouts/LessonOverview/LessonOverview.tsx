@@ -17,6 +17,7 @@ import FeedbackCard from "components/atoms/cards/FeedbackCard/FeedbackCard";
 import LessonCard from "components/atoms/cards/LessonCard/LessonCard";
 import LessonItemList from "components/atoms/lists/LessonItemList/LessonItemList";
 
+import ContentContainer from "../ContentContainer/ContentContainer";
 import { defaultBackgroundGradients } from "./config";
 
 export interface ILessonOverview {
@@ -96,7 +97,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
   }
 
   return (
-    <>
+    <ContentContainer>
       {lesson && (
         <Box sx={{ pt: 8 }}>
           <Box
@@ -137,7 +138,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
           />
         </Box>
       )}
-    </>
+    </ContentContainer>
   );
 };
 
