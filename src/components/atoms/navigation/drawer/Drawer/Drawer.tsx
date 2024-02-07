@@ -2,6 +2,7 @@ import useAuth from "infrastructure/services/AuthProvider";
 
 import { useState } from "react";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -100,17 +101,18 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
                   key={`levels-${i}`}
                   selected={value === `levels-${i}`}
                 >
-                  <ListItemButton
-                    onClick={() => {
-                      setValue(`levels-${i}`);
-                      router.push(item.path);
-                    }}
-                  >
-                    <ListItemIcon>
-                      <Icon>{item.icon}</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary={t(item.label)} />
-                  </ListItemButton>
+                  <Link href={item.path} style={{ width: "100%" }}>
+                    <ListItemButton
+                      onClick={() => {
+                        setValue(`levels-${i}`);
+                      }}
+                    >
+                      <ListItemIcon>
+                        <Icon>{item.icon}</Icon>
+                      </ListItemIcon>
+                      <ListItemText primary={t(item.label)} />
+                    </ListItemButton>
+                  </Link>
                 </ListItem>
               );
             })}

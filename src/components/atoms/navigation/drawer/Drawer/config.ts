@@ -39,32 +39,32 @@ export const levels = [
   {
     label: "levels.0",
     icon: undefined,
-    path: "?level=0",
+    path: "/?level=0",
   },
   {
     label: "levels.1",
     icon: undefined,
-    path: "?level=1",
+    path: "/?level=1",
   },
   {
     label: "levels.2",
     icon: undefined,
-    path: "?level=2",
+    path: "/?level=2",
   },
   {
     label: "levels.3",
     icon: undefined,
-    path: "?level=3",
+    path: "/?level=3",
   },
   {
     label: "levels.4",
     icon: undefined,
-    path: "?level=4",
+    path: "/?level=4",
   },
   {
     label: "levels.5",
     icon: undefined,
-    path: "?level=5",
+    path: "/?level=5",
   },
 ];
 
