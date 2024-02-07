@@ -32,11 +32,19 @@ const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {
               secondaryAction={
                 onFollow && onUnfollow ? (
                   user.isFollowed ? (
-                    <IconButton edge="end" onClick={() => onUnfollow(user.id)}>
+                    <IconButton
+                      edge="end"
+                      onClick={() => onUnfollow(user.id)}
+                      sx={{ mr: 0.2 }}
+                    >
                       <Icon>{icons.unfollow}</Icon>
                     </IconButton>
                   ) : (
-                    <IconButton edge="end" onClick={() => onFollow(user.id)}>
+                    <IconButton
+                      edge="end"
+                      onClick={() => onFollow(user.id)}
+                      sx={{ mr: 0.2 }}
+                    >
                       <Icon>{icons.follow}</Icon>
                     </IconButton>
                   )
