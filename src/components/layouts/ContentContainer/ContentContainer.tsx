@@ -34,7 +34,7 @@ const ContentContainer: React.FC<IContentContainer> = ({
       sx={{
         pt: disablePadding ? undefined : 3,
         minHeight: "100vh",
-        pl: desktop ? SIDE_NAV_BAR_WIDTH : undefined,
+        pl: desktop ? `${SIDE_NAV_BAR_WIDTH}px` : undefined,
         pb: !desktop ? `${BOTTOM_NAV_BAR_HEIGHT}px` : undefined,
       }}
     >

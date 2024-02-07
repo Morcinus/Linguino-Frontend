@@ -1,3 +1,5 @@
+import theme from "styles/theme";
+
 import { AppBarProps } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -5,6 +7,9 @@ import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
+import { SIDE_NAV_BAR_WIDTH } from "../../main-navigation-bars/SideNavigationBar/SideNavigationBar";
 
 export interface INavigationBar {
   leftIconButton?: {
@@ -24,6 +29,8 @@ const NavigationBar: React.FC<INavigationBar & AppBarProps> = ({
   header,
   ...rest
 }) => {
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <AppBar
       position="fixed"
@@ -47,7 +54,12 @@ const NavigationBar: React.FC<INavigationBar & AppBarProps> = ({
             </IconButton>
           )}
         </Box>
-        <Typography variant="subtitle1">{header}</Typography>
+        <Typography
+          variant="subtitle1"
+          sx={{ pl: desktop ? `${SIDE_NAV_BAR_WIDTH - 64}px` : undefined }}
+        >
+          {header}
+        </Typography>
         <Box>
           {rightIconButton && (
             <IconButton onClick={rightIconButton.onClick}>

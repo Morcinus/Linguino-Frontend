@@ -1,6 +1,7 @@
 import { useTranslation } from "i18n/client";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
+import theme from "styles/theme";
 
 import { AppBarProps } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -9,8 +10,10 @@ import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { IDrawerController } from "../../drawer/DrawerContainer/DrawerContainer";
+import { SIDE_NAV_BAR_WIDTH } from "../../main-navigation-bars/SideNavigationBar/SideNavigationBar";
 
 export interface IShopNavigationBar extends IDrawerController {}
 
@@ -18,6 +21,7 @@ const ShopNavigationBar: React.FC<IShopNavigationBar & AppBarProps> = ({
   onDrawerOpen,
   ...rest
 }) => {
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
   const { t } = useTranslation("cs", "common");
   const { user } = useAuth();
 
@@ -41,7 +45,14 @@ const ShopNavigationBar: React.FC<IShopNavigationBar & AppBarProps> = ({
             <Icon>{icons.menu}</Icon>
           </IconButton>
         </Box>
-        <Typography variant="subtitle1">{t("navigation.shop")}</Typography>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            pl: desktop ? `${SIDE_NAV_BAR_WIDTH}px` : undefined,
+          }}
+        >
+          {t("navigation.shop")}
+        </Typography>
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           {user?.balance && (
             <>

@@ -13,7 +13,7 @@ import { primaryNavigation } from "../../config";
 
 export interface ISideNavigationBar {}
 
-export const SIDE_NAV_BAR_WIDTH = "90px";
+export const SIDE_NAV_BAR_WIDTH = 90;
 
 const SideNavigationBar: React.FC<ISideNavigationBar> = () => {
   const [value, setValue] = useState(0);
@@ -27,7 +27,7 @@ const SideNavigationBar: React.FC<ISideNavigationBar> = () => {
         flexGrow: 1,
         display: "flex",
         height: "100%",
-        width: SIDE_NAV_BAR_WIDTH,
+        width: `${SIDE_NAV_BAR_WIDTH}px`,
         position: "fixed",
         left: 0,
         top: 0,
