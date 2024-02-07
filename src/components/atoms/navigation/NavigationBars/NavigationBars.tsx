@@ -32,7 +32,7 @@ const Navigation: React.FC<INavigation> = () => {
 
   function renderNavBar(pathname: string) {
     if (/\/users\/.*\/followers/.test(pathname)) return <BackNavigationBar />;
-    if (/^\/help\//.test(pathname)) return <BackNavigationBar />;
+    if (/^\/help\//.test(pathname)) return <BackNavigationBar header="help" />;
     if (/^\/help/.test(pathname))
       return (
         <DrawerContainer
@@ -60,7 +60,16 @@ const Navigation: React.FC<INavigation> = () => {
       case "/":
         return <DrawerContainer child={{ component: HomeNavigationBar }} />;
       case "/favorites":
-        return <BackNavigationBar header="favorites" />;
+        return (
+          <DrawerContainer
+            child={{
+              component: DefaultNavigationBar,
+              props: {
+                header: t("navigation.favorites"),
+              },
+            }}
+          />
+        );
       case "topic-selection":
         return <BackNavigationBar header="topicSelection" />;
       case "/settings":
