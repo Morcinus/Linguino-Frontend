@@ -29,6 +29,7 @@
     "@nivo/line": "^0.80.0",
     "@nivo/pie": "^0.80.0",
     "@nivo/tooltip": "^0.80.0",
+    "@sentry/nextjs": "^7.100.0",
     "@storybook/addon-queryparams": "^6.2.9",
     "@stripe/react-stripe-js": "^2.1.1",
     "@stripe/stripe-js": "^1.54.2",
