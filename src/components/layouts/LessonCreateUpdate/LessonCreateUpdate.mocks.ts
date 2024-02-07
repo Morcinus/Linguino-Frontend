@@ -5,6 +5,7 @@ import { ILessonCreateUpdate } from "./LessonCreateUpdate";
 const base: ILessonCreateUpdate = {
   courseId: "abc",
   lesson: {
+    id: "asohdjkasdlndas",
     name: "Lorem ipsum",
     description: "Lorem ipsum dolor sit amet,...",
     items: [

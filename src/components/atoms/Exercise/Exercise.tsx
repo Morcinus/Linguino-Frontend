@@ -3,8 +3,8 @@ import { Component, ComponentProps, ElementType, ReactNode } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import { QuestionAnswer } from "../../../domain/models/types/questionAnswers";
 import { AnswerState } from "../../../infrastructure/api/user/study-session/Exercises";
+import { QuestionAnswer } from "../../../infrastructure/api/user/study-session/QuestionAnswers";
 import { UserAnswer } from "../../../infrastructure/api/user/study-session/QuestionAttempt";
 import theme from "../../../styles/theme";
 import ExerciseContinueButton from "../ExerciseContinueButton/ExerciseContinueButton";

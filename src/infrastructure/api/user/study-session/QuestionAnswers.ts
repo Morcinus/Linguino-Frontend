@@ -3,7 +3,8 @@ export type QuestionAnswer =
   | TextQuestionAnswer
   | AudioQuestionAnswer
   | BuildWordQuestionAnswer
-  | TableQuestionAnswerType;
+  | TableQuestionAnswer
+  | MatchingQuestionAnswer;
 
 export interface Question {
   id: ID;

@@ -1,5 +1,3 @@
-import { Category } from "domain/models/types/category";
-
 import { LessonItemSummary } from "../lesson-items/LessonItems";
 import { Feedback } from "./feedback/LessonFeedback";
 
@@ -33,10 +31,16 @@ export interface Lesson {
 
 export type LessonCreateUpdateDTO = Pick<
   Lesson,
-  "id",
-  "name",
-  "description",
-  "items"
+  "id" | "name" | "description" | "items"
+>;
+
+export type LessonUpdateDTO = Partial<
+  Pick<Lesson, "id" | "name" | "description" | "items">
 >;
 
 export type FeedbackState = "LIKED" | "DISLIKED" | null;
+
+export interface Category {
+  id: ID;
+  name?: string;
+}

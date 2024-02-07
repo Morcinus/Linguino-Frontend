@@ -3,6 +3,7 @@ import {
   BuildWordExercise as BuildWordExerciseType,
   IExerciseComponent,
 } from "infrastructure/api/user/study-session/Exercises";
+import { BuildWordQuestionAnswer as BuildWordQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
 import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
@@ -17,7 +18,7 @@ const BuildWordExercise: React.FC<IBuildWordExercise> = ({
   onContinue,
 }) => {
   const { t } = useTranslation("cs", "common");
-  const questionAnswer = {
+  const questionAnswer: BuildWordQuestionAnswerType = {
     type: "BUILD_WORD",
     id: exercise.id,
     question: exercise.wordL1,

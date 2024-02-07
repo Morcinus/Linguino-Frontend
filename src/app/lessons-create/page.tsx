@@ -25,6 +25,7 @@ const CreateLessonPage: React.FC<ICreateLessonPage> = () => {
         <LessonCreateUpdate
           courseId={user.selectedCourse.id}
           lesson={{
+            id: "",
             name: "",
             description: "",
             items: [],

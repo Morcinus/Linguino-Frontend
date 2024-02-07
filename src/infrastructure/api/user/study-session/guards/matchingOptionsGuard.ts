@@ -3,7 +3,7 @@ import {
   MatchImageOption,
   MatchOption,
   MatchTextOption,
-} from "../questionAnswers";
+} from "../QuestionAnswers";
 
 export function isMatchTextOption(
   option: MatchOption

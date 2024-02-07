@@ -1,10 +1,10 @@
 import FillTheBlank from "../../components/atoms/FillTheBlank/FillTheBlank";
 import TextQuestionAnswer from "../../components/atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";
+import { QuestionAnswer } from "../../infrastructure/api/user/study-session/QuestionAnswers";
 import {
   isFillInBlankQuestionAnswer,
   isTextQuestionAnswer,
-} from "../../domain/models/types/guards/questionGuard";
-import { QuestionAnswer } from "../../domain/models/types/questionAnswers";
+} from "../../infrastructure/api/user/study-session/guards/questionGuard";
 
 export function getQuestionAnswerComponent(
   questionAnswer: QuestionAnswer

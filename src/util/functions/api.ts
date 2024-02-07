@@ -1,6 +1,5 @@
-import { Params } from "domain/models/types/api";
-
-export function parseQueryParams(params: Params): string {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function parseQueryParams(params: Object): string {
   const arr = [];
   for (const [key, value] of Object.entries(params)) {
     arr.push(`${key}=${value}`);

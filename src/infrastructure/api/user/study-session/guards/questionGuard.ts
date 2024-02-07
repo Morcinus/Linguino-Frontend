@@ -3,7 +3,7 @@ import {
   FillInBlankQuestionAnswer,
   QuestionAnswer,
   TextQuestionAnswer,
-} from "../questionAnswers";
+} from "../QuestionAnswers";
 
 export function isFillInBlankQuestionAnswer(
   questionAnswer: QuestionAnswer

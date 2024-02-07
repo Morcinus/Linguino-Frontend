@@ -1,4 +1,5 @@
 import { useTranslation } from "i18n/client";
+import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
 
 import {
   IExerciseComponent,
@@ -16,7 +17,7 @@ const ANSWER_LENGTH_BREAKPOINT = 30;
 
 const TextExercise: React.FC<ITextExercise> = ({ exercise, onContinue }) => {
   const { t } = useTranslation("cs", "common");
-  const questionAnswer = {
+  const questionAnswer: TextQuestionAnswerType = {
     id: exercise.id,
     type: "TEXT",
     question: exercise.textL1,

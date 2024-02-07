@@ -1,13 +1,13 @@
 import {
-  isMatchAudioOption,
-  isMatchImageOption,
-  isMatchTextOption,
-} from "domain/models/types/guards/matchingOptionsGuard";
-import { MatchingQuestionAnswer as MatchingQuestionAnswerType } from "domain/models/types/questionAnswers";
-import {
   AnswerState,
   IQuestionAnswerComponent,
 } from "infrastructure/api/user/study-session/Exercises";
+import { MatchingQuestionAnswer as MatchingQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+import {
+  isMatchAudioOption,
+  isMatchImageOption,
+  isMatchTextOption,
+} from "infrastructure/api/user/study-session/guards/matchingOptionsGuard";
 
 import { useEffect, useState } from "react";
 
@@ -96,7 +96,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
             return option.audioURL;
           } else if (isMatchImageOption(option)) {
             return option.imageURL;
-          } else return undefined;
+          } else return "";
         }),
         exerciseId: questionAnswer.id,
         states: answerStates,

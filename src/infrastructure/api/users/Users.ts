@@ -8,7 +8,6 @@ export interface UserProfile {
   name: string;
   profileImageURL: string;
   isFollowed: boolean;
-  name: string;
   username: string;
   learningStats: Array<LearningDataPoint>;
   streak: number;

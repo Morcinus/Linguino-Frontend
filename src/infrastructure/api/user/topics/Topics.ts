@@ -6,6 +6,6 @@ export interface Topic {
   category: "main" | "extra";
 }
 
-interface FeaturedTopic extends Topic {
+export interface FeaturedTopic extends Topic {
   thumbnailURL: string;
 }

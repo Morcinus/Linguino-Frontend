@@ -1,3 +1,5 @@
+import { AudioQuestionAnswer as AudioQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+
 import { useState } from "react";
 
 import Box from "@mui/material/Box";
@@ -9,7 +11,9 @@ import useAuth from "../../../../infrastructure/services/AuthProvider";
 import { removeInterpunction } from "../../../../util/functions/exercises";
 import AudioInputButton from "../../AudioInputButton/AudioInputButton";
 
-export type IAudioQuestionAnswer = IQuestionAnswerComponent;
+export interface IAudioQuestionAnswer extends IQuestionAnswerComponent {
+  questionAnswer: AudioQuestionAnswerType;
+}
 
 const CORRECT_RATIO_THRESHOLD = 9;
 

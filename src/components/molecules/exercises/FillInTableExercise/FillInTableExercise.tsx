@@ -3,6 +3,7 @@ import {
   FillInTableExercise as FillInTableExerciseType,
   IExerciseComponent,
 } from "infrastructure/api/user/study-session/Exercises";
+import { TableQuestionAnswer as TableQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
 import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
@@ -17,7 +18,7 @@ const FillInTableExercise: React.FC<IFillInTableExercise> = ({
   onContinue,
 }) => {
   const { t } = useTranslation("cs", "common");
-  const questionAnswer = {
+  const questionAnswer: TableQuestionAnswerType = {
     id: exercise.id,
     type: "TABLE",
     question: exercise.questionL2,

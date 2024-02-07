@@ -1,5 +1,5 @@
-import { BuildWordQuestionAnswer as BuildWordQuestionAnswerType } from "domain/models/types/questionAnswers";
 import { IQuestionAnswerComponent } from "infrastructure/api/user/study-session/Exercises";
+import { BuildWordQuestionAnswer as BuildWordQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
 import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import { useState } from "react";

@@ -1,7 +1,7 @@
 import { ResponsiveTimeRange } from "@nivo/calendar";
 import { BasicTooltip } from "@nivo/tooltip";
 
-import { ICalendarDataPoint } from "../../../domain/models/types/calendar";
+import { ICalendarDataPoint } from "./CalendarTypes";
 
 export interface ICalendarHeatmap {
   data: Array<ICalendarDataPoint>;

@@ -1,3 +1,5 @@
+import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+
 import { MutableRefObject, useState } from "react";
 
 import Box from "@mui/material/Box";
@@ -17,6 +19,7 @@ export interface ITextQuestionAnswer extends IQuestionAnswerComponent {
   size?: "small" | "medium";
   enableAudioInput?: boolean;
   characterButtons?: Array<string>;
+  questionAnswer: TextQuestionAnswerType;
 }
 
 const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({

@@ -1,4 +1,5 @@
 import { useTranslation } from "i18n/client";
+import { AudioQuestionAnswer as AudioQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
 
 import {
   IExerciseComponent,
@@ -17,7 +18,7 @@ const ReadAloudExercise: React.FC<IReadAloudExercise> = ({
   onContinue,
 }) => {
   const { t } = useTranslation("cs", "common");
-  const questionAnswer = {
+  const questionAnswer: AudioQuestionAnswerType = {
     id: exercise.id,
     type: "AUDIO",
     question: exercise.textL2,

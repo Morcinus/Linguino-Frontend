@@ -5,7 +5,12 @@ import { parseQueryParams } from "util/functions/api";
 
 import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
 
-import { Lesson, LessonCreateUpdateDTO, LessonType } from "./Lessons";
+import {
+  Lesson,
+  LessonCreateUpdateDTO,
+  LessonType,
+  LessonUpdateDTO,
+} from "./Lessons";
 
 export interface LessonParams {
   type?: LessonType;
@@ -45,10 +50,7 @@ const LessonsAPI = {
     return API.post(`${this.URI(courseId)}`, lesson);
   },
 
-  async updateLesson(
-    courseId: ID,
-    lesson: LessonCreateUpdateDTO
-  ): Promise<Lesson> {
+  async updateLesson(courseId: ID, lesson: LessonUpdateDTO): Promise<Lesson> {
     return API.patch(`${this.URI(courseId)}/${lesson.id}`, lesson);
   },
 

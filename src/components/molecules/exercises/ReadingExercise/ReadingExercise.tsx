@@ -1,4 +1,5 @@
 import { useTranslation } from "i18n/client";
+import { TextQuestionAnswer } from "infrastructure/api/user/study-session/QuestionAnswers";
 
 import {
   IExerciseComponent,
@@ -17,7 +18,7 @@ const ReadingExercise: React.FC<IReadingExercise> = ({
   onContinue,
 }) => {
   const { t } = useTranslation("cs", "common");
-  const questionAnswer = {
+  const questionAnswer: TextQuestionAnswer = {
     id: exercise.id,
     type: "TEXT",
     question: exercise.questionL2,

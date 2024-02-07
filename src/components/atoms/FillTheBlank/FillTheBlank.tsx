@@ -2,11 +2,11 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import { FillInBlankQuestionAnswer } from "../../../domain/models/types/questionAnswers";
 import {
   AnswerState,
   IQuestionAnswerComponent,
 } from "../../../infrastructure/api/user/study-session/Exercises";
+import { FillInBlankQuestionAnswer } from "../../../infrastructure/api/user/study-session/QuestionAnswers";
 import { UserAnswer } from "../../../infrastructure/api/user/study-session/QuestionAttempt";
 import { concatBlanks } from "../../../util/functions/sessions";
 

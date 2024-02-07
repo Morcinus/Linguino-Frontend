@@ -1,5 +1,5 @@
-import { QuestionAnswer } from "../../../../domain/models/types/questionAnswers";
-import { QuestionAttempt } from "./QuestionAttempt";
+import { MatchOption, QuestionAnswer } from "./QuestionAnswers";
+import { QuestionAttempt, UserAnswer } from "./QuestionAttempt";
 
 export type Exercise =
   | TextExercise

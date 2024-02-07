@@ -3,6 +3,7 @@ import {
   FillInSentenceExercise as FillInSentenceExerciseType,
   IExerciseComponent,
 } from "infrastructure/api/user/study-session/Exercises";
+import { FillInBlankQuestionAnswer as FillInBlankQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
 import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
@@ -17,7 +18,7 @@ const FillInSentenceExercise: React.FC<IFillInSentenceExercise> = ({
   onContinue,
 }) => {
   const { t } = useTranslation("cs", "common");
-  const questionAnswer = {
+  const questionAnswer: FillInBlankQuestionAnswerType = {
     id: exercise.id,
     type: "FILL_IN_BLANK",
     question: exercise.textL1,

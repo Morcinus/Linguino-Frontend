@@ -3,6 +3,7 @@ import {
   IExerciseComponent,
   MatchingExercise as MatchingExerciseType,
 } from "infrastructure/api/user/study-session/Exercises";
+import { MatchingQuestionAnswer as MatchingQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
 import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
@@ -17,7 +18,7 @@ const MatchingExercise: React.FC<IMatchingExercise> = ({
   onContinue,
 }) => {
   const { t } = useTranslation("cs", "common");
-  const questionAnswer = {
+  const questionAnswer: MatchingQuestionAnswerType = {
     id: exercise.id,
     type: "MATCHING",
     options1: exercise.options1,
