@@ -111,9 +111,9 @@ const Navigation: React.FC<INavigation> = () => {
 
           {user ? (
             desktop === true ? (
-              <SideNavigationBar />
+              <SideNavigationBar pathname={pathname} />
             ) : (
-              <BottomNavigationBar />
+              <BottomNavigationBar pathname={pathname} />
             )
           ) : undefined}
         </Box>

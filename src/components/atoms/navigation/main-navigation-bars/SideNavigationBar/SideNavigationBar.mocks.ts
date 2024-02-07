@@ -1,6 +1,8 @@
 import { ISideNavigationBar } from "./SideNavigationBar";
 
-const base: ISideNavigationBar = {};
+const base: ISideNavigationBar = {
+  pathname: "/",
+};
 
 export const mockSideNavigationBarProps = {
   base,

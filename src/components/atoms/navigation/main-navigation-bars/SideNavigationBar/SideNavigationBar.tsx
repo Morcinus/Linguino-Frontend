@@ -1,6 +1,6 @@
 import useAuth from "infrastructure/services/AuthProvider";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
@@ -11,15 +11,30 @@ import Tabs from "@mui/material/Tabs";
 import { useTranslation } from "../../../../../i18n/client";
 import { primaryNavigation } from "../../config";
 
-export interface ISideNavigationBar {}
+export interface ISideNavigationBar {
+  pathname: string;
+}
 
 export const SIDE_NAV_BAR_WIDTH = 90;
 
-const SideNavigationBar: React.FC<ISideNavigationBar> = () => {
-  const [value, setValue] = useState(0);
+const SideNavigationBar: React.FC<ISideNavigationBar> = ({ pathname }) => {
+  const [value, setValue] = useState<number | false>(false);
   const { t } = useTranslation("cs", "common");
   const router = useRouter();
   const { user } = useAuth();
+
+  // Change selected tab if path changed
+  useEffect(() => {
+    let newValue: boolean | number = false;
+
+    for (let i = 0; i < primaryNavigation.length; i++) {
+      if (primaryNavigation[i].path === pathname) {
+        newValue = i;
+      }
+    }
+
+    setValue(newValue);
+  }, [pathname]);
 
   return (
     <Box

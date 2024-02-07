@@ -1,6 +1,6 @@
 import useAuth from "infrastructure/services/AuthProvider";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
@@ -11,15 +11,30 @@ import Box from "@mui/material/Box";
 import { useTranslation } from "../../../../../i18n/client";
 import { primaryNavigation } from "../../config";
 
-export interface IBottomNavigationBar {}
+export interface IBottomNavigationBar {
+  pathname: string;
+}
 
 export const BOTTOM_NAV_BAR_HEIGHT = 56;
 
-const BottomNavigationBar: React.FC<IBottomNavigationBar> = () => {
-  const [value, setValue] = useState(0);
+const BottomNavigationBar: React.FC<IBottomNavigationBar> = ({ pathname }) => {
+  const [value, setValue] = useState<number | false>(false);
   const { t } = useTranslation("cs", "common");
   const router = useRouter();
   const { user } = useAuth();
+
+  // Change selected tab if path changed
+  useEffect(() => {
+    let newValue: boolean | number = false;
+
+    for (let i = 0; i < primaryNavigation.length; i++) {
+      if (primaryNavigation[i].path === pathname) {
+        newValue = i;
+      }
+    }
+
+    setValue(newValue);
+  }, [pathname]);
 
   return (
     <Box
