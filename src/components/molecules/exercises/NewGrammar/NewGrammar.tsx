@@ -1,7 +1,9 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
+import icons from "styles/icons";
 
+import { Icon } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -23,15 +25,12 @@ const NewGrammar: React.FC<INewGrammar> = ({
   const { lesson, mutate } = LessonsAPI.useLesson(courseId, lessonId);
 
   function handleLessonChange(change: { [key: string]: boolean | string }) {
-    mutate(
-      LessonsAPI.updateLesson(courseId, {
-        ...change,
-      }),
-      optimisticMutationOption({
-        ...lesson,
-        ...change,
-      })
-    );
+    const data = { ...lesson, ...change };
+
+    mutate(async () => {
+      await LessonsAPI.updateLesson(courseId, { id: lessonId, ...change });
+      return data;
+    }, optimisticMutationOption(data));
   }
 
   return (
@@ -67,11 +66,15 @@ const NewGrammar: React.FC<INewGrammar> = ({
           bottomOffset
           onClick={async () => {
             await handleLessonChange({ markAsLearned: true });
+            onContinue();
           }}
         >
           {t("exercise.iKnowGrammar")}
         </FullWidthButton>
-        <FullWidthButton onClick={() => onContinue()}>
+        <FullWidthButton
+          onClick={() => onContinue()}
+          endIcon={<Icon>{icons.next}</Icon>}
+        >
           {t("exercise.continue")}
         </FullWidthButton>
       </Box>

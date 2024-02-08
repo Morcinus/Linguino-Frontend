@@ -35,8 +35,9 @@ export type LessonCreateUpdateDTO = Pick<
 >;
 
 export type LessonUpdateDTO = Partial<
-  Pick<Lesson, "id" | "name" | "description" | "items">
->;
+  Pick<Lesson, "name" | "description" | "items" | "visible" | "favorite">
+> &
+  Pick<Lesson, "id">;
 
 export type FeedbackState = "LIKED" | "DISLIKED" | null;
 
