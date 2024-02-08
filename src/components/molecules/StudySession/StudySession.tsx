@@ -5,16 +5,22 @@ import {
 } from "infrastructure/api/user/study-session/ExercisesGuard";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
+import theme from "styles/theme";
 
 import { useEffect, useState } from "react";
 
+import {
+  Icon,
+  IconButton,
+  LinearProgress,
+  Toolbar,
+  useMediaQuery,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Icon from "@mui/material/Icon";
-import IconButton from "@mui/material/IconButton";
-import Toolbar from "@mui/material/Toolbar";
 
 import StudySessionProgressBar from "components/atoms/StudySessionProgressBar/StudySessionProgressBar";
+import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
 
 import { getExplanation } from "../../../domain/models/utils/type-guards";
 import { Exercise } from "../../../infrastructure/api/user/study-session/Exercises";
@@ -44,6 +50,7 @@ const StudySession: React.FC<IStudySession> = ({
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
   const [executeScroll, elRef] = useScroll();
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const [attemptArray, setAttemptArray] = useState<Array<QuestionAttempt>>([]);
   const [exerciseQueue, setExerciseQueue] =
@@ -146,18 +153,40 @@ const StudySession: React.FC<IStudySession> = ({
 
   return (
     <Box>
-      <Container maxWidth="md">
-        <Toolbar sx={{ display: "flex", alignItems: "center" }}>
-          <StudySessionProgressBar
-            value={index}
-            maxValue={exerciseQueue.length}
-          />
+      {desktop ? (
+        <Container maxWidth="md">
+          <Toolbar sx={{ display: "flex", alignItems: "center" }}>
+            <StudySessionProgressBar
+              value={index}
+              maxValue={exerciseQueue.length}
+            />
 
-          <IconButton onClick={() => onExit()}>
-            <Icon>{icons.close}</Icon>
-          </IconButton>
-        </Toolbar>
-      </Container>
+            <IconButton onClick={() => onExit()}>
+              <Icon>{icons.close}</Icon>
+            </IconButton>
+          </Toolbar>
+        </Container>
+      ) : (
+        <>
+          <NavigationBar
+            leftIconButton={{
+              icon: icons.close,
+              onClick: () => onExit(),
+            }}
+            color="neutral"
+          />
+          <LinearProgress
+            color="primary"
+            variant="determinate"
+            value={
+              index <= exerciseQueue.length
+                ? (index / exerciseQueue.length) * 100
+                : 100
+            }
+          />
+          <Toolbar />
+        </>
+      )}
 
       <Box sx={{ height: "85vh", display: "flex", flexDirection: "column" }}>
         <Box sx={{ flexGrow: 1 }}>
@@ -189,7 +218,6 @@ const StudySession: React.FC<IStudySession> = ({
           <></>
         )}
       </Box>
-
       {displayExplanations &&
       exerciseQueue !== undefined &&
       exerciseQueue[index] !== undefined &&
