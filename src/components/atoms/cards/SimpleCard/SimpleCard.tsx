@@ -4,12 +4,13 @@ import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
+
+import Twemoji from "components/atoms/Twemoji/Twemoji";
 
 export interface ISimpleCard {
   header: string;
-  headerIcon?: string;
+  headerEmoji?: string;
   imageURL: string;
   onClick: () => void;
   highlightCard?: boolean;
@@ -18,7 +19,7 @@ export interface ISimpleCard {
 
 const SimpleCard: React.FC<ISimpleCard> = ({
   header,
-  headerIcon,
+  headerEmoji,
   imageURL,
   onClick,
   highlightCard,
@@ -48,7 +49,7 @@ const SimpleCard: React.FC<ISimpleCard> = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: 1,
+            gap: 0.5,
             p: 1,
           }}
         >
@@ -58,7 +59,9 @@ const SimpleCard: React.FC<ISimpleCard> = ({
           >
             {header}
           </Typography>
-          {headerIcon && <Icon>{headerIcon}</Icon>}
+          {headerEmoji && (
+            <Twemoji emoji={headerEmoji} width={20} height={20} />
+          )}
         </CardContent>
       </CardActionArea>
     </Card>

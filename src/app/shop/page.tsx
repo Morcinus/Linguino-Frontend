@@ -8,16 +8,16 @@ import errorCodes from "infrastructure/api/error-codes";
 import { ShopItem } from "infrastructure/api/user/shop-items/ShopItems";
 import ShopItemsAPI from "infrastructure/api/user/shop-items/ShopItemsAPI";
 import useErrorHandler from "infrastructure/services/ErrorHandler";
-import icons from "styles/icons";
 
 import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import Popup, { IPopup } from "components/atoms/Popup/Popup";
 import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
+import Twemoji from "components/atoms/Twemoji/Twemoji";
+import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
 
 export interface IShopPage {}
@@ -100,13 +100,13 @@ const ShopPage: React.FC<IShopPage> = () => {
                           : item.bought
                           ? t("shop.bought")
                           : item.price,
-                      headerIcon: !item.bought ? icons.coins : undefined,
+                      headerEmoji: !item.bought ? "🪙" : undefined,
                       imageURL: item.imageURL,
                       highlightCard: item.equipped,
                       onClick: () => {
                         const buyPopupProps = {
                           displayCloseButton: true,
-                          subheader: `${item.price}`,
+                          subheader: <Box display="flex" justifyContent="center" alignItems="center">{item.price}<Twemoji emoji={"🪙"} width={20} height={20} /></Box>,
                           imageURL: item.imageURL,
                           primaryAction: {
                             text: t("shop.buy"),
