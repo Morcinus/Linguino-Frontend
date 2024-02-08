@@ -23,11 +23,8 @@ export interface INavigation {}
 
 const Navigation: React.FC<INavigation> = () => {
   const { user } = useAuth();
-
   const { t } = useTranslation("cs", "common");
-
   const pathname = usePathname();
-
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function renderNavBar(pathname: string) {
@@ -43,6 +40,13 @@ const Navigation: React.FC<INavigation> = () => {
         />
       );
     if (/^\/lesson-items\//.test(pathname)) return <BackNavigationBar />;
+    if (/^\/lessons\//.test(pathname)) {
+      if (desktop) {
+        return <BackNavigationBar />;
+      } else {
+        return <BackNavigationBar color="transparent" />;
+      }
+    }
 
     switch (pathname) {
       case "/login":

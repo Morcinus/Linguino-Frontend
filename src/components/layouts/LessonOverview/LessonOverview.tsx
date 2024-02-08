@@ -4,13 +4,14 @@ import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 import { Feedback } from "infrastructure/api/user/courses/lessons/feedback/LessonFeedback";
 import LessonFeedbackAPI from "infrastructure/api/user/courses/lessons/feedback/LessonFeedbackAPI";
 import icons from "styles/icons";
+import theme from "styles/theme";
 
 import React from "react";
 
 import { useRouter } from "next/navigation";
 
+import { Toolbar, useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 
 import BottomFab from "components/atoms/BottomFab/BottomFab";
 import FeedbackCard from "components/atoms/cards/FeedbackCard/FeedbackCard";
@@ -29,6 +30,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
   const { t } = useTranslation("cs", "common");
   const router = useRouter();
   const { lesson, mutate } = LessonsAPI.useLesson(courseId, lessonId);
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function handleFavoriteChange(value: boolean) {
     const data = {
@@ -53,8 +55,15 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
   }
 
   async function handleFeedbackChange(value: Feedback) {
-    await LessonFeedbackAPI.updateLessonFeedback(courseId, lessonId, value);
-    mutate({ ...lesson, feedback: value });
+    const data = {
+      ...lesson,
+      feedback: value,
+    };
+
+    mutate(async () => {
+      await LessonFeedbackAPI.updateLessonFeedback(courseId, lessonId, value);
+      return data;
+    }, optimisticMutationOption(data));
   }
 
   function backgroundCSS(backgroundImageUrl?: string) {
@@ -99,7 +108,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
   return (
     <ContentContainer>
       {lesson && (
-        <Box sx={{ pt: 8 }}>
+        <Box sx={{ pt: 8, pb: 8 }}>
           <Box
             sx={{
               width: "100%",
@@ -110,7 +119,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
               left: 0,
             }}
           >
-            <Toolbar />
+            {desktop && <Toolbar />}
             <Box
               sx={{
                 width: "100%",
@@ -125,7 +134,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
               onFavoriteChange={handleFavoriteChange}
               onVisibleChange={handleVisibleChange}
             />
-            <LessonItemList lessonItems={lesson.items} />
+            {lesson.items && <LessonItemList lessonItems={lesson.items} />}
             <FeedbackCard
               feedback={lesson.feedback}
               onFeedbackChange={handleFeedbackChange}
@@ -133,7 +142,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
           </Box>
           <BottomFab
             header={t("studying.studyLesson")}
-            icon={icons.next}
+            icon={icons.startStudy}
             onClick={() => router.push(`/study?lessonId=${lessonId}`)}
           />
         </Box>

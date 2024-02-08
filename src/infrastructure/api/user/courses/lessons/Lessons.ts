@@ -21,7 +21,7 @@ export interface Lesson {
   visible?: boolean;
   feedback?: Feedback;
   backgroundImageUrl?: string;
-  items: Array<LessonItemSummary>;
+  items?: Array<LessonItemSummary>;
   author?: ID;
   icon?: string;
   type?: LessonType;

@@ -42,7 +42,9 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
   onSave,
   isCreate = false,
 }) => {
-  const [items, setItems] = useState<Array<LessonItemSummary>>(lesson.items);
+  const [items, setItems] = useState<Array<LessonItemSummary>>(
+    lesson.items ? lesson.items : []
+  );
   const [name, setName] = useState(lesson.name);
   const [popupOpen, setPopupOpen] = useState(false);
   const [searchDialogOpen, setSearchDialogOpen] = useState(false);

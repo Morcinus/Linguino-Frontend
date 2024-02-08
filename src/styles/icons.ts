@@ -45,6 +45,8 @@ const icons: Record<string, string> = {
   streak: "local_fire_department",
   start: "play_arrow",
   pause: "pause",
+
+  startStudy: "play_circle_outlined",
 };
 
 export default icons;

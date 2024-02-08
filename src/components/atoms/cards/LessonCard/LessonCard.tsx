@@ -40,11 +40,11 @@ const LessonCard: React.FC<ILessonCard> = ({
               {lesson?.name}
             </Typography>
             <VisibilityButton
-              active={lesson?.visible || true}
+              active={lesson?.visible !== undefined ? lesson.visible : true}
               onClick={() => onVisibleChange(!lesson.visible)}
             />
             <FavoriteButton
-              active={lesson?.favorite || false}
+              active={lesson?.favorite !== undefined ? lesson.favorite : false}
               onClick={() => onFavoriteChange(!lesson.favorite)}
             />
           </Box>
