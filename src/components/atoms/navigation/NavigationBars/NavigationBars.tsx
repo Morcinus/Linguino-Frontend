@@ -70,7 +70,7 @@ const Navigation: React.FC<INavigation> = () => {
             }}
           />
         );
-      case "topic-selection":
+      case "/topic-selection":
         return <BackNavigationBar header="topicSelection" />;
       case "/settings":
         return (
