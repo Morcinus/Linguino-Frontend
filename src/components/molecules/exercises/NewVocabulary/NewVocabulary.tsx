@@ -1,7 +1,9 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
+import icons from "styles/icons";
 
+import { Icon } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -72,11 +74,15 @@ const NewVocabulary: React.FC<INewVocabulary> = ({
           bottomOffset
           onClick={async () => {
             await handleLessonItemChange({ markAsLearned: true });
+            onContinue();
           }}
         >
           {t("exercise.iKnowWord")}
         </FullWidthButton>
-        <FullWidthButton onClick={() => onContinue()}>
+        <FullWidthButton
+          onClick={() => onContinue()}
+          endIcon={<Icon>{icons.next}</Icon>}
+        >
           {t("exercise.continue")}
         </FullWidthButton>
       </Box>
