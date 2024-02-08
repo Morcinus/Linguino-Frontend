@@ -130,7 +130,7 @@ class Exercise extends Component<IExercise, IExerciseState> {
           flexDirection: "column",
           width: "90%",
           margin: "auto",
-          gap: 1,
+          gap: 0.5,
           mb: 4,
         }}
       >
@@ -139,7 +139,9 @@ class Exercise extends Component<IExercise, IExerciseState> {
           {this.props.assignmentTitle}
         </Typography>
 
-        {this.props.imageURL && <ImageCard url={this.props.imageURL} />}
+        {this.props.imageURL && (
+          <ImageCard url={this.props.imageURL} maxWidth={200} />
+        )}
 
         {this.props.componentsAboveQuestions}
 
@@ -168,15 +170,19 @@ class Exercise extends Component<IExercise, IExerciseState> {
 
         {this.props.componentsBelowQuestions}
 
-        <ExerciseContinueButton
-          onClick={this.handleClick}
-          disabled={!this.state.readyToSubmit}
-          text={
-            this.state.submitted || this.props.submitBeforeContinue === false
-              ? "exercise.continue"
-              : "exercise.check"
-          }
-        />
+        <Box sx={{ pt: 8 }} display="flex" justifyContent="center">
+          <ExerciseContinueButton
+            onClick={this.handleClick}
+            state={
+              !this.state.readyToSubmit
+                ? "DISABLED"
+                : this.state.submitted ||
+                  this.props.submitBeforeContinue === false
+                ? "CONTINUE"
+                : "CHECK"
+            }
+          />
+        </Box>
       </Box>
     );
   }

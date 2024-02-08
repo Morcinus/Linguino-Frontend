@@ -1,16 +1,17 @@
+import { CardMedia } from "@mui/material";
 import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
 
 export interface IImageCard {
   url: string;
+  maxWidth?: number;
 }
 
-const ImageCard: React.FC<IImageCard> = ({ url }) => {
+const ImageCard: React.FC<IImageCard> = ({ url, maxWidth }) => {
   return (
     <Card
       sx={{
         width: "100%",
-        maxWidth: "250px",
+        maxWidth: maxWidth ? `${maxWidth}px` : "250px",
         aspectRatio: "1/1",
         my: 2,
         mx: "auto",

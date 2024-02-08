@@ -154,7 +154,7 @@ const StudySession: React.FC<IStudySession> = ({
   return (
     <Box>
       {desktop ? (
-        <Container maxWidth="md">
+        <Container maxWidth="md" sx={{ mb: 2 }}>
           <Toolbar sx={{ display: "flex", alignItems: "center" }}>
             <StudySessionProgressBar
               value={index}
@@ -168,27 +168,35 @@ const StudySession: React.FC<IStudySession> = ({
         </Container>
       ) : (
         <>
-          <NavigationBar
-            leftIconButton={{
-              icon: icons.close,
-              onClick: () => onExit(),
-            }}
-            color="neutral"
-          />
-          <LinearProgress
-            color="primary"
-            variant="determinate"
-            value={
-              index <= exerciseQueue.length
-                ? (index / exerciseQueue.length) * 100
-                : 100
-            }
-          />
-          <Toolbar />
+          <Box sx={{ position: "fixed", width: "100%" }}>
+            <NavigationBar
+              leftIconButton={{
+                icon: icons.close,
+                onClick: () => onExit(),
+              }}
+              color="neutral"
+            />
+            <LinearProgress
+              color="primary"
+              variant="determinate"
+              value={
+                index <= exerciseQueue.length
+                  ? (index / exerciseQueue.length) * 100
+                  : 100
+              }
+            />
+          </Box>
         </>
       )}
 
-      <Box sx={{ height: "85vh", display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          height: "85vh",
+          display: "flex",
+          flexDirection: "column",
+          pt: desktop ? undefined : 2,
+        }}
+      >
         <Box sx={{ flexGrow: 1 }}>
           <Container maxWidth="sm">
             {exerciseQueue[index] && !finishedSession && (

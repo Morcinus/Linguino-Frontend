@@ -99,6 +99,7 @@ const BuildWordQuestionAnswer: React.FC<IBuildWordQuestionAnswer> = ({
               : undefined,
           borderWidth: displayAnswers ? 2 : undefined,
           borderRadius: 0.4,
+          boxShadow: "none",
         }}
       >
         <Box
