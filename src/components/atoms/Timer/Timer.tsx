@@ -64,8 +64,9 @@ const Timer: React.FC<ITimer> = ({ milliseconds, onFinish }) => {
         progress={(value / milliseconds) * 100}
         color={theme.palette.primary.main}
         thickness="thin"
+        size="medium"
       >
-        <Box sx={{ display: "flex", flexDirection: "column", zIndex: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Typography variant="h4">{timeMMSS(milliseconds - value)}</Typography>
           <Box>
             {state === "STOPPED" ? (

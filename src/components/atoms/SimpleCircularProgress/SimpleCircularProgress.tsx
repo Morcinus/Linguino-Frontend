@@ -27,7 +27,7 @@ const SimpleCircularProgress: React.FC<ISimpleCircularProgress> = ({
       SIZE = 200;
       break;
     case "medium":
-      SIZE = 300;
+      SIZE = 250;
       break;
     case "large":
       SIZE = 400;
@@ -68,7 +68,7 @@ const SimpleCircularProgress: React.FC<ISimpleCircularProgress> = ({
           position: "absolute",
           width: `${SIZE}px`,
           height: `${SIZE}px`,
-          zIndex: 0,
+          zIndex: -2,
         }}
       >
         <ResponsivePie
@@ -82,7 +82,7 @@ const SimpleCircularProgress: React.FC<ISimpleCircularProgress> = ({
           position: "absolute",
           width: `${SIZE}px`,
           height: `${SIZE}px`,
-          zIndex: 1,
+          zIndex: -1,
         }}
       >
         <ResponsivePie

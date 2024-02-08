@@ -1,7 +1,9 @@
 import { useTranslation } from "i18n/client";
+import icons from "styles/icons";
 
 import useKeypress from "react-use-keypress";
 
+import { Box, Icon } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 import {
@@ -47,21 +49,38 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
   });
 
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "90%",
+        margin: "auto",
+        gap: 0.5,
+        mb: 4,
+      }}
+    >
       <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
         {t("exercises.speech.assignmentTitle")}
       </Typography>
       <Timer milliseconds={exercise.timeMs} />
+      <Box sx={{ mt: 4 }}>
+        <Typography variant="subtitle2">{t("exercise.topic")}:</Typography>
+        <Typography variant="subtitle1">
+          {exercise.assignmentTopicL2}
+        </Typography>
 
-      <Typography variant="subtitle2">{t("exercise.topic")}:</Typography>
-      <Typography variant="subtitle1">{exercise.assignmentTopicL2}</Typography>
+        <CheckList items={exercise.questionsL2} />
+      </Box>
 
-      <CheckList items={exercise.questionsL2} />
-
-      <FullWidthButton onClick={handleContinue}>
-        {t("exercise.continue")}
-      </FullWidthButton>
-    </>
+      <Box sx={{ pt: 8 }} display="flex" justifyContent="center">
+        <FullWidthButton
+          onClick={handleContinue}
+          endIcon={<Icon>{icons.next}</Icon>}
+        >
+          {t("exercise.continue")}
+        </FullWidthButton>
+      </Box>
+    </Box>
   );
 };
 
