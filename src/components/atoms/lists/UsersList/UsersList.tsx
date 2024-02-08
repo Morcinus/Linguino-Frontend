@@ -28,23 +28,16 @@ const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {
         users.map((user, i) => {
           return (
             <ListItem
+              sx={{ pr: 2 }}
               key={i}
               secondaryAction={
                 onFollow && onUnfollow ? (
                   user.isFollowed ? (
-                    <IconButton
-                      edge="end"
-                      onClick={() => onUnfollow(user.id)}
-                      sx={{ mr: 0.2 }}
-                    >
+                    <IconButton onClick={() => onUnfollow(user.id)}>
                       <Icon>{icons.unfollow}</Icon>
                     </IconButton>
                   ) : (
-                    <IconButton
-                      edge="end"
-                      onClick={() => onFollow(user.id)}
-                      sx={{ mr: 0.2 }}
-                    >
+                    <IconButton onClick={() => onFollow(user.id)}>
                       <Icon>{icons.follow}</Icon>
                     </IconButton>
                   )
