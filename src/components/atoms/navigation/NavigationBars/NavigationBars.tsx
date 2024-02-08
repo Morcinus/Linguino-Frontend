@@ -39,7 +39,13 @@ const Navigation: React.FC<INavigation> = () => {
           }}
         />
       );
-    if (/^\/lesson-items\//.test(pathname)) return <BackNavigationBar />;
+    if (/^\/lesson-items\//.test(pathname)) {
+      if (desktop) {
+        return <BackNavigationBar />;
+      } else {
+        return <BackNavigationBar color="transparent" />;
+      }
+    }
     if (/^\/lessons\//.test(pathname)) {
       if (desktop) {
         return <BackNavigationBar />;

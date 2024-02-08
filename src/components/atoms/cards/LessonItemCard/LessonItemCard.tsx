@@ -10,17 +10,14 @@ import ListenIconButton from "components/atoms/ListenIconButton/ListenIconButton
 import MarkdownText from "components/atoms/MarkdownText/MarkdownText";
 
 import FavoriteButton from "../../FavoriteButton/FavoriteButton";
-import VisibilityButton from "../../VisibilityButton/VisibilityButton";
 
 export interface ILessonItemCard {
   lessonItem: LessonItem;
   onFavoriteChange: (value: boolean) => void;
-  onVisibleChange: (value: boolean) => void;
 }
 
 const LessonItemCard: React.FC<ILessonItemCard> = ({
   lessonItem,
-  onVisibleChange,
   onFavoriteChange,
 }) => {
   return (
@@ -37,10 +34,6 @@ const LessonItemCard: React.FC<ILessonItemCard> = ({
             {lessonItem.audioURL && (
               <ListenIconButton audioLink={lessonItem.audioURL} />
             )}
-            <VisibilityButton
-              active={lessonItem.visible}
-              onClick={() => onVisibleChange(!lessonItem.visible)}
-            />
             <FavoriteButton
               active={lessonItem.favorite}
               onClick={() => onFavoriteChange(!lessonItem.favorite)}

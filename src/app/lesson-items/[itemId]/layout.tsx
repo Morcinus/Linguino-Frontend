@@ -1,7 +1,6 @@
 // prettier-ignore
 "use client"
 
-import Box from "@mui/material/Box";
 
 import ProtectedRoute from "components/layouts/authentication/ProtectedRoute/ProtectedRoute";
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";
@@ -14,7 +13,7 @@ const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <ProtectedRoute>
       <ContentContainer>
-        <Box sx={{ pt: 8, width: "100%" }}>{children}</Box>
+        {children}
       </ContentContainer>
     </ProtectedRoute>
   );

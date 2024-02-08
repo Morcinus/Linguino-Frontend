@@ -8,7 +8,6 @@ const base: ILessonItemCard = {
     id: "akjdnfldan",
     nameL1: "Lorem ipsum",
     nameL2: "Lorem ipsum",
-    visible: true,
     progress: 42,
     backgroundImageUrl: "https://picsum.photos/id/168/1920/1080",
     audioURL:
@@ -17,7 +16,6 @@ const base: ILessonItemCard = {
       "noun /pronunciation/\n #### Definition\n Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   onFavoriteChange: action("onFavoriteChange"),
-  onVisibleChange: action("onVisibleChange"),
 };
 
 export const mockLessonItemCardProps = {

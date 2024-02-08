@@ -62,9 +62,6 @@ const NewVocabulary: React.FC<INewVocabulary> = ({
             onFavoriteChange={(value) =>
               handleLessonItemChange({ favorite: value })
             }
-            onVisibleChange={(value) =>
-              handleLessonItemChange({ visible: value })
-            }
           />
         </Box>
       )}

@@ -1,6 +1,8 @@
 import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
+import theme from "styles/theme";
 
+import { useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 
@@ -21,6 +23,7 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
     courseId,
     lessonItemId
   );
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   function handleFavoriteChange(value: boolean) {
     const newLessonItem = {
@@ -31,20 +34,6 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
       await LessonItemsAPI.updateLessonItem(courseId, {
         id: lessonItem.id,
         favorite: value,
-      });
-      return newLessonItem;
-    }, optimisticMutationOption(newLessonItem));
-  }
-
-  function handleVisibleChange(value: boolean) {
-    const newLessonItem = {
-      ...lessonItem,
-      visible: value,
-    };
-    mutate(async () => {
-      await LessonItemsAPI.updateLessonItem(courseId, {
-        id: lessonItem.id,
-        visible: value,
       });
       return newLessonItem;
     }, optimisticMutationOption(newLessonItem));
@@ -66,7 +55,7 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
   }
 
   return (
-    <>
+    <Box sx={{ pt: desktop ? 8 : 0, width: "100%" }}>
       {lessonItem && (
         <>
           <Box
@@ -79,7 +68,7 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
               left: 0,
             }}
           >
-            <Toolbar />
+            {desktop && <Toolbar />}
             <Box
               sx={{
                 width: "100%",
@@ -93,7 +82,6 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
             <LessonItemCard
               lessonItem={lessonItem}
               onFavoriteChange={handleFavoriteChange}
-              onVisibleChange={handleVisibleChange}
             />
             {lessonItem.examples && (
               <ExampleSentenceList items={lessonItem.examples} />
@@ -101,7 +89,7 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
           </Box>
         </>
       )}
-    </>
+    </Box>
   );
 };
 

@@ -4,7 +4,6 @@ export interface LessonItem {
   nameL2: string;
   imageURL?: string;
   audioURL?: string;
-  visible: boolean;
   favorite: boolean;
   description?: string;
   examples?: Array<ExampleSentence>;
