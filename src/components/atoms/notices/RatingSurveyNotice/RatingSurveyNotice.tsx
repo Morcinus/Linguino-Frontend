@@ -17,14 +17,12 @@ export interface IRatingSurveyNotice {
 
 const RatingSurveyNotice: React.FC<IRatingSurveyNotice> = ({ notice }) => {
   const { t } = useTranslation("cs", "common");
-  const [rating, setRating] = useState<number>(
-    Math.floor(notice.maxPoints / 2)
-  );
+  const [rating, setRating] = useState<number>(0);
   const { deleteNotice } = useNotices();
 
   return (
     <FullscreenDialog
-      header1={notice.question}
+      header2={notice.question}
       primaryButton={{
         onClick: () => {
           SurveyAnswersAPI.createSurveyAnswer({
@@ -38,20 +36,21 @@ const RatingSurveyNotice: React.FC<IRatingSurveyNotice> = ({ notice }) => {
       transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
     >
       <Box alignSelf="center">
-        <Rating
-          size="large"
-          value={rating}
-          onChange={(_, newValue) => {
-            if (newValue) setRating(newValue);
-          }}
-          max={notice.maxPoints}
-        />
         <Box
           display="flex"
           justifyContent="space-between"
-          sx={{ maxWidth: `${30 * notice.maxPoints}px` }}
+          gap={2}
+          alignItems="center"
         >
           <Typography>{notice.answerLabel1}</Typography>
+          <Rating
+            size="large"
+            value={rating}
+            onChange={(_, newValue) => {
+              if (newValue) setRating(newValue);
+            }}
+            max={notice.maxPoints}
+          />
           <Typography>{notice.answerLabel2}</Typography>
         </Box>
       </Box>
