@@ -40,7 +40,7 @@ const FullWidthButton: React.FC<IFullWidthButton & ButtonProps> = ({
       ) : (
         <>
           {/* Toolbar creates the right offset so that Button doesn't overlay the page content */}
-          <Toolbar />
+          <Toolbar sx={{ zIndex: 0 }} />
 
           <Box
             sx={{
@@ -48,6 +48,7 @@ const FullWidthButton: React.FC<IFullWidthButton & ButtonProps> = ({
               bottom: 0,
               left: 0,
               width: "100%",
+              zIndex: 1,
             }}
           >
             <Button
