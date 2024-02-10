@@ -49,6 +49,7 @@ const FullWidthButton: React.FC<IFullWidthButton & ButtonProps> = ({
               left: 0,
               width: "100%",
               zIndex: 1,
+              backgroundColor: "white",
             }}
           >
             <Button

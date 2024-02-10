@@ -1,6 +1,8 @@
 import { useTranslation } from "i18n/client";
 import { TextQuestionAnswer } from "infrastructure/api/user/study-session/QuestionAnswers";
 
+import { Box } from "@mui/material";
+
 import {
   IExerciseComponent,
   ReadingExercise as ReadingExerciseType,
@@ -43,7 +45,11 @@ const ReadingExercise: React.FC<IReadingExercise> = ({
           },
         },
       ]}
-      componentsAboveQuestions={<MarkdownText text={exercise.article} />}
+      componentsAboveQuestions={
+        <Box sx={{ mb: 4 }}>
+          <MarkdownText text={exercise.article} />
+        </Box>
+      }
     />
   );
 };
