@@ -68,7 +68,7 @@
     "goalSelectTitle": "Vyberte si svůj denní cíl",
     "goalSelectOptions": {
       "casual": {
-        "name": "Ležérní",
+        "name": "Lehký",
         "description": "~5 min / den"
       },
       "medium": {
@@ -76,11 +76,11 @@
         "description": "~10 min / den"
       },
       "dedicated": {
-        "name": "Oddaný",
+        "name": "Těžší",
         "description": "~15 min / den"
       },
       "intense": {
-        "name": "Intenzivní",
+        "name": "Seriózní",
         "description": "~20 min / den"
       }
     },
@@ -117,7 +117,7 @@
     "startOptions": {
       "startFromZero": {
         "name": "Začít od nuly",
-        "description": "Začnete od první lekce. Dobré pro začátečníky."
+        "description": "Začnete od první lekce. Vhodné pro úplné začátečníky."
       },
       "takeTest": {
         "name": "Test znalostí",
