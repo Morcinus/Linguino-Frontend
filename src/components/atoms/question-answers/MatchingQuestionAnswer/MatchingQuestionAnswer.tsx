@@ -130,7 +130,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
       display="flex"
       justifyContent="space-around"
       gap={horizontalLayout() ? 8 : 2}
-      sx={{ mb: 2 }}
+      sx={{ my: 2 }}
       flexDirection={horizontalLayout() ? "column" : "row"}
     >
       <Box

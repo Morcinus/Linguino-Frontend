@@ -168,7 +168,7 @@ const StudySession: React.FC<IStudySession> = ({
         </Container>
       ) : (
         <>
-          <Box sx={{ position: "fixed", width: "100%" }}>
+          <Box sx={{ position: "fixed", width: "100%", zIndex: 1 }}>
             <NavigationBar
               leftIconButton={{
                 icon: icons.close,
