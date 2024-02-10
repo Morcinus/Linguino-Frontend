@@ -37,6 +37,12 @@ const WordButton: React.FC<IWordButton> = ({
                 borderWidth: 2,
                 borderColor: "error.main",
               }
+            : state === "RIGHT"
+            ? {
+                borderStyle: "solid",
+                borderWidth: 2,
+                borderColor: "success.main",
+              }
             : undefined,
       }}
       onClick={onClick}
