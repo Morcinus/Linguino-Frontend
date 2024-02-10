@@ -1,6 +1,8 @@
 import { useTranslation } from "i18n/client";
 import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
 
+import { Box } from "@mui/material";
+
 import {
   IExerciseComponent,
   ShortListeningExercise as ShortListeningExerciseType,
@@ -43,7 +45,12 @@ const ShortListeningExercise: React.FC<IShortListeningExercise> = ({
         },
       ]}
       componentsAboveQuestions={
-        <ListenButton audioLink={exercise.textL2AudioURL} playOnMount={true} />
+        <Box sx={{ mb: 4 }}>
+          <ListenButton
+            audioLink={exercise.textL2AudioURL}
+            playOnMount={true}
+          />
+        </Box>
       }
     />
   );
