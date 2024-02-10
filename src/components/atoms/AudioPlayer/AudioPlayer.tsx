@@ -87,9 +87,12 @@ const AudioPlayer: React.FC<IAudioPlayer> = ({
       sx={{
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
       }}
     >
-      <LinearProgress value={value} variant="determinate" color="primary" />
+      <Box sx={{ width: "50%" }}>
+        <LinearProgress value={value} variant="determinate" color="primary" />
+      </Box>
 
       <Box
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
