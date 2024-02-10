@@ -32,6 +32,12 @@ const MatchAudioOption: React.FC<IMatchAudioOption> = ({
   );
   const audioRef = useRef(new Audio(audioURL));
 
+  useEffect(() => {
+    if (disabled === true) {
+      resetSound();
+    }
+  }, [disabled]);
+
   function resetSound() {
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
@@ -76,6 +82,7 @@ const MatchAudioOption: React.FC<IMatchAudioOption> = ({
         borderStyle: selected === true ? "solid" : undefined,
         borderWidth: selected === true ? 2 : undefined,
         borderColor: selected === true ? "primary.main" : undefined,
+        borderRadius: "8px",
       }}
       elevation={0}
       className={animateWrong ? `${styles.shake}` : undefined}

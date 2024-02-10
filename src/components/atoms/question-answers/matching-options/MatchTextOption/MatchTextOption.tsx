@@ -25,7 +25,7 @@ const MatchTextOption: React.FC<IMatchTextOption> = ({
         variant={"contained"}
         color={"neutral"}
         sx={{
-          borderRadius: 0.2,
+          borderRadius: "8px",
           backgroundColor: "neutral",
 
           borderStyle: selected === true ? "solid" : undefined,
