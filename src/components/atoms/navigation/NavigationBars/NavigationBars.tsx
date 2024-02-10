@@ -117,8 +117,13 @@ const Navigation: React.FC<INavigation> = () => {
             }}
           />
         );
-      default:
-        return <DrawerContainer child={{ component: DefaultNavigationBar }} />;
+      default: {
+        if (user) {
+          return (
+            <DrawerContainer child={{ component: DefaultNavigationBar }} />
+          );
+        } else return <></>;
+      }
     }
   }
 

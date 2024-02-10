@@ -261,8 +261,8 @@
   },
 
   "404": {
-    "header": "404 Stránka nebyla nalezena",
-    "backToHome": "Zpátky na hlavní stránku"
+    "header": "Stránka nebyla nalezena",
+    "backToHome": "Zpět na hlavní stránku"
   },
 
   "payment": {
