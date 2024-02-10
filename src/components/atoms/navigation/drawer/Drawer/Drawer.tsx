@@ -82,7 +82,9 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
         >
           {t("project-name")}
         </Typography>
-        <Typography variant="subtitle2">{user?.selectedCourse.name}</Typography>
+        <Typography variant="subtitle2">
+          {user?.selectedCourse?.name}
+        </Typography>
       </Toolbar>
       <List sx={{ pt: 0 }}>
         <ListItemButton onClick={() => setlevelsOpen(!levelsOpen)}>
