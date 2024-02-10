@@ -69,6 +69,8 @@ const Navigation: React.FC<INavigation> = () => {
         return <DrawerContainer child={{ component: ShopNavigationBar }} />;
       case "/":
         return <DrawerContainer child={{ component: HomeNavigationBar }} />;
+      case "/lessons-create":
+        return <BackNavigationBar />;
       case "/favorites":
         return (
           <DrawerContainer

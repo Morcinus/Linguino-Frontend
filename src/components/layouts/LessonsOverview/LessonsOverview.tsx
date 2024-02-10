@@ -32,7 +32,7 @@ const LessonsOverview: React.FC<ILessonsOverview> = ({
   return (
     <>
       {isLoading || (
-        <Box>
+        <Box sx={{ width: "100%" }}>
           <Typography variant="subtitle1">{t("categories")}</Typography>
           <TabBarPanel
             onChange={(value) => setValue(value)}
