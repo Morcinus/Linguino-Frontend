@@ -39,7 +39,7 @@ const ProgressCard: React.FC<IProgressCard> = ({
   return (
     <Card
       sx={{
-        backgroundColor: cardHighlight === "achieved" ? "#FFD700" : undefined,
+        backgroundColor: cardHighlight === "achieved" ? "#f2e300" : undefined,
 
         display: "flex",
         justifyContent: "start",
