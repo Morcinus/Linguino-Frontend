@@ -5,7 +5,7 @@ import { ReactNode, useEffect } from "react";
 
 import { useRouter } from "next/navigation";
 
-import Typography from "@mui/material/Typography";
+import { CircularProgress, Container } from "@mui/material";
 
 export interface IUnauthenticatedOnlyRoute {
   children: ReactNode;
@@ -25,7 +25,23 @@ const UnauthenticatedOnlyRoute: React.FC<IUnauthenticatedOnlyRoute> = ({
   }, [loading, user, router]);
 
   return (
-    <>{loading || user ? <Typography>{t("loading")}</Typography> : children}</>
+    <>
+      {loading || user ? (
+        <Container
+          sx={{
+            justifyContent: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <CircularProgress color="inherit" />
+          {t("loading")}
+        </Container>
+      ) : (
+        children
+      )}
+    </>
   );
 };
 

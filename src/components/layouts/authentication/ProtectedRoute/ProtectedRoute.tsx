@@ -5,7 +5,7 @@ import { ReactNode, useEffect } from "react";
 
 import { usePathname, useRouter } from "next/navigation";
 
-import Typography from "@mui/material/Typography";
+import { CircularProgress, Container } from "@mui/material";
 
 export interface IProtectedRoute {
   children: ReactNode;
@@ -42,7 +42,17 @@ const ProtectedRoute: React.FC<IProtectedRoute> = ({ children }) => {
         user &&
         user?.accountInitialized !== true &&
         pathname !== "/account-setup") ? (
-        <Typography>{t("loading")}</Typography>
+        <Container
+          sx={{
+            justifyContent: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <CircularProgress color="inherit" />
+          {t("loading")}
+        </Container>
       ) : (
         children
       )}
