@@ -45,9 +45,9 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
   }
 
   return (
-    <ContentContainer>
+    <>
       {page === 0 ? (
-        <>
+        <ContentContainer>
           {courses && (
             <SelectCourseForm
               onSubmit={(courseId) => {
@@ -57,9 +57,9 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
               omitCourseIds={courses.map((course) => course.id)}
             />
           )}
-        </>
+        </ContentContainer>
       ) : page === 1 ? (
-        <>
+        <ContentContainer>
           {selectedCourseId && (
             <SelectTopicsForm
               courseId={selectedCourseId}
@@ -69,9 +69,9 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
               }}
             />
           )}
-        </>
+        </ContentContainer>
       ) : page === 2 ? (
-        <>
+        <ContentContainer>
           {selectedCourseId && (
             <SelectStartForm
               onSubmit={(startOptionId) => {
@@ -89,10 +89,11 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
               }}
             />
           )}
-        </>
+        </ContentContainer>
       ) : (
         <>
           {startOptionId === "selectLevel" && selectedCourseId && (
+            <ContentContainer>
             <SelectLevelForm
               onSubmit={(levelOption) =>
                 submitSetup({
@@ -102,6 +103,7 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
                 })
               }
             />
+            </ContentContainer>
           )}
 
           {startOptionId === "takeTest" && selectedCourseId && (
@@ -122,7 +124,7 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
           )}
         </>
       )}
-    </ContentContainer>
+    </>
   );
 };
 
