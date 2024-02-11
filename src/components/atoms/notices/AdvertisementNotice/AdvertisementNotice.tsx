@@ -20,7 +20,11 @@ const AdvertisementNotice: React.FC<IAdvertisementNotice> = () => {
       }}
       transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
     >
-      <Box>{/*TODO: Add Advertisement here*/}</Box>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{ width: "300px", height: "300px", backgroundColor: "gray" }}
+        />
+      </Box>
     </FullscreenDialog>
   );
 };
