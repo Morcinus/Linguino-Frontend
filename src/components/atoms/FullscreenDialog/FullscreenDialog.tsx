@@ -30,6 +30,7 @@ export interface IFullscreenDialog {
     text?: string;
     icon?: string;
   };
+  maxWidth?: "sm" | "md";
 }
 
 const FullscreenDialog: React.FC<
@@ -42,6 +43,7 @@ const FullscreenDialog: React.FC<
   header2,
   text,
   children,
+  maxWidth = "sm",
   ...rest
 }) => {
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -49,7 +51,7 @@ const FullscreenDialog: React.FC<
   return (
     <Dialog fullScreen open={true} {...rest}>
       <Container
-        maxWidth="sm"
+        maxWidth={maxWidth}
         sx={{
           display: "flex",
           flexDirection: "column",
