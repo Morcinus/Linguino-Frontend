@@ -11,7 +11,7 @@ export interface ILayout {
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <ProtectedRoute>
-      <ContentContainer>{children}</ContentContainer>
+      <ContentContainer maxWidth="md">{children}</ContentContainer>
     </ProtectedRoute>
   );
 };

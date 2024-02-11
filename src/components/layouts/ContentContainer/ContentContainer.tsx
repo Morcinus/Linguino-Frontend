@@ -16,11 +16,13 @@ import { SIDE_NAV_BAR_WIDTH } from "components/atoms/navigation/main-navigation-
 export interface IContentContainer {
   children?: ReactNode;
   disablePadding?: boolean;
+  maxWidth?: "sm" | "md";
 }
 
 const ContentContainer: React.FC<IContentContainer> = ({
   children,
   disablePadding = false,
+  maxWidth = "sm",
 }) => {
   const { user } = useAuth();
   const pathname = usePathname();
@@ -39,7 +41,7 @@ const ContentContainer: React.FC<IContentContainer> = ({
       }}
     >
       <Container
-        maxWidth="sm"
+        maxWidth={maxWidth}
         sx={{ justifyContent: "center", display: "flex" }}
       >
         {children}

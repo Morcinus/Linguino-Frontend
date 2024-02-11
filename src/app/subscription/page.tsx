@@ -3,18 +3,18 @@
 
 import { useTranslation } from "i18n/client";
 import useAuth from "infrastructure/services/AuthProvider";
+import theme from "styles/theme";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import { useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 
-import ImageCard from "components/atoms/cards/ImageCard/ImageCard";
-
-import styles from "./page.module.css";
 
 export interface ISubscriptionPage {}
 
@@ -24,6 +24,10 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
   const router = useRouter();
   const { t } = useTranslation("cs", "common");
   const { user } = useAuth();
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
+  const imgWidth = desktop ? 275 : 200;
+  const imgHeight = desktop ? 182 : 133;
+  const imgBoxWidth = imgWidth + 25;
 
   function listFeatures() {
     const markup = [];
@@ -52,7 +56,14 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
             {t("subscription.subscribedHeader")}
           </Typography>
 
-          <ImageCard url="/images/subscription/subscribed.png" />
+          <Box>
+            <Image
+              src={"/images/subscription/premium_1.svg"}
+              alt="Premium account"
+              width={400}
+              height={265}
+            />
+          </Box>
 
           <Typography variant="subtitle1" sx={{ textAlign: "center", mt: 2 }}>
             {`${t("subscription.subscribedFeaturesHeader")}:`}
@@ -62,21 +73,41 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
 
           <Button
             onClick={() => router.push("/manage-subscription")}
-            variant="outlined"
+            variant="contained"
             sx={{ my: 2 }}
           >
             {t("subscription.manageSubscription")}
           </Button>
         </>
       ) : (
-        <>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 4,
+            width: "100%",
+            mb: 4,
+          }}
+        >
           <Typography variant="h5" sx={{ textAlign: "center" }}>
             {t("subscription.subscriptionHeader")}
           </Typography>
 
-          <ImageCard url="/images/subscription/subscription.png" />
+          <Box>
+            <Image
+              src={"/images/subscription/premium_1.svg"}
+              alt="Premium account"
+              width={400}
+              height={265}
+            />
+          </Box>
 
-          <Box display="flex" flexDirection="column" sx={{ width: "90%" }}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            sx={{ width: "90%", gap: 2, mt: 4 }}
+          >
             <Box
               display="flex"
               justifyContent="flex-end"
@@ -86,8 +117,13 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
               <Typography variant="subtitle1" sx={{ mb: 1 }}>
                 {t("subscription.valuePropositions.0")}
               </Typography>
-              <Box className={styles.imageWrapper}>
-                <ImageCard url="/images/subscription/valueProposition0.png" />
+              <Box sx={{ width: `${imgBoxWidth}px` }}>
+                <Image
+                  src={"/images/subscription/premium_2.svg"}
+                  alt="Advanced vocabulary."
+                  width={imgWidth}
+                  height={imgHeight}
+                />
               </Box>
             </Box>
 
@@ -96,10 +132,14 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
               justifyContent="flex-start"
               alignItems="center"
               gap={2}
-              className={styles.valueRow}
             >
-              <Box className={styles.imageWrapper}>
-                <ImageCard url="/images/subscription/valueProposition1.png" />
+              <Box sx={{ width: `${imgBoxWidth}px` }}>
+                <Image
+                  src={"/images/subscription/premium_3.svg"}
+                  alt="Create your own lessons."
+                  width={imgWidth}
+                  height={imgHeight}
+                />
               </Box>
               <Typography variant="subtitle1" sx={{ mb: 1 }}>
                 {t("subscription.valuePropositions.1")}
@@ -115,8 +155,13 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
               <Typography variant="subtitle1" sx={{ mb: 1 }}>
                 {t("subscription.valuePropositions.2")}
               </Typography>
-              <Box className={styles.imageWrapper}>
-                <ImageCard url="/images/subscription/valueProposition2.png" />
+              <Box sx={{ width: `${imgBoxWidth}px` }}>
+                <Image
+                  src={"/images/subscription/premium_4.svg"}
+                  alt="Advanced exercises."
+                  width={imgWidth}
+                  height={imgHeight}
+                />
               </Box>
             </Box>
 
@@ -126,8 +171,13 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
               alignItems="center"
               gap={2}
             >
-              <Box className={styles.imageWrapper}>
-                <ImageCard url="/images/subscription/valueProposition3.png" />
+              <Box sx={{ width: `${imgBoxWidth}px` }}>
+                <Image
+                  src={"/images/subscription/premium_5.svg"}
+                  alt="No ads"
+                  width={imgWidth}
+                  height={imgHeight}
+                />
               </Box>
               <Typography variant="subtitle1" sx={{ mb: 1 }}>
                 {t("subscription.valuePropositions.3")}
@@ -143,7 +193,7 @@ const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
           >
             {t("subscription.getSubscription")}
           </Button>
-        </>
+        </Box>
       )}
     </Box>
   );
