@@ -10,6 +10,7 @@ export interface ISimpleCardWide {
   subheader?: string;
   imageURL?: string;
   onClick?: () => void;
+  imgSize?: number;
 }
 
 const SimpleCardWide: React.FC<ISimpleCardWide> = ({
@@ -17,8 +18,9 @@ const SimpleCardWide: React.FC<ISimpleCardWide> = ({
   subheader,
   imageURL,
   onClick,
+  imgSize = 90,
 }) => {
-  const imgSize = "90px";
+  const imageResolution = `${imgSize}px`;
 
   return (
     <Card
@@ -39,10 +41,10 @@ const SimpleCardWide: React.FC<ISimpleCardWide> = ({
           {imageURL && (
             <CardMedia
               sx={{
-                height: imgSize,
-                width: imgSize,
-                minWidth: imgSize,
-                minHeight: imgSize,
+                height: imageResolution,
+                width: imageResolution,
+                minWidth: imageResolution,
+                minHeight: imageResolution,
               }}
               image={imageURL}
             />

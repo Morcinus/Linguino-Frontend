@@ -1,15 +1,15 @@
 export const startOptions: Array<StartOption> = [
   {
     id: "startFromZero",
-    imageURL: "https://picsum.photos/id/168/512/512",
+    imageURL: "/images/account-setup/start_1.png",
   },
   {
     id: "selectLevel",
-    imageURL: "https://picsum.photos/id/168/512/512",
+    imageURL: "/images/account-setup/start_2.png",
   },
   {
     id: "takeTest",
-    imageURL: "https://picsum.photos/id/168/512/512",
+    imageURL: "/images/account-setup/start_3.png",
   },
 ];
 

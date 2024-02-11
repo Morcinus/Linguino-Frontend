@@ -28,6 +28,7 @@ const SelectStartForm: React.FC<ISelectStartForm> = ({ onSubmit }) => {
             `accountSetup.startOptions.${option.id}.description`
           )}
           imageURL={option.imageURL}
+          imgSize={120}
           onClick={() => onSubmit(option.id)}
         />
       ))}
