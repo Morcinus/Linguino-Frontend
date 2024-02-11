@@ -64,7 +64,7 @@ const AudioQuestionAnswer: React.FC<IAudioQuestionAnswer> = ({
           {questionAnswer.question ?? ""}
         </Typography>
       </Box>
-      <Box sx={{ mt: 1, textAlign: "center" }}>
+      <Box sx={{ mt: 8, textAlign: "center" }}>
         {answer !== undefined && (
           <Box
             sx={{
