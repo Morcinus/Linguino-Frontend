@@ -3,7 +3,9 @@ import { BasicTooltip } from "@nivo/tooltip";
 import { useTranslation } from "i18n/client";
 import { LearningDataPoint } from "infrastructure/api/users/Users";
 import icons from "styles/icons";
+import theme from "styles/theme";
 
+import { useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -20,11 +22,18 @@ const UserStatsCard: React.FC<IUserStatsCard> = ({
   learningStats = [],
 }) => {
   const { t } = useTranslation("cs", "common");
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
       <Card>
         <CardContent>
-          <Box sx={{ width: "100%", height: "280px" }}>
+          <Box
+            sx={{
+              width: "100%",
+              height: desktop ? "280px" : "200px",
+            }}
+          >
             <ResponsiveLine
               data={[
                 {
@@ -75,11 +84,11 @@ const UserStatsCard: React.FC<IUserStatsCard> = ({
             },
           }}
         >
-          {" "}
           <Box display="flex" alignItems="center">
-            <Icon sx={{ position: "relative", bottom: 2 }}>{icons.streak}</Icon>
+            <Icon sx={{ position: "relative", bottom: 2, mr: 1 }}>
+              {icons.streak}
+            </Icon>
             <Typography variant="body1" flexGrow={1}>
-              {" "}
               {t("userProfile.streak")}
             </Typography>
             <Typography>{streak}</Typography>
