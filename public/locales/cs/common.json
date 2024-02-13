@@ -117,7 +117,8 @@
     "following": "Sleduje",
 
     "continue": "Pokračovat",
-    "topicSelection": "Výběr témat kurzu"
+    "topicSelection": "Výběr témat kurzu",
+    "manageSubscription": "Spravovat předplatné"
   },
 
   "accountSetup": {
@@ -156,9 +157,10 @@
     "whyUnsubscribe": "Proč rušíte předplatné?",
     "continue": "Pokračovat",
     "unsubscribeReasons": [
-      "Stačí mi aplikace zdarma",
-      "Je to moc drahé",
-      "Nepoužívám funkce premium"
+      "Stačí mi účet zdarma",
+      "Předplatné je moc drahé",
+      "Nepoužívám funkce premium",
+      "Jiné"
     ],
     "keep": "Ponechání premium",
     "keepPremium": "Ponechat premium",

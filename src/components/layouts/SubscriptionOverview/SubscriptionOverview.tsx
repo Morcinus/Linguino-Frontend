@@ -122,11 +122,8 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                 gap: 2,
               }}
             >
-              <Typography variant="h5">
-                {t("manageSubscription.keep")}
-              </Typography>
               <Box>
-                <Typography variant="subtitle2">
+                <Typography variant="subtitle1">
                   {t("manageSubscription.youWontHaveAccessToThese")}
                 </Typography>
                 <ul>
@@ -134,7 +131,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                     return (
                       <li key={i}>
                         <Typography>
-                          {t(`subscription.premiumFeatures.${i}`)}
+                          {t(`manageSubscription.premiumFeatures.${i}`)}
                         </Typography>
                       </li>
                     );
@@ -159,7 +156,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                 display: "flex",
                 flexDirection: "column",
                 alignSelf: "center",
-                gap: 4,
+                gap: 16,
               }}
             >
               <Typography variant="subtitle1">
