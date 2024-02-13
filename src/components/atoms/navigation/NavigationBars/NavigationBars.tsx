@@ -145,7 +145,7 @@ const Navigation: React.FC<INavigation> = () => {
         </Box>
       )}
 
-      <Toolbar />
+      {pathname !== "/study" ? <Toolbar /> : <></>}
     </>
   );
 };

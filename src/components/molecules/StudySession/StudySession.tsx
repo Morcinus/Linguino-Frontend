@@ -152,52 +152,54 @@ const StudySession: React.FC<IStudySession> = ({
   }
 
   return (
-    <Box>
-      {desktop ? (
-        <Container maxWidth="md" sx={{ mb: 2 }}>
-          <Toolbar sx={{ display: "flex", alignItems: "center" }}>
-            <StudySessionProgressBar
-              value={index}
-              maxValue={exerciseQueue.length}
-            />
+    <>
+      <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+        <Toolbar />
+        {desktop ? (
+          <Container maxWidth="md" sx={{ mb: 2 }}>
+            <Toolbar sx={{ display: "flex", alignItems: "center" }}>
+              <StudySessionProgressBar
+                value={index}
+                maxValue={exerciseQueue.length}
+              />
 
-            <IconButton onClick={() => onExit()}>
-              <Icon>{icons.close}</Icon>
-            </IconButton>
-          </Toolbar>
-        </Container>
-      ) : (
-        <>
-          <Box sx={{ position: "fixed", width: "100%", zIndex: 1 }}>
-            <NavigationBar
-              leftIconButton={{
-                icon: icons.close,
-                onClick: () => onExit(),
+              <IconButton onClick={() => onExit()}>
+                <Icon>{icons.close}</Icon>
+              </IconButton>
+            </Toolbar>
+          </Container>
+        ) : (
+          <>
+            <Box
+              sx={{
+                display: "block",
+                position: "fixed",
+                width: "100%",
+                zIndex: 1,
               }}
-              color="neutral"
-            />
-            <LinearProgress
-              color="primary"
-              variant="determinate"
-              value={
-                index <= exerciseQueue.length
-                  ? (index / exerciseQueue.length) * 100
-                  : 100
-              }
-            />
-          </Box>
-        </>
-      )}
+            >
+              <Toolbar />
+              <NavigationBar
+                leftIconButton={{
+                  icon: icons.close,
+                  onClick: () => onExit(),
+                }}
+                color="neutral"
+              />
+              <LinearProgress
+                color="primary"
+                variant="determinate"
+                value={
+                  index <= exerciseQueue.length
+                    ? (index / exerciseQueue.length) * 100
+                    : 100
+                }
+              />
+            </Box>
+          </>
+        )}
 
-      <Box
-        sx={{
-          height: "85vh",
-          display: "flex",
-          flexDirection: "column",
-          pt: desktop ? undefined : 2,
-        }}
-      >
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, pt: desktop ? undefined : 2 }}>
           <Container maxWidth="sm">
             {exerciseQueue[index] && !finishedSession && (
               <>
@@ -217,28 +219,32 @@ const StudySession: React.FC<IStudySession> = ({
           </Container>
         </Box>
 
+        <Box flexShrink={0} sx={{ marginBottom: desktop ? 0 : "42px" }}>
+          {displayExplanations &&
+          exerciseQueue !== undefined &&
+          exerciseQueue[index] !== undefined &&
+          "explanation" in exerciseQueue[index] ? (
+            <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
+          ) : (
+            <></>
+          )}
+        </Box>
+      </Box>
+      <Box sx={{ marginBottom: !openExpansion ? 0 : "100px" }}>
         {displayExplanations &&
         exerciseQueue !== undefined &&
         exerciseQueue[index] !== undefined &&
         "explanation" in exerciseQueue[index] ? (
-          <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
+          <StudyExpansionContent
+            open={openExpansion}
+            reference={elRef}
+            content={getExplanation(exerciseQueue[index])}
+          />
         ) : (
           <></>
         )}
       </Box>
-      {displayExplanations &&
-      exerciseQueue !== undefined &&
-      exerciseQueue[index] !== undefined &&
-      "explanation" in exerciseQueue[index] ? (
-        <StudyExpansionContent
-          open={openExpansion}
-          reference={elRef}
-          content={getExplanation(exerciseQueue[index])}
-        />
-      ) : (
-        <></>
-      )}
-    </Box>
+    </>
   );
 };
 
