@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
 import { FreeTrialOfferNotice as FreeTrialOfferNoticeType } from "infrastructure/api/user/notices/Notices";
-import SubscriptionsAPI from "infrastructure/api/users/subscriptions/SubscriptionsAPI";
+import SubscriptionsAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
 import useNotices from "infrastructure/services/NoticeProvider";
 import theme from "styles/theme";
 
@@ -14,14 +14,10 @@ import Typography from "@mui/material/Typography";
 import FullscreenDialog from "components/atoms/FullscreenDialog/FullscreenDialog";
 
 export interface IFreeTrialOfferNotice {
-  userId: ID;
   notice: FreeTrialOfferNoticeType;
 }
 
-const FreeTrialOfferNotice: React.FC<IFreeTrialOfferNotice> = ({
-  userId,
-  notice,
-}) => {
+const FreeTrialOfferNotice: React.FC<IFreeTrialOfferNotice> = ({ notice }) => {
   const { t } = useTranslation("cs", "common");
   const { deleteNotice } = useNotices();
   const router = useRouter();
@@ -35,7 +31,7 @@ const FreeTrialOfferNotice: React.FC<IFreeTrialOfferNotice> = ({
       header1={t("notices.freeTrialOfferHeader")}
       primaryButton={{
         onClick: async () => {
-          await SubscriptionsAPI.createSubscription(userId, {
+          await SubscriptionsAPI.createSubscription({
             subscriptionState: "TRIAL",
           });
           deleteNotice(notice.id);

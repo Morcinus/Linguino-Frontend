@@ -1,7 +1,7 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
-import { Subscription } from "infrastructure/api/users/subscriptions/Subscriptions";
-import SubscriptionsAPI from "infrastructure/api/users/subscriptions/SubscriptionsAPI";
+import { Subscription } from "infrastructure/api/user/subscriptions/Subscriptions";
+import SubscriptionsAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
 
 import { useState } from "react";
 
@@ -18,12 +18,10 @@ import MultipleChoiceCardList from "components/atoms/lists/MultipleChoiceCardLis
 import common from "../../../../public/locales/cs/common.json";
 
 export interface ISubscriptionOverview {
-  userId: ID;
   subscriptionId: ID;
 }
 
 const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
-  userId,
   subscriptionId,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | undefined>(
@@ -33,10 +31,8 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
   const [page, setPage] = useState(0);
   const router = useRouter();
 
-  const { subscription, mutate } = SubscriptionsAPI.useSubscription(
-    userId,
-    subscriptionId
-  );
+  const { subscription, mutate } =
+    SubscriptionsAPI.useSubscription(subscriptionId);
 
   function handleUnsubscribe() {
     const data: Subscription = {
@@ -47,7 +43,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
         : undefined,
     };
     mutate(
-      SubscriptionsAPI.updateSubscription(userId, data),
+      SubscriptionsAPI.updateSubscription(data),
       optimisticMutationOption(data)
     );
   }
@@ -72,7 +68,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                   </Typography>
                   <Typography>
                     {`${t("manageSubscription.subscriptionState")}: ${t(
-                      `subscription.subscriptionStates.${subscription.subscriptionState.toLowerCase()}`
+                      `manageSubscription.subscriptionStates.${subscription.subscriptionState.toLowerCase()}`
                     )}`}
                   </Typography>
                   <Typography>

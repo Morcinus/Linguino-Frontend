@@ -18,7 +18,6 @@ const ManageSubscriptionPage: React.FC<IManageSubscriptionPage> = () => {
     <>
       {user && user.activeSubscription ? (
         <SubscriptionOverview
-          userId={user.id}
           subscriptionId={user.activeSubscription.id}
         />
       ) : (

@@ -1,5 +1,5 @@
 import { Course } from "../courses/Courses";
-import { Subscription } from "../users/subscriptions/Subscriptions";
+import { Subscription } from "./subscriptions/Subscriptions";
 
 export interface UserPrivate {
   id: ID;

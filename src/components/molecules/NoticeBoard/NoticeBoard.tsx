@@ -21,14 +21,10 @@ import RewardNotice from "components/atoms/notices/RewardNotice/RewardNotice";
 import StudyStatsNotice from "components/atoms/notices/StudyStatsNotice/StudyStatsNotice";
 
 export interface INoticeBoard {
-  userId: ID;
   fetchNewNotices?: boolean;
 }
 
-const NoticeBoard: React.FC<INoticeBoard> = ({
-  userId,
-  fetchNewNotices = false,
-}) => {
+const NoticeBoard: React.FC<INoticeBoard> = ({ fetchNewNotices = false }) => {
   const { notices, fetchNotices } = useNotices();
   const [fetched, setFetched] = useState(false);
 
@@ -66,7 +62,7 @@ const NoticeBoard: React.FC<INoticeBoard> = ({
     }
 
     if (isFreeTrialOfferNotice(notice)) {
-      return <FreeTrialOfferNotice notice={notice} userId={userId} />;
+      return <FreeTrialOfferNotice notice={notice} />;
     }
   }
 

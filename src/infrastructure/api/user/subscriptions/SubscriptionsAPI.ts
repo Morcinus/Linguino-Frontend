@@ -7,37 +7,27 @@ import { CreateSubscriptionResponseDTO, Subscription } from "./Subscriptions";
 export interface SubscriptionParams {}
 
 const SubscriptionsAPI = {
-  URI: (userId: ID) => `users/${userId}/subscriptions`,
+  URI: "user/subscriptions",
 
   useSubscription(
-    userId: ID,
     id: ID
   ): Modify<FetchHook<Subscription>, { subscription: Subscription }> {
-    const { data, ...rest } = useAPI<Subscription>(`${this.URI(userId)}/${id}`);
+    const { data, ...rest } = useAPI<Subscription>(`${this.URI}/${id}`);
     return { subscription: data, ...rest };
   },
 
   async createSubscription(
-    userId: ID,
     subscription:
       | Pick<Subscription, "planId">
       | Pick<Subscription, "subscriptionState">
   ): Promise<CreateSubscriptionResponseDTO> {
-    return API.post(`${this.URI(userId)}`, subscription);
+    return API.post(`${this.URI}`, subscription);
   },
 
   async updateSubscription(
-    userId: ID,
     subscription: Partial<Subscription>
   ): Promise<Subscription> {
-    return API.put(`${this.URI(userId)}/${subscription.id}`, subscription);
-  },
-
-  async deleteSubscription(
-    userId: ID,
-    subscription: Subscription
-  ): Promise<Subscription> {
-    return API.delete(`${this.URI(userId)}/${subscription.id}`);
+    return API.put(`${this.URI}/${subscription.id}`, subscription);
   },
 };
 
