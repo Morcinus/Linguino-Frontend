@@ -27,7 +27,7 @@ const Navigation: React.FC<INavigation> = () => {
   const pathname = usePathname();
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
-  function renderNavBar(pathname: string) {
+  function renderTopNavBar(pathname: string) {
     if (/\/users\/.*\/followers/.test(pathname)) return <BackNavigationBar />;
     if (/^\/help\//.test(pathname)) return <BackNavigationBar header="help" />;
     if (/^\/help/.test(pathname))
@@ -119,6 +119,8 @@ const Navigation: React.FC<INavigation> = () => {
             }}
           />
         );
+      case "/subscribed":
+        return <></>;
       default: {
         if (user) {
           return (
@@ -129,21 +131,24 @@ const Navigation: React.FC<INavigation> = () => {
     }
   }
 
+  function renderMainNavBar(pathname: string) {
+    if (!user) return <></>;
+
+    if (pathname === "/subscribed") return <></>;
+
+    if (desktop === true) {
+      return <SideNavigationBar pathname={pathname} />;
+    } else return <BottomNavigationBar pathname={pathname} />;
+  }
+
   return (
     <>
       {pathname && !config.pagesWithoutToolbar.includes(pathname) && (
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
 
-          {renderNavBar(pathname)}
-
-          {user ? (
-            desktop === true ? (
-              <SideNavigationBar pathname={pathname} />
-            ) : (
-              <BottomNavigationBar pathname={pathname} />
-            )
-          ) : undefined}
+          {renderTopNavBar(pathname)}
+          {renderMainNavBar(pathname)}
         </Box>
       )}
 

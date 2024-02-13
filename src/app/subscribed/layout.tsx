@@ -1,8 +1,9 @@
 // prettier-ignore
 "use client"
 
+import { Container } from "@mui/material";
+
 import ProtectedRoute from "components/layouts/authentication/ProtectedRoute/ProtectedRoute";
-import ContentContainer from "components/layouts/ContentContainer/ContentContainer";
 
 export interface ILayout {
   children: React.ReactNode;
@@ -11,7 +12,12 @@ export interface ILayout {
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <ProtectedRoute>
-      <ContentContainer>{children}</ContentContainer>
+      <Container
+        maxWidth="sm"
+        sx={{ justifyContent: "center", display: "flex" }}
+      >
+        {children}
+      </Container>
     </ProtectedRoute>
   );
 };
