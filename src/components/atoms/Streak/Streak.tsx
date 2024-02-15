@@ -5,8 +5,8 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
 export interface IStreak {
-  completedDailyGoal: boolean;
-  streak: number;
+  completedDailyGoal?: boolean;
+  streak?: number;
 }
 
 const Streak: React.FC<IStreak> = ({ completedDailyGoal, streak }) => {
@@ -16,7 +16,7 @@ const Streak: React.FC<IStreak> = ({ completedDailyGoal, streak }) => {
         <Icon
           sx={{
             fontSize: 30,
-            color: completedDailyGoal ? "#F29800" : "#E5E5E5", // "#E5E5E5" : "#F29800",
+            color: completedDailyGoal ? "#F29800" : "#E5E5E5",
           }}
         >
           {icons.streak}
@@ -28,7 +28,7 @@ const Streak: React.FC<IStreak> = ({ completedDailyGoal, streak }) => {
             mt: 0.4,
           }}
         >
-          {streak || 0}
+          {streak ?? 0}
         </Typography>
       </IconButton>
     </>

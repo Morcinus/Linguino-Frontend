@@ -56,12 +56,10 @@ const HomeNavigationBar: React.FC<IHomeNavigationBar & AppBarProps> = ({
           </Typography>
         )}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          {user?.streak && user?.completedDailyGoal && (
-            <Streak
-              streak={user.streak}
-              completedDailyGoal={user.completedDailyGoal}
-            />
-          )}
+          <Streak
+            streak={user?.streak}
+            completedDailyGoal={user?.completedDailyGoal}
+          />
         </Box>
       </Toolbar>
     </AppBar>
