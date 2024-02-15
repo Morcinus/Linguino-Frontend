@@ -2,9 +2,9 @@ import { useTranslation } from "i18n/client";
 import {
   BuildWordExercise as BuildWordExerciseType,
   IExerciseComponent,
-} from "infrastructure/api/user/study-session/Exercises";
-import { BuildWordQuestionAnswer as BuildWordQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
-import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
+} from "infrastructure/api/user/courses/study-session/Exercises";
+import { BuildWordQuestionAnswer as BuildWordQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
+import { UserAnswer } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
 import BuildWordQuestionAnswer from "components/atoms/question-answers/BuildWordQuestionAnswer/BuildWordQuestionAnswer";

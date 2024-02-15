@@ -1,6 +1,6 @@
-import { IQuestionAnswerComponent } from "infrastructure/api/user/study-session/Exercises";
-import { BuildWordQuestionAnswer as BuildWordQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
-import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
+import { IQuestionAnswerComponent } from "infrastructure/api/user/courses/study-session/Exercises";
+import { BuildWordQuestionAnswer as BuildWordQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
+import { UserAnswer } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
 
 import { useState } from "react";
 

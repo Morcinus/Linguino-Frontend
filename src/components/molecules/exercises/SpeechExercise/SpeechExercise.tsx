@@ -9,8 +9,8 @@ import Typography from "@mui/material/Typography";
 import {
   IExerciseComponent,
   SpeechExercise as SpeechExerciseType,
-} from "../../../../infrastructure/api/user/study-session/Exercises";
-import { QuestionAttempt } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
+} from "../../../../infrastructure/api/user/courses/study-session/Exercises";
+import { QuestionAttempt } from "../../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import FullWidthButton from "../../../atoms/FullWidthButton/FullWidthButton";
 import Timer from "../../../atoms/Timer/Timer";
 import CheckList from "../../../atoms/lists/CheckList/CheckList";

@@ -1,12 +1,12 @@
 import { useTranslation } from "i18n/client";
-import { TextQuestionAnswer } from "infrastructure/api/user/study-session/QuestionAnswers";
+import { TextQuestionAnswer } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
 
 import { Box } from "@mui/material";
 
 import {
   IExerciseComponent,
   ReadingExercise as ReadingExerciseType,
-} from "../../../../infrastructure/api/user/study-session/Exercises";
+} from "../../../../infrastructure/api/user/courses/study-session/Exercises";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import MarkdownText from "../../../atoms/MarkdownText/MarkdownText";
 import { default as TextQuestionAnswerComponent } from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";

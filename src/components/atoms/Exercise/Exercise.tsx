@@ -3,9 +3,9 @@ import { Component, ComponentProps, ElementType, ReactNode } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import { AnswerState } from "../../../infrastructure/api/user/study-session/Exercises";
-import { QuestionAnswer } from "../../../infrastructure/api/user/study-session/QuestionAnswers";
-import { UserAnswer } from "../../../infrastructure/api/user/study-session/QuestionAttempt";
+import { AnswerState } from "../../../infrastructure/api/user/courses/study-session/Exercises";
+import { QuestionAnswer } from "../../../infrastructure/api/user/courses/study-session/QuestionAnswers";
+import { UserAnswer } from "../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import theme from "../../../styles/theme";
 import ExerciseContinueButton from "../ExerciseContinueButton/ExerciseContinueButton";
 import KeyPress from "../KeyPress/KeyPress";

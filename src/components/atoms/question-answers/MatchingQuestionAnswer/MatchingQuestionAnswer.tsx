@@ -1,13 +1,13 @@
 import {
   AnswerState,
   IQuestionAnswerComponent,
-} from "infrastructure/api/user/study-session/Exercises";
-import { MatchingQuestionAnswer as MatchingQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+} from "infrastructure/api/user/courses/study-session/Exercises";
+import { MatchingQuestionAnswer as MatchingQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
 import {
   isMatchAudioOption,
   isMatchImageOption,
   isMatchTextOption,
-} from "infrastructure/api/user/study-session/guards/matchingOptionsGuard";
+} from "infrastructure/api/user/courses/study-session/guards/matchingOptionsGuard";
 
 import { useEffect, useState } from "react";
 

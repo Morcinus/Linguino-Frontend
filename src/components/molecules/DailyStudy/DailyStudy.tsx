@@ -1,24 +1,27 @@
+import { QuestionAttempt } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
+import StudySessionAPI from "infrastructure/api/user/courses/study-session/StudySessionAPI";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
-import { QuestionAttempt } from "infrastructure/api/user/study-session/QuestionAttempt";
-import StudySessionAPI from "infrastructure/api/user/study-session/StudySessionAPI";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useRouter } from "next/navigation";
 
 import StudySession from "components/molecules/StudySession/StudySession";
 
-export interface IDailyStudy {}
+export interface IDailyStudy {
+  courseId: ID;
+}
 
-const DailyStudy: React.FC<IDailyStudy> = () => {
+const DailyStudy: React.FC<IDailyStudy> = ({ courseId }) => {
   const { addNotices } = useNotices();
   const router = useRouter();
-  const { exercises, isLoading } = StudySessionAPI.useStudySession();
+  const { exercises, isLoading } = StudySessionAPI.useStudySession(courseId);
 
   async function handleSessionFinish(
     studyStats: StudyStats,
     attempts: Array<QuestionAttempt>
   ) {
     const { reward } = await StudySessionAPI.updateStudySession(
+      courseId,
       attempts.map((attempt) => {
         const totalAnswers = attempt.states.length;
         const rightAnswers = attempt.states.filter(

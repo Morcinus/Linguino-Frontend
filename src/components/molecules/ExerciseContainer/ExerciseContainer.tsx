@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 
-import { Exercise } from "../../../infrastructure/api/user/study-session/Exercises";
+import { Exercise } from "../../../infrastructure/api/user/courses/study-session/Exercises";
 import {
   isBuildWordExercise,
   isFillInSentenceExercise,
@@ -13,8 +13,8 @@ import {
   isShortListeningExercise,
   isSpeechExercise,
   isTextExercise,
-} from "../../../infrastructure/api/user/study-session/ExercisesGuard";
-import { QuestionAttempt } from "../../../infrastructure/api/user/study-session/QuestionAttempt";
+} from "../../../infrastructure/api/user/courses/study-session/ExercisesGuard";
+import { QuestionAttempt } from "../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import BuildWordExercise from "../exercises/BuildWordExercise/BuildWordExercise";
 import FillInSentenceExercise from "../exercises/FillInSentenceExercise/FillInSentenceExercise";
 import FillInTableExercise from "../exercises/FillInTableExercise/FillInTableExercise";

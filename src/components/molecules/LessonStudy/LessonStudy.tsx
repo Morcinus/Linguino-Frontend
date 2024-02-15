@@ -1,6 +1,6 @@
+import { QuestionAttempt } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
+import StudySessionAPI from "infrastructure/api/user/courses/study-session/StudySessionAPI";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
-import { QuestionAttempt } from "infrastructure/api/user/study-session/QuestionAttempt";
-import StudySessionAPI from "infrastructure/api/user/study-session/StudySessionAPI";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useRouter } from "next/navigation";
@@ -8,13 +8,14 @@ import { useRouter } from "next/navigation";
 import StudySession from "components/molecules/StudySession/StudySession";
 
 export interface ILessonStudy {
+  courseId: ID;
   lessonId: ID;
 }
 
-const LessonStudy: React.FC<ILessonStudy> = ({ lessonId }) => {
+const LessonStudy: React.FC<ILessonStudy> = ({ courseId, lessonId }) => {
   const { addNotices } = useNotices();
   const router = useRouter();
-  const { exercises, isLoading } = StudySessionAPI.useStudySession({
+  const { exercises, isLoading } = StudySessionAPI.useStudySession(courseId, {
     lessonId,
   });
 
@@ -23,6 +24,7 @@ const LessonStudy: React.FC<ILessonStudy> = ({ lessonId }) => {
     attempts: Array<QuestionAttempt>
   ) {
     const { reward } = await StudySessionAPI.updateStudySession(
+      courseId,
       attempts.map((attempt) => {
         const totalAnswers = attempt.states.length;
         const rightAnswers = attempt.states.filter(

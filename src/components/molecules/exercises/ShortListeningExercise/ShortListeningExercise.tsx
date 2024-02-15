@@ -1,13 +1,13 @@
 import { useTranslation } from "i18n/client";
-import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
 
 import { Box } from "@mui/material";
 
 import {
   IExerciseComponent,
   ShortListeningExercise as ShortListeningExerciseType,
-} from "../../../../infrastructure/api/user/study-session/Exercises";
-import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
+} from "../../../../infrastructure/api/user/courses/study-session/Exercises";
+import { UserAnswer } from "../../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import ListenButton from "../../../atoms/ListenButton/ListenButton";
 import TextQuestionAnswer from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";

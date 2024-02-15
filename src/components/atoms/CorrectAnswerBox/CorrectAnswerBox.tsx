@@ -2,7 +2,7 @@ import { useTranslation } from "next-i18next";
 
 import Typography from "@mui/material/Typography";
 
-import { AnswerState } from "../../../infrastructure/api/user/study-session/Exercises";
+import { AnswerState } from "../../../infrastructure/api/user/courses/study-session/Exercises";
 
 export interface ICorrectAnswerBox {
   state?: AnswerState;

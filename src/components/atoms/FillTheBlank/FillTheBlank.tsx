@@ -5,9 +5,9 @@ import Typography from "@mui/material/Typography";
 import {
   AnswerState,
   IQuestionAnswerComponent,
-} from "../../../infrastructure/api/user/study-session/Exercises";
-import { FillInBlankQuestionAnswer } from "../../../infrastructure/api/user/study-session/QuestionAnswers";
-import { UserAnswer } from "../../../infrastructure/api/user/study-session/QuestionAttempt";
+} from "../../../infrastructure/api/user/courses/study-session/Exercises";
+import { FillInBlankQuestionAnswer } from "../../../infrastructure/api/user/courses/study-session/QuestionAnswers";
+import { UserAnswer } from "../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import { concatBlanks } from "../../../util/functions/sessions";
 
 export interface IFillTheBlank extends IQuestionAnswerComponent {

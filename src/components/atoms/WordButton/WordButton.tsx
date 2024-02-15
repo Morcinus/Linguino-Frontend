@@ -1,4 +1,4 @@
-import { AnswerState } from "infrastructure/api/user/study-session/Exercises";
+import { AnswerState } from "infrastructure/api/user/courses/study-session/Exercises";
 
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";

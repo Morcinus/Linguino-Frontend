@@ -1,6 +1,8 @@
 import { IDailyStudy } from "./DailyStudy";
 
-const base: IDailyStudy = {};
+const base: IDailyStudy = {
+  courseId: "asdnjlasddljdasn",
+};
 
 export const mockDailyStudyProps = {
   base,

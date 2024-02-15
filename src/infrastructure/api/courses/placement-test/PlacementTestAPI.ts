@@ -3,8 +3,8 @@ import API, { FetchHook } from "infrastructure/api/API";
 import { parseQueryParams } from "util/functions/api";
 
 import useAPI from "../../hooks/useAPI";
-import { Exercise } from "../../user/study-session/Exercises";
-import { QuestionAttempt } from "../../user/study-session/QuestionAttempt";
+import { Exercise } from "../../user/courses/study-session/Exercises";
+import { QuestionAttempt } from "../../user/courses/study-session/QuestionAttempt";
 import { PlacementTestResult } from "./PlacementTest";
 
 export interface PlacementTestParams {}

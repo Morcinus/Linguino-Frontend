@@ -1,12 +1,12 @@
-import { AudioQuestionAnswer as AudioQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+import { AudioQuestionAnswer as AudioQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
 
 import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/study-session/Exercises";
-import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
+import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/courses/study-session/Exercises";
+import { UserAnswer } from "../../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import useAuth from "../../../../infrastructure/services/AuthProvider";
 import { removeInterpunction } from "../../../../util/functions/exercises";
 import AudioInputButton from "../../AudioInputButton/AudioInputButton";

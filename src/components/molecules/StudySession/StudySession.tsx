@@ -1,8 +1,8 @@
-import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import {
   isNewGrammar,
   isNewVocabulary,
-} from "infrastructure/api/user/study-session/ExercisesGuard";
+} from "infrastructure/api/user/courses/study-session/ExercisesGuard";
+import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 import theme from "styles/theme";
@@ -23,8 +23,8 @@ import StudySessionProgressBar from "components/atoms/StudySessionProgressBar/St
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
 
 import { getExplanation } from "../../../domain/models/utils/type-guards";
-import { Exercise } from "../../../infrastructure/api/user/study-session/Exercises";
-import { QuestionAttempt } from "../../../infrastructure/api/user/study-session/QuestionAttempt";
+import { Exercise } from "../../../infrastructure/api/user/courses/study-session/Exercises";
+import { QuestionAttempt } from "../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import { useScroll } from "../../../util/hooks/useScroll";
 import StudyExpansionBar from "../../atoms/StudyExpansionBar/StudyExpansionBar";
 import StudyExpansionContent from "../../atoms/StudyExpansionContent/StudyExpansionContent";

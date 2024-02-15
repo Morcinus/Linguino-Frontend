@@ -1,11 +1,11 @@
 import { useTranslation } from "i18n/client";
-import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
 
 import {
   IExerciseComponent,
   ListeningExercise as ListeningExerciseType,
-} from "../../../../infrastructure/api/user/study-session/Exercises";
-import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
+} from "../../../../infrastructure/api/user/courses/study-session/Exercises";
+import { UserAnswer } from "../../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import AudioPlayer from "../../../atoms/AudioPlayer/AudioPlayer";
 import Exercise from "../../../atoms/Exercise/Exercise";
 import TextQuestionAnswer from "../../../atoms/question-answers/TextQuestionAnswer/TextQuestionAnswer";

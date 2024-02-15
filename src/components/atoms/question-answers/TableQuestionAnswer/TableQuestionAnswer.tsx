@@ -1,8 +1,8 @@
 import {
   AnswerState,
   IQuestionAnswerComponent,
-} from "infrastructure/api/user/study-session/Exercises";
-import { TableQuestionAnswer as TableQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+} from "infrastructure/api/user/courses/study-session/Exercises";
+import { TableQuestionAnswer as TableQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
 
 import { useState } from "react";
 

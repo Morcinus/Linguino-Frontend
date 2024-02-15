@@ -1,4 +1,4 @@
-import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
+import { TextQuestionAnswer as TextQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
 
 import { MutableRefObject, useState } from "react";
 
@@ -7,8 +7,8 @@ import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/study-session/Exercises";
-import { UserAnswer } from "../../../../infrastructure/api/user/study-session/QuestionAttempt";
+import { IQuestionAnswerComponent } from "../../../../infrastructure/api/user/courses/study-session/Exercises";
+import { UserAnswer } from "../../../../infrastructure/api/user/courses/study-session/QuestionAttempt";
 import useAuth from "../../../../infrastructure/services/AuthProvider";
 import AudioInputIconButton from "../../AudioInputIconButton/AudioInputIconButton";
 import CharacterButton from "../../CharacterButton/CharacterButton";

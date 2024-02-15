@@ -1,6 +1,6 @@
 import PlacementTestAPI from "infrastructure/api/courses/placement-test/PlacementTestAPI";
+import { QuestionAttempt } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
-import { QuestionAttempt } from "infrastructure/api/user/study-session/QuestionAttempt";
 
 import StudySession from "../StudySession/StudySession";
 import { LanguageLevel } from "../forms/SelectLevelForm/config";

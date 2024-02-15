@@ -2,9 +2,9 @@ import { useTranslation } from "i18n/client";
 import {
   FillInSentenceExercise as FillInSentenceExerciseType,
   IExerciseComponent,
-} from "infrastructure/api/user/study-session/Exercises";
-import { FillInBlankQuestionAnswer as FillInBlankQuestionAnswerType } from "infrastructure/api/user/study-session/QuestionAnswers";
-import { UserAnswer } from "infrastructure/api/user/study-session/QuestionAttempt";
+} from "infrastructure/api/user/courses/study-session/Exercises";
+import { FillInBlankQuestionAnswer as FillInBlankQuestionAnswerType } from "infrastructure/api/user/courses/study-session/QuestionAnswers";
+import { UserAnswer } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
 
 import Exercise from "components/atoms/Exercise/Exercise";
 import FillInBlankQuestionAnswer from "components/atoms/question-answers/FillInBlankQuestionAnswer/FillInBlankQuestionAnswer";
