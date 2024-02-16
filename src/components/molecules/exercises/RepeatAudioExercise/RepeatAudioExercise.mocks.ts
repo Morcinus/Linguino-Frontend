@@ -5,8 +5,7 @@ const base: IRepeatAudioExercise = {
     id: "ifdsamlmlkafd",
     type: "REPEAT_AUDIO",
     textL2: "potato",
-    audioURL:
-      "https://www.chosic.com/wp-content/uploads/2021/02/Monkeys-Spinning-Monkeys.mp3",
+    audioURL: "https://mocks.linguino.org/audio-short.mp3",
   },
 };
 
