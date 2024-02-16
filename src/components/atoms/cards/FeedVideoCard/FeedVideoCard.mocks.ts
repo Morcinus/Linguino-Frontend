@@ -5,7 +5,7 @@ const base: IFeedVideoCard = {
     publishedAt: new Date(),
     id: "dfajflkanlnjg",
     type: "video",
-    videoId: "dQw4w9WgXcQ",
+    videoId: "Tyq0oivryDQ",
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 };

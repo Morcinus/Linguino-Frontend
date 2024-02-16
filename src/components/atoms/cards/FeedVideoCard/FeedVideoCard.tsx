@@ -15,7 +15,7 @@ const FeedVideoCard: React.FC<IFeedVideoCard> = ({ feedVideo }) => {
   return (
     <Card>
       <CardMedia sx={{ aspectRatio: "16 / 9" }}>
-        <YouTubeVideoEmbed videoId="dQw4w9WgXcQ" />
+        <YouTubeVideoEmbed videoId="Tyq0oivryDQ" />
       </CardMedia>
       <Box sx={{ py: 1, px: 1 }}>
         <Typography>{feedVideo.title}</Typography>
