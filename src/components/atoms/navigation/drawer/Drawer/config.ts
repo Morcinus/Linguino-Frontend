@@ -98,6 +98,11 @@ export const other = [
     path: "/help",
   },
   {
+    label: "navigation.premium",
+    icon: icons.premium,
+    path: "/subscription",
+  },
+  {
     label: "navigation.settings",
     icon: icons.settings,
     path: "/settings",

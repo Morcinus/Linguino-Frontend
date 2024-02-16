@@ -8,6 +8,7 @@ const icons: Record<string, string> = {
   help: "help_outline_outlined",
   bugReport: "bug_report",
   settings: "settings",
+  premium: "auto_awesome",
   logout: "logout",
 
   vocabulary: "extension",
