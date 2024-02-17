@@ -48,6 +48,7 @@ const icons: Record<string, string> = {
   pause: "pause",
 
   startStudy: "play_circle_outlined",
+  moveHere: "fmd_good_outlined",
 };
 
 export default icons;

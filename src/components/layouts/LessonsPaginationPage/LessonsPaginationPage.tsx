@@ -1,5 +1,9 @@
-import { StudyMap } from "infrastructure/api/user/courses/study-map/StudyMap";
+import {
+  StudyMap,
+  StudyMapLesson,
+} from "infrastructure/api/user/courses/study-map/StudyMap";
 import StudyMapAPI from "infrastructure/api/user/courses/study-map/StudyMapAPI";
+import mutateArrayItem from "infrastructure/api/utils/mutateArrayItem";
 
 import Box from "@mui/material/Box";
 
@@ -12,6 +16,9 @@ export interface ILessonsPaginationPage {
 
   index: number;
   mapHeight: number;
+
+  onActiveLessonChange: (lessonId: ID) => void;
+  activeLessonId: ID | undefined;
 }
 
 export const LESSONS_PER_PAGE = 6;
@@ -22,14 +29,44 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
   lastViewedLevel,
   index,
   mapHeight,
+  onActiveLessonChange,
+  activeLessonId,
 }) => {
-  const { studyMap } = StudyMapAPI.useStudyMap(courseId, {
+  const { studyMap, mutate } = StudyMapAPI.useStudyMap(courseId, {
     level: level ?? lastViewedLevel,
     page: index,
   });
 
+  function handleSetActive(lessonId: ID) {
+    const change: Pick<StudyMapLesson, "id" | "isActive"> = {
+      id: lessonId,
+      isActive: true,
+    };
+
+    const newStudyMap = studyMap.map((e) => {
+      return { ...e, isActive: undefined };
+    });
+
+    mutateArrayItem(newStudyMap, lessonId, change, mutate, (params) =>
+      StudyMapAPI.updateStudyMap(courseId, params)
+    );
+
+    onActiveLessonChange(lessonId);
+  }
+
   function renderLessons(studyMap: StudyMap) {
-    const lessons = studyMap.lessons;
+    const lessons = studyMap.map((lesson) => {
+      if (lesson.isActive) {
+        if (activeLessonId === undefined) {
+          onActiveLessonChange(lesson.id);
+          return lesson;
+        } else if (activeLessonId !== lesson.id) {
+          return { ...lesson, isActive: undefined };
+        } else {
+          return lesson;
+        }
+      } else return lesson;
+    });
     const markup = [];
 
     for (let i = 0; i < lessons.length; i++) {
@@ -75,6 +112,7 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
             lessonType={lessons[i].type}
             lessonId={lessons[i].id}
             active={lessons[i].isActive}
+            onSetActive={handleSetActive}
           />
         </Box>
       );

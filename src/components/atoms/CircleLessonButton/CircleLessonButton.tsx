@@ -1,9 +1,14 @@
+import { useTranslation } from "i18n/client";
 import { LessonType } from "infrastructure/api/user/courses/lessons/Lessons";
+import icons from "styles/icons";
 import theme from "styles/theme";
 import { getLessonColor } from "util/functions/lessons";
 
+import { useState } from "react";
+
 import { useRouter } from "next/navigation";
 
+import { Button, Popover } from "@mui/material";
 import Box from "@mui/material/Box";
 import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
@@ -16,6 +21,7 @@ export interface ICircleLessonButton {
   lessonType?: LessonType;
   lessonId: ID;
   active?: boolean;
+  onSetActive: (lessonId: ID) => void;
 }
 
 const CircleLessonButton: React.FC<ICircleLessonButton> = ({
@@ -24,9 +30,23 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
   lessonType,
   lessonId,
   active,
+  onSetActive,
 }) => {
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { t } = useTranslation("cs", "common");
   const router = useRouter();
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   return (
     <>
@@ -57,7 +77,7 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
                 padding: "22px",
               },
             }}
-            onClick={() => router.push(`/lessons/${lessonId}`)}
+            onClick={handleClick}
           >
             <Icon
               sx={{
@@ -71,6 +91,50 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
         </Box>
         <Typography variant="subtitle2">{title}</Typography>
       </Box>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        sx={{
+          mt: 1,
+        }}
+      >
+        <Box sx={{ p: 1, display: "flex", gap: 1.5 }}>
+          <IconButton
+            sx={{
+              border: "1px solid",
+              borderColor: "#B9B8B8",
+              borderRadius: "50%",
+              padding: "6px",
+            }}
+          >
+            <Icon
+              baseClassName="material-icons-outlined"
+              onClick={() => {
+                onSetActive(lessonId);
+              }}
+            >
+              {icons.moveHere}
+            </Icon>
+          </IconButton>
+          <Button
+            variant="contained"
+            endIcon={<Icon>{icons.next}</Icon>}
+            onClick={() => router.push(`/lessons/${lessonId}`)}
+          >
+            {t("navigation.open")}
+          </Button>
+        </Box>
+      </Popover>
     </>
   );
 };

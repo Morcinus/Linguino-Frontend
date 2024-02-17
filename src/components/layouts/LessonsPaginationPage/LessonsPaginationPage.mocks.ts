@@ -1,3 +1,5 @@
+import { action } from "@storybook/addon-actions";
+
 import { getNumberOfCurves } from "components/atoms/StudyMap/StudyMap";
 
 import {
@@ -11,6 +13,8 @@ const base: ILessonsPaginationPage = {
   lastViewedLevel: 2,
   mapHeight: getNumberOfCurves(LESSONS_PER_PAGE * 2) * 200,
   level: 2,
+  onActiveLessonChange: action("onActiveLessonChange"),
+  activeLessonId: undefined,
 };
 
 export const mockLessonsPaginationPageProps = {

@@ -1,9 +1,9 @@
 import { Modify } from "domain/models/utils/modify";
-import { FetchHook } from "infrastructure/api/API";
+import API, { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 import { parseQueryParams } from "util/functions/api";
 
-import { StudyMap } from "./StudyMap";
+import { StudyMap, StudyMapLesson } from "./StudyMap";
 
 export interface StudyMapParams {
   level?: number;
@@ -21,6 +21,13 @@ const StudyMapAPI = {
       `${this.URI(courseId)}?${parseQueryParams(params)}`
     );
     return { studyMap: data, ...rest };
+  },
+
+  async updateStudyMap(
+    courseId: ID,
+    studyMapLesson: Partial<StudyMapLesson>
+  ): Promise<void> {
+    return API.put(`${this.URI(courseId)}`, studyMapLesson);
   },
 };
 

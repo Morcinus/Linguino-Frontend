@@ -28,6 +28,9 @@ const StudyMap: React.FC<IStudyMap> = ({
 }) => {
   const loader = useRef(null);
   const [pageCounter, setPageCounter] = useState(1);
+  const [activeLessonId, setActiveLessonId] = useState<ID | undefined>(
+    undefined
+  );
 
   function renderPages(pageCounter: number) {
     const pages = [];
@@ -40,6 +43,8 @@ const StudyMap: React.FC<IStudyMap> = ({
           level={level}
           lastViewedLevel={lastViewedLevel}
           mapHeight={getNumberOfCurves(LESSONS_PER_PAGE * pageCounter) * 200}
+          activeLessonId={activeLessonId}
+          onActiveLessonChange={(lessonId) => setActiveLessonId(lessonId)}
         />
       );
     }
