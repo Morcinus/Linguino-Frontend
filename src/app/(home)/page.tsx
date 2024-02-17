@@ -25,6 +25,10 @@ const HomePage: React.FC<IHomePage> = ({searchParams}) => {
   const router = useRouter();
 
   useEffect(()=> {
+    if(user?.lastViewedStudyMapLevel && (searchParams.level === undefined || searchParams.level === null)) {
+      router.push(`/?level=${user?.lastViewedStudyMapLevel}`)
+    }
+
     if(searchParams.level !== user?.lastViewedStudyMapLevel) {
       const change: Partial<UserPrivate> = {
         lastViewedStudyMapLevel: searchParams.level
@@ -32,7 +36,7 @@ const HomePage: React.FC<IHomePage> = ({searchParams}) => {
       UserAPI.updateUser(change);
       mutateUser(change);
     }
-  }, [searchParams, mutateUser, user?.lastViewedStudyMapLevel])
+  }, [searchParams, mutateUser, user?.lastViewedStudyMapLevel, router])
 
   return (
     <>
