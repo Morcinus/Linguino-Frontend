@@ -11,16 +11,14 @@ export interface StudyMapParams {
 }
 
 const StudyMapAPI = {
-  URI: (userId: ID, courseId: ID) =>
-    `users/${userId}/courses/${courseId}/study-map`,
+  URI: (courseId: ID) => `user/courses/${courseId}/study-map`,
 
   useStudyMap(
-    userId: ID,
     courseId: ID,
     params: StudyMapParams
   ): Modify<FetchHook<StudyMap>, { studyMap: StudyMap }> {
     const { data, ...rest } = useAPI<StudyMap>(
-      `${this.URI(userId, courseId)}?${parseQueryParams(params)}`
+      `${this.URI(courseId)}?${parseQueryParams(params)}`
     );
     return { studyMap: data, ...rest };
   },

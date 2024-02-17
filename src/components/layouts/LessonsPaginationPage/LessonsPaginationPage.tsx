@@ -1,12 +1,11 @@
-import { StudyMap } from "infrastructure/api/users/courses/study-map/StudyMap";
-import StudyMapAPI from "infrastructure/api/users/courses/study-map/StudyMapAPI";
+import { StudyMap } from "infrastructure/api/user/courses/study-map/StudyMap";
+import StudyMapAPI from "infrastructure/api/user/courses/study-map/StudyMapAPI";
 
 import Box from "@mui/material/Box";
 
 import CircleLessonButton from "components/atoms/CircleLessonButton/CircleLessonButton";
 
 export interface ILessonsPaginationPage {
-  userId: ID;
   courseId: ID;
   level?: number;
   lastViewedLevel: number;
@@ -18,14 +17,13 @@ export interface ILessonsPaginationPage {
 export const LESSONS_PER_PAGE = 6;
 
 const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
-  userId,
   courseId,
   level,
   lastViewedLevel,
   index,
   mapHeight,
 }) => {
-  const { studyMap } = StudyMapAPI.useStudyMap(userId, courseId, {
+  const { studyMap } = StudyMapAPI.useStudyMap(courseId, {
     level: level ?? lastViewedLevel,
     page: index,
   });

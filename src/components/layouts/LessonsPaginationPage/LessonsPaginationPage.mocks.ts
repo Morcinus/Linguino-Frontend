@@ -10,7 +10,6 @@ const base: ILessonsPaginationPage = {
   index: 0,
   lastViewedLevel: 2,
   mapHeight: getNumberOfCurves(LESSONS_PER_PAGE * 2) * 200,
-  userId: "sdfnaghngklhndfsk",
   level: 2,
 };
 

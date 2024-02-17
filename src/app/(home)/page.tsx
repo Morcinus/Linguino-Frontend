@@ -37,7 +37,7 @@ const HomePage: React.FC<IHomePage> = ({searchParams}) => {
   return (
     <>
       {user && <NoticeBoard fetchNewNotices={true} />}
-      {user && <StudyMap userId={user.id} courseId={user.selectedCourse.id} level={searchParams.level} lastViewedLevel={user.lastViewedStudyMapLevel ?? 0}/> }
+      {user && <StudyMap courseId={user.selectedCourse.id} level={searchParams.level} lastViewedLevel={user.lastViewedStudyMapLevel ?? 0}/> }
       <BottomFab
         header={t("studying.study")}
         icon={icons.start}

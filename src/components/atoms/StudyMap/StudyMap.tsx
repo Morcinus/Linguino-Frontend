@@ -9,7 +9,6 @@ import LessonsPaginationPage, {
 import StudyPath from "../StudyPath/StudyPath";
 
 export interface IStudyMap {
-  userId: ID;
   courseId: ID;
   level?: number;
   lastViewedLevel: number;
@@ -23,7 +22,6 @@ export function getNumberOfCurves(numberOfLessons: number) {
 }
 
 const StudyMap: React.FC<IStudyMap> = ({
-  userId,
   courseId,
   level,
   lastViewedLevel,
@@ -38,7 +36,6 @@ const StudyMap: React.FC<IStudyMap> = ({
         <LessonsPaginationPage
           key={`page-${i}`}
           index={i}
-          userId={userId}
           courseId={courseId}
           level={level}
           lastViewedLevel={lastViewedLevel}
