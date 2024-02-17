@@ -52,6 +52,10 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
               padding: "20px",
               border: "6px solid white",
               filter: "drop-shadow(0px 4px 0px rgba(212, 212, 212, 0.50));",
+              "&:hover": {
+                bgcolor: lessonType ? getLessonColor(lessonType) : undefined,
+                padding: "22px",
+              },
             }}
             onClick={() => router.push(`/lessons/${lessonId}`)}
           >
