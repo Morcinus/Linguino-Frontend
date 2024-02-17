@@ -6,11 +6,11 @@ import { DialogProps } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Dialog from "@mui/material/Dialog";
-import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import FullWidthButton from "../FullWidthButton/FullWidthButton";
+import IconContainer from "../IconContainer/IconContainer";
 import KeyPress from "../KeyPress/KeyPress";
 import ImageCard from "../cards/ImageCard/ImageCard";
 
@@ -85,7 +85,7 @@ const FullscreenDialog: React.FC<
               onClick={() => secondaryButton.onClick?.()}
               endIcon={
                 secondaryButton.icon ? (
-                  <Icon>{secondaryButton.icon}</Icon>
+                  <IconContainer name={secondaryButton.icon} />
                 ) : undefined
               }
             >
@@ -97,7 +97,7 @@ const FullscreenDialog: React.FC<
               onClick={() => primaryButton.onClick?.()}
               endIcon={
                 primaryButton.icon ? (
-                  <Icon>{primaryButton.icon}</Icon>
+                  <IconContainer name={primaryButton.icon} />
                 ) : undefined
               }
             >

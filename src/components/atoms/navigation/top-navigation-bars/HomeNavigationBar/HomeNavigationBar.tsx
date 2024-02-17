@@ -6,12 +6,12 @@ import theme from "styles/theme";
 import { AppBarProps } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import Streak from "components/atoms/Streak/Streak";
 
 import { IDrawerController } from "../../drawer/DrawerContainer/DrawerContainer";
@@ -44,7 +44,7 @@ const HomeNavigationBar: React.FC<IHomeNavigationBar & AppBarProps> = ({
       >
         <Box>
           <IconButton onClick={onDrawerOpen}>
-            <Icon>{icons.menu}</Icon>
+            <IconContainer name={icons.menu} />
           </IconButton>
         </Box>
         {user && user.lastViewedStudyMapLevel && (

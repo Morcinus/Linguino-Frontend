@@ -1,9 +1,8 @@
 import { useTranslation } from "i18n/client";
 import icons from "styles/icons";
 
-import { Icon } from "@mui/material";
-
 import FullWidthButton from "../FullWidthButton/FullWidthButton";
+import IconContainer from "../IconContainer/IconContainer";
 
 export interface IExerciseContinueButton {
   onClick: () => void;
@@ -20,7 +19,9 @@ const ExerciseContinueButton: React.FC<IExerciseContinueButton> = ({
     <FullWidthButton
       onClick={onClick}
       disabled={state === "DISABLED"}
-      endIcon={state === "CONTINUE" ? <Icon>{icons.next}</Icon> : undefined}
+      endIcon={
+        state === "CONTINUE" ? <IconContainer name={icons.next} /> : undefined
+      }
     >
       {t(state === "CONTINUE" ? "exercise.continue" : "exercise.check")}
     </FullWidthButton>

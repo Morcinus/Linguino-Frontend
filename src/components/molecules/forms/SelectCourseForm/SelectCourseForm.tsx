@@ -8,13 +8,13 @@ import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
-import Icon from "@mui/material/Icon";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
 
@@ -100,7 +100,7 @@ const SelectCourseForm: React.FC<ISelectCourseForm> = ({
         disabled={selectedCourseId === undefined}
       >
         {tCommon("accountSetup.selectCourse")}
-        <Icon>{icons.next}</Icon>
+        <IconContainer name={icons.next} />
       </FullWidthButton>
     </Box>
   );

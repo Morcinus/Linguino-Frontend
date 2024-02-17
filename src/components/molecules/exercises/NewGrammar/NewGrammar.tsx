@@ -3,11 +3,11 @@ import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 import icons from "styles/icons";
 
-import { Icon } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import LessonCard from "components/atoms/cards/LessonCard/LessonCard";
 
 export interface INewGrammar {
@@ -73,7 +73,7 @@ const NewGrammar: React.FC<INewGrammar> = ({
         </FullWidthButton>
         <FullWidthButton
           onClick={() => onContinue()}
-          endIcon={<Icon>{icons.next}</Icon>}
+          endIcon={<IconContainer name={icons.next} />}
         >
           {t("exercise.continue")}
         </FullWidthButton>

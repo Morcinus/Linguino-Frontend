@@ -2,8 +2,9 @@ import icons from "styles/icons";
 import theme from "styles/theme";
 
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import useMediaQuery from "@mui/material/useMediaQuery";
+
+import IconContainer from "../IconContainer/IconContainer";
 
 export interface ILevelProgressBar {
   progress: number;
@@ -27,26 +28,24 @@ const LevelProgressBar: React.FC<ILevelProgressBar> = ({ progress }) => {
     return iconSizes.map((size, i) => (
       <>
         {fillStar(i) ? (
-          <Icon
+          <IconContainer
             key={i}
             sx={{
               fontSize: size,
               textShadow: "0px 0px 5px rgba(0,0,0,0.2)",
               color: "#FFD700",
             }}
-          >
-            {icons.starFilled}
-          </Icon>
+            name={icons.starFilled}
+          />
         ) : (
-          <Icon
+          <IconContainer
             key={i}
             sx={{
               fontSize: size,
               color: "#383838",
             }}
-          >
-            {icons.star}
-          </Icon>
+            name={icons.star}
+          />
         )}
       </>
     ));

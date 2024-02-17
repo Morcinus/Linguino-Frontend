@@ -1,14 +1,12 @@
 const icons: Record<string, string> = {
-  home: "home",
   menu: "menu",
 
   favorites: "favorite_border",
   myVocabulary: "library_books_outlined",
-  courses: "apps_outlined",
+  courses: "apps",
   help: "help_outline_outlined",
-  bugReport: "bug_report",
-  settings: "settings",
-  premium: "auto_awesome",
+  settings: "settings_outlined",
+  premium: "offline_bolt_outlined",
   logout: "logout",
 
   vocabulary: "extension",
@@ -22,32 +20,32 @@ const icons: Record<string, string> = {
   back: "navigate_before",
   close: "close",
 
-  coins: "toll",
-
   follow: "person_add_outlined",
   unfollow: "person_remove_outlined",
 
-  like: "thumb_up",
-  dislike: "thumb_down",
+  like: "thumb_up_outlined",
+  liked: "thumb_up",
+  dislike: "thumb_down_outlined",
+  disliked: "thumb_down",
 
   sound: "volume_up",
 
   starFilled: "star",
   star: "star_border",
 
-  addReaction: "add_reaction",
+  addReaction: "add_reaction_outlined",
 
   add: "add",
-  edit: "edit",
+  edit: "edit_outlined",
   remove: "remove",
-  save: "save",
+  save: "save_outlined",
   search: "search",
 
   streak: "local_fire_department",
-  start: "play_arrow",
+  start: "play_arrow_outlined",
   pause: "pause",
 
-  startStudy: "play_circle_outlined",
+  startStudy: "play_arrow_outlined",
   moveHere: "fmd_good_outlined",
 };
 

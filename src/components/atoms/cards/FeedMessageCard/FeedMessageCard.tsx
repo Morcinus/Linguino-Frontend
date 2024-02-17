@@ -15,7 +15,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Typography from "@mui/material/Typography";
 
-import OutlinedIcon from "components/atoms/OutlinedIcon/OutlinedIcon";
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 import { availableMessages, availableReactions } from "./config";
 
@@ -98,7 +98,7 @@ const FeedMessageCard: React.FC<IFeedMessageCard> = ({
               );
             })}
             <IconButton onClick={handleClick} size="small">
-              <OutlinedIcon fontSize="small">{icons.addReaction}</OutlinedIcon>
+              <IconContainer fontSize="small" name={icons.addReaction} />
             </IconButton>
             <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
               <Grid container spacing={0}>

@@ -9,9 +9,10 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+
+import IconContainer from "../IconContainer/IconContainer";
 
 export interface IPopup {
   header?: string;
@@ -58,7 +59,7 @@ const Popup: React.FC<IPopup> = ({
               color: theme.palette.grey[500],
             }}
           >
-            <Icon>{icons.close}</Icon>
+            <IconContainer name={icons.close} />
           </IconButton>
         )}
       </DialogTitle>

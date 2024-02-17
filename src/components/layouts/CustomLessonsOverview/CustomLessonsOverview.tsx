@@ -6,10 +6,10 @@ import React from "react";
 import { useRouter } from "next/navigation";
 
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import UserLessonsList from "components/atoms/lists/UserLessonsList/UserLessonsList";
 
 import { useTranslation } from "../../../i18n/client";
@@ -40,7 +40,7 @@ const CustomLessonsOverview: React.FC<ICustomLessonsOverview> = ({
           {tCommon("navigation.myLessons")}
         </Typography>
         <IconButton onClick={() => router.push("/lessons-create")}>
-          <Icon>{icons.add}</Icon>
+          <IconContainer name={icons.add} />
         </IconButton>
       </Box>
       {lessons && (

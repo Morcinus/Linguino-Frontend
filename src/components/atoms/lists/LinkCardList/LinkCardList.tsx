@@ -3,11 +3,12 @@ import icons from "styles/icons";
 import { useRouter } from "next/navigation";
 
 import Avatar from "@mui/material/Avatar";
-import Icon from "@mui/material/Icon";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 import CardList from "../CardList/CardList";
 
@@ -41,7 +42,7 @@ const LinkCardList: React.FC<ILinkCardList> = ({ links }) => {
                 primary={link.name}
                 secondary={link.secondaryName ?? undefined}
               />
-              <Icon>{icons.next}</Icon>
+              <IconContainer name={icons.next} />
             </ListItemButton>
           </ListItem>
         );

@@ -4,12 +4,13 @@ import icons from "styles/icons";
 import { useRouter } from "next/navigation";
 
 import Avatar from "@mui/material/Avatar";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 import CardList from "../CardList/CardList";
 
@@ -34,11 +35,11 @@ const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {
                 onFollow && onUnfollow ? (
                   user.isFollowed ? (
                     <IconButton onClick={() => onUnfollow(user.id)}>
-                      <Icon>{icons.unfollow}</Icon>
+                      <IconContainer name={icons.unfollow} />
                     </IconButton>
                   ) : (
                     <IconButton onClick={() => onFollow(user.id)}>
-                      <Icon>{icons.follow}</Icon>
+                      <IconContainer name={icons.follow} />
                     </IconButton>
                   )
                 ) : undefined

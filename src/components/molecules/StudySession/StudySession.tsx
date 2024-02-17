@@ -10,7 +10,6 @@ import theme from "styles/theme";
 import { useEffect, useState } from "react";
 
 import {
-  Icon,
   IconButton,
   LinearProgress,
   Toolbar,
@@ -19,6 +18,7 @@ import {
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import StudySessionProgressBar from "components/atoms/StudySessionProgressBar/StudySessionProgressBar";
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
 
@@ -164,7 +164,7 @@ const StudySession: React.FC<IStudySession> = ({
               />
 
               <IconButton onClick={() => onExit()}>
-                <Icon>{icons.close}</Icon>
+                <IconContainer name={icons.close} />
               </IconButton>
             </Toolbar>
           </Container>

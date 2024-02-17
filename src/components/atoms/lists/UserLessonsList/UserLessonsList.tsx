@@ -3,12 +3,13 @@ import icons from "styles/icons";
 import { useRouter } from "next/navigation";
 
 import Avatar from "@mui/material/Avatar";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 import CardList from "../CardList/CardList";
 
@@ -37,7 +38,7 @@ const UserLessonsList: React.FC<IUserLessonsList> = ({ lessons }) => {
               <IconButton
                 onClick={() => router.push(`/lessons/${link.id}/update`)}
               >
-                <Icon>{icons.edit}</Icon>
+                <IconContainer name={icons.edit} />
               </IconButton>
             }
           >

@@ -3,8 +3,10 @@ import icons from "styles/icons";
 
 import useKeypress from "react-use-keypress";
 
-import { Box, Icon } from "@mui/material";
+import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 import {
   IExerciseComponent,
@@ -75,7 +77,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
       <Box sx={{ pt: 8 }} display="flex" justifyContent="center">
         <FullWidthButton
           onClick={handleContinue}
-          endIcon={<Icon>{icons.next}</Icon>}
+          endIcon={<IconContainer name={icons.next} />}
         >
           {t("exercise.continue")}
         </FullWidthButton>

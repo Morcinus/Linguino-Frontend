@@ -7,10 +7,10 @@ import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
 import { useRouter } from "next/navigation";
@@ -31,7 +31,7 @@ const CoursesPage: React.FC<ICoursesPage> = () => {
             {tCommon("navigation.myCourses")}
           </Typography>
           <IconButton onClick={() => router.push("/select-course")}>
-            <Icon>{icons.add}</Icon>
+            <IconContainer name={icons.add}/>
           </IconButton>
         </Box>
 

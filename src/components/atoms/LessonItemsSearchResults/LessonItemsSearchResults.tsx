@@ -6,13 +6,13 @@ import { useRouter } from "next/navigation";
 
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 
+import IconContainer from "../IconContainer/IconContainer";
 import CardList from "../lists/CardList/CardList";
 
 export interface ILessonItemsSearchResults {
@@ -45,7 +45,7 @@ const LessonItemsSearchResults: React.FC<ILessonItemsSearchResults> = ({
                     <Avatar src={item.imageURL} variant="rounded" />
                   </ListItemAvatar>
                   <ListItemText primary={item.nameL2} secondary={item.nameL1} />
-                  <Icon>{icons.next}</Icon>
+                  <IconContainer name={icons.next} />
                 </ListItemButton>
               </ListItem>
             );

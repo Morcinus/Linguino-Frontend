@@ -9,8 +9,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 export interface IUserProfileCard {
   userProfile: Pick<
@@ -72,9 +73,9 @@ const UserProfileCard: React.FC<IUserProfileCard> = ({
             variant="contained"
             startIcon={
               userProfile.isFollowed ? (
-                <Icon>{icons.unfollow}</Icon>
+                <IconContainer name={icons.unfollow} />
               ) : (
-                <Icon>{icons.follow}</Icon>
+                <IconContainer name={icons.follow} />
               )
             }
             onClick={() => onFollowChange(!userProfile.isFollowed)}

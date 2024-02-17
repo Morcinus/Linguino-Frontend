@@ -9,12 +9,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import OutlinedIcon from "../../OutlinedIcon/OutlinedIcon";
+import IconContainer from "../../IconContainer/IconContainer";
 
 export interface IFeedbackCard {
   onFeedbackChange: (value: Feedback) => void;
@@ -43,18 +42,18 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
             onClick={() => onFeedbackChange({ ...feedback, state: "LIKED" })}
           >
             {feedback && feedback.state === "LIKED" ? (
-              <Icon>{icons.like}</Icon>
+              <IconContainer name={icons.liked} />
             ) : (
-              <OutlinedIcon>{icons.like}</OutlinedIcon>
+              <IconContainer name={icons.like} />
             )}
           </IconButton>
           <IconButton
             onClick={() => onFeedbackChange({ ...feedback, state: "DISLIKED" })}
           >
             {feedback && feedback.state === "DISLIKED" ? (
-              <Icon>{icons.dislike}</Icon>
+              <IconContainer name={icons.disliked} />
             ) : (
-              <OutlinedIcon>{icons.dislike}</OutlinedIcon>
+              <IconContainer name={icons.dislike} />
             )}
           </IconButton>
         </Box>

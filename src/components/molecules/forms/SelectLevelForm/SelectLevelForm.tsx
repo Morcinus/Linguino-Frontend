@@ -4,10 +4,10 @@ import icons from "styles/icons";
 import { useState } from "react";
 
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
 
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import MultipleChoiceCardList from "components/atoms/lists/MultipleChoiceCardList/MultipleChoiceCardList";
 
 import { LevelOption, levelOptions } from "./config";
@@ -49,7 +49,7 @@ const SelectLevelForm: React.FC<ISelectLevelForm> = ({ onSubmit }) => {
         disabled={selectedIndex === undefined}
       >
         {tCommon("navigation.continue")}
-        <Icon>{icons.next}</Icon>
+        <IconContainer name={icons.next} />
       </FullWidthButton>
     </Box>
   );

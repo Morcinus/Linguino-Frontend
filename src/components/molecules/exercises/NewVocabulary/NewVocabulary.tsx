@@ -3,11 +3,11 @@ import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonItemsAPI from "infrastructure/api/user/courses/lesson-items/LessonItemsAPI";
 import icons from "styles/icons";
 
-import { Icon } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import LessonItemCard from "components/atoms/cards/LessonItemCard/LessonItemCard";
 
 export interface INewVocabulary {
@@ -81,7 +81,7 @@ const NewVocabulary: React.FC<INewVocabulary> = ({
         </FullWidthButton>
         <FullWidthButton
           onClick={() => onContinue()}
-          endIcon={<Icon>{icons.next}</Icon>}
+          endIcon={<IconContainer name={icons.next} />}
         >
           {t("exercise.continue")}
         </FullWidthButton>

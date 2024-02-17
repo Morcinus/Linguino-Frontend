@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import LinearProgress from "@mui/material/LinearProgress";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 import styles from "./MatchAudioOption.module.css";
 
@@ -100,13 +101,17 @@ const MatchAudioOption: React.FC<IMatchAudioOption> = ({
             disabled={disabled}
           >
             {state === "STOPPED" || state === "PAUSED" ? (
-              <Icon color={disabled ? undefined : "primary"} fontSize="large">
-                {icons.start}
-              </Icon>
+              <IconContainer
+                name={icons.start}
+                color={disabled ? undefined : "primary"}
+                fontSize="large"
+              />
             ) : (
-              <Icon color={disabled ? undefined : "primary"} fontSize="large">
-                {icons.pause}
-              </Icon>
+              <IconContainer
+                name={icons.pause}
+                color={disabled ? undefined : "primary"}
+                fontSize="large"
+              />
             )}
           </IconButton>
         </Box>

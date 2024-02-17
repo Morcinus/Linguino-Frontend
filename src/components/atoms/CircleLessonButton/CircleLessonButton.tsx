@@ -10,10 +10,11 @@ import { useRouter } from "next/navigation";
 
 import { Button, Popover } from "@mui/material";
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+
+import IconContainer from "../IconContainer/IconContainer";
 
 export interface ICircleLessonButton {
   title: string;
@@ -79,14 +80,15 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
             }}
             onClick={handleClick}
           >
-            <Icon
-              sx={{
-                fontSize: desktop ? 40 : 35,
-                filter: "drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.10));",
-              }}
-            >
-              {icon}
-            </Icon>
+            {icon && (
+              <IconContainer
+                sx={{
+                  fontSize: desktop ? 40 : 35,
+                  filter: "drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.10));",
+                }}
+                name={icon}
+              />
+            )}
           </IconButton>
         </Box>
         <Typography variant="subtitle2">{title}</Typography>
@@ -117,18 +119,17 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
               padding: "6px",
             }}
           >
-            <Icon
+            <IconContainer
               baseClassName="material-icons-outlined"
               onClick={() => {
                 onSetActive(lessonId);
               }}
-            >
-              {icons.moveHere}
-            </Icon>
+              name={icons.moveHere}
+            />
           </IconButton>
           <Button
             variant="contained"
-            endIcon={<Icon>{icons.next}</Icon>}
+            endIcon={<IconContainer name={icons.next} />}
             onClick={() => router.push(`/lessons/${lessonId}`)}
           >
             {t("navigation.open")}

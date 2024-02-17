@@ -10,7 +10,6 @@ import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import Collapse from "@mui/material/Collapse";
 import Divider from "@mui/material/Divider";
 import { default as MUIDrawer } from "@mui/material/Drawer";
-import Icon from "@mui/material/Icon";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -18,6 +17,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 import { useTranslation } from "../../../../../i18n/client";
 import { drawerWidth, lessons, levels, other, studying } from "./config";
@@ -109,9 +110,7 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
                         setValue(`levels-${i}`);
                       }}
                     >
-                      <ListItemIcon>
-                        <Icon>{item.icon}</Icon>
-                      </ListItemIcon>
+                      <ListItemIcon></ListItemIcon>
                       <ListItemText primary={t(item.label)} />
                     </ListItemButton>
                   </Link>
@@ -144,7 +143,7 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
                     }}
                   >
                     <ListItemIcon>
-                      <Icon>{item.icon}</Icon>
+                      <IconContainer name={item.icon} />
                     </ListItemIcon>
                     <ListItemText primary={t(item.label)} />
                   </ListItemButton>
@@ -167,7 +166,7 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
                 }}
               >
                 <ListItemIcon>
-                  <Icon>{item.icon}</Icon>
+                  <IconContainer name={item.icon} />
                 </ListItemIcon>
                 <ListItemText primary={t(item.label)} />
               </ListItemButton>
@@ -191,7 +190,7 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
                 }}
               >
                 <ListItemIcon>
-                  <Icon>{item.icon}</Icon>
+                  <IconContainer name={item.icon} />
                 </ListItemIcon>
                 <ListItemText primary={t(item.label)} />
               </ListItemButton>

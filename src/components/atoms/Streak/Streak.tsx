@@ -1,8 +1,9 @@
 import icons from "styles/icons";
 
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+
+import IconContainer from "../IconContainer/IconContainer";
 
 export interface IStreak {
   completedDailyGoal?: boolean;
@@ -13,14 +14,13 @@ const Streak: React.FC<IStreak> = ({ completedDailyGoal, streak }) => {
   return (
     <>
       <IconButton size="small">
-        <Icon
+        <IconContainer
           sx={{
             fontSize: 30,
             color: completedDailyGoal ? "#F29800" : "#E5E5E5",
           }}
-        >
-          {icons.streak}
-        </Icon>
+          name={icons.streak}
+        />
         <Typography
           variant="body1"
           sx={{

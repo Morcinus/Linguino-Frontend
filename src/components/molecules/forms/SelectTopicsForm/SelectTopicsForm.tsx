@@ -6,10 +6,10 @@ import icons from "styles/icons";
 import { useState } from "react";
 
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
 
 import FullWidthButton from "components/atoms/FullWidthButton/FullWidthButton";
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
 
@@ -76,7 +76,7 @@ const SelectTopicsForm: React.FC<ISelectTopicsForm> = ({
         disabled={selectedTopics.length === 0}
       >
         {tCommon("navigation.continue")}
-        <Icon>{icons.next}</Icon>
+        <IconContainer name={icons.next} />
       </FullWidthButton>
     </Box>
   );

@@ -9,8 +9,9 @@ import { useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 export interface IUserStatsCard {
   streak: number;
@@ -85,9 +86,10 @@ const UserStatsCard: React.FC<IUserStatsCard> = ({
           }}
         >
           <Box display="flex" alignItems="center">
-            <Icon sx={{ position: "relative", bottom: 2, mr: 1 }}>
-              {icons.streak}
-            </Icon>
+            <IconContainer
+              sx={{ position: "relative", bottom: 2, mr: 1 }}
+              name={icons.streak}
+            />
             <Typography variant="body1" flexGrow={1}>
               {t("userProfile.streak")}
             </Typography>

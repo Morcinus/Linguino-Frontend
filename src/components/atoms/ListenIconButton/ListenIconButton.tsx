@@ -2,8 +2,9 @@ import icons from "styles/icons";
 
 import { useEffect, useRef, useState } from "react";
 
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
+
+import IconContainer from "../IconContainer/IconContainer";
 
 export interface IListenIconButton {
   playOnMount?: boolean;
@@ -62,9 +63,10 @@ const ListenIconButton: React.FC<IListenIconButton> = ({
 
   return (
     <IconButton onClick={handleButtonClick}>
-      <Icon color={state === "RUNNING" ? "primary" : undefined}>
-        {icons.sound}
-      </Icon>
+      <IconContainer
+        color={state === "RUNNING" ? "primary" : undefined}
+        name={icons.sound}
+      />
     </IconButton>
   );
 };

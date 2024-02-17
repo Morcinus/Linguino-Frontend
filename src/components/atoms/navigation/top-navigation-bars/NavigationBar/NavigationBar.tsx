@@ -3,11 +3,12 @@ import theme from "styles/theme";
 import { AppBarProps } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 
 import { SIDE_NAV_BAR_WIDTH } from "../../main-navigation-bars/SideNavigationBar/SideNavigationBar";
 
@@ -50,7 +51,7 @@ const NavigationBar: React.FC<INavigationBar & AppBarProps> = ({
         <Box>
           {leftIconButton && (
             <IconButton onClick={leftIconButton.onClick}>
-              <Icon>{leftIconButton.icon}</Icon>
+              <IconContainer name={leftIconButton.icon} />
             </IconButton>
           )}
         </Box>
@@ -63,7 +64,7 @@ const NavigationBar: React.FC<INavigationBar & AppBarProps> = ({
         <Box>
           {rightIconButton && (
             <IconButton onClick={rightIconButton.onClick}>
-              <Icon>{rightIconButton.icon}</Icon>
+              <IconContainer name={rightIconButton.icon} />
             </IconButton>
           )}
         </Box>

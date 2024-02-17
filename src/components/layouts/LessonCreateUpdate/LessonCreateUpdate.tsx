@@ -12,7 +12,6 @@ import { useRouter } from "next/navigation";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import InputLabel from "@mui/material/InputLabel";
 import ListItem from "@mui/material/ListItem";
@@ -23,6 +22,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
 import BottomFab from "components/atoms/BottomFab/BottomFab";
+import IconContainer from "components/atoms/IconContainer/IconContainer";
 import Popup from "components/atoms/Popup/Popup";
 import CardList from "components/atoms/lists/CardList/CardList";
 import AddVocabularyDialog from "components/molecules/AddVocabularyDialog/AddVocabularyDialog";
@@ -154,7 +154,7 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
               {t("userLessons.vocabulary")}
             </Typography>
             <IconButton onClick={() => setSearchDialogOpen(true)}>
-              <Icon>{icons.add}</Icon>
+              <IconContainer name={icons.add} />
             </IconButton>
           </Box>
           <AddVocabularyDialog
@@ -181,7 +181,7 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
                           setItems(items.filter((e) => e.id !== item.id));
                         }}
                       >
-                        <Icon>{icons.remove}</Icon>
+                        <IconContainer name={icons.remove} />
                       </IconButton>
                     }
                     sx={{ pr: 2 }}
