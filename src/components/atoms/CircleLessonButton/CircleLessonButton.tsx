@@ -15,6 +15,7 @@ export interface ICircleLessonButton {
   icon?: string;
   lessonType?: LessonType;
   lessonId: ID;
+  active?: boolean;
 }
 
 const CircleLessonButton: React.FC<ICircleLessonButton> = ({
@@ -22,34 +23,51 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
   title,
   lessonType,
   lessonId,
+  active,
 }) => {
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
   const router = useRouter();
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
-      <IconButton
-        size="large"
-        sx={{
-          backgroundColor: lessonType ? getLessonColor(lessonType) : undefined,
-          color: "white",
-          padding: "20px",
-          border: "6px solid white",
-          filter: "drop-shadow(0px 4px 0px rgba(212, 212, 212, 0.50));",
-        }}
-        onClick={() => router.push(`/lessons/${lessonId}`)}
-      >
-        <Icon
+    <>
+      <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
+        <Box
           sx={{
-            fontSize: desktop ? 40 : 35,
-            filter: "drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.10));",
+            backgroundColor: active ? "#E0E0E0" : undefined,
+            width: "102px",
+            height: "102px",
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          {icon}
-        </Icon>
-      </IconButton>
-      <Typography variant="subtitle2">{title}</Typography>
-    </Box>
+          <IconButton
+            size="large"
+            sx={{
+              backgroundColor: lessonType
+                ? getLessonColor(lessonType)
+                : undefined,
+              color: "white",
+              padding: "20px",
+              border: "6px solid white",
+              filter: "drop-shadow(0px 4px 0px rgba(212, 212, 212, 0.50));",
+            }}
+            onClick={() => router.push(`/lessons/${lessonId}`)}
+          >
+            <Icon
+              sx={{
+                fontSize: desktop ? 40 : 35,
+                filter: "drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.10));",
+              }}
+            >
+              {icon}
+            </Icon>
+          </IconButton>
+        </Box>
+        <Typography variant="subtitle2">{title}</Typography>
+      </Box>
+    </>
   );
 };
 

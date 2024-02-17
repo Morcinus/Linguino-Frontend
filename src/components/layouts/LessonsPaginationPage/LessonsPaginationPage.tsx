@@ -76,6 +76,7 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
             icon={lessons[i].icon}
             lessonType={lessons[i].type}
             lessonId={lessons[i].id}
+            active={lessons[i].isActive}
           />
         </Box>
       );

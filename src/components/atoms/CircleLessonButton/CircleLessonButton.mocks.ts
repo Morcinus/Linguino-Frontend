@@ -7,6 +7,7 @@ const base: ICircleLessonButton = {
   icon: icons.next,
   lessonId: "dfnsjfnklfsdg",
   lessonType: "GRAMMAR",
+  active: false,
 };
 
 export const mockCircleLessonButtonProps = {
