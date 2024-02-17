@@ -12,7 +12,7 @@ const UserAPI = {
   },
 
   async updateUser(user: Partial<UserPrivate>): Promise<UserPrivate> {
-    return API.put(`${this.URI}/${user.id}`, user);
+    return API.put(`${this.URI}`, user);
   },
 };
 

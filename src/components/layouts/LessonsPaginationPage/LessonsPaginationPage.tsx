@@ -5,6 +5,8 @@ import {
 import StudyMapAPI from "infrastructure/api/user/courses/study-map/StudyMapAPI";
 import mutateArrayItem from "infrastructure/api/utils/mutateArrayItem";
 
+import { useEffect, useState } from "react";
+
 import Box from "@mui/material/Box";
 
 import CircleLessonButton from "components/atoms/CircleLessonButton/CircleLessonButton";
@@ -36,6 +38,7 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
     level: level ?? lastViewedLevel,
     page: index,
   });
+  const [lessons, setLessons] = useState<Array<StudyMapLesson>>([]);
 
   function handleSetActive(lessonId: ID) {
     const change: Pick<StudyMapLesson, "id" | "isActive"> = {
@@ -54,19 +57,26 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
     onActiveLessonChange(lessonId);
   }
 
+  useEffect(() => {
+    const lessons = studyMap
+      ? studyMap.map((lesson) => {
+          if (lesson.isActive) {
+            if (activeLessonId === undefined) {
+              onActiveLessonChange(lesson.id);
+              return lesson;
+            } else if (activeLessonId !== lesson.id) {
+              return { ...lesson, isActive: undefined };
+            } else {
+              return lesson;
+            }
+          } else return lesson;
+        })
+      : [];
+
+    setLessons(lessons);
+  }, [studyMap, activeLessonId, onActiveLessonChange, setLessons]);
+
   function renderLessons(studyMap: StudyMap) {
-    const lessons = studyMap.map((lesson) => {
-      if (lesson.isActive) {
-        if (activeLessonId === undefined) {
-          onActiveLessonChange(lesson.id);
-          return lesson;
-        } else if (activeLessonId !== lesson.id) {
-          return { ...lesson, isActive: undefined };
-        } else {
-          return lesson;
-        }
-      } else return lesson;
-    });
     const markup = [];
 
     for (let i = 0; i < lessons.length; i++) {
@@ -120,7 +130,7 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
     return markup;
   }
 
-  return <>{studyMap && renderLessons(studyMap)}</>;
+  return <>{lessons && renderLessons(lessons)}</>;
 };
 
 export default LessonsPaginationPage;

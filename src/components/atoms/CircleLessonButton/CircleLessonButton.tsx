@@ -118,12 +118,12 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
               borderRadius: "50%",
               padding: "6px",
             }}
+            onClick={() => {
+              onSetActive(lessonId);
+            }}
           >
             <IconContainer
               baseClassName="material-icons-outlined"
-              onClick={() => {
-                onSetActive(lessonId);
-              }}
               name={icons.moveHere}
             />
           </IconButton>
