@@ -127,7 +127,14 @@
     "selectCourse": "Vybrat kurz"
   },
 
-  "levels": ["A1", "A2", "B1", "B2", "C1", "C2"],
+  "levels": [
+    "Začátečník",
+    "Pokročilý začátečník",
+    "Středně pokročilý",
+    "Pokročilý",
+    "Velmi pokročilý",
+    "Expert"
+  ],
 
   "lessons": {
     "speaking": "Lekce mluvení",

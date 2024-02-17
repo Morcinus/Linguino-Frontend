@@ -38,32 +38,32 @@ export const lessons = [
 export const levels = [
   {
     label: "levels.0",
-    icon: undefined,
+    icon: "signpost_outlined",
     path: "/?level=0",
   },
   {
     label: "levels.1",
-    icon: undefined,
+    icon: "signpost_outlined",
     path: "/?level=1",
   },
   {
     label: "levels.2",
-    icon: undefined,
+    icon: "signpost_outlined",
     path: "/?level=2",
   },
   {
     label: "levels.3",
-    icon: undefined,
+    icon: "signpost_outlined",
     path: "/?level=3",
   },
   {
     label: "levels.4",
-    icon: undefined,
+    icon: "signpost_outlined",
     path: "/?level=4",
   },
   {
     label: "levels.5",
-    icon: undefined,
+    icon: "signpost_outlined",
     path: "/?level=5",
   },
 ];

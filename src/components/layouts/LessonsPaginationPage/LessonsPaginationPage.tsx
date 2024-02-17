@@ -76,7 +76,7 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
     setLessons(lessons);
   }, [studyMap, activeLessonId, onActiveLessonChange, setLessons]);
 
-  function renderLessons(studyMap: StudyMap) {
+  function renderLessons(lessons: StudyMap) {
     const markup = [];
 
     for (let i = 0; i < lessons.length; i++) {

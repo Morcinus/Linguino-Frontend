@@ -110,7 +110,9 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
                         setValue(`levels-${i}`);
                       }}
                     >
-                      <ListItemIcon></ListItemIcon>
+                      <ListItemIcon>
+                        <IconContainer name={item.icon} />
+                      </ListItemIcon>
                       <ListItemText primary={t(item.label)} />
                     </ListItemButton>
                   </Link>
