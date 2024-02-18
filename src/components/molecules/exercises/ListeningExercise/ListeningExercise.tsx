@@ -22,7 +22,7 @@ const ListeningExercise: React.FC<IListeningExercise> = ({
     onContinue?.(arr, false);
   };
 
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const questionAnswer: TextQuestionAnswerType = {
     type: "TEXT",
     id: exercise.id,

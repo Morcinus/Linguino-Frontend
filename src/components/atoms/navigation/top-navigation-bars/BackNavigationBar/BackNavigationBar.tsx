@@ -15,7 +15,7 @@ const BackNavigationBar: React.FC<IBackNavigationBar & AppBarProps> = ({
   header,
   ...rest
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   return (
     <NavigationBar

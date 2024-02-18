@@ -25,7 +25,7 @@ export interface IUsersPage {
 const UsersPage: React.FC<IUsersPage> = ({ params }) => {
   const { userProfile, mutate } = UsersAPI.useUser(params.userId);
   const [popup, setPopup] = useState<IPopup | null>(null);
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <Box display="flex" flexDirection="column" gap={2}>

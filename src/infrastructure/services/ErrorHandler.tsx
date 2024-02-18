@@ -27,7 +27,7 @@ export function ErrorHandler({
 }): JSX.Element {
   const [errorMessages, setErrorMessage] = useState<string[]>([]);
   const { enqueueSnackbar } = useSnackbar();
-  const { t } = useTranslation("cs", "snack");
+  const { t } = useTranslation("snack");
   const pathname = usePathname();
 
   const setError = useCallback(

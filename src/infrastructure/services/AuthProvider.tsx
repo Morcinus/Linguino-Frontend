@@ -15,7 +15,7 @@ import {
 
 import { usePathname, useRouter } from "next/navigation";
 
-import { useTranslation } from "../../i18n/client";
+import { setLanguage, useTranslation } from "../../i18n/client";
 import AuthManager from "../repositories/AuthManager";
 
 export interface AuthContextType {
@@ -43,7 +43,7 @@ export function AuthProvider({
   const [errors, setError] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const { enqueueSnackbar } = useSnackbar();
-  const { t } = useTranslation("cs", "snack");
+  const { t } = useTranslation("snack");
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
 
   const pathname = usePathname();
@@ -65,6 +65,10 @@ export function AuthProvider({
     AuthManager.getCurrentUser()
       .then(async (user) => {
         setUser(user);
+        setLanguage(user.selectedCourse.language1);
+      })
+      .catch(() => {
+        setLanguage();
       })
       .finally(() => {
         setLoading(false);

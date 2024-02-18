@@ -16,7 +16,7 @@ export interface IRatingSurveyNotice {
 }
 
 const RatingSurveyNotice: React.FC<IRatingSurveyNotice> = ({ notice }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const [rating, setRating] = useState<number>(0);
   const { deleteNotice } = useNotices();
 

@@ -23,8 +23,8 @@ const SelectTopicsForm: React.FC<ISelectTopicsForm> = ({
   courseId,
 }) => {
   const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>([]);
-  const { t: tForm } = useTranslation("cs", "form");
-  const { t: tCommon } = useTranslation("cs", "common");
+  const { t: tForm } = useTranslation("form");
+  const { t: tCommon } = useTranslation("common");
   const { course } = CoursesAPI.useCourse(courseId);
 
   function handleTopicToggle(topic: Topic) {

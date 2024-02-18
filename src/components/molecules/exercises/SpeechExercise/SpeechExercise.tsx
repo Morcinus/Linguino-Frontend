@@ -25,7 +25,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   const handleContinue = () => {
     onContinue?.(getQuestionProgress(), false);

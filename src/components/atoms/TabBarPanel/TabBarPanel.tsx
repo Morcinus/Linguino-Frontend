@@ -26,7 +26,7 @@ const TabBarPanel: React.FC<ITabBarPanel> = ({
   panelContent,
   value,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <TabContext value={value}>

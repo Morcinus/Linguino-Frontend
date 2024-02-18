@@ -23,7 +23,7 @@ export interface INavigation {}
 
 const Navigation: React.FC<INavigation> = () => {
   const { user } = useAuth();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const pathname = usePathname();
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 

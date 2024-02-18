@@ -18,7 +18,7 @@ const RepeatAudioExercise: React.FC<IRepeatAudioExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const questionAnswer: AudioQuestionAnswerType = {
     id: exercise.id,
     type: "AUDIO",

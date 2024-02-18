@@ -35,7 +35,7 @@ const SignupForm: React.FC<ISignupForm> = () => {
     formState: { errors },
   } = useForm<InputTypes>();
   const { signUp, loading, errors: authErrors } = useAuth();
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const onSubmit = (data: {

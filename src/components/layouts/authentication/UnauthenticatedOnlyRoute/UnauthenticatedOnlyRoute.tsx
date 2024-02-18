@@ -16,7 +16,7 @@ const UnauthenticatedOnlyRoute: React.FC<IUnauthenticatedOnlyRoute> = ({
 }) => {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     if (!loading && user) {

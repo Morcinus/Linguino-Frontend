@@ -19,7 +19,7 @@ export const SIDE_NAV_BAR_WIDTH = 90;
 
 const SideNavigationBar: React.FC<ISideNavigationBar> = ({ pathname }) => {
   const [value, setValue] = useState<number | false>(false);
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   const { user } = useAuth();
 

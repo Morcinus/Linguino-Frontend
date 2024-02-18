@@ -16,7 +16,7 @@ export interface ITextExercise extends IExerciseComponent {
 const ANSWER_LENGTH_BREAKPOINT = 30;
 
 const TextExercise: React.FC<ITextExercise> = ({ exercise, onContinue }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const questionAnswer: TextQuestionAnswerType = {
     id: exercise.id,
     type: "TEXT",

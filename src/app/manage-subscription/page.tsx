@@ -12,7 +12,7 @@ export interface IManageSubscriptionPage {}
 
 const ManageSubscriptionPage: React.FC<IManageSubscriptionPage> = () => {
   const { user } = useAuth();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <>

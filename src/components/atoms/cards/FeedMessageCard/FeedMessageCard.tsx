@@ -30,7 +30,7 @@ const FeedMessageCard: React.FC<IFeedMessageCard> = ({
   onAddReaction,
   onRemoveReaction,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {

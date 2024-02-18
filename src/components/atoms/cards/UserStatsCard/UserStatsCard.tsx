@@ -22,7 +22,7 @@ const UserStatsCard: React.FC<IUserStatsCard> = ({
   streak,
   learningStats = [],
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (

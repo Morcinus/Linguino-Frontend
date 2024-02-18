@@ -14,7 +14,7 @@ export interface ISubscribedPage {}
 
 const SubscribedPage: React.FC<ISubscribedPage> = () => {
   const router = useRouter();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <Box display="flex" flexDirection="column" gap={2}>

@@ -19,7 +19,7 @@ export interface ICoursesPage {}
 
 const CoursesPage: React.FC<ICoursesPage> = () => {
   const { user, revalidateUser } = useAuth();
-  const { t: tCommon } = useTranslation("cs", "common");
+  const { t: tCommon } = useTranslation("common");
   const router = useRouter();
   const { courses } = UserCoursesAPI.useUserCourses();
 

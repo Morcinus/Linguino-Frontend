@@ -33,7 +33,7 @@ const ChangePasswordForm: React.FC<IChangePasswordForm> = ({
     getValues,
     formState: { errors },
   } = useForm<InputTypes>();
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const onSubmit = (data: { password: string }) => {

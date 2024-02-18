@@ -1,11 +1,13 @@
-"use client";
+"use client"
 
+import { Language } from "domain/models/types/languages";
 import i18next from "i18next";
 import resourcesToBackend from "i18next-resources-to-backend";
 
 import {
+  UseTranslationOptions,
   initReactI18next,
-  useTranslation as useTranslationOrg, UseTranslationOptions
+  useTranslation as useTranslationOrg,
 } from "react-i18next";
 
 import { getOptions } from "./settings";
@@ -21,10 +23,35 @@ i18next
   .init(getOptions());
 
 export function useTranslation(
-  lng: string,
   ns: string,
   options: UseTranslationOptions = {}
 ) {
-  if (i18next.resolvedLanguage !== lng) i18next.changeLanguage(lng);
   return useTranslationOrg(ns, options);
+}
+
+export function setLanguage(language?: Language) {
+  const options = getOptions();
+
+  if (language) {
+    if (i18next.resolvedLanguage !== language) {
+      if (options.supportedLngs.includes(language)) {
+        i18next.changeLanguage(language);
+      } else {
+        i18next.changeLanguage(options.fallbackLng);
+      }
+    }
+  } else {
+    i18next.changeLanguage(getBrowserLanguage());
+  }
+}
+
+function getBrowserLanguage() {
+  const options = getOptions();
+  const detectedLanguage = navigator.language.split("-")[0];
+
+  if (options.supportedLngs.includes(detectedLanguage as Language)) {
+    return detectedLanguage;
+  } else {
+    return options.fallbackLng;
+  }
 }

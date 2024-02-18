@@ -18,8 +18,8 @@ export interface IInitialSurveyForm {
 }
 
 const InitialSurveyForm: React.FC<IInitialSurveyForm> = ({ onSubmit }) => {
-  const { t: tForm } = useTranslation("cs", "form");
-  const { t: tCommon } = useTranslation("cs", "common");
+  const { t: tForm } = useTranslation("form");
+  const { t: tCommon } = useTranslation("common");
   const [selectedIndex, setSelectedIndex] = useState<number | undefined>();
 
   return (

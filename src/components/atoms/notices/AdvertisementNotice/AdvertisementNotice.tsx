@@ -9,7 +9,7 @@ export interface IAdvertisementNotice {}
 
 const AdvertisementNotice: React.FC<IAdvertisementNotice> = () => {
   const { popNotice } = useNotices();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <FullscreenDialog

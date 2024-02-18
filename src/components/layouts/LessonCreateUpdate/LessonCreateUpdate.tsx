@@ -49,7 +49,7 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
   const [popupOpen, setPopupOpen] = useState(false);
   const [searchDialogOpen, setSearchDialogOpen] = useState(false);
   const [description, setDescription] = useState(lesson.description);
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
 

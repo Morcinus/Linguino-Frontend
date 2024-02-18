@@ -23,7 +23,7 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
     userId: useAuth().user?.id,
   });
 
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const [popup, setPopup] = useState<IPopup | null>(null);
 
   function updateChallenge(id: ID, change: Partial<Challenge>) {

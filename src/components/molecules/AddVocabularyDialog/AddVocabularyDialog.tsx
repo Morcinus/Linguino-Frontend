@@ -34,7 +34,7 @@ const AddVocabularyDialog: React.FC<IAddVocabularyDialog> = ({
   items,
 }) => {
   const { user } = useAuth();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const [text, setText] = useState("");
   const [searchPrompt, setSearchPrompt] = useState("");
 

@@ -20,7 +20,7 @@ const DailyGoalSettings: React.FC<IDailyGoalSettings> = ({
   dailyGoal,
   onGoalChange,
 }) => {
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const [value, setValue] = useState(dailyGoal?.toString());
 
   function handleChange(event: SelectChangeEvent) {

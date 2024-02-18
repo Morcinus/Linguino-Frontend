@@ -28,7 +28,7 @@ const FollowersOverview: React.FC<IFollowersOverview> = ({
     FollowersAPI.useFollowers(userId);
   const { following, mutate: mutateFollowing } =
     FollowingAPI.useFollowing(userId);
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   const updateFollower = (itemId: ID, isFollowed: boolean) => {
     mutateFollowers(

@@ -14,7 +14,7 @@ const UserSearchResults: React.FC<IUserSearchResults> = ({ searchPrompt }) => {
   const { users } = UsersAPI.useUsers({
     searchName: searchPrompt,
   });
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <>

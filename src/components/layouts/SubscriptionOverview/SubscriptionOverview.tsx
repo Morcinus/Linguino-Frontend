@@ -27,7 +27,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
   const [selectedIndex, setSelectedIndex] = useState<number | undefined>(
     undefined
   );
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const [page, setPage] = useState(0);
   const router = useRouter();
 

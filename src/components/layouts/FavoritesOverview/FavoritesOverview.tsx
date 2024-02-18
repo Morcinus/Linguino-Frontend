@@ -23,7 +23,7 @@ const FavoritesOverview: React.FC<IFavoritesOverview> = ({ courseId }) => {
   const { lessonItems } = LessonItemsAPI.useLessonItems(courseId, {
     favorite: true,
   });
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <Box sx={{ width: "100%" }}>

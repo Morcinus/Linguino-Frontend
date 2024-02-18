@@ -31,9 +31,9 @@ const SelectCourseForm: React.FC<ISelectCourseForm> = ({
     languages[0]
   );
   const [selectedCourseId, setSelectedCourseId] = useState<ID | undefined>();
-  const { t: tLanguages } = useTranslation("cs", "languages");
-  const { t: tForm } = useTranslation("cs", "form");
-  const { t: tCommon } = useTranslation("cs", "common");
+  const { t: tLanguages } = useTranslation("languages");
+  const { t: tForm } = useTranslation("form");
+  const { t: tCommon } = useTranslation("common");
   const { courses } = CoursesAPI.useCourses({ language1: selectedLanguage });
 
   return (

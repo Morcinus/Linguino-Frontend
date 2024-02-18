@@ -35,7 +35,7 @@ const CircleLessonButton: React.FC<ICircleLessonButton> = ({
 }) => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {

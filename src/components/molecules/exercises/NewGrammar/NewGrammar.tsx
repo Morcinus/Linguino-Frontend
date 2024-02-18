@@ -21,7 +21,7 @@ const NewGrammar: React.FC<INewGrammar> = ({
   lessonId,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const { lesson, mutate } = LessonsAPI.useLesson(courseId, lessonId);
 
   function handleLessonChange(change: { [key: string]: boolean | string }) {

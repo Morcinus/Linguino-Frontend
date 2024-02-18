@@ -21,7 +21,7 @@ export interface IHomePage {
 
 const HomePage: React.FC<IHomePage> = ({searchParams}) => {
   const { user, mutateUser } = useAuth();
-  const {t} = useTranslation("cs", "common");
+  const {t} = useTranslation("common");
   const router = useRouter();
 
   useEffect(()=> {

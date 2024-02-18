@@ -13,7 +13,7 @@ const ExerciseContinueButton: React.FC<IExerciseContinueButton> = ({
   onClick,
   state,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <FullWidthButton

@@ -33,7 +33,7 @@ const FeedPaginationPage: React.FC<IFeedPaginationPage> = ({
   onDividerDisplayed,
   displayDivider,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const { feed, mutate } = FeedAPI.useFeed({ page: index });
 
   function handleReactionUpdate(

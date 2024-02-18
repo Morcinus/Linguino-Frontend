@@ -31,7 +31,7 @@ const PaymentPage: React.FC<IPaymentPage> = () => {
   const elements = useElements();
   const { user } = useAuth();
   const router = useRouter();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const { enqueueSnackbar } = useSnackbar();
   const [needInvoice, setNeedInvoice] = useState(false);
 

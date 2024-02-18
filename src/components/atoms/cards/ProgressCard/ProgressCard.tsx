@@ -32,7 +32,7 @@ const ProgressCard: React.FC<IProgressCard> = ({
   onRewardClick,
   variant,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const imgSize =
     variant === "small" ? "50px" : variant === "large" ? "100px" : "80px";
 

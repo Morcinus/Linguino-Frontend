@@ -21,7 +21,7 @@ const NewVocabulary: React.FC<INewVocabulary> = ({
   courseId,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const { lessonItem, mutate } = LessonItemsAPI.useLessonItem(
     courseId,
     lessonItemId

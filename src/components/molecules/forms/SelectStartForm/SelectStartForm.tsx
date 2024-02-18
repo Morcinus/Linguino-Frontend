@@ -12,7 +12,7 @@ export interface ISelectStartForm {
 }
 
 const SelectStartForm: React.FC<ISelectStartForm> = ({ onSubmit }) => {
-  const { t: tForm } = useTranslation("cs", "form");
+  const { t: tForm } = useTranslation("form");
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>

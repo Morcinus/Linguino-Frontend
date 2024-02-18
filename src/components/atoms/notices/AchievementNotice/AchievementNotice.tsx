@@ -10,7 +10,7 @@ export interface IAchievementNotice {
 
 const AchievementNotice: React.FC<IAchievementNotice> = ({ notice }) => {
   const { popNotice } = useNotices();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <FullscreenDialog

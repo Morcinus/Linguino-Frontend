@@ -19,7 +19,7 @@ export interface IFreeTrialEndNotice {
 
 const FreeTrialEndNotice: React.FC<IFreeTrialEndNotice> = ({ notice }) => {
   const { deleteNotice } = useNotices();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
 
   return (

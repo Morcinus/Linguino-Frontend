@@ -24,7 +24,7 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
   onFeedbackChange,
   feedback,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const [value, setValue] = useState("");
   const { enqueueSnackbar } = useSnackbar();
 

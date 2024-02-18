@@ -19,7 +19,7 @@ export const BOTTOM_NAV_BAR_HEIGHT = 56;
 
 const BottomNavigationBar: React.FC<IBottomNavigationBar> = ({ pathname }) => {
   const [value, setValue] = useState<number | false>(false);
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   const { user } = useAuth();
 

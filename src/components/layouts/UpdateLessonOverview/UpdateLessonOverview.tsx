@@ -19,7 +19,7 @@ const UpdateLessonOverview: React.FC<IUpdateLessonOverview> = ({
 }) => {
   const { lesson, mutate } = LessonsAPI.useLesson(courseId, lessonId);
   const { enqueueSnackbar } = useSnackbar();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <>

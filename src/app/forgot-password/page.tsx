@@ -18,7 +18,7 @@ export interface IForgotPasswordPage {}
 
 const ForgotPasswordPage: React.FC<IForgotPasswordPage> = () => {
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const [emailSent, setEmailSent] = useState(false);
 
   return (

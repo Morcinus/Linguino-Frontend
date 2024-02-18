@@ -1,7 +1,6 @@
 // prettier-ignore
 "use client";
 
-
 import { useTranslation } from "i18n/client";
 import theme from "styles/theme";
 
@@ -13,9 +12,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-
 export default function NotFound() {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 

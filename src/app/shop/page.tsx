@@ -27,8 +27,8 @@ const ShopPage: React.FC<IShopPage> = () => {
   const { shopItems, mutate } = ShopItemsAPI.useShopItems({
     categoryId: value,
   });
-  const { t } = useTranslation("cs", "common");
-  const { t: tError } = useTranslation("cs", "error-codes");
+  const { t } = useTranslation("common");
+  const { t: tError } = useTranslation("error-codes");
   const [popup, setPopup] = useState<IPopup | null>(null);
   const { setError } = useErrorHandler();
 

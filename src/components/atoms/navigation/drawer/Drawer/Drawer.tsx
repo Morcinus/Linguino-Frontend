@@ -29,7 +29,7 @@ export interface IDrawer {
 }
 
 const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   const [value, setValue] = useState<string>();
   const [lessonsOpen, setLessonsOpen] = useState(false);

@@ -18,7 +18,7 @@ export interface IFreeTrialOfferNotice {
 }
 
 const FreeTrialOfferNotice: React.FC<IFreeTrialOfferNotice> = ({ notice }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const { deleteNotice } = useNotices();
   const router = useRouter();
   const desktop = useMediaQuery(theme.breakpoints.up("md"));

@@ -17,7 +17,7 @@ const FillInTableExercise: React.FC<IFillInTableExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const questionAnswer: TableQuestionAnswerType = {
     id: exercise.id,
     type: "TABLE",

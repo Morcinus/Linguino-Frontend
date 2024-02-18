@@ -27,7 +27,7 @@ const LessonsOverview: React.FC<ILessonsOverview> = ({
     type: lessonType,
     level: value as LanguageLevel,
   });
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <>

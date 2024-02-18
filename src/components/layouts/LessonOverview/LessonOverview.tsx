@@ -27,7 +27,7 @@ export interface ILessonOverview {
 }
 
 const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   const { lesson, mutate } = LessonsAPI.useLesson(courseId, lessonId);
   const desktop = useMediaQuery(theme.breakpoints.up("md"));

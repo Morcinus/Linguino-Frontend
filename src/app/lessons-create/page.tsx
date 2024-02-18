@@ -16,7 +16,7 @@ export interface ICreateLessonPage {
 const CreateLessonPage: React.FC<ICreateLessonPage> = () => {
   const { user } = useAuth();
   const { enqueueSnackbar } = useSnackbar();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
 
   return (

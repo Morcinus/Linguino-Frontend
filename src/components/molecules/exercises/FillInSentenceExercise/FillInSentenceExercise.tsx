@@ -17,7 +17,7 @@ const FillInSentenceExercise: React.FC<IFillInSentenceExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const questionAnswer: FillInBlankQuestionAnswerType = {
     id: exercise.id,
     type: "FILL_IN_BLANK",

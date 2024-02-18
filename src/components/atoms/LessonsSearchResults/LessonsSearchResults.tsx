@@ -18,7 +18,7 @@ const LessonsSearchResults: React.FC<ILessonsSearchResults> = ({
   const { lessons } = LessonsAPI.useLessons(courseId, {
     searchName: searchPrompt,
   });
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <>

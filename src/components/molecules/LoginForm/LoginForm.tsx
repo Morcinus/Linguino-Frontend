@@ -30,7 +30,7 @@ const LoginForm: React.FC<ILoginForm> = () => {
     formState: { errors },
   } = useForm<InputTypes>();
   const { login, loading, errors: authErrors } = useAuth();
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const onSubmit = (data: { email: string; password: string }) => {

@@ -26,7 +26,7 @@ export interface IChangePasswordPage {
 
 const ChangePasswordPage: React.FC<IChangePasswordPage> = ({ searchParams }) => {
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const [passwordChanged, setPasswordChanged] = useState(false);
   const router = useRouter();
 

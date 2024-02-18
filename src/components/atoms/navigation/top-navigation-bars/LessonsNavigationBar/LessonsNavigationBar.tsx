@@ -12,7 +12,7 @@ export interface ILessonsNavigationBar extends IDrawerController {}
 const LessonsNavigationBar: React.FC<ILessonsNavigationBar> = ({
   onDrawerOpen,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const searchParams = useSearchParams();
   const lessonType = searchParams?.get("type");
 

@@ -33,7 +33,7 @@ const AddLessonItemsSearchResults: React.FC<IAddLessonItemsSearchResults> = ({
   const { lessonItems } = LessonItemsAPI.useLessonItems(courseId, {
     searchVocabulary: searchPrompt,
   });
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <>

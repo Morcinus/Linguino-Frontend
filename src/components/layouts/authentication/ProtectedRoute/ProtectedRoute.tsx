@@ -14,7 +14,7 @@ export interface IProtectedRoute {
 const ProtectedRoute: React.FC<IProtectedRoute> = ({ children }) => {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const pathname = usePathname();
 
   useEffect(() => {

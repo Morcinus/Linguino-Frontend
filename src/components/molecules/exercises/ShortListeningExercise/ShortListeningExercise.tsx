@@ -20,7 +20,7 @@ const ShortListeningExercise: React.FC<IShortListeningExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const questionAnswer: TextQuestionAnswerType = {
     type: "TEXT",
     id: exercise.id,

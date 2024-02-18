@@ -29,7 +29,7 @@ const ForgotPasswordForm: React.FC<IForgotPasswordForm> = ({ onEmailSent }) => {
     handleSubmit,
     formState: { errors },
   } = useForm<InputTypes>();
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
   const [invalidEmail, setInvalidEmail] = useState(false);
 

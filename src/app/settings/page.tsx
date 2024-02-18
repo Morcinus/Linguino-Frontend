@@ -24,7 +24,7 @@ import DailyGoalSettings from "components/molecules/settings/DailyGoalSettings/D
 export interface ISettingsPage {}
 
 const SettingsPage: React.FC<ISettingsPage> = () => {
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const { user, revalidateUser } = useAuth();
   const router = useRouter();
   const { settings, mutate } = SettingsAPI.useSettings(user?.id);

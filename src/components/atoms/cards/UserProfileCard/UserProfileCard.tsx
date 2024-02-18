@@ -34,7 +34,7 @@ const UserProfileCard: React.FC<IUserProfileCard> = ({
   userId,
   onFollowChange,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   return (
     <Card>

@@ -15,7 +15,7 @@ export interface IRewardNotice {
 
 const RewardNotice: React.FC<IRewardNotice> = ({ notice }) => {
   const { popNotice } = useNotices();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <FullscreenDialog

@@ -14,7 +14,7 @@ export interface IStudyStatsNotice {
 
 const StudyStatsNotice: React.FC<IStudyStatsNotice> = ({ notice }) => {
   const { popNotice } = useNotices();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <FullscreenDialog

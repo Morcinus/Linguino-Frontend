@@ -19,7 +19,7 @@ const ReadingExercise: React.FC<IReadingExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const questionAnswer: TextQuestionAnswer = {
     id: exercise.id,
     type: "TEXT",

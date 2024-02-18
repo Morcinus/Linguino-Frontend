@@ -39,7 +39,7 @@ const AccountSettings: React.FC<IAccountSettings> = ({
   onNameChange,
   accountErrors,
 }) => {
-  const { t } = useTranslation("cs", "form");
+  const { t } = useTranslation("form");
   const router = useRouter();
   const {
     register,

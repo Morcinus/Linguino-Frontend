@@ -19,7 +19,7 @@ import { categories } from "./config";
 export interface ISearchPagePage {}
 
 const SearchPagePage: React.FC<ISearchPagePage> = () => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const [text, setText] = useState("");
   const [searchPrompt, setSearchPrompt] = useState("");
   const [value, setValue] = useState(categories[0].id);

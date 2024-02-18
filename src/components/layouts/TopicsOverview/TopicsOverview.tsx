@@ -15,7 +15,7 @@ export interface ITopicsOverview {
 }
 
 const TopicsOverview: React.FC<ITopicsOverview> = ({ courseId }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const [value, setValue] = useState<string>("main");
   const { topics: mainTopics, mutate: mutateMainTopics } = TopicsAPI.useTopics(
     courseId,

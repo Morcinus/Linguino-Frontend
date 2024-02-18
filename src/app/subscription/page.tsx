@@ -22,7 +22,7 @@ const FEATURES_LIST_LENGTH = 4;
 
 const SubscriptionPage: React.FC<ISubscriptionPage> = () => {
   const router = useRouter();
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const { user } = useAuth();
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
   const imgWidth = desktop ? 275 : 200;

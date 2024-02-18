@@ -24,7 +24,7 @@ const CustomLessonsOverview: React.FC<ICustomLessonsOverview> = ({
   const { lessons } = LessonsAPI.useLessons(courseId, {
     custom: true,
   });
-  const { t: tCommon } = useTranslation("cs", "common");
+  const { t: tCommon } = useTranslation("common");
   const router = useRouter();
 
   return (

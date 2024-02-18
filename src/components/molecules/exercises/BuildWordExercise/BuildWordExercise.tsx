@@ -17,7 +17,7 @@ const BuildWordExercise: React.FC<IBuildWordExercise> = ({
   exercise,
   onContinue,
 }) => {
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
   const questionAnswer: BuildWordQuestionAnswerType = {
     type: "BUILD_WORD",
     id: exercise.id,

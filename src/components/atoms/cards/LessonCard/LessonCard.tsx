@@ -29,7 +29,7 @@ const LessonCard: React.FC<ILessonCard> = ({
 }) => {
   const maxDescriptionLength = 250;
   const [open, setOpen] = useState(false);
-  const { t } = useTranslation("cs", "common");
+  const { t } = useTranslation("common");
 
   return (
     <Card>
