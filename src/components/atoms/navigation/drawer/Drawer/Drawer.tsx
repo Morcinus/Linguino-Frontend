@@ -104,7 +104,14 @@ const Drawer: React.FC<IDrawer> = ({ open, onClose }) => {
                   key={`levels-${i}`}
                   selected={value === `levels-${i}`}
                 >
-                  <Link href={item.path} style={{ width: "100%" }}>
+                  <Link
+                    href={
+                      item.premium && user?.role !== "PREMIUM_USER"
+                        ? "/subscription"
+                        : item.path
+                    }
+                    style={{ width: "100%" }}
+                  >
                     <ListItemButton
                       onClick={() => {
                         setValue(`levels-${i}`);

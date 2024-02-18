@@ -40,31 +40,37 @@ export const levels = [
     label: "levels.0",
     icon: "signpost_outlined",
     path: "/?level=0",
+    premium: false,
   },
   {
     label: "levels.1",
     icon: "signpost_outlined",
     path: "/?level=1",
+    premium: false,
   },
   {
     label: "levels.2",
     icon: "signpost_outlined",
     path: "/?level=2",
+    premium: false,
   },
   {
     label: "levels.3",
     icon: "signpost_outlined",
     path: "/?level=3",
+    premium: false,
   },
   {
     label: "levels.4",
     icon: "signpost_outlined",
     path: "/?level=4",
+    premium: true,
   },
   {
     label: "levels.5",
     icon: "signpost_outlined",
     path: "/?level=5",
+    premium: true,
   },
 ];
 

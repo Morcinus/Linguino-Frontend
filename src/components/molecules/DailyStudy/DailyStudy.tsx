@@ -1,6 +1,7 @@
 import { QuestionAttempt } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
 import StudySessionAPI from "infrastructure/api/user/courses/study-session/StudySessionAPI";
-import { StudyStats } from "infrastructure/api/user/notices/Notices";
+import { Notice, StudyStats } from "infrastructure/api/user/notices/Notices";
+import useAuth from "infrastructure/services/AuthProvider";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useRouter } from "next/navigation";
@@ -15,6 +16,7 @@ const DailyStudy: React.FC<IDailyStudy> = ({ courseId }) => {
   const { addNotices } = useNotices();
   const router = useRouter();
   const { exercises, isLoading } = StudySessionAPI.useStudySession(courseId);
+  const { user } = useAuth();
 
   async function handleSessionFinish(
     studyStats: StudyStats,
@@ -42,22 +44,30 @@ const DailyStudy: React.FC<IDailyStudy> = ({ courseId }) => {
       })
     );
 
-    addNotices([
-      {
-        id: "study_advertisement_notice",
-        type: "ADVERTISEMENT",
-      },
-      {
-        id: "study_stats_notice",
-        type: "STUDY_STATS",
-        stats: studyStats,
-      },
-      {
-        id: "study_reward_notice",
-        type: "REWARD",
-        reward: reward,
-      },
-    ]);
+    const notices: Array<Notice> =
+      user?.role === "PREMIUM_USER"
+        ? []
+        : [
+            {
+              id: "study_advertisement_notice",
+              type: "ADVERTISEMENT",
+            },
+          ];
+
+    addNotices(
+      notices.concat([
+        {
+          id: "study_stats_notice",
+          type: "STUDY_STATS",
+          stats: studyStats,
+        },
+        {
+          id: "study_reward_notice",
+          type: "REWARD",
+          reward: reward,
+        },
+      ])
+    );
     router.push("/");
   }
 

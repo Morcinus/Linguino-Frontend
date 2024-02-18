@@ -176,9 +176,10 @@
     "confirmCancellation": "Potvrdit zrušení",
     "youWontHaveAccessToThese": "Po zrušení ztratíte přístup k těmto funkcím",
     "premiumFeatures": [
-      "Žádné reklamy",
-      "Pokročilá slovní zásoba",
-      "Vytváření vlastních lekcí"
+      "Učení se pokročilých slovíček",
+      "Vytváření vlastních balíčků slovíček",
+      "Dělání pokročilých lekcí",
+      "Žádné reklamy při učení"
     ],
     "successfullyUnsubscibed": "Předplatné bylo úspěšně zrušeno.",
     "notSubscribed": "Nemáte žádné předplatné",
@@ -295,7 +296,7 @@
     "valuePropositions": [
       "Učte se pokročilá slovíčka",
       "Vytvářejte vlastní balíčky slovíček",
-      "Dělejte pokročilá cvičení",
+      "Dělejte pokročilé lekce",
       "Žádné reklamy při učení"
     ],
     "getSubscription": "Získat premium",
@@ -305,7 +306,7 @@
     "subscribedFeatures": [
       "Učte se pokročilá slovíčka",
       "Vytvářejte vlastní balíčky slovíček",
-      "Dělejte pokročilá cvičení",
+      "Dělejte pokročilé lekce",
       "Žádné reklamy při učení"
     ],
     "manageSubscription": "Spravovat předplatné"
@@ -324,7 +325,7 @@
 
     "advancedVocabulary": "Učte se pokročilá slovíčka",
     "customVocabulary": "Vytvářejte vlastní balíčky slovíček",
-    "advancedExercises": "Dělejte pokročilá cvičení",
+    "advancedExercises": "Dělejte pokročilé lekce",
     "noAds": "Žádné reklamy při učení"
   }
 }
