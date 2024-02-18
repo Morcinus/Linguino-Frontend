@@ -4,7 +4,7 @@ export interface Subscription {
   subscriptionState: "ORDERED" | "PAID" | "CANCELLED" | "TRIAL";
   unsubscribeReason?: string;
 
-  planId: string;
+  planPriceId: string;
 }
 
 export interface CreateSubscriptionResponseDTO {

@@ -27,7 +27,7 @@ export default function AuthDecorator(Story: Story) {
         id: "abcd",
         subscriptionState: "PAID",
         nextPayment: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // One week from now
-        planId: "abcd",
+        planPriceId: "abcd",
       },
     },
     login: () => console.log("login"),

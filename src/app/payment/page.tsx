@@ -5,7 +5,7 @@ import {
   AddressElement,
   PaymentElement,
   useElements,
-  useStripe
+  useStripe,
 } from "@stripe/react-stripe-js";
 import { useTranslation } from "i18n/client";
 import SubscriptionsAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
@@ -22,7 +22,11 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Typography from "@mui/material/Typography";
 
-import { PAYMENT_SUCCESS_URL, PLAN_ID, PLAN_PRICING_OPTIONS } from "./config";
+import {
+  PAYMENT_SUCCESS_URL,
+  PLAN_PRICE_ID,
+  PLAN_PRICING_OPTIONS,
+} from "./config";
 
 export interface IPaymentPage {}
 
@@ -58,23 +62,30 @@ const PaymentPage: React.FC<IPaymentPage> = () => {
       return;
     }
 
-    const { type, clientSecret } = await SubscriptionsAPI.createSubscription(
-      { planId: PLAN_ID }
-    );
-    if (clientSecret) {
-      const confirmIntent =
-        type === "setup" ? stripe.confirmSetup : stripe.confirmPayment;
-
-      const { error: intentError } = await confirmIntent({
-        elements,
-        clientSecret,
-        confirmParams: {
-          return_url: PAYMENT_SUCCESS_URL,
-        },
+    try {
+      const { type, clientSecret } = await SubscriptionsAPI.createSubscription({
+        planPriceId: PLAN_PRICE_ID,
       });
+      if (clientSecret) {
+        const confirmIntent =
+          type === "setup" ? stripe.confirmSetup : stripe.confirmPayment;
 
-      if (intentError) {
-        handleError(intentError.message);
+        const { error: intentError } = await confirmIntent({
+          elements,
+          clientSecret,
+          confirmParams: {
+            return_url: PAYMENT_SUCCESS_URL,
+          },
+        });
+
+        if (intentError) {
+          handleError(intentError.message);
+        }
+      }
+    } catch (err) {
+      // Mock doesn't support Strapi subscription management
+      if (err === "MOCK_NOT_SUPPORTED") {
+        router.push("/subscribed");
       }
     }
   }
