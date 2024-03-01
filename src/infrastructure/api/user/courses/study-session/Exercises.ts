@@ -1,3 +1,4 @@
+import { LessonType } from "../lessons/Lessons";
 import { MatchOption, QuestionAnswer } from "./QuestionAnswers";
 import { QuestionAttempt, UserAnswer } from "./QuestionAttempt";
 
@@ -9,8 +10,6 @@ export type Exercise =
   | ReadingExercise
   | RepeatAudioExercise
   | ReadAloudExercise
-  | NewVocabulary
-  | NewGrammar
   | BuildWordExercise
   | FillInTableExercise
   | FillInSentenceExercise
@@ -21,6 +20,15 @@ export interface IExerciseComponent {
   onContinue?: (attempts: Array<QuestionAttempt>, reschedule: boolean) => void;
 }
 
+interface IExercise {
+  id: ID;
+  type: string;
+  isNew: boolean;
+  lessonItemId: ID;
+  lessonId?: ID;
+  lessonType?: LessonType;
+}
+
 export interface IQuestionAnswerComponent {
   questionAnswer: QuestionAnswer;
   onChange?: (userAnswer: UserAnswer) => void;
@@ -28,8 +36,7 @@ export interface IQuestionAnswerComponent {
   displayAnswers?: boolean;
 }
 
-export interface ListeningExercise {
-  id: ID;
+export interface ListeningExercise extends IExercise {
   type: "LISTENING";
   audioURL: string;
   imageURL?: string;
@@ -37,37 +44,32 @@ export interface ListeningExercise {
   answerL2: string;
 }
 
-export interface ShortListeningExercise {
-  id: ID;
+export interface ShortListeningExercise extends IExercise {
   type: "SHORT_LISTENING";
   textL2: string;
   textL2AudioURL: string;
 }
 
-export interface RepeatAudioExercise {
-  id: ID;
+export interface RepeatAudioExercise extends IExercise {
   type: "REPEAT_AUDIO";
   textL2: string;
   audioURL: string;
 }
 
-export interface ReadAloudExercise {
-  id: ID;
+export interface ReadAloudExercise extends IExercise {
   type: "READ_ALOUD";
   textL2: string;
   imageURL?: string;
 }
 
-export interface SpeechExercise {
-  id: ID;
+export interface SpeechExercise extends IExercise {
   type: "SPEECH";
   assignmentTopicL2: string;
   timeMs: number;
   questionsL2: Array<string>;
 }
 
-export interface TextExercise {
-  id: ID;
+export interface TextExercise extends IExercise {
   type: "TEXT";
   textL1: string;
   textL2: string;
@@ -76,8 +78,7 @@ export interface TextExercise {
   explanation?: string;
 }
 
-export interface ReadingExercise {
-  id: ID;
+export interface ReadingExercise extends IExercise {
   type: "READING";
   article: string;
   questionL2: string;
@@ -85,8 +86,7 @@ export interface ReadingExercise {
   imageURL?: string;
 }
 
-export interface BuildWordExercise {
-  id: ID;
+export interface BuildWordExercise extends IExercise {
   type: "BUILD_WORD";
   wordL1: string;
   wordL2: string;
@@ -95,16 +95,14 @@ export interface BuildWordExercise {
   answerAudioURL?: string;
 }
 
-export interface FillInTableExercise {
-  id: ID;
+export interface FillInTableExercise extends IExercise {
   type: "FILL_TABLE";
   questionL2: string;
   tableRows: Array<Array<string>>;
   blankCellCoords: Array<Array<number>>;
 }
 
-export interface FillInSentenceExercise {
-  id: ID;
+export interface FillInSentenceExercise extends IExercise {
   type: "FILL_IN_SENTENCE";
 
   textL1: string;
@@ -115,8 +113,7 @@ export interface FillInSentenceExercise {
   imageURL?: string;
 }
 
-export interface MatchingExercise {
-  id: ID;
+export interface MatchingExercise extends IExercise {
   type: "MATCHING";
 
   options1: Array<MatchOption>;
@@ -124,13 +121,3 @@ export interface MatchingExercise {
 }
 
 export type AnswerState = "NONE" | "RIGHT" | "WRONG";
-
-export interface NewVocabulary {
-  lessonItemId: ID;
-  type: "NEW_VOCABULARY";
-}
-
-export interface NewGrammar {
-  lessonId: ID;
-  type: "NEW_GRAMMAR";
-}

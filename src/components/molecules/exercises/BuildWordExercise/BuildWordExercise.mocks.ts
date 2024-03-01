@@ -3,6 +3,9 @@ import { IBuildWordExercise } from "./BuildWordExercise";
 const base: IBuildWordExercise = {
   exercise: {
     id: "vxcvavHpCn",
+    isNew: false,
+    lessonItemId: "qneOTSjAgXyMeLZEnSzG",
+
     type: "BUILD_WORD",
     wordL1: "jablko",
     wordL2: "apple",

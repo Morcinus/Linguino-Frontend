@@ -1,7 +1,3 @@
-import {
-  isNewGrammar,
-  isNewVocabulary,
-} from "infrastructure/api/user/courses/study-session/ExercisesGuard";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
@@ -97,44 +93,47 @@ const StudySession: React.FC<IStudySession> = ({
     if (openExpansion) executeScroll();
   }, [openExpansion, executeScroll]);
 
-  function renderNewVocabulary(exercise: Exercise) {
-    if (isNewVocabulary(exercise))
-      return (
-        <>
-          {user && (
-            <NewVocabulary
-              courseId={user.selectedCourse.id}
-              lessonItemId={exercise.lessonItemId}
-              onContinue={() => {
-                nextExercise();
-                if (index >= exerciseQueue.length - 1)
-                  handleFinished(attemptArray);
-              }}
-            />
-          )}
-        </>
-      );
-    else return "";
+  function updateIsNew(index: number, value: boolean) {
+    const newArray = exerciseQueue.map((exercise, i) => {
+      if (i === index) {
+        return { ...exercise, isNew: value };
+      }
+      return exercise;
+    });
+
+    setExerciseQueue(newArray);
   }
 
-  function renderNewGrammar(exercise: Exercise) {
-    if (isNewGrammar(exercise))
-      return (
-        <>
-          {user && (
-            <NewGrammar
-              courseId={user.selectedCourse.id}
-              lessonId={exercise.lessonId}
-              onContinue={() => {
-                nextExercise();
-                if (index >= exerciseQueue.length - 1)
-                  handleFinished(attemptArray);
-              }}
-            />
-          )}
-        </>
-      );
-    else return "";
+  function renderNewVocabulary(exercise: Exercise, index: number) {
+    return (
+      <>
+        {user && (
+          <NewVocabulary
+            courseId={user.selectedCourse.id}
+            lessonItemId={exercise.lessonItemId}
+            onContinue={() => {
+              updateIsNew(index, false);
+            }}
+          />
+        )}
+      </>
+    );
+  }
+
+  function renderNewGrammar(exercise: Exercise, index: number) {
+    return (
+      <>
+        {user && exercise.lessonId && (
+          <NewGrammar
+            courseId={user.selectedCourse.id}
+            lessonId={exercise.lessonId}
+            onContinue={() => {
+              updateIsNew(index, false);
+            }}
+          />
+        )}
+      </>
+    );
   }
 
   function evaluateStats(attemptArray: Array<QuestionAttempt>) {
@@ -203,10 +202,12 @@ const StudySession: React.FC<IStudySession> = ({
           <Container maxWidth="sm">
             {exerciseQueue[index] && !finishedSession && (
               <>
-                {isNewVocabulary(exerciseQueue[index]) ? (
-                  renderNewVocabulary(exerciseQueue[index])
-                ) : isNewGrammar(exerciseQueue[index]) ? (
-                  renderNewGrammar(exerciseQueue[index])
+                {exerciseQueue[index].isNew === true &&
+                exerciseQueue[index].lessonType === "GRAMMAR" ? (
+                  renderNewGrammar(exerciseQueue[index], index)
+                ) : exerciseQueue[index].isNew === true &&
+                  exerciseQueue[index].lessonType === "VOCABULARY" ? (
+                  renderNewVocabulary(exerciseQueue[index], index)
                 ) : (
                   <ExerciseContainer
                     key={index}

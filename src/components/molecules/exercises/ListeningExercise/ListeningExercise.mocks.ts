@@ -3,6 +3,8 @@ import { IListeningExercise } from "./ListeningExercise";
 const base: IListeningExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
+    isNew: false,
+    lessonItemId: "qneOTSjAgXyMeLZEnSzG",
     type: "LISTENING",
     questionL2: "What color was the T-shirt?",
     answerL2: "blue",

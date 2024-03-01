@@ -5,8 +5,6 @@ import {
   FillInTableExercise,
   ListeningExercise,
   MatchingExercise,
-  NewGrammar,
-  NewVocabulary,
   ReadAloudExercise,
   ReadingExercise,
   RepeatAudioExercise,
@@ -53,14 +51,6 @@ export function isReadAloudExercise(
   exercise: Exercise
 ): exercise is ReadAloudExercise {
   return (exercise as ReadAloudExercise).type === "READ_ALOUD";
-}
-
-export function isNewVocabulary(exercise: Exercise): exercise is NewVocabulary {
-  return (exercise as NewVocabulary).type === "NEW_VOCABULARY";
-}
-
-export function isNewGrammar(exercise: Exercise): exercise is NewGrammar {
-  return (exercise as NewGrammar).type === "NEW_GRAMMAR";
 }
 
 export function isBuildWordExercise(

@@ -3,6 +3,8 @@ import { IMatchingExercise } from "./MatchingExercise";
 const base: IMatchingExercise = {
   exercise: {
     id: "sfdajnlsnfads",
+    isNew: false,
+    lessonItemId: "qneOTSjAgXyMeLZEnSzG",
     type: "MATCHING",
     options1: [
       {

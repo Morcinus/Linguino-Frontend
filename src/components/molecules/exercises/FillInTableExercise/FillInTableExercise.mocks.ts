@@ -3,6 +3,8 @@ import { IFillInTableExercise } from "./FillInTableExercise";
 const base: IFillInTableExercise = {
   exercise: {
     id: "sfdajnlsnfads",
+    isNew: false,
+    lessonItemId: "qneOTSjAgXyMeLZEnSzG",
     type: "FILL_TABLE",
     questionL2: "Complete the conjugation of the verb 'to be'",
     tableRows: [

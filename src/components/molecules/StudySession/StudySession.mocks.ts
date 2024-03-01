@@ -6,6 +6,8 @@ const base: IStudySession = {
   exercises: [
     {
       id: "ifdsamlmlkafda",
+      isNew: false,
+      lessonItemId: "qneOTSjAgXyMeLZEnSzG",
       type: "TEXT",
       textL1: "jablko",
       textL2: "apple",
@@ -14,6 +16,8 @@ const base: IStudySession = {
     },
     {
       id: "ifdsamlmlkafda",
+      isNew: false,
+      lessonItemId: "qneOTSjAgXyMeLZEnSzG",
       type: "TEXT",
       textL1: "brambora",
       textL2: "potato",

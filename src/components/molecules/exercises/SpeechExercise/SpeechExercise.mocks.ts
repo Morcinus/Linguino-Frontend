@@ -3,6 +3,8 @@ import { ISpeechExercise } from "./SpeechExercise";
 const base: ISpeechExercise = {
   exercise: {
     id: "ifdsamlmlkafd",
+    isNew: false,
+    lessonItemId: "qneOTSjAgXyMeLZEnSzG",
     type: "SPEECH",
     assignmentTopicL2: "The best holiday of my life",
     questionsL2: [

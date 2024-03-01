@@ -3,6 +3,8 @@ import { IFillInSentenceExercise } from "./FillInSentenceExercise";
 const base: IFillInSentenceExercise = {
   exercise: {
     id: "asfjnldsfnks",
+    isNew: false,
+    lessonItemId: "qneOTSjAgXyMeLZEnSzG",
     type: "FILL_IN_SENTENCE",
     textL1: "Mám rád jablka.",
     textL2: "I like apples .",
