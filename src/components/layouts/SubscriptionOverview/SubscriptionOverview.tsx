@@ -1,7 +1,7 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
 import { Subscription } from "infrastructure/api/user/subscriptions/Subscriptions";
-import SubscriptionsAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
+import SubscriptionAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
 
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
   const router = useRouter();
 
   const { subscription, mutate } =
-    SubscriptionsAPI.useSubscription(subscriptionId);
+    SubscriptionAPI.useSubscription(subscriptionId);
 
   function handleUnsubscribe() {
     const data: Subscription = {
@@ -43,7 +43,7 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
         : undefined,
     };
     mutate(
-      SubscriptionsAPI.updateSubscription(data),
+      SubscriptionAPI.updateSubscription(data),
       optimisticMutationOption(data)
     );
   }

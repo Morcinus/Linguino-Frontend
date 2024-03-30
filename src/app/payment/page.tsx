@@ -8,7 +8,7 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { useTranslation } from "i18n/client";
-import SubscriptionsAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
+import SubscriptionAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
 import useAuth from "infrastructure/services/AuthProvider";
 import { useSnackbar } from "notistack";
 
@@ -63,7 +63,7 @@ const PaymentPage: React.FC<IPaymentPage> = () => {
     }
 
     try {
-      const { type, clientSecret } = await SubscriptionsAPI.createSubscription({
+      const { type, clientSecret } = await SubscriptionAPI.createSubscription({
         planPriceId: PLAN_PRICE_ID,
       });
       if (clientSecret) {

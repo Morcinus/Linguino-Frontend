@@ -1,6 +1,6 @@
 import { useTranslation } from "i18n/client";
 import { FreeTrialOfferNotice as FreeTrialOfferNoticeType } from "infrastructure/api/user/notices/Notices";
-import SubscriptionsAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
+import SubscriptionAPI from "infrastructure/api/user/subscriptions/SubscriptionsAPI";
 import useNotices from "infrastructure/services/NoticeProvider";
 import theme from "styles/theme";
 
@@ -31,7 +31,7 @@ const FreeTrialOfferNotice: React.FC<IFreeTrialOfferNotice> = ({ notice }) => {
       header1={t("notices.freeTrialOfferHeader")}
       primaryButton={{
         onClick: async () => {
-          await SubscriptionsAPI.createSubscription({
+          await SubscriptionAPI.createSubscription({
             subscriptionState: "TRIAL",
           });
           deleteNotice(notice.id);

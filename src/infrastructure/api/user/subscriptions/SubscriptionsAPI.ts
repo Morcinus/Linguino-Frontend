@@ -6,8 +6,8 @@ import { CreateSubscriptionResponseDTO, Subscription } from "./Subscriptions";
 
 export interface SubscriptionParams {}
 
-const SubscriptionsAPI = {
-  URI: "user/subscriptions",
+const SubscriptionAPI = {
+  URI: "user/subscription",
 
   useSubscription(
     id: Id
@@ -31,4 +31,4 @@ const SubscriptionsAPI = {
   },
 };
 
-export default SubscriptionsAPI;
+export default SubscriptionAPI;
