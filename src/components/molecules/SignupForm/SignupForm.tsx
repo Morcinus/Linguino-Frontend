@@ -138,7 +138,7 @@ const SignupForm: React.FC<ISignupForm> = () => {
               <Link
                 target="blank_"
                 rel="noopener"
-                href={config.termsAndConditionsURL}
+                href={config.termsAndConditionsUrl}
               >
                 {t("auth.terms.1")}
               </Link>{" "}
@@ -146,7 +146,7 @@ const SignupForm: React.FC<ISignupForm> = () => {
               <Link
                 target="blank_"
                 rel="noopener"
-                href={config.privacyPolicyURL}
+                href={config.privacyPolicyUrl}
               >
                 {t("auth.terms.3")}
               </Link>

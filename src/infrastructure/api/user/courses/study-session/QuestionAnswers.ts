@@ -28,7 +28,7 @@ export interface TextQuestionAnswer {
   id: Id;
   question: string;
   answer: string;
-  answerAudioURL?: string;
+  answerAudioUrl?: string;
 }
 
 export interface AudioQuestionAnswer {
@@ -70,11 +70,11 @@ export interface MatchTextOption {
 }
 
 export interface MatchAudioOption {
-  audioURL: string;
+  audioUrl: string;
   matchIndex?: number;
 }
 
 export interface MatchImageOption {
-  imageURL: string;
+  imageUrl: string;
   matchIndex?: number;
 }

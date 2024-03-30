@@ -70,12 +70,12 @@ const UsersPage: React.FC<IUsersPage> = ({ params }) => {
                 key={achievement.id}
                 header={achievement.title}
                 subheader={achievement.description}
-                imageURL={achievement.imageURL}
+                imageUrl={achievement.imageUrl}
                 onClick={() => {
                   setPopup({
                     displayCloseButton: true,
                     subheader: achievement.title,
-                    imageURL: achievement.imageURL,
+                    imageUrl: achievement.imageUrl,
                     text: achievement.description,
                   });
                 }}

@@ -26,8 +26,8 @@ const LessonItemList: React.FC<ILessonItemList> = ({ lessonItems }) => {
           <ListItem
             key={item.id}
             secondaryAction={
-              item.audioURL ? (
-                <ListenIconButton audioLink={item.audioURL} />
+              item.audioUrl ? (
+                <ListenIconButton audioLink={item.audioUrl} />
               ) : undefined
             }
             sx={{ pr: 2 }}
@@ -37,7 +37,7 @@ const LessonItemList: React.FC<ILessonItemList> = ({ lessonItems }) => {
               onClick={() => router.push(`/lesson-items/${item.id}`)}
             >
               <ListItemAvatar>
-                <Avatar src={item.imageURL} variant="rounded" />
+                <Avatar src={item.imageUrl} variant="rounded" />
               </ListItemAvatar>
               <ListItemText primary={item.nameL2} secondary={item.nameL1} />
             </ListItemButton>

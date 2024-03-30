@@ -19,8 +19,8 @@ const ExampleSentenceList: React.FC<IExampleSentenceList> = ({ items }) => {
           <ListItem
             key={item.id}
             secondaryAction={
-              item.audioURL ? (
-                <ListenIconButton audioLink={item.audioURL} />
+              item.audioUrl ? (
+                <ListenIconButton audioLink={item.audioUrl} />
               ) : undefined
             }
             sx={{ px: 2 }}

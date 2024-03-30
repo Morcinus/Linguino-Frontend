@@ -62,7 +62,7 @@ const FavoritesOverview: React.FC<IFavoritesOverview> = ({ courseId }) => {
                       name: item.nameL2,
                       secondaryName: item.nameL1,
                       url: `/lesson-items/${item.id}`,
-                      imageURL: item.imageURL,
+                      imageUrl: item.imageUrl,
                     };
                   })}
                 />

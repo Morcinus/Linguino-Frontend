@@ -10,7 +10,7 @@ const base: IUserProfileCard = {
     following: 42,
     level: 12,
     id: "12",
-    profileImageURL: "https://picsum.photos/id/168/512/512",
+    profileImageUrl: "https://picsum.photos/id/168/512/512",
     isFollowed: false,
   },
   onFollowChange: action("onFollowChange"),

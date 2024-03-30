@@ -21,7 +21,7 @@ export interface IUserProfileCard {
     | "followers"
     | "following"
     | "level"
-    | "profileImageURL"
+    | "profileImageUrl"
     | "id"
     | "isFollowed"
   >;
@@ -44,7 +44,7 @@ const UserProfileCard: React.FC<IUserProfileCard> = ({
         <Box display="flex" gap={2}>
           <Box>
             <Avatar
-              src={userProfile.profileImageURL}
+              src={userProfile.profileImageUrl}
               sx={{ width: "104px", height: "104px" }}
             />
           </Box>

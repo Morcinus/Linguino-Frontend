@@ -6,7 +6,7 @@ const base: IFullscreenDialog = {
   header1: "Header 1",
   header2: "Header 2",
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  imageURL: "https://picsum.photos/id/168/512/512",
+  imageUrl: "https://picsum.photos/id/168/512/512",
   primaryButton: {
     text: "Primary Button",
     onClick: action("onClick primaryButton"),

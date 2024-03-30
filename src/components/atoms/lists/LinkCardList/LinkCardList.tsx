@@ -17,7 +17,7 @@ export interface ListItem {
   url: string;
   name: string;
   secondaryName?: string;
-  imageURL?: string;
+  imageUrl?: string;
 }
 
 export interface ILinkCardList {
@@ -33,9 +33,9 @@ const LinkCardList: React.FC<ILinkCardList> = ({ links }) => {
         return (
           <ListItem key={link.id}>
             <ListItemButton component="a" onClick={() => router.push(link.url)}>
-              {link.imageURL && (
+              {link.imageUrl && (
                 <ListItemAvatar>
-                  <Avatar src={link.imageURL} variant="rounded" />
+                  <Avatar src={link.imageUrl} variant="rounded" />
                 </ListItemAvatar>
               )}
               <ListItemText

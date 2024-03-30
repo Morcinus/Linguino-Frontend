@@ -9,7 +9,7 @@ const base: IFeedMessageCard = {
     id: "dnfksanjfdlsa",
     type: "message",
     author: "Pepa Okurka",
-    authorAvatarURL: "https://picsum.photos/id/168/512/512",
+    authorAvatarUrl: "https://picsum.photos/id/168/512/512",
     message: "reached_level_50",
     publishedAt: new Date("2042-03-18T20:15:05Z"),
     reactions: [

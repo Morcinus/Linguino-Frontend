@@ -10,7 +10,7 @@ const base: ICardGrid = {
       component: SimpleCard,
       props: {
         header: `Card ${index}`,
-        imageURL: "https://picsum.photos/id/168/512/512",
+        imageUrl: "https://picsum.photos/id/168/512/512",
         onClick: action(`onClick card ${index}`),
       },
     };

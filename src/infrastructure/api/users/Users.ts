@@ -6,7 +6,7 @@ export interface UserProfile {
   following: number;
   level: number;
   name: string;
-  profileImageURL: string;
+  profileImageUrl: string;
   isFollowed: boolean;
   username: string;
   learningStats: Array<LearningDataPoint>;
@@ -16,12 +16,12 @@ export interface UserProfile {
 
 export type UserSummary = Pick<
   UserProfile,
-  "id" | "name" | "username" | "profileImageURL" | "isFollowed"
+  "id" | "name" | "username" | "profileImageUrl" | "isFollowed"
 >;
 
 export type ProfileAchievement = Pick<
   Achievement,
-  "id" | "title" | "description" | "imageURL" | "progress"
+  "id" | "title" | "description" | "imageUrl" | "progress"
 >;
 
 export interface LearningDataPoint {

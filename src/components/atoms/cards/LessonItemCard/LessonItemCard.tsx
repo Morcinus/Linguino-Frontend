@@ -31,8 +31,8 @@ const LessonItemCard: React.FC<ILessonItemCard> = ({
                 {lessonItem.nameL1}
               </Typography>
             </Box>
-            {lessonItem.audioURL && (
-              <ListenIconButton audioLink={lessonItem.audioURL} />
+            {lessonItem.audioUrl && (
+              <ListenIconButton audioLink={lessonItem.audioUrl} />
             )}
             <FavoriteButton
               active={lessonItem.favorite}

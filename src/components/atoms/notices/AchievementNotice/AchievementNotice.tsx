@@ -15,7 +15,7 @@ const AchievementNotice: React.FC<IAchievementNotice> = ({ notice }) => {
   return (
     <FullscreenDialog
       header1={t("notices.achievementGet")}
-      imageURL={notice.imageURL}
+      imageUrl={notice.imageUrl}
       header2={notice.name}
       text={notice.description}
       primaryButton={{

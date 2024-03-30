@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 export interface ISimpleCardWide {
   header: string;
   subheader?: string;
-  imageURL?: string;
+  imageUrl?: string;
   onClick?: () => void;
   imgSize?: number;
 }
@@ -16,7 +16,7 @@ export interface ISimpleCardWide {
 const SimpleCardWide: React.FC<ISimpleCardWide> = ({
   header,
   subheader,
-  imageURL,
+  imageUrl,
   onClick,
   imgSize = 90,
 }) => {
@@ -38,7 +38,7 @@ const SimpleCardWide: React.FC<ISimpleCardWide> = ({
         onClick={onClick}
       >
         <Box sx={{ display: "flex" }}>
-          {imageURL && (
+          {imageUrl && (
             <CardMedia
               sx={{
                 height: imageResolution,
@@ -46,7 +46,7 @@ const SimpleCardWide: React.FC<ISimpleCardWide> = ({
                 minWidth: imageResolution,
                 minHeight: imageResolution,
               }}
-              image={imageURL}
+              image={imageUrl}
             />
           )}
           <CardContent

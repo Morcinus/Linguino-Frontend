@@ -58,7 +58,7 @@ const SelectTopicsForm: React.FC<ISelectTopicsForm> = ({
                 component: SimpleCard,
                 props: {
                   header: topic.name,
-                  imageURL: topic.thumbnailURL,
+                  imageUrl: topic.thumbnailUrl,
                   highlightCard: selectedTopics.some((t) => t.id === topic.id),
                   highlightVariant: "outlined",
                   onClick: () => handleTopicToggle(topic),

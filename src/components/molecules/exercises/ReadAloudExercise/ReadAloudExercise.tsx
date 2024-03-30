@@ -31,7 +31,7 @@ const ReadAloudExercise: React.FC<IReadAloudExercise> = ({
       onContinue={(arr: Array<UserAnswer>) => {
         onContinue?.(arr, false);
       }}
-      imageURL={exercise.imageURL}
+      imageUrl={exercise.imageUrl}
       questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {

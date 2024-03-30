@@ -5,7 +5,7 @@ import { IPopup } from "./Popup";
 const base: IPopup = {
   header: "Lorem ipsum?",
   text: "Lorem ipsum dolor",
-  imageURL: "https://picsum.photos/id/168/512/512",
+  imageUrl: "https://picsum.photos/id/168/512/512",
   displayCloseButton: true,
   open: true,
   primaryAction: {

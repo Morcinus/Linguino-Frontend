@@ -13,7 +13,7 @@ import IconContainer from "components/atoms/IconContainer/IconContainer";
 import styles from "./MatchAudioOption.module.css";
 
 export interface IMatchAudioOption {
-  audioURL: string;
+  audioUrl: string;
   selected?: boolean;
   disabled?: boolean;
   animateWrong?: boolean;
@@ -21,7 +21,7 @@ export interface IMatchAudioOption {
 }
 
 const MatchAudioOption: React.FC<IMatchAudioOption> = ({
-  audioURL,
+  audioUrl,
   selected,
   disabled,
   animateWrong,
@@ -31,7 +31,7 @@ const MatchAudioOption: React.FC<IMatchAudioOption> = ({
   const [state, setState] = useState<"STOPPED" | "RUNNING" | "PAUSED">(
     "STOPPED"
   );
-  const audioRef = useRef(new Audio(audioURL));
+  const audioRef = useRef(new Audio(audioUrl));
 
   useEffect(() => {
     if (disabled === true) {

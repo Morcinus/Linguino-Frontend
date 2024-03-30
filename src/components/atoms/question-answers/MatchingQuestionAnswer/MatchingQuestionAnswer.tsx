@@ -93,9 +93,9 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
           if (isMatchTextOption(option)) {
             return option.text;
           } else if (isMatchAudioOption(option)) {
-            return option.audioURL;
+            return option.audioUrl;
           } else if (isMatchImageOption(option)) {
-            return option.imageURL;
+            return option.imageUrl;
           } else return "";
         }),
         exerciseId: questionAnswer.id,
@@ -160,7 +160,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
           } else if (isMatchAudioOption(option)) {
             return (
               <MatchAudioOption
-                audioURL={option.audioURL}
+                audioUrl={option.audioUrl}
                 selected={selected}
                 onClick={() => setSelectedIndex1(i)}
                 disabled={optionStates1[i] === "RIGHT"}
@@ -175,7 +175,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
                 key={`options1-${i}`}
               >
                 <MatchImageOption
-                  imageURL={option.imageURL}
+                  imageUrl={option.imageUrl}
                   selected={selected}
                   onClick={() => setSelectedIndex1(i)}
                   disabled={optionStates1[i] === "RIGHT"}
@@ -213,7 +213,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
           } else if (isMatchAudioOption(option)) {
             return (
               <MatchAudioOption
-                audioURL={option.audioURL}
+                audioUrl={option.audioUrl}
                 selected={selected}
                 onClick={() => setSelectedIndex2(i)}
                 disabled={optionStates2[i] === "RIGHT"}
@@ -228,7 +228,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
                 key={`options2-${i}`}
               >
                 <MatchImageOption
-                  imageURL={option.imageURL}
+                  imageUrl={option.imageUrl}
                   selected={selected}
                   onClick={() => setSelectedIndex2(i)}
                   disabled={optionStates2[i] === "RIGHT"}

@@ -4,7 +4,7 @@ import { StartingLevel } from "../account-setup/AccountSetup";
 
 export type UserCourse = Pick<
   Course,
-  "id" | "language1" | "language2" | "name" | "thumbnailURL"
+  "id" | "language1" | "language2" | "name" | "thumbnailUrl"
 >;
 
 export interface AddCourseDTO {

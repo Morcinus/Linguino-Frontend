@@ -18,7 +18,7 @@ export interface ListItem {
   url: string;
   name: string;
   secondaryName?: string;
-  imageURL?: string;
+  imageUrl?: string;
 }
 
 export interface IUserLessonsList {
@@ -43,9 +43,9 @@ const UserLessonsList: React.FC<IUserLessonsList> = ({ lessons }) => {
             }
           >
             <ListItemButton component="a" onClick={() => router.push(link.url)}>
-              {link.imageURL && (
+              {link.imageUrl && (
                 <ListItemAvatar>
-                  <Avatar src={link.imageURL} variant="rounded" />
+                  <Avatar src={link.imageUrl} variant="rounded" />
                 </ListItemAvatar>
               )}
               <ListItemText

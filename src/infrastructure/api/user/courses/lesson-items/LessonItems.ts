@@ -2,8 +2,8 @@ export interface LessonItem {
   id: Id;
   nameL1: string;
   nameL2: string;
-  imageURL?: string;
-  audioURL?: string;
+  imageUrl?: string;
+  audioUrl?: string;
   favorite: boolean;
   description?: string;
   examples?: Array<ExampleSentence>;
@@ -15,12 +15,12 @@ export interface LessonItem {
 
 export type LessonItemSummary = Pick<
   LessonItem,
-  "id" | "nameL1" | "nameL2" | "imageURL" | "audioURL"
+  "id" | "nameL1" | "nameL2" | "imageUrl" | "audioUrl"
 >;
 
 export interface ExampleSentence {
   id: Id;
   textL1: string;
   textL2: string;
-  audioURL?: string;
+  audioUrl?: string;
 }

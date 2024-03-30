@@ -1,7 +1,7 @@
 export interface ShopItem {
   id: Id;
   name: string;
-  imageURL: string;
+  imageUrl: string;
   price: number;
   categoryId: Id;
 

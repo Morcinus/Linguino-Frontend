@@ -7,7 +7,7 @@ const base: IRepeatAudioExercise = {
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
     type: "REPEAT_AUDIO",
     textL2: "potato",
-    audioURL: "https://mocks.linguino.org/audio-short.mp3",
+    audioUrl: "https://mocks.linguino.org/audio-short.mp3",
   },
 };
 

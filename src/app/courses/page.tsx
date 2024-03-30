@@ -43,7 +43,7 @@ const CoursesPage: React.FC<ICoursesPage> = () => {
                 component: SimpleCard,
                 props: {
                   header: course.name,
-                  imageURL: course.thumbnailURL,
+                  imageUrl: course.thumbnailUrl,
                   highlightCard: user.selectedCourse.id === course.id,
                   highlightVariant: "outlined",
                   onClick: async () => {

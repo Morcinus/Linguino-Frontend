@@ -82,7 +82,7 @@ const SelectCourseForm: React.FC<ISelectCourseForm> = ({
                   component: SimpleCard,
                   props: {
                     header: course.name,
-                    imageURL: course.thumbnailURL,
+                    imageUrl: course.thumbnailUrl,
                     highlightCard: selectedCourseId === course.id,
                     highlightVariant: "outlined",
                     onClick: () => setSelectedCourseId(course.id),

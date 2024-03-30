@@ -1,11 +1,11 @@
 export interface Topic {
   id: Id;
   name: string;
-  thumbnailURL?: string;
+  thumbnailUrl?: string;
   enabled: boolean;
   category: "main" | "extra";
 }
 
 export interface FeaturedTopic extends Topic {
-  thumbnailURL: string;
+  thumbnailUrl: string;
 }

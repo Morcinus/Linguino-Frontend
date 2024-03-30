@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 export interface IProgressCard {
   header: string;
   subheader?: string;
-  imageURL?: string;
+  imageUrl?: string;
   onClick?: () => void;
   cardHighlight?: "achieved" | "selected";
   progress?: number;
@@ -24,7 +24,7 @@ export interface IProgressCard {
 const ProgressCard: React.FC<IProgressCard> = ({
   header,
   subheader,
-  imageURL,
+  imageUrl,
   onClick,
   cardHighlight,
   progress,
@@ -64,7 +64,7 @@ const ProgressCard: React.FC<IProgressCard> = ({
         onClick={onClick}
       >
         <Box sx={{ display: "flex" }}>
-          {imageURL && (
+          {imageUrl && (
             <CardMedia
               sx={{
                 height: imgSize,
@@ -72,7 +72,7 @@ const ProgressCard: React.FC<IProgressCard> = ({
                 minWidth: imgSize,
                 minHeight: imgSize,
               }}
-              image={imageURL}
+              image={imageUrl}
             />
           )}
           <CardContent

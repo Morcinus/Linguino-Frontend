@@ -56,7 +56,7 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
                     key={challenge.id}
                     header={challenge.title}
                     subheader={challenge.description}
-                    imageURL={challenge.imageURL}
+                    imageUrl={challenge.imageUrl}
                     claimReward={!challenge.collectedReward}
                     progress={challenge.progress}
                     onRewardClick={() => {
@@ -66,7 +66,7 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
                       setPopup({
                         displayCloseButton: true,
                         subheader: challenge.title,
-                        imageURL: challenge.imageURL,
+                        imageUrl: challenge.imageUrl,
                         text: challenge.description,
                       });
                     }}
@@ -94,7 +94,7 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
                     key={achievement.id}
                     header={achievement.title}
                     subheader={achievement.description}
-                    imageURL={achievement.imageURL}
+                    imageUrl={achievement.imageUrl}
                     claimReward={!achievement.collectedReward}
                     progress={achievement.progress}
                     onRewardClick={() => {
@@ -106,7 +106,7 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
                       setPopup({
                         displayCloseButton: true,
                         subheader: achievement.title,
-                        imageURL: achievement.imageURL,
+                        imageUrl: achievement.imageUrl,
                         text: achievement.description,
                       });
                     }}

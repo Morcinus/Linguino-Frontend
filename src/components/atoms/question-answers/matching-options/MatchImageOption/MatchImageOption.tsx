@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import styles from "./MatchImageOption.module.css";
 
 export interface IMatchImageOption {
-  imageURL: string;
+  imageUrl: string;
   selected?: boolean;
   disabled?: boolean;
   animateWrong?: boolean;
@@ -14,7 +14,7 @@ export interface IMatchImageOption {
 }
 
 const MatchImageOption: React.FC<IMatchImageOption> = ({
-  imageURL,
+  imageUrl,
   selected,
   disabled,
   animateWrong,
@@ -47,7 +47,7 @@ const MatchImageOption: React.FC<IMatchImageOption> = ({
           }}
         >
           <CardMedia
-            image={imageURL}
+            image={imageUrl}
             sx={{
               width: "100%",
               height: "100%",

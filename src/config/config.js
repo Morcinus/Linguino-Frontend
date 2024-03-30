@@ -1,8 +1,8 @@
 const config = {
   pagesWithoutToolbar: ["/study", "/account-setup"],
   pagesWithoutContentContainer: ["/study"],
-  termsAndConditionsURL: "https://www.example.com",
-  privacyPolicyURL: "https://www.example.com",
+  termsAndConditionsUrl: "https://www.example.com",
+  privacyPolicyUrl: "https://www.example.com",
 
   categories: [
     {

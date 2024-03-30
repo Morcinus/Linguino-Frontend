@@ -38,8 +38,8 @@ export interface IQuestionAnswerComponent {
 
 export interface ListeningExercise extends IExercise {
   type: "LISTENING";
-  audioURL: string;
-  imageURL?: string;
+  audioUrl: string;
+  imageUrl?: string;
   questionL2: string;
   answerL2: string;
 }
@@ -47,19 +47,19 @@ export interface ListeningExercise extends IExercise {
 export interface ShortListeningExercise extends IExercise {
   type: "SHORT_LISTENING";
   textL2: string;
-  textL2AudioURL: string;
+  textL2AudioUrl: string;
 }
 
 export interface RepeatAudioExercise extends IExercise {
   type: "REPEAT_AUDIO";
   textL2: string;
-  audioURL: string;
+  audioUrl: string;
 }
 
 export interface ReadAloudExercise extends IExercise {
   type: "READ_ALOUD";
   textL2: string;
-  imageURL?: string;
+  imageUrl?: string;
 }
 
 export interface SpeechExercise extends IExercise {
@@ -73,8 +73,8 @@ export interface TextExercise extends IExercise {
   type: "TEXT";
   textL1: string;
   textL2: string;
-  imageURL?: string;
-  textL2AudioURL?: string;
+  imageUrl?: string;
+  textL2AudioUrl?: string;
   explanation?: string;
 }
 
@@ -83,7 +83,7 @@ export interface ReadingExercise extends IExercise {
   article: string;
   questionL2: string;
   answerL2: string;
-  imageURL?: string;
+  imageUrl?: string;
 }
 
 export interface BuildWordExercise extends IExercise {
@@ -91,8 +91,8 @@ export interface BuildWordExercise extends IExercise {
   wordL1: string;
   wordL2: string;
   letters: Array<string>;
-  imageURL?: string;
-  answerAudioURL?: string;
+  imageUrl?: string;
+  answerAudioUrl?: string;
 }
 
 export interface FillInTableExercise extends IExercise {
@@ -110,7 +110,7 @@ export interface FillInSentenceExercise extends IExercise {
   blankIndexes: Array<number>;
   options: Array<string>;
 
-  imageURL?: string;
+  imageUrl?: string;
 }
 
 export interface MatchingExercise extends IExercise {

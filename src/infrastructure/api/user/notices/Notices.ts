@@ -12,7 +12,7 @@ export interface AchievementNotice {
   type: "ACHIEVEMENT";
   name: string;
   description: string;
-  imageURL: string;
+  imageUrl: string;
 }
 
 export interface FreeTrialOfferNotice {

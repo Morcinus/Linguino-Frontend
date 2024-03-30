@@ -4,7 +4,7 @@ import { IProgressCard } from "./ProgressCard";
 
 const small: IProgressCard = {
   header: "Lorem ipsum dolor",
-  imageURL: "https://picsum.photos/id/168/512/512",
+  imageUrl: "https://picsum.photos/id/168/512/512",
   onClick: action("onClick"),
   subheader: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   progress: 27,
@@ -14,7 +14,7 @@ const small: IProgressCard = {
 
 const medium: IProgressCard = {
   header: "Lorem ipsum dolor",
-  imageURL: "https://picsum.photos/id/168/512/512",
+  imageUrl: "https://picsum.photos/id/168/512/512",
   onClick: action("onClick"),
   subheader: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   progress: 27,
@@ -24,7 +24,7 @@ const medium: IProgressCard = {
 
 const large: IProgressCard = {
   header: "Lorem ipsum dolor",
-  imageURL: "https://picsum.photos/id/168/512/512",
+  imageUrl: "https://picsum.photos/id/168/512/512",
   onClick: action("onClick"),
   subheader: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   progress: 27,

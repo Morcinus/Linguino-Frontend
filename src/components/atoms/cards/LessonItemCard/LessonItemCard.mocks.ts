@@ -10,7 +10,7 @@ const base: ILessonItemCard = {
     nameL2: "Lorem ipsum",
     progress: 42,
     backgroundImageUrl: "https://picsum.photos/id/168/1920/1080",
-    audioURL: "https://mocks.linguino.org/audio-short.mp3",
+    audioUrl: "https://mocks.linguino.org/audio-short.mp3",
     description:
       "noun /pronunciation/\n #### Definition\n Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },

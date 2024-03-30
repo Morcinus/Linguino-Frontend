@@ -46,7 +46,7 @@ const FeedMessageCard: React.FC<IFeedMessageCard> = ({
         <Card>
           <CardContent sx={{ display: "flex", gap: 1, pb: 1 }}>
             <Box>
-              <Avatar src={feedMessage.authorAvatarURL}></Avatar>
+              <Avatar src={feedMessage.authorAvatarUrl}></Avatar>
             </Box>
             <Box>
               <Box sx={{ display: "flex", gap: 1, alignItems: "flex-end" }}>

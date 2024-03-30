@@ -101,13 +101,13 @@ const ShopPage: React.FC<IShopPage> = () => {
                           ? t("shop.bought")
                           : item.price,
                       headerEmoji: !item.bought ? "🪙" : undefined,
-                      imageURL: item.imageURL,
+                      imageUrl: item.imageUrl,
                       highlightCard: item.equipped,
                       onClick: () => {
                         const buyPopupProps = {
                           displayCloseButton: true,
                           subheader: <Box display="flex" justifyContent="center" alignItems="center">{item.price}<Twemoji emoji={"🪙"} width={20} height={20} /></Box>,
-                          imageURL: item.imageURL,
+                          imageUrl: item.imageUrl,
                           primaryAction: {
                             text: t("shop.buy"),
                             onClick: () => {
@@ -119,7 +119,7 @@ const ShopPage: React.FC<IShopPage> = () => {
 
                         const equipPopupProps = {
                           displayCloseButton: true,
-                          imageURL: item.imageURL,
+                          imageUrl: item.imageUrl,
                           primaryAction: {
                             text: t("shop.equip"),
                             onClick: () => {
@@ -131,7 +131,7 @@ const ShopPage: React.FC<IShopPage> = () => {
 
                         const unequipPopupProps = {
                           displayCloseButton: true,
-                          imageURL: item.imageURL,
+                          imageUrl: item.imageUrl,
                           primaryAction: {
                             text: t("shop.unequip"),
                             onClick: () => {

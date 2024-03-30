@@ -18,7 +18,7 @@ export interface IPopup {
   header?: string;
   subheader?: string;
   text?: string;
-  imageURL?: string;
+  imageUrl?: string;
   primaryAction?: {
     text: string;
     onClick: () => void;
@@ -36,7 +36,7 @@ const Popup: React.FC<IPopup> = ({
   header,
   subheader,
   text,
-  imageURL,
+  imageUrl,
   primaryAction,
   secondaryAction,
   displayCloseButton,
@@ -71,8 +71,8 @@ const Popup: React.FC<IPopup> = ({
           minWidth: 280,
         }}
       >
-        {imageURL && (
-          <Image src={imageURL} alt="image" width={180} height={180} />
+        {imageUrl && (
+          <Image src={imageUrl} alt="image" width={180} height={180} />
         )}
         <DialogContentText
           sx={{

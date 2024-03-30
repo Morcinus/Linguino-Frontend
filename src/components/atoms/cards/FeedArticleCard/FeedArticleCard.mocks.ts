@@ -5,7 +5,7 @@ const base: IFeedArticleCard = {
     id: "sdmflafl",
     type: "article",
     link: "https://example.com",
-    imageURL: "https://picsum.photos/id/168/512/512",
+    imageUrl: "https://picsum.photos/id/168/512/512",
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     publishedAt: new Date(),
   },

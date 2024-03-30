@@ -13,7 +13,7 @@ const base: ILessonCreateUpdate = {
         id: "123",
         nameL1: "voda",
         nameL2: "water",
-        imageURL: "https://picsum.photos/id/168/512/512",
+        imageUrl: "https://picsum.photos/id/168/512/512",
       },
     ],
   },

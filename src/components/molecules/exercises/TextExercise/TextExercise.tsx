@@ -22,7 +22,7 @@ const TextExercise: React.FC<ITextExercise> = ({ exercise, onContinue }) => {
     type: "TEXT",
     question: exercise.textL1,
     answer: exercise.textL2,
-    answerAudioURL: exercise.textL2AudioURL,
+    answerAudioUrl: exercise.textL2AudioUrl,
   };
 
   return (
@@ -31,7 +31,7 @@ const TextExercise: React.FC<ITextExercise> = ({ exercise, onContinue }) => {
       onContinue={(arr: Array<UserAnswer>) => {
         onContinue?.(arr, false);
       }}
-      imageURL={exercise.imageURL}
+      imageUrl={exercise.imageUrl}
       questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {

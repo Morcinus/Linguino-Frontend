@@ -14,11 +14,11 @@ export function isMatchTextOption(
 export function isMatchAudioOption(
   option: MatchOption
 ): option is MatchAudioOption {
-  return (option as MatchAudioOption).audioURL !== undefined;
+  return (option as MatchAudioOption).audioUrl !== undefined;
 }
 
 export function isMatchImageOption(
   option: MatchOption
 ): option is MatchImageOption {
-  return (option as MatchImageOption).imageURL !== undefined;
+  return (option as MatchImageOption).imageUrl !== undefined;
 }

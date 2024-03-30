@@ -11,7 +11,7 @@ import Twemoji from "components/atoms/Twemoji/Twemoji";
 export interface ISimpleCard {
   header: string;
   headerEmoji?: string;
-  imageURL: string;
+  imageUrl: string;
   onClick: () => void;
   highlightCard?: boolean;
   highlightVariant?: "text" | "outlined";
@@ -20,7 +20,7 @@ export interface ISimpleCard {
 const SimpleCard: React.FC<ISimpleCard> = ({
   header,
   headerEmoji,
-  imageURL,
+  imageUrl,
   onClick,
   highlightCard,
   highlightVariant,
@@ -42,7 +42,7 @@ const SimpleCard: React.FC<ISimpleCard> = ({
       >
         <CardMedia
           sx={{ height: "100px", width: "100px", mx: 2, mt: 1 }}
-          image={imageURL}
+          image={imageUrl}
         />
         <CardContent
           sx={{

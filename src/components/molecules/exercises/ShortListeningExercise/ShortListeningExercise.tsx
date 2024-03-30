@@ -47,7 +47,7 @@ const ShortListeningExercise: React.FC<IShortListeningExercise> = ({
       componentsAboveQuestions={
         <Box sx={{ mb: 4 }}>
           <ListenButton
-            audioLink={exercise.textL2AudioURL}
+            audioLink={exercise.textL2AudioUrl}
             playOnMount={true}
           />
         </Box>

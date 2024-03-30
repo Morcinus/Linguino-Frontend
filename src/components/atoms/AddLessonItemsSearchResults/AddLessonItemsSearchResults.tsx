@@ -64,7 +64,7 @@ const AddLessonItemsSearchResults: React.FC<IAddLessonItemsSearchResults> = ({
                     }
                   >
                     <ListItemAvatar>
-                      <Avatar src={item.imageURL} variant="rounded" />
+                      <Avatar src={item.imageUrl} variant="rounded" />
                     </ListItemAvatar>
                     <ListItemText
                       primary={item.nameL2}

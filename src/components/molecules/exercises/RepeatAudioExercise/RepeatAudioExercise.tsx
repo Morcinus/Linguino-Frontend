@@ -41,7 +41,7 @@ const RepeatAudioExercise: React.FC<IRepeatAudioExercise> = ({
         },
       ]}
       componentsAboveQuestions={
-        <ListenButton audioLink={exercise.audioURL} playOnMount={true} />
+        <ListenButton audioLink={exercise.audioUrl} playOnMount={true} />
       }
       submitBeforeContinue={false}
     />

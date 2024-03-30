@@ -10,8 +10,8 @@ const base: IBuildWordExercise = {
     wordL1: "jablko",
     wordL2: "apple",
     letters: ["a", "p", "p", "l", "e", "x", "y", "z"],
-    imageURL: "https://picsum.photos/id/168/512/512",
-    answerAudioURL: "https://mocks.linguino.org/audio-short.mp3",
+    imageUrl: "https://picsum.photos/id/168/512/512",
+    answerAudioUrl: "https://mocks.linguino.org/audio-short.mp3",
   },
 };
 

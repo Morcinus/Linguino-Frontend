@@ -7,7 +7,7 @@ const base: IShortListeningExercise = {
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
     type: "SHORT_LISTENING",
     textL2: "apple",
-    textL2AudioURL: "https://mocks.linguino.org/audio-short.mp3",
+    textL2AudioUrl: "https://mocks.linguino.org/audio-short.mp3",
   },
 };
 

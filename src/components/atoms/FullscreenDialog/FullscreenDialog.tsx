@@ -16,7 +16,7 @@ import ImageCard from "../cards/ImageCard/ImageCard";
 
 export interface IFullscreenDialog {
   header1?: string;
-  imageURL?: string;
+  imageUrl?: string;
   header2?: string;
   text?: string;
   children?: ReactNode;
@@ -38,7 +38,7 @@ const FullscreenDialog: React.FC<
 > = ({
   primaryButton,
   secondaryButton,
-  imageURL,
+  imageUrl,
   header1,
   header2,
   text,
@@ -65,7 +65,7 @@ const FullscreenDialog: React.FC<
           {header1}
         </Typography>
 
-        {imageURL && <ImageCard url={imageURL} />}
+        {imageUrl && <ImageCard url={imageUrl} />}
 
         <Typography variant="h5" sx={{ textAlign: "center" }}>
           {header2}

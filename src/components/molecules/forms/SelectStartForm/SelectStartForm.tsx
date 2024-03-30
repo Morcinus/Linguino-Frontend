@@ -27,7 +27,7 @@ const SelectStartForm: React.FC<ISelectStartForm> = ({ onSubmit }) => {
           subheader={tForm(
             `accountSetup.startOptions.${option.id}.description`
           )}
-          imageURL={option.imageURL}
+          imageUrl={option.imageUrl}
           imgSize={120}
           onClick={() => onSubmit(option.id)}
         />

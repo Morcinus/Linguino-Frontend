@@ -6,7 +6,7 @@ export interface FeedArticle {
   id: Id;
   seenByUser?: boolean;
   title: string;
-  imageURL: string;
+  imageUrl: string;
   link: string;
   publishedAt: Date;
   type: "article";
@@ -26,7 +26,7 @@ export interface FeedMessage {
   seenByUser?: boolean;
   author: string;
   message: MessageType;
-  authorAvatarURL: string;
+  authorAvatarUrl: string;
   reactions: Array<Reaction>;
   publishedAt: Date;
   type: "message";

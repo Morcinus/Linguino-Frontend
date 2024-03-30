@@ -13,7 +13,7 @@ import ImageCard from "../cards/ImageCard/ImageCard";
 
 export interface IExercise {
   assignmentTitle?: string;
-  imageURL?: string;
+  imageUrl?: string;
   onContinue: (arr: Array<UserAnswer>) => void;
   questionAnswers: Array<QuestionAnswer>;
   questionAnswerComponents: Array<{
@@ -139,8 +139,8 @@ class Exercise extends Component<IExercise, IExerciseState> {
           {this.props.assignmentTitle}
         </Typography>
 
-        {this.props.imageURL && (
-          <ImageCard url={this.props.imageURL} maxWidth={200} />
+        {this.props.imageUrl && (
+          <ImageCard url={this.props.imageUrl} maxWidth={200} />
         )}
 
         {this.props.componentsAboveQuestions}

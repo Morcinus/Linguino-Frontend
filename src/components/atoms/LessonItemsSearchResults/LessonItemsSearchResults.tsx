@@ -42,7 +42,7 @@ const LessonItemsSearchResults: React.FC<ILessonItemsSearchResults> = ({
                   onClick={() => router.push(`/lesson-items/${item.id}`)}
                 >
                   <ListItemAvatar>
-                    <Avatar src={item.imageURL} variant="rounded" />
+                    <Avatar src={item.imageUrl} variant="rounded" />
                   </ListItemAvatar>
                   <ListItemText primary={item.nameL2} secondary={item.nameL1} />
                   <IconContainer name={icons.next} />

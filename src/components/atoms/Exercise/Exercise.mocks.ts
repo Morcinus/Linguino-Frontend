@@ -4,7 +4,7 @@ import { IExercise } from "./Exercise";
 const base: IExercise = {
   assignmentTitle: "Lorem ipsum",
   onContinue: () => console.log("onContinue"),
-  imageURL: "https://picsum.photos/id/168/512/512",
+  imageUrl: "https://picsum.photos/id/168/512/512",
   questionAnswers: [
     {
       id: "asdndajdlada",

@@ -18,7 +18,7 @@ const FeedArticleCard: React.FC<IFeedArticleCard> = ({ feedArticle }) => {
   return (
     <Card>
       <CardActionArea onClick={() => router.push(feedArticle.link)}>
-        <CardMedia sx={{ height: 140 }} image={feedArticle.imageURL} />
+        <CardMedia sx={{ height: 140 }} image={feedArticle.imageUrl} />
         <Box sx={{ py: 1, px: 1 }}>
           <Typography>{feedArticle.title}</Typography>
         </Box>

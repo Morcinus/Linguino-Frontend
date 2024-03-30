@@ -4,7 +4,7 @@ import { ISimpleCardWide } from "./SimpleCardWide";
 
 const base: ISimpleCardWide = {
   header: "Lorem ipsum",
-  imageURL: "https://picsum.photos/id/168/512/512",
+  imageUrl: "https://picsum.photos/id/168/512/512",
   subheader: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   onClick: action("onClick"),
 };

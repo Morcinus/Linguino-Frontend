@@ -34,7 +34,7 @@ const ListeningExercise: React.FC<IListeningExercise> = ({
     <Exercise
       assignmentTitle={t("exercises.listening.assignmentTitle")}
       onContinue={handleContinue}
-      imageURL={exercise.imageURL}
+      imageUrl={exercise.imageUrl}
       questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {
@@ -47,7 +47,7 @@ const ListeningExercise: React.FC<IListeningExercise> = ({
         },
       ]}
       componentsAboveQuestions={
-        <AudioPlayer audioLink={exercise.audioURL} playOnMount={true} />
+        <AudioPlayer audioLink={exercise.audioUrl} playOnMount={true} />
       }
     />
   );

@@ -33,7 +33,7 @@ const ReadingExercise: React.FC<IReadingExercise> = ({
       onContinue={(arr) => {
         onContinue?.(arr, false);
       }}
-      imageURL={exercise.imageURL}
+      imageUrl={exercise.imageUrl}
       questionAnswers={[questionAnswer]}
       questionAnswerComponents={[
         {

@@ -49,9 +49,9 @@ const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {
                 component="a"
                 onClick={() => router.push(`/users/${user.id}`)}
               >
-                {user.profileImageURL && (
+                {user.profileImageUrl && (
                   <ListItemAvatar>
-                    <Avatar src={user.profileImageURL} variant="rounded" />
+                    <Avatar src={user.profileImageUrl} variant="rounded" />
                   </ListItemAvatar>
                 )}
                 <ListItemText
