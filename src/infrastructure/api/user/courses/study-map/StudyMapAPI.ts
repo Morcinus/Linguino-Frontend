@@ -3,7 +3,7 @@ import API, { FetchHook } from "infrastructure/api/API";
 import useAPI from "infrastructure/api/hooks/useAPI";
 import { parseQueryParams } from "util/functions/api";
 
-import { StudyMap, StudyMapLesson } from "./StudyMap";
+import { StudyMap } from "./StudyMap";
 
 export interface StudyMapParams {
   level?: number;
@@ -24,11 +24,8 @@ const StudyMapAPI = {
     return { studyMap: data, ...rest };
   },
 
-  async updateStudyMap(
-    courseId: Id,
-    studyMapLesson: Partial<StudyMapLesson>
-  ): Promise<void> {
-    return API.put(`${this.URI(courseId)}`, studyMapLesson);
+  async setActiveLesson(courseId: Id, lessonId: Id): Promise<void> {
+    return API.put(`${this.URI(courseId)}/active/${lessonId}`, {});
   },
 };
 

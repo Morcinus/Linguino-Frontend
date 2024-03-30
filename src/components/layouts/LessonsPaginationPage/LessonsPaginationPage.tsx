@@ -51,8 +51,8 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
       return { ...e, isActive: undefined };
     });
 
-    mutateArrayItem(newStudyMap, lessonId, change, mutate, (params) =>
-      StudyMapAPI.updateStudyMap(courseId, params)
+    mutateArrayItem(newStudyMap, lessonId, change, mutate, () =>
+      StudyMapAPI.setActiveLesson(courseId, lessonId)
     );
 
     onActiveLessonChange(lessonId);
