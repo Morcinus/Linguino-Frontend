@@ -7,7 +7,7 @@ import { LessonItem, LessonItemSummary } from "./LessonItems";
 
 export interface LessonItemParams {
   favorite?: boolean;
-  searchVocabulary?: string;
+  searchName?: string;
 }
 
 const LessonItemsAPI = {

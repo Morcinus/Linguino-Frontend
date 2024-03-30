@@ -26,7 +26,7 @@ const LessonItemsSearchResults: React.FC<ILessonItemsSearchResults> = ({
 }) => {
   const router = useRouter();
   const { lessonItems } = LessonItemsAPI.useLessonItems(courseId, {
-    searchVocabulary: searchPrompt,
+    searchName: searchPrompt,
   });
   const { t } = useTranslation("common");
 

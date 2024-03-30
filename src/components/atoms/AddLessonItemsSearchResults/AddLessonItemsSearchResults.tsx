@@ -31,7 +31,7 @@ const AddLessonItemsSearchResults: React.FC<IAddLessonItemsSearchResults> = ({
   courseId,
 }) => {
   const { lessonItems } = LessonItemsAPI.useLessonItems(courseId, {
-    searchVocabulary: searchPrompt,
+    searchName: searchPrompt,
   });
   const { t } = useTranslation("common");
 
