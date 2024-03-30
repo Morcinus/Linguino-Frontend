@@ -7,7 +7,6 @@ export interface LessonItem {
   favorite: boolean;
   description?: string;
   examples?: Array<ExampleSentence>;
-  backgroundImageUrl?: string;
   progress: number;
 
   markAsLearned?: boolean;

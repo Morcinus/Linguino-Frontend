@@ -73,7 +73,7 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
               sx={{
                 width: "100%",
                 height: "100%",
-                ...backgroundCSS(lessonItem.backgroundImageUrl),
+                ...backgroundCSS(lessonItem.imageUrl),
               }}
             />
           </Box>
