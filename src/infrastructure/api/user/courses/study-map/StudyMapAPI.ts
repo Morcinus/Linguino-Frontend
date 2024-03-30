@@ -8,6 +8,7 @@ import { StudyMap, StudyMapLesson } from "./StudyMap";
 export interface StudyMapParams {
   level?: number;
   page?: number;
+  limit?: number;
 }
 
 const StudyMapAPI = {

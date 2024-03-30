@@ -37,6 +37,7 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
   const { studyMap, mutate } = StudyMapAPI.useStudyMap(courseId, {
     level: level ?? lastViewedLevel,
     page: index,
+    limit: 10,
   });
   const [lessons, setLessons] = useState<Array<StudyMapLesson>>([]);
 
