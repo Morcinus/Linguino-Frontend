@@ -11,7 +11,7 @@ export interface LessonItemParams {
 }
 
 const LessonItemsAPI = {
-  URI: (courseId: Id) => `user/courses/${courseId}/lesson-items`,
+  URI: (courseId: Id) => `user/courses/${courseId}/vocabulary`,
 
   useLessonItem(
     courseId: Id,
