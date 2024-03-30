@@ -10,7 +10,7 @@ const SubscriptionsAPI = {
   URI: "user/subscriptions",
 
   useSubscription(
-    id: ID
+    id: Id
   ): Modify<FetchHook<Subscription>, { subscription: Subscription }> {
     const { data, ...rest } = useAPI<Subscription>(`${this.URI}/${id}`);
     return { subscription: data, ...rest };

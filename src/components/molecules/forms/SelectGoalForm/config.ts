@@ -18,6 +18,6 @@ export const goalOptions = [
 ];
 
 export interface GoalOption {
-  id: ID;
+  id: Id;
   value: number;
 }

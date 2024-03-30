@@ -1,4 +1,4 @@
 export interface ArticleCategory {
-  id: ID;
+  id: Id;
   name: string;
 }

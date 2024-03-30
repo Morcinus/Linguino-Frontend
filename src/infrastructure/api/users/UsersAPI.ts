@@ -22,7 +22,7 @@ const UsersAPI = {
   },
 
   useUser(
-    userId: ID
+    userId: Id
   ): Modify<FetchHook<UserProfile>, { userProfile: UserProfile }> {
     const { data, ...rest } = useAPI<UserProfile>(`${this.URI}/${userId}`);
     return { userProfile: data, ...rest };

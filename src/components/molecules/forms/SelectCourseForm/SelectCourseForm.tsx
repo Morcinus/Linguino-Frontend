@@ -19,8 +19,8 @@ import SimpleCard from "components/atoms/cards/SimpleCard/SimpleCard";
 import CardGrid from "components/layouts/CardGrid/CardGrid";
 
 export interface ISelectCourseForm {
-  onSubmit: (courseId: ID) => void;
-  omitCourseIds?: Array<ID>;
+  onSubmit: (courseId: Id) => void;
+  omitCourseIds?: Array<Id>;
 }
 
 const SelectCourseForm: React.FC<ISelectCourseForm> = ({
@@ -30,7 +30,7 @@ const SelectCourseForm: React.FC<ISelectCourseForm> = ({
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(
     languages[0]
   );
-  const [selectedCourseId, setSelectedCourseId] = useState<ID | undefined>();
+  const [selectedCourseId, setSelectedCourseId] = useState<Id | undefined>();
   const { t: tLanguages } = useTranslation("languages");
   const { t: tForm } = useTranslation("form");
   const { t: tCommon } = useTranslation("common");

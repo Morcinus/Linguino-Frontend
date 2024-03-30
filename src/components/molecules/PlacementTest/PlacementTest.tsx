@@ -6,7 +6,7 @@ import StudySession from "../StudySession/StudySession";
 import { LanguageLevel } from "../forms/SelectLevelForm/config";
 
 export interface IPlacementTest {
-  courseId: ID;
+  courseId: Id;
   onSubmit: (answer: LanguageLevel) => void;
   onCancel: () => void;
 }

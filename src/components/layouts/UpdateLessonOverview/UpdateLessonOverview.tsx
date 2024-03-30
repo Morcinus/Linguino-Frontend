@@ -9,8 +9,8 @@ import LessonCreateUpdate from "components/layouts/LessonCreateUpdate/LessonCrea
 import { useTranslation } from "../../../i18n/client";
 
 export interface IUpdateLessonOverview {
-  courseId: ID;
-  lessonId: ID;
+  courseId: Id;
+  lessonId: Id;
 }
 
 const UpdateLessonOverview: React.FC<IUpdateLessonOverview> = ({

@@ -1,5 +1,5 @@
 export interface Topic {
-  id: ID;
+  id: Id;
   name: string;
   thumbnailURL?: string;
   enabled: boolean;

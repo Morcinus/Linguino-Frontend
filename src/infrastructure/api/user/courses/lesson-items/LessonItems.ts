@@ -1,5 +1,5 @@
 export interface LessonItem {
-  id: ID;
+  id: Id;
   nameL1: string;
   nameL2: string;
   imageURL?: string;
@@ -19,7 +19,7 @@ export type LessonItemSummary = Pick<
 >;
 
 export interface ExampleSentence {
-  id: ID;
+  id: Id;
   textL1: string;
   textL2: string;
   audioURL?: string;

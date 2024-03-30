@@ -8,10 +8,10 @@ import { Follower } from "./Followers";
 export interface FollowerParams {}
 
 const FollowersAPI = {
-  URI: (userId: ID) => `users/${userId}/followers`,
+  URI: (userId: Id) => `users/${userId}/followers`,
 
   useFollowers(
-    userId: ID,
+    userId: Id,
     params: FollowerParams = {}
   ): Modify<FetchHook<Array<Follower>>, { followers: Array<Follower> }> {
     const { data, ...rest } = useAPI<Array<Follower>>(

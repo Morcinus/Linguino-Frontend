@@ -14,7 +14,7 @@ import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config
 import { useTranslation } from "../../../i18n/client";
 
 export interface ILessonsOverview {
-  courseId: ID;
+  courseId: Id;
   lessonType: LessonType;
 }
 

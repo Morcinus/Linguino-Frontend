@@ -16,8 +16,8 @@ import CardList from "../CardList/CardList";
 
 export interface IUsersList {
   users: Array<UserSummary>;
-  onFollow?: (userId: ID) => void;
-  onUnfollow?: (userId: ID) => void;
+  onFollow?: (userId: Id) => void;
+  onUnfollow?: (userId: Id) => void;
 }
 
 const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {

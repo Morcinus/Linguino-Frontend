@@ -26,13 +26,13 @@ const ChallengesOverview: React.FC<IChallengesOverview> = () => {
   const { t } = useTranslation("common");
   const [popup, setPopup] = useState<IPopup | null>(null);
 
-  function updateChallenge(id: ID, change: Partial<Challenge>) {
+  function updateChallenge(id: Id, change: Partial<Challenge>) {
     mutateArrayItem(challenges, id, change, mutateChallenges, (params) =>
       ActiveChallengesAPI.collectReward(params)
     );
   }
 
-  function updateAchievement(id: ID, change: Partial<Achievement>) {
+  function updateAchievement(id: Id, change: Partial<Achievement>) {
     mutateArrayItem(achievements, id, change, mutate, (params) =>
       AchievementsAPI.collectReward(params)
     );

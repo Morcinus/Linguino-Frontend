@@ -2,7 +2,7 @@ import { Course } from "../courses/Courses";
 import { Subscription } from "./subscriptions/Subscriptions";
 
 export interface UserPrivate {
-  id: ID;
+  id: Id;
   username: string;
   role: UserRole;
   streak: number;

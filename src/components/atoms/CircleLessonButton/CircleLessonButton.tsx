@@ -20,9 +20,9 @@ export interface ICircleLessonButton {
   title: string;
   icon?: string;
   lessonType?: LessonType;
-  lessonId: ID;
+  lessonId: Id;
   active?: boolean;
-  onSetActive: (lessonId: ID) => void;
+  onSetActive: (lessonId: Id) => void;
 }
 
 const CircleLessonButton: React.FC<ICircleLessonButton> = ({

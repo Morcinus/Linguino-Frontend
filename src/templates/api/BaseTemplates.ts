@@ -1,3 +1,3 @@
 export interface BaseTemplate {
-  id: ID;
+  id: Id;
 }

@@ -5,8 +5,8 @@ import Box from "@mui/material/Box";
 import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
 
 export interface IHelpArticlesOverview {
-  courseId: ID;
-  categoryId: ID;
+  courseId: Id;
+  categoryId: Id;
 }
 
 const HelpArticlesOverview: React.FC<IHelpArticlesOverview> = ({

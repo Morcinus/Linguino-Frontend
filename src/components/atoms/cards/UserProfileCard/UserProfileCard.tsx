@@ -25,7 +25,7 @@ export interface IUserProfileCard {
     | "id"
     | "isFollowed"
   >;
-  userId: ID;
+  userId: Id;
   onFollowChange: (isFollowed: boolean) => void;
 }
 

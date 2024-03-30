@@ -15,7 +15,7 @@ import CardGrid from "components/layouts/CardGrid/CardGrid";
 
 export interface ISelectTopicsForm {
   onSubmit: (topics: Array<Topic>) => void;
-  courseId: ID;
+  courseId: Id;
 }
 
 const SelectTopicsForm: React.FC<ISelectTopicsForm> = ({

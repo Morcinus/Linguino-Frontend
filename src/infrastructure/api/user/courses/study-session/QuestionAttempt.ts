@@ -5,10 +5,10 @@ export type QuestionAttempt = UserAnswer;
 export interface UserAnswer {
   states: Array<AnswerState>;
   answers: Array<string>;
-  exerciseId: ID;
+  exerciseId: Id;
 }
 
 export interface UserAnswerDTO {
-  exerciseId: ID;
+  exerciseId: Id;
   answerRating: number;
 }

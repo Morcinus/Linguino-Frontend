@@ -6,14 +6,14 @@ import { parseQueryParams } from "util/functions/api";
 import { Article } from "./Articles";
 
 export interface ArticleParams {
-  categoryId?: ID;
+  categoryId?: Id;
 }
 
 const ArticlesAPI = {
-  URI: (courseId: ID) => `courses/${courseId}/articles`,
+  URI: (courseId: Id) => `courses/${courseId}/articles`,
 
   useArticles(
-    courseId: ID,
+    courseId: Id,
     params: ArticleParams = {}
   ): Modify<FetchHook<Array<Article>>, { articles: Array<Article> }> {
     const { data, ...rest } = useAPI<Array<Article>>(
@@ -23,8 +23,8 @@ const ArticlesAPI = {
   },
 
   useArticle(
-    courseId: ID,
-    articleId: ID
+    courseId: Id,
+    articleId: Id
   ): Modify<FetchHook<Article>, { article: Article }> {
     const { data, ...rest } = useAPI<Article>(
       `${this.URI(courseId)}/${articleId}`

@@ -1,5 +1,5 @@
 export interface Subscription {
-  id: ID;
+  id: Id;
   nextPayment: Date;
   subscriptionState: "ORDERED" | "PAID" | "CANCELLED" | "TRIAL";
   unsubscribeReason?: string;

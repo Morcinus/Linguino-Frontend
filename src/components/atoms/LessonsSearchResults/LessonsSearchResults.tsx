@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import LinkCardList from "../lists/LinkCardList/LinkCardList";
 
 export interface ILessonsSearchResults {
-  courseId: ID;
+  courseId: Id;
   searchPrompt: string;
 }
 

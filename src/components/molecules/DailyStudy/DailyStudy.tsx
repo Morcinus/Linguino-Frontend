@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import StudySession from "components/molecules/StudySession/StudySession";
 
 export interface IDailyStudy {
-  courseId: ID;
+  courseId: Id;
 }
 
 const DailyStudy: React.FC<IDailyStudy> = ({ courseId }) => {

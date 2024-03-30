@@ -25,7 +25,7 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
   const router = useRouter();
   const [page, setPage] = useState(0);
 
-  const [selectedCourseId, setSelectedCourseId] = useState<ID>();
+  const [selectedCourseId, setSelectedCourseId] = useState<Id>();
   const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>([]);
   const [startOptionId, setStartOptionId] = useState<StartOptionId>();
   const { courses } = UserCoursesAPI.useUserCourses();

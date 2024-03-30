@@ -6,7 +6,7 @@ export interface LoginRequestBody {
 }
 
 export interface LoginResponseBody {
-  idToken: ID;
-  refreshToken: ID;
+  idToken: Id;
+  refreshToken: Id;
   user: UserPrivate;
 }

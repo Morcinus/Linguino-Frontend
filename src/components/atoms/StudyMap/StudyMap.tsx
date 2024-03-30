@@ -9,7 +9,7 @@ import LessonsPaginationPage, {
 import StudyPath from "../StudyPath/StudyPath";
 
 export interface IStudyMap {
-  courseId: ID;
+  courseId: Id;
   level?: number;
   lastViewedLevel: number;
 }
@@ -28,7 +28,7 @@ const StudyMap: React.FC<IStudyMap> = ({
 }) => {
   const loader = useRef(null);
   const [pageCounter, setPageCounter] = useState(1);
-  const [activeLessonId, setActiveLessonId] = useState<ID | undefined>(
+  const [activeLessonId, setActiveLessonId] = useState<Id | undefined>(
     undefined
   );
 

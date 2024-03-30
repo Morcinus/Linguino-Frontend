@@ -30,7 +30,7 @@ export interface IAccountSetupPage {}
 const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   const { revalidateUser } = useAuth();
   const [page, setPage] = useState(0);
-  const [selectedCourseId, setSelectedCourseId] = useState<ID>();
+  const [selectedCourseId, setSelectedCourseId] = useState<Id>();
   const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>();
   const [surveyAnswer, setSurveyAnswer] = useState<Omit<SurveyAnswer, "userId">>();
   const [selectedGoal, setSelectedGoal] = useState<GoalOption>();

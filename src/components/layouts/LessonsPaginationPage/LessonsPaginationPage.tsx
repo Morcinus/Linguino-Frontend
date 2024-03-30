@@ -12,15 +12,15 @@ import Box from "@mui/material/Box";
 import CircleLessonButton from "components/atoms/CircleLessonButton/CircleLessonButton";
 
 export interface ILessonsPaginationPage {
-  courseId: ID;
+  courseId: Id;
   level?: number;
   lastViewedLevel: number;
 
   index: number;
   mapHeight: number;
 
-  onActiveLessonChange: (lessonId: ID) => void;
-  activeLessonId: ID | undefined;
+  onActiveLessonChange: (lessonId: Id) => void;
+  activeLessonId: Id | undefined;
 }
 
 export const LESSONS_PER_PAGE = 6;
@@ -40,7 +40,7 @@ const LessonsPaginationPage: React.FC<ILessonsPaginationPage> = ({
   });
   const [lessons, setLessons] = useState<Array<StudyMapLesson>>([]);
 
-  function handleSetActive(lessonId: ID) {
+  function handleSetActive(lessonId: Id) {
     const change: Pick<StudyMapLesson, "id" | "isActive"> = {
       id: lessonId,
       isActive: true,

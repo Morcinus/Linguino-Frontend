@@ -24,7 +24,7 @@ const AuthManager = {
     return SignupAPI.signUp(data);
   },
 
-  async refreshIDToken(): Promise<void> {
+  async refreshIdToken(): Promise<void> {
     return RefreshTokenAPI.refreshIdToken({
       refreshToken: LocalStorageManager.getRefreshToken(),
     })
@@ -44,8 +44,8 @@ const AuthManager = {
 
     if (token) {
       const decodedToken = jwtDecode<DecodedToken>(token);
-      // If ID token is expired
-      if (decodedToken.exp * 1000 < Date.now()) await this.refreshIDToken();
+      // If Id token is expired
+      if (decodedToken.exp * 1000 < Date.now()) await this.refreshIdToken();
     } else this.logout();
 
     if (LocalStorageManager.userExists()) {

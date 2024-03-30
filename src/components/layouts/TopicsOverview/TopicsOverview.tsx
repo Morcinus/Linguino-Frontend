@@ -11,7 +11,7 @@ import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 import TopicList from "components/atoms/lists/TopicList/TopicList";
 
 export interface ITopicsOverview {
-  courseId: ID;
+  courseId: Id;
 }
 
 const TopicsOverview: React.FC<ITopicsOverview> = ({ courseId }) => {
@@ -24,7 +24,7 @@ const TopicsOverview: React.FC<ITopicsOverview> = ({ courseId }) => {
   const { topics: extraTopics, mutate: mutateExtraTopics } =
     TopicsAPI.useTopics(courseId, { category: "extra" });
 
-  const updateMainTopics = (topicId: ID, enabled: boolean) => {
+  const updateMainTopics = (topicId: Id, enabled: boolean) => {
     const newTopics = mainTopics.map((topic) => {
       if (topic.id === topicId) return { ...topic, enabled };
       else return topic;
@@ -45,7 +45,7 @@ const TopicsOverview: React.FC<ITopicsOverview> = ({ courseId }) => {
     }, optimisticMutationOption<Array<Topic>>(newTopics));
   };
 
-  const updateExtraTopics = (topicId: ID, enabled: boolean) => {
+  const updateExtraTopics = (topicId: Id, enabled: boolean) => {
     const newTopics = mainTopics.map((topic) => {
       if (topic.id === topicId) return { ...topic, enabled };
       else return topic;

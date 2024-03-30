@@ -23,7 +23,7 @@ const UserCoursesAPI = {
     return API.put(`${this.URI}/${course.id}`, course);
   },
 
-  async selectCourse(courseId: ID): Promise<void> {
+  async selectCourse(courseId: Id): Promise<void> {
     return API.put(`${this.URI}/${courseId}/select-course`, {});
   },
 };

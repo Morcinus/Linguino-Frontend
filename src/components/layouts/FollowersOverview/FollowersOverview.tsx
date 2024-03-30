@@ -15,7 +15,7 @@ import TabBarPanel from "components/atoms/TabBarPanel/TabBarPanel";
 import UsersList from "components/atoms/lists/UsersList/UsersList";
 
 export interface IFollowersOverview {
-  userId: ID;
+  userId: Id;
   initialState?: "followers" | "following";
 }
 
@@ -30,7 +30,7 @@ const FollowersOverview: React.FC<IFollowersOverview> = ({
     FollowingAPI.useFollowing(userId);
   const { t } = useTranslation("common");
 
-  const updateFollower = (itemId: ID, isFollowed: boolean) => {
+  const updateFollower = (itemId: Id, isFollowed: boolean) => {
     mutateFollowers(
       async () => {
         if (isFollowed) {
@@ -53,7 +53,7 @@ const FollowersOverview: React.FC<IFollowersOverview> = ({
     );
   };
 
-  const updateFollowing = (itemId: ID, isFollowed: boolean) => {
+  const updateFollowing = (itemId: Id, isFollowed: boolean) => {
     mutateFollowing(
       async () => {
         if (isFollowed) {

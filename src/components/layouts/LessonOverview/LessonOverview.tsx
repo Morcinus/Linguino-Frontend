@@ -22,8 +22,8 @@ import ContentContainer from "../ContentContainer/ContentContainer";
 import { defaultBackgroundGradients } from "./config";
 
 export interface ILessonOverview {
-  courseId: ID;
-  lessonId: ID;
+  courseId: Id;
+  lessonId: Id;
 }
 
 const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {

@@ -11,7 +11,7 @@ const BaseTemplatesAPI = {
   URI: "base-templates",
 
   useBaseTemplate(
-    id: ID
+    id: Id
   ): Modify<FetchHook<BaseTemplate>, { baseTemplate: BaseTemplate }> {
     const { data, ...rest } = useAPI<BaseTemplate>(`${this.URI}/${id}`);
     return { baseTemplate: data, ...rest };
@@ -35,7 +35,7 @@ const BaseTemplatesAPI = {
     return API.post(`${this.URI}`, baseTemplate);
   },
 
-  async getBaseTemplate(baseTemplateId: ID): Promise<BaseTemplate> {
+  async getBaseTemplate(baseTemplateId: Id): Promise<BaseTemplate> {
     return API.get(`${this.URI}/${baseTemplateId}`);
   },
 
@@ -51,7 +51,7 @@ const BaseTemplatesAPI = {
     return API.put(`${this.URI}/${baseTemplate.id}`, baseTemplate);
   },
 
-  async deleteBaseTemplate(baseTemplateId: ID): Promise<void> {
+  async deleteBaseTemplate(baseTemplateId: Id): Promise<void> {
     return API.delete(`${this.URI}/${baseTemplateId}`);
   },
 };

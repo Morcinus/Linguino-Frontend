@@ -7,7 +7,7 @@ export type QuestionAnswer =
   | MatchingQuestionAnswer;
 
 export interface Question {
-  id: ID;
+  id: Id;
   question: string;
   answer: string;
   questionAudioLink: string;
@@ -17,7 +17,7 @@ export interface Question {
 
 export interface FillInBlankQuestionAnswer {
   type: "FILL_IN_BLANK";
-  id: ID;
+  id: Id;
   question: string;
   answer: string;
   blankIndexes: Array<number>;
@@ -25,7 +25,7 @@ export interface FillInBlankQuestionAnswer {
 
 export interface TextQuestionAnswer {
   type: "TEXT";
-  id: ID;
+  id: Id;
   question: string;
   answer: string;
   answerAudioURL?: string;
@@ -33,14 +33,14 @@ export interface TextQuestionAnswer {
 
 export interface AudioQuestionAnswer {
   type: "AUDIO";
-  id: ID;
+  id: Id;
   question?: string;
   answer: string;
 }
 
 export interface BuildWordQuestionAnswer {
   type: "BUILD_WORD";
-  id: ID;
+  id: Id;
   question: string;
   answer: string;
   letters: Array<string>;
@@ -48,7 +48,7 @@ export interface BuildWordQuestionAnswer {
 
 export interface TableQuestionAnswer {
   type: "TABLE";
-  id: ID;
+  id: Id;
   question: string;
   tableRows: Array<Array<string>>;
   blankCellCoords: Array<Array<number>>;
@@ -56,7 +56,7 @@ export interface TableQuestionAnswer {
 
 export interface MatchingQuestionAnswer {
   type: "MATCHING";
-  id: ID;
+  id: Id;
 
   options1: Array<MatchOption>;
   options2: Array<MatchOption>;

@@ -12,7 +12,7 @@ import LinkCardList from "components/atoms/lists/LinkCardList/LinkCardList";
 import { useTranslation } from "../../../i18n/client";
 
 export interface IFavoritesOverview {
-  courseId: ID;
+  courseId: Id;
 }
 
 const FavoritesOverview: React.FC<IFavoritesOverview> = ({ courseId }) => {

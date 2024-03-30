@@ -13,11 +13,11 @@ export interface CourseParams {
 const CoursesAPI = {
   URI: "courses",
 
-  async getCourse(id: ID): Promise<Course> {
+  async getCourse(id: Id): Promise<Course> {
     return API.get(`${this.URI}/${id}`);
   },
 
-  useCourse(id: ID): Modify<FetchHook<Course>, { course: Course }> {
+  useCourse(id: Id): Modify<FetchHook<Course>, { course: Course }> {
     const { data, ...rest } = useAPI<Course>(`${this.URI}/${id}`);
     return { course: data, ...rest };
   },

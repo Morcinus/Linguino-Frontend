@@ -11,8 +11,8 @@ import LessonItemCard from "components/atoms/cards/LessonItemCard/LessonItemCard
 import ExampleSentenceList from "components/atoms/lists/ExampleSentenceList/ExampleSentenceList";
 
 export interface ILessonItemOverview {
-  courseId: ID;
-  lessonItemId: ID;
+  courseId: Id;
+  lessonItemId: Id;
 }
 
 const LessonItemOverview: React.FC<ILessonItemOverview> = ({

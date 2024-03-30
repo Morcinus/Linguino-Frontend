@@ -21,11 +21,11 @@ export interface IExerciseComponent {
 }
 
 interface IExercise {
-  id: ID;
+  id: Id;
   type: string;
   isNew: boolean;
-  lessonItemId: ID;
-  lessonId?: ID;
+  lessonItemId: Id;
+  lessonId?: Id;
   lessonType?: LessonType;
 }
 

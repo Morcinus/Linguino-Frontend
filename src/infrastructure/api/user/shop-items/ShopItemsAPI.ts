@@ -6,7 +6,7 @@ import { parseQueryParams } from "util/functions/api";
 import { ShopItem } from "./ShopItems";
 
 export interface ShopItemParams {
-  categoryId?: ID;
+  categoryId?: Id;
 }
 
 const ShopItemsAPI = {
@@ -21,15 +21,15 @@ const ShopItemsAPI = {
     return { shopItems: data, ...rest };
   },
 
-  async equipItem(shopItemId: ID): Promise<void> {
+  async equipItem(shopItemId: Id): Promise<void> {
     return API.put(`${this.URI}/${shopItemId}/equip`, {});
   },
 
-  async unequipItem(shopItemId: ID): Promise<void> {
+  async unequipItem(shopItemId: Id): Promise<void> {
     return API.delete(`${this.URI}/${shopItemId}/equip`);
   },
 
-  async buyItem(shopItemId: ID): Promise<void> {
+  async buyItem(shopItemId: Id): Promise<void> {
     return API.put(`${this.URI}/${shopItemId}/buy`, {});
   },
 };

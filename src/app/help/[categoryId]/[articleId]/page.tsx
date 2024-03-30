@@ -6,8 +6,8 @@ import useAuth from "infrastructure/services/AuthProvider";
 
 export interface IHelpArticlePage {
   params: {
-    articleId: ID;
-    categoryId: ID;
+    articleId: Id;
+    categoryId: Id;
   };
 }
 

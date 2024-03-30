@@ -8,14 +8,14 @@ import { UserAnswerDTO } from "./QuestionAttempt";
 import { Reward } from "./StudySession";
 
 export interface StudySessionParams {
-  lessonId?: ID;
+  lessonId?: Id;
 }
 
 const StudySessionAPI = {
-  URI: (courseId: ID) => `user/courses/${courseId}/study-session`,
+  URI: (courseId: Id) => `user/courses/${courseId}/study-session`,
 
   useStudySession(
-    courseId: ID,
+    courseId: Id,
     params: StudySessionParams = {}
   ): Modify<FetchHook<Array<Exercise>>, { exercises: Array<Exercise> }> {
     const { data, ...rest } = useAPI<Array<Exercise>>(
@@ -25,7 +25,7 @@ const StudySessionAPI = {
   },
 
   async updateStudySession(
-    courseId: ID,
+    courseId: Id,
     attempts: Array<UserAnswerDTO>
   ): Promise<Reward> {
     return API.post(`${this.URI(courseId)}`, attempts);

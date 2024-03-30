@@ -7,7 +7,7 @@ import LessonItemOverview from "components/layouts/LessonItemOverview/LessonItem
 
 export interface ILessonItemPage {
   params: {
-    itemId: ID;
+    itemId: Id;
   };
 }
 

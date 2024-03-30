@@ -18,7 +18,7 @@ import MultipleChoiceCardList from "components/atoms/lists/MultipleChoiceCardLis
 import common from "../../../../public/locales/cs/common.json";
 
 export interface ISubscriptionOverview {
-  subscriptionId: ID;
+  subscriptionId: Id;
 }
 
 const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({

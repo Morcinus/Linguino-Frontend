@@ -10,7 +10,7 @@ export type LessonType =
   | "READING";
 
 export interface Lesson {
-  id: ID;
+  id: Id;
   name: string;
   progress?: number;
   category?: Category;
@@ -22,7 +22,7 @@ export interface Lesson {
   feedback?: Feedback;
   backgroundImageUrl?: string;
   items?: Array<LessonItemSummary>;
-  author?: ID;
+  author?: Id;
   icon?: string;
   type?: LessonType;
 
@@ -42,6 +42,6 @@ export type LessonUpdateDTO = Partial<
 export type FeedbackState = "LIKED" | "DISLIKED" | null;
 
 export interface Category {
-  id: ID;
+  id: Id;
   name?: string;
 }

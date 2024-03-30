@@ -8,10 +8,10 @@ import { ArticleCategory } from "./ArticleCategories";
 export interface ArticleCategoryParams {}
 
 const ArticleCategoriesAPI = {
-  URI: (courseId: ID) => `courses/${courseId}/article-categories`,
+  URI: (courseId: Id) => `courses/${courseId}/article-categories`,
 
   useArticleCategories(
-    courseId: ID,
+    courseId: Id,
     params: ArticleCategoryParams = {}
   ): Modify<
     FetchHook<Array<ArticleCategory>>,

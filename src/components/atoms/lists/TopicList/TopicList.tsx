@@ -8,7 +8,7 @@ import CardList from "../CardList/CardList";
 
 export interface ITopicList {
   topics: Array<Topic>;
-  onTopicChange: (topicId: ID, enabled: boolean) => void;
+  onTopicChange: (topicId: Id, enabled: boolean) => void;
 }
 
 const TopicList: React.FC<ITopicList> = ({ topics, onTopicChange }) => {

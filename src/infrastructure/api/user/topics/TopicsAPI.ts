@@ -10,10 +10,10 @@ export interface TopicParams {
 }
 
 const TopicsAPI = {
-  URI: (courseId: ID) => `user/courses/${courseId}/topics`,
+  URI: (courseId: Id) => `user/courses/${courseId}/topics`,
 
   useTopics(
-    courseId: ID,
+    courseId: Id,
     params: TopicParams = {}
   ): Modify<FetchHook<Array<Topic>>, { topics: Array<Topic> }> {
     const { data, ...rest } = useAPI<Array<Topic>>(
@@ -22,11 +22,11 @@ const TopicsAPI = {
     return { topics: data, ...rest };
   },
 
-  async enableTopic(courseId: ID, topicId: ID): Promise<void> {
+  async enableTopic(courseId: Id, topicId: Id): Promise<void> {
     return API.put(`${this.URI(courseId)}/${topicId}`, {});
   },
 
-  async disableTopic(courseId: ID, topicId: ID): Promise<void> {
+  async disableTopic(courseId: Id, topicId: Id): Promise<void> {
     return API.delete(`${this.URI(courseId)}/${topicId}`);
   },
 };

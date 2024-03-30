@@ -11,18 +11,18 @@ export interface LessonItemParams {
 }
 
 const LessonItemsAPI = {
-  URI: (courseId: ID) => `user/courses/${courseId}/lesson-items`,
+  URI: (courseId: Id) => `user/courses/${courseId}/lesson-items`,
 
   useLessonItem(
-    courseId: ID,
-    id: ID
+    courseId: Id,
+    id: Id
   ): Modify<FetchHook<LessonItem>, { lessonItem: LessonItem }> {
     const { data, ...rest } = useAPI<LessonItem>(`${this.URI(courseId)}/${id}`);
     return { lessonItem: data, ...rest };
   },
 
   useLessonItems(
-    courseId: ID,
+    courseId: Id,
     params: LessonItemParams = {}
   ): Modify<
     FetchHook<Array<LessonItemSummary>>,
@@ -35,7 +35,7 @@ const LessonItemsAPI = {
   },
 
   async updateLessonItem(
-    courseId: ID,
+    courseId: Id,
     lessonItem: Partial<LessonItem>
   ): Promise<LessonItem> {
     return API.patch(`${this.URI(courseId)}/${lessonItem.id}`, lessonItem);

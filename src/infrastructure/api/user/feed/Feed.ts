@@ -3,7 +3,7 @@ import { Reaction } from "./reactions/Reactions";
 export type FeedItem = FeedArticle | FeedVideo | FeedMessage;
 
 export interface FeedArticle {
-  id: ID;
+  id: Id;
   seenByUser?: boolean;
   title: string;
   imageURL: string;
@@ -13,16 +13,16 @@ export interface FeedArticle {
 }
 
 export interface FeedVideo {
-  id: ID;
+  id: Id;
   seenByUser?: boolean;
   title: string;
-  videoId: ID;
+  videoId: Id;
   publishedAt: Date;
   type: "video";
 }
 
 export interface FeedMessage {
-  id: ID;
+  id: Id;
   seenByUser?: boolean;
   author: string;
   message: MessageType;

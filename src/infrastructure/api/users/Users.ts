@@ -1,7 +1,7 @@
 import { Achievement } from "infrastructure/api/user/achievements/Achievements";
 
 export interface UserProfile {
-  id: ID;
+  id: Id;
   followers: number;
   following: number;
   level: number;

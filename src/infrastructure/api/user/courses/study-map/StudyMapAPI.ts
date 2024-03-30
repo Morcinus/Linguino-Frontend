@@ -11,10 +11,10 @@ export interface StudyMapParams {
 }
 
 const StudyMapAPI = {
-  URI: (courseId: ID) => `user/courses/${courseId}/study-map`,
+  URI: (courseId: Id) => `user/courses/${courseId}/study-map`,
 
   useStudyMap(
-    courseId: ID,
+    courseId: Id,
     params: StudyMapParams
   ): Modify<FetchHook<StudyMap>, { studyMap: StudyMap }> {
     const { data, ...rest } = useAPI<StudyMap>(
@@ -24,7 +24,7 @@ const StudyMapAPI = {
   },
 
   async updateStudyMap(
-    courseId: ID,
+    courseId: Id,
     studyMapLesson: Partial<StudyMapLesson>
   ): Promise<void> {
     return API.put(`${this.URI(courseId)}`, studyMapLesson);

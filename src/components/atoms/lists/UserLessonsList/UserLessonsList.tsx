@@ -14,7 +14,7 @@ import IconContainer from "components/atoms/IconContainer/IconContainer";
 import CardList from "../CardList/CardList";
 
 export interface ListItem {
-  id: ID;
+  id: Id;
   url: string;
   name: string;
   secondaryName?: string;

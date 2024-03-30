@@ -21,11 +21,11 @@ export interface LessonParams {
 }
 
 const LessonsAPI = {
-  URI: (courseId: ID) => `user/courses/${courseId}/lessons`,
+  URI: (courseId: Id) => `user/courses/${courseId}/lessons`,
 
   useLesson(
-    courseId: ID,
-    lessonId: ID
+    courseId: Id,
+    lessonId: Id
   ): Modify<FetchHook<Lesson>, { lesson: Lesson }> {
     const { data, ...rest } = useAPI<Lesson>(
       `${this.URI(courseId)}/${lessonId}`
@@ -34,7 +34,7 @@ const LessonsAPI = {
   },
 
   useLessons(
-    courseId: ID,
+    courseId: Id,
     params: LessonParams = {}
   ): Modify<FetchHook<Array<Lesson>>, { lessons: Array<Lesson> }> {
     const { data, ...rest } = useAPI<Array<Lesson>>(
@@ -44,17 +44,17 @@ const LessonsAPI = {
   },
 
   async createLesson(
-    courseId: ID,
+    courseId: Id,
     lesson: Omit<LessonCreateUpdateDTO, "id">
   ): Promise<void> {
     return API.post(`${this.URI(courseId)}`, lesson);
   },
 
-  async updateLesson(courseId: ID, lesson: LessonUpdateDTO): Promise<Lesson> {
+  async updateLesson(courseId: Id, lesson: LessonUpdateDTO): Promise<Lesson> {
     return API.patch(`${this.URI(courseId)}/${lesson.id}`, lesson);
   },
 
-  async deleteLesson(courseId: ID, lesson: Lesson): Promise<Lesson> {
+  async deleteLesson(courseId: Id, lesson: Lesson): Promise<Lesson> {
     return API.delete(`${this.URI(courseId)}/${lesson.id}`);
   },
 };

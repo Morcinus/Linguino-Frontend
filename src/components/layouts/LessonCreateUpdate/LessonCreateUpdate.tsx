@@ -30,7 +30,7 @@ import AddVocabularyDialog from "components/molecules/AddVocabularyDialog/AddVoc
 import ContentContainer from "../ContentContainer/ContentContainer";
 
 export interface ILessonCreateUpdate {
-  courseId: ID;
+  courseId: Id;
   lesson: LessonCreateUpdateDTO;
   onSave: (lesson: LessonCreateUpdateDTO) => void;
   isCreate?: boolean;

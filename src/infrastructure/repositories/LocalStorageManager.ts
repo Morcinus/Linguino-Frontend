@@ -12,15 +12,15 @@ export const LocalStorageManager = {
   },
 
   setIdToken(idToken: string): void {
-    localStorage.setItem("IDToken", idToken);
+    localStorage.setItem("IdToken", idToken);
   },
 
   getIdToken(): string {
-    return localStorage.IDToken;
+    return localStorage.IdToken;
   },
 
   removeIdToken(): void {
-    localStorage.removeItem("IDToken");
+    localStorage.removeItem("IdToken");
   },
 
   setRefreshToken(refreshToken: string): void {

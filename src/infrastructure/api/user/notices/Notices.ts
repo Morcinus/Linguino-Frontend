@@ -8,7 +8,7 @@ export type Notice =
   | FreeTrialOfferNotice;
 
 export interface AchievementNotice {
-  id: ID;
+  id: Id;
   type: "ACHIEVEMENT";
   name: string;
   description: string;
@@ -16,18 +16,18 @@ export interface AchievementNotice {
 }
 
 export interface FreeTrialOfferNotice {
-  id: ID;
+  id: Id;
   type: "FREE_TRIAL_OFFER";
 }
 
 export interface FreeTrialEndNotice {
-  id: ID;
+  id: Id;
   type: "FREE_TRIAL_END";
 }
 
 export interface RatingSurveyNotice {
-  id: ID;
-  surveyId: ID;
+  id: Id;
+  surveyId: Id;
   type: "RATING_SURVEY";
   question: string;
   answerLabel1: string;
@@ -36,18 +36,18 @@ export interface RatingSurveyNotice {
 }
 
 export interface RewardNotice {
-  id: ID;
+  id: Id;
   reward: number;
   type: "REWARD";
 }
 
 export interface AdvertisementNotice {
-  id: ID;
+  id: Id;
   type: "ADVERTISEMENT";
 }
 
 export interface StudyStatsNotice {
-  id: ID;
+  id: Id;
   type: "STUDY_STATS";
   stats: StudyStats;
 }

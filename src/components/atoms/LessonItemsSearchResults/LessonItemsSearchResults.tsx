@@ -17,7 +17,7 @@ import CardList from "../lists/CardList/CardList";
 
 export interface ILessonItemsSearchResults {
   searchPrompt: string;
-  courseId: ID;
+  courseId: Id;
 }
 
 const LessonItemsSearchResults: React.FC<ILessonItemsSearchResults> = ({

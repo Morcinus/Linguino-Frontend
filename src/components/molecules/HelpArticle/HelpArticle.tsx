@@ -6,8 +6,8 @@ import Typography from "@mui/material/Typography";
 import MarkdownText from "components/atoms/MarkdownText/MarkdownText";
 
 export interface IHelpArticle {
-  courseId: ID;
-  articleId: ID;
+  courseId: Id;
+  articleId: Id;
 }
 
 const HelpArticle: React.FC<IHelpArticle> = ({ courseId, articleId }) => {

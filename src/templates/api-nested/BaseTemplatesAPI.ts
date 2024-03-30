@@ -8,12 +8,12 @@ import { BaseTemplate } from "./BaseTemplates";
 export interface BaseTemplateParams {}
 
 const BaseTemplatesAPI = {
-  URI: (base0TemplateId: ID) =>
+  URI: (base0TemplateId: Id) =>
     `base-0-templates/${base0TemplateId}/base-templates`,
 
   useBaseTemplate(
-    base0TemplateId: ID,
-    id: ID
+    base0TemplateId: Id,
+    id: Id
   ): Modify<FetchHook<BaseTemplate>, { baseTemplate: BaseTemplate }> {
     const { data, ...rest } = useAPI<BaseTemplate>(
       `${this.URI(base0TemplateId)}/${id}`
@@ -22,7 +22,7 @@ const BaseTemplatesAPI = {
   },
 
   useBaseTemplates(
-    base0TemplateId: ID,
+    base0TemplateId: Id,
     params: BaseTemplateParams = {}
   ): Modify<
     FetchHook<Array<BaseTemplate>>,
@@ -35,25 +35,25 @@ const BaseTemplatesAPI = {
   },
 
   async createBaseTemplate(
-    base0TemplateId: ID,
+    base0TemplateId: Id,
     baseTemplate: Omit<BaseTemplate, "id">
   ): Promise<BaseTemplate> {
     return API.post(`${this.URI(base0TemplateId)}`, baseTemplate);
   },
 
-  async getBaseTemplate(base0TemplateId: ID, id: ID): Promise<BaseTemplate> {
+  async getBaseTemplate(base0TemplateId: Id, id: Id): Promise<BaseTemplate> {
     return API.get(`${this.URI(base0TemplateId)}/${id}`);
   },
 
   async getBaseTemplates(
-    base0TemplateId: ID,
+    base0TemplateId: Id,
     params: BaseTemplateParams = {}
   ): Promise<Array<BaseTemplate>> {
     return API.get(`${this.URI(base0TemplateId)}?${parseQueryParams(params)}`);
   },
 
   async updateBaseTemplate(
-    base0TemplateId: ID,
+    base0TemplateId: Id,
     baseTemplate: Partial<BaseTemplate>
   ): Promise<BaseTemplate> {
     return API.put(
@@ -63,7 +63,7 @@ const BaseTemplatesAPI = {
   },
 
   async deleteBaseTemplate(
-    base0TemplateId: ID,
+    base0TemplateId: Id,
     baseTemplate: BaseTemplate
   ): Promise<BaseTemplate> {
     return API.delete(`${this.URI(base0TemplateId)}/${baseTemplate.id}`);

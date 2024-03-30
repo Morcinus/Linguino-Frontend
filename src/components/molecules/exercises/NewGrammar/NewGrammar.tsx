@@ -11,8 +11,8 @@ import IconContainer from "components/atoms/IconContainer/IconContainer";
 import LessonCard from "components/atoms/cards/LessonCard/LessonCard";
 
 export interface INewGrammar {
-  courseId: ID;
-  lessonId: ID;
+  courseId: Id;
+  lessonId: Id;
   onContinue: () => void;
 }
 

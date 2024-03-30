@@ -15,7 +15,7 @@ import UserLessonsList from "components/atoms/lists/UserLessonsList/UserLessonsL
 import { useTranslation } from "../../../i18n/client";
 
 export interface ICustomLessonsOverview {
-  courseId: ID;
+  courseId: Id;
 }
 
 const CustomLessonsOverview: React.FC<ICustomLessonsOverview> = ({

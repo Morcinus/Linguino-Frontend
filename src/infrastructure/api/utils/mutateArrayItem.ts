@@ -3,8 +3,8 @@ import { KeyedMutator } from "swr";
 import { optimisticMutationOption } from "../API";
 
 export default function mutateArrayItem<T>(
-  array: Array<T & { id: ID }>,
-  itemId: ID,
+  array: Array<T & { id: Id }>,
+  itemId: Id,
   change: Partial<T>,
   mutate: KeyedMutator<Array<T>>,
   updateFn: (obj: Partial<T>) => unknown

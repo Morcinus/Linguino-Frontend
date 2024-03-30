@@ -32,7 +32,7 @@ const ShopPage: React.FC<IShopPage> = () => {
   const [popup, setPopup] = useState<IPopup | null>(null);
   const { setError } = useErrorHandler();
 
-  const handleBuy = (itemId: ID) => {
+  const handleBuy = (itemId: Id) => {
     const updatedArray = shopItems.map((item) => {
       if (item.id === itemId) return { ...item, bought: true };
       else return item;
@@ -52,7 +52,7 @@ const ShopPage: React.FC<IShopPage> = () => {
     }, optimisticMutationOption<Array<ShopItem>>(updatedArray));
   };
 
-  const handleItemEquipChange = (itemId: ID, equipped: boolean) => {
+  const handleItemEquipChange = (itemId: Id, equipped: boolean) => {
     const updatedArray = shopItems.map((item) => {
       if (item.id === itemId) {
         return { ...item, equipped };

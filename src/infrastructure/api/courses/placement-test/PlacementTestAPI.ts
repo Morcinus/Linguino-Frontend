@@ -10,10 +10,10 @@ import { PlacementTestResult } from "./PlacementTest";
 export interface PlacementTestParams {}
 
 const PlacementTestAPI = {
-  URI: (courseId: ID) => `courses/${courseId}/placement-test`,
+  URI: (courseId: Id) => `courses/${courseId}/placement-test`,
 
   usePlacementTest(
-    courseId: ID,
+    courseId: Id,
     params: PlacementTestParams = {}
   ): Modify<FetchHook<Array<Exercise>>, { exercises: Array<Exercise> }> {
     const { data, ...rest } = useAPI<Array<Exercise>>(
@@ -23,7 +23,7 @@ const PlacementTestAPI = {
   },
 
   async updatePlacementTest(
-    courseId: ID,
+    courseId: Id,
     attempts: Array<QuestionAttempt>
   ): Promise<PlacementTestResult> {
     return API.post(`${this.URI(courseId)}`, attempts);

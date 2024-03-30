@@ -20,7 +20,7 @@ export interface IAddLessonItemsSearchResults {
   onItemAdd: (lessonItem: LessonItemSummary) => void;
   onItemRemove: (lessonItem: LessonItemSummary) => void;
   items: Array<LessonItemSummary>;
-  courseId: ID;
+  courseId: Id;
 }
 
 const AddLessonItemsSearchResults: React.FC<IAddLessonItemsSearchResults> = ({

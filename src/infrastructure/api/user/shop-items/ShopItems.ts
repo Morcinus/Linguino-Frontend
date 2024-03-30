@@ -1,9 +1,9 @@
 export interface ShopItem {
-  id: ID;
+  id: Id;
   name: string;
   imageURL: string;
   price: number;
-  categoryId: ID;
+  categoryId: Id;
 
   bought: boolean;
   equipped: boolean;

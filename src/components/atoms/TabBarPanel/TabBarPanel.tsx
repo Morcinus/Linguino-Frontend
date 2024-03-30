@@ -10,14 +10,14 @@ import Tabs from "@mui/material/Tabs";
 
 interface TabItem {
   name: string;
-  id: ID;
+  id: Id;
 }
 
 export interface ITabBarPanel {
-  onChange: (newValue: ID) => void;
+  onChange: (newValue: Id) => void;
   tabs: Array<TabItem>;
   panelContent: ReactNode;
-  value: ID;
+  value: Id;
 }
 
 const TabBarPanel: React.FC<ITabBarPanel> = ({
