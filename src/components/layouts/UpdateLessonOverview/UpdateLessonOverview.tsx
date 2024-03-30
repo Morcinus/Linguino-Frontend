@@ -41,7 +41,7 @@ const UpdateLessonOverview: React.FC<IUpdateLessonOverview> = ({
             };
 
             await mutate(
-              LessonsAPI.updateLesson(courseId, data),
+              LessonsAPI.updateCustomLesson(courseId, data),
               optimisticMutationOption(data)
             );
 

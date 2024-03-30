@@ -35,7 +35,7 @@ export type LessonCreateUpdateDTO = Pick<
 >;
 
 export type LessonUpdateDTO = Partial<
-  Pick<Lesson, "name" | "description" | "items" | "visible" | "favorite">
+  Pick<Lesson, "visible" | "favorite" | "markAsLearned">
 > &
   Pick<Lesson, "id">;
 

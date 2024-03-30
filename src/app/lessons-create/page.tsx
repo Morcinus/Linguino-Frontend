@@ -37,7 +37,7 @@ const CreateLessonPage: React.FC<ICreateLessonPage> = () => {
               items: savedLesson.items,
             };
 
-            await LessonsAPI.createLesson(user.selectedCourse.id, data);
+            await LessonsAPI.createCustomLesson(user.selectedCourse.id, data);
             enqueueSnackbar(t("userLessons.lessonCreated"), {
               variant: "success",
             });

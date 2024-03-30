@@ -43,18 +43,25 @@ const LessonsAPI = {
     return { lessons: data, ...rest };
   },
 
-  async createLesson(
+  async updateLesson(courseId: Id, lesson: LessonUpdateDTO): Promise<Lesson> {
+    return API.patch(`${this.URI(courseId)}/${lesson.id}`, lesson);
+  },
+
+  async createCustomLesson(
     courseId: Id,
     lesson: Omit<LessonCreateUpdateDTO, "id">
   ): Promise<void> {
     return API.post(`${this.URI(courseId)}`, lesson);
   },
 
-  async updateLesson(courseId: Id, lesson: LessonUpdateDTO): Promise<Lesson> {
-    return API.patch(`${this.URI(courseId)}/${lesson.id}`, lesson);
+  async updateCustomLesson(
+    courseId: Id,
+    lesson: LessonCreateUpdateDTO
+  ): Promise<Lesson> {
+    return API.put(`${this.URI(courseId)}/${lesson.id}`, lesson);
   },
 
-  async deleteLesson(courseId: Id, lesson: Lesson): Promise<Lesson> {
+  async deleteCustomLesson(courseId: Id, lesson: Lesson): Promise<Lesson> {
     return API.delete(`${this.URI(courseId)}/${lesson.id}`);
   },
 };

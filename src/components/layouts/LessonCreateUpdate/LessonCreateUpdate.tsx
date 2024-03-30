@@ -118,7 +118,7 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
               primaryAction={{
                 text: t("userActions.delete"),
                 onClick: () => {
-                  LessonsAPI.deleteLesson(courseId, {
+                  LessonsAPI.deleteCustomLesson(courseId, {
                     ...lesson,
                     id: lesson.id || "",
                   });

@@ -1,5 +1,6 @@
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
+import { LessonUpdateDTO } from "infrastructure/api/user/courses/lessons/Lessons";
 import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 import icons from "styles/icons";
 
@@ -24,7 +25,7 @@ const NewGrammar: React.FC<INewGrammar> = ({
   const { t } = useTranslation("common");
   const { lesson, mutate } = LessonsAPI.useLesson(courseId, lessonId);
 
-  function handleLessonChange(change: { [key: string]: boolean | string }) {
+  function handleLessonChange(change: Omit<LessonUpdateDTO, "id">) {
     const data = { ...lesson, ...change };
 
     mutate(async () => {
