@@ -1,3 +1,4 @@
+import axios from "axios";
 import { LoginRequestBody } from "infrastructure/api/login/Login";
 import LoginAPI from "infrastructure/api/login/LoginAPI";
 import RefreshTokenAPI from "infrastructure/api/refresh-token/RefreshTokenAPI";
@@ -10,10 +11,10 @@ import { LocalStorageManager } from "./LocalStorageManager";
 
 const AuthManager = {
   logout(): void {
-    LocalStorageManager.removeAuthorizationHeader();
-    LocalStorageManager.removeIdToken();
-    LocalStorageManager.removeRefreshToken();
-    LocalStorageManager.removeUser();
+    this.removeAuthHeader();
+    LocalStorageManager.removeItem("idToken");
+    LocalStorageManager.removeItem("refreshToken");
+    LocalStorageManager.removeItem("user");
   },
 
   async login(data: LoginRequestBody): Promise<UserPrivate> {
@@ -25,13 +26,21 @@ const AuthManager = {
   },
 
   async refreshIdToken(): Promise<void> {
+    const refreshToken = LocalStorageManager.getItem<string>("refreshToken");
+
+    if (refreshToken === null) {
+      // Refresh token doesn't exist, user needs to log in again
+      this.logout();
+      return;
+    }
+
     return RefreshTokenAPI.refreshIdToken({
-      refreshToken: LocalStorageManager.getRefreshToken(),
+      refreshToken: refreshToken,
     })
       .then((res) => {
-        LocalStorageManager.setAuthorizationHeader(res.idToken);
-        LocalStorageManager.setIdToken(res.idToken);
-        LocalStorageManager.setRefreshToken(res.refreshToken);
+        this.setAuthHeader(res.idToken);
+        LocalStorageManager.setItem<string>("idToken", res.idToken);
+        LocalStorageManager.setItem<string>("refreshToken", res.refreshToken);
       })
       .catch(() => {
         // Refresh token is expired, user needs to log in again
@@ -40,7 +49,7 @@ const AuthManager = {
   },
 
   async getCurrentUser(): Promise<UserPrivate> {
-    const token = LocalStorageManager.getIdToken();
+    const token = LocalStorageManager.getItem<string>("idToken");
 
     if (token) {
       const decodedToken = jwtDecode<DecodedToken>(token);
@@ -48,9 +57,18 @@ const AuthManager = {
       if (decodedToken.exp * 1000 < Date.now()) await this.refreshIdToken();
     } else this.logout();
 
-    if (LocalStorageManager.userExists()) {
-      return LocalStorageManager.getUser();
-    } else return Promise.reject("No user found.");
+    const user = LocalStorageManager.getItem<UserPrivate>("user");
+    if (user === null) {
+      return Promise.reject("No user found.");
+    } else return user;
+  },
+
+  setAuthHeader(idToken: string): void {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${idToken}`;
+  },
+
+  removeAuthHeader(): void {
+    delete axios.defaults.headers.common["Authorization"];
   },
 };
 

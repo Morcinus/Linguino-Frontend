@@ -1,4 +1,5 @@
 import API from "infrastructure/api/API";
+import AuthManager from "infrastructure/repositories/AuthManager";
 import { LocalStorageManager } from "infrastructure/repositories/LocalStorageManager";
 
 import { UserPrivate } from "../user/User";
@@ -11,10 +12,10 @@ const SignupAPI = {
 
   async signUp(data: SignupRequestBody): Promise<UserPrivate> {
     return API.post(`${this.URI}`, data).then((resData: SignupResponseBody) => {
-      LocalStorageManager.setAuthorizationHeader(resData.idToken);
-      LocalStorageManager.setIdToken(resData.idToken);
-      LocalStorageManager.setRefreshToken(resData.refreshToken);
-      LocalStorageManager.setUser(resData.user);
+      AuthManager.setAuthHeader(resData.idToken);
+      LocalStorageManager.setItem<string>("idToken", resData.idToken);
+      LocalStorageManager.setItem<string>("refreshToken", resData.refreshToken);
+      LocalStorageManager.setItem<UserPrivate>("user", resData.user);
 
       return resData.user;
     });

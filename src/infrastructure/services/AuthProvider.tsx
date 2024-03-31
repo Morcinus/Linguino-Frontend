@@ -149,7 +149,7 @@ export function AuthProvider({
       const newUser = { ...user, ...userChange };
 
       setUser(newUser);
-      LocalStorageManager.setUser(newUser);
+      LocalStorageManager.setItem<UserPrivate>("user", newUser);
     }
   }
 
@@ -157,7 +157,7 @@ export function AuthProvider({
     const user = await UserAPI.getUser();
 
     setUser(user);
-    LocalStorageManager.setUser(user);
+    LocalStorageManager.setItem<UserPrivate>("user", user);
   }
 
   const memoedValue = useMemo(
