@@ -10,10 +10,6 @@ const UserAPI = {
   async getUser(): Promise<UserPrivate> {
     return API.get(`${this.URI}`);
   },
-
-  async updateUser(user: Partial<UserPrivate>): Promise<UserPrivate> {
-    return API.put(`${this.URI}`, user);
-  },
 };
 
 export default UserAPI;

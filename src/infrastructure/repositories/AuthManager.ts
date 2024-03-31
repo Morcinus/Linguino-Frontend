@@ -57,10 +57,19 @@ const AuthManager = {
       if (decodedToken.exp * 1000 < Date.now()) await this.refreshIdToken();
     } else this.logout();
 
-    const user = LocalStorageManager.getItem<UserPrivate>("user");
+    let user = LocalStorageManager.getItem<UserPrivate>("user");
     if (user === null) {
       return Promise.reject("No user found.");
-    } else return user;
+    } else {
+      const studyMapLevel = LocalStorageManager.getItem<number>(
+        "lastViewedStudyMapLevel"
+      );
+      if (studyMapLevel !== null) {
+        user = { ...user, lastViewedStudyMapLevel: studyMapLevel };
+      }
+
+      return user;
+    }
   },
 
   setAuthHeader(idToken: string): void {

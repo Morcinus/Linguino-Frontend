@@ -8,7 +8,7 @@ import StudyMap from "components/atoms/StudyMap/StudyMap";
 import NoticeBoard from "components/molecules/NoticeBoard/NoticeBoard";
 import { useTranslation } from "i18n/client";
 import { UserPrivate } from "infrastructure/api/user/User";
-import UserAPI from "infrastructure/api/user/UserAPI";
+import { LocalStorageManager } from "infrastructure/repositories/LocalStorageManager";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import icons from "styles/icons";
@@ -33,8 +33,8 @@ const HomePage: React.FC<IHomePage> = ({searchParams}) => {
       const change: Partial<UserPrivate> = {
         lastViewedStudyMapLevel: searchParams.level
       }
-      UserAPI.updateUser(change);
       mutateUser(change);
+      LocalStorageManager.setItem<number>("lastViewedStudyMapLevel", searchParams.level);
     }
   }, [searchParams, mutateUser, user?.lastViewedStudyMapLevel, router])
 
