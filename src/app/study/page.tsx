@@ -6,21 +6,23 @@ import useAuth from "infrastructure/services/AuthProvider";
 import DailyStudy from "components/molecules/DailyStudy/DailyStudy";
 import LessonStudy from "components/molecules/LessonStudy/LessonStudy";
 
-export interface IStudyPage {
-  searchParams: {
-    lessonId: string;
-  };
-}
+import { useSearchParams } from 'next/navigation';
 
-const StudyPage: React.FC<IStudyPage> = ({ searchParams }) => {
+export interface IStudyPage {}
+
+const StudyPage: React.FC<IStudyPage> = () => {
+  const searchParams = useSearchParams()
+  const search = searchParams.get('lessonId')
+  const lessonId = search !== null ? search : undefined
+  
   const { user } = useAuth();
 
   return (
     <>
       {user?.selectedCourse.id ? (
-        searchParams.lessonId ? (
+        lessonId ? (
           <LessonStudy
-            lessonId={searchParams.lessonId}
+            lessonId={lessonId}
             courseId={user.selectedCourse.id}
           />
         ) : (
