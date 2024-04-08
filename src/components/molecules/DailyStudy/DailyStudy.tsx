@@ -44,15 +44,16 @@ const DailyStudy: React.FC<IDailyStudy> = ({ courseId }) => {
       })
     );
 
-    const notices: Array<Notice> =
-      user?.role === "PREMIUM_USER"
-        ? []
+    /* const notices: Array<Notice> =
+      user?.role === "PREMIUM_USER" ? []
         : [
             {
               id: "study_advertisement_notice",
               type: "ADVERTISEMENT",
             },
-          ];
+          ];*/
+
+    const notices: Array<Notice> = [];
 
     addNotices(
       notices.concat([
