@@ -12,7 +12,7 @@ export interface IUserSearchResults {
 
 const UserSearchResults: React.FC<IUserSearchResults> = ({ searchPrompt }) => {
   const { users } = UsersAPI.useUsers({
-    searchName: searchPrompt,
+    searchName: searchPrompt.toLowerCase(),
   });
   const { t } = useTranslation("common");
 

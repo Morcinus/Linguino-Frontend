@@ -16,7 +16,7 @@ const LessonsSearchResults: React.FC<ILessonsSearchResults> = ({
   searchPrompt,
 }) => {
   const { lessons } = LessonsAPI.useLessons(courseId, {
-    searchName: searchPrompt,
+    searchName: searchPrompt.toLowerCase(),
   });
   const { t } = useTranslation("common");
 
