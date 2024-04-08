@@ -5,14 +5,13 @@ import useAuth from "infrastructure/services/AuthProvider";
 
 import LessonOverview from "components/layouts/LessonOverview/LessonOverview";
 
-export interface ILessonPage {
-  params: {
-    lessonId: string;
-  };
-}
+import { useParams } from 'next/navigation';
 
-const LessonPage: React.FC<ILessonPage> = ({ params }) => {
+export interface ILessonPage {}
+
+const LessonPage: React.FC<ILessonPage> = () => {
   const { user } = useAuth();
+  const params = useParams<{ lessonId: Id }>()
 
   return (
     <>
