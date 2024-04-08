@@ -43,7 +43,7 @@ const CustomLessonsOverview: React.FC<ICustomLessonsOverview> = ({
           <IconContainer name={icons.add} />
         </IconButton>
       </Box>
-      {lessons && (
+      {lessons && lessons.length !== 0 ? (
         <UserLessonsList
           lessons={lessons.map((lesson) => {
             return {
@@ -53,6 +53,8 @@ const CustomLessonsOverview: React.FC<ICustomLessonsOverview> = ({
             };
           })}
         />
+      ) : (
+        <>{tCommon("navigation.noCollectionsCreated")}</>
       )}
     </Box>
   );

@@ -104,7 +104,7 @@
     "lessons": "Lekce",
     "favorites": "Oblíbené",
     "myVocabulary": "Moje slovíčka",
-    "myLessons": "Moje lekce",
+    "myLessons": "Moje balíčky slovíček",
     "myCourses": "Moje kurzy",
     "courses": "Kurzy",
     "search": "Vyhledávání",
@@ -120,7 +120,9 @@
     "open": "Otevřít",
 
     "topicSelection": "Výběr témat kurzu",
-    "manageSubscription": "Spravovat předplatné"
+    "manageSubscription": "Spravovat předplatné",
+
+    "noCollectionsCreated": "Zatím nemáte žádné vlastní balíčky slovíček."
   },
 
   "accountSetup": {
