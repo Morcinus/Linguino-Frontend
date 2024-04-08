@@ -37,10 +37,10 @@ const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({
   const [value, setValue] = useState<string>();
 
   const handleChange = (text: string) => {
-    setValue(text);
+    setValue(text.toLowerCase());
     onChange?.(
       evaluateAnswer({
-        answers: [text],
+        answers: [text.toLowerCase()],
         exerciseId: questionAnswer.id,
         states: ["NONE"],
       })
