@@ -13,35 +13,51 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import icons from "styles/icons";
 
-export interface IHomePage {
-  searchParams: {
-    level: number;
-  };
-}
+import { useSearchParams } from "next/navigation";
 
-const HomePage: React.FC<IHomePage> = ({searchParams}) => {
+export interface IHomePage {}
+
+const HomePage: React.FC<IHomePage> = () => {
+  const searchParams = useSearchParams();
   const { user, mutateUser } = useAuth();
   const {t} = useTranslation("common");
   const router = useRouter();
 
+  function getSearchParamsLevel(): number | undefined {
+    const level = searchParams?.get("level");
+
+    if (level !== null && !isNaN(Number(level))) {
+      return Number(level);
+    }
+    return undefined;
+  }
+
   useEffect(()=> {
-    if(user?.lastViewedStudyMapLevel && (searchParams.level === undefined || searchParams.level === null)) {
+    const params = searchParams?.get("level");
+    let level;
+
+    if (params !== null && !isNaN(Number(params))) {
+      level = Number(params);
+    } else level = undefined;
+
+
+    if(user?.lastViewedStudyMapLevel && (level === undefined || level === null)) {
       router.push(`/?level=${user?.lastViewedStudyMapLevel}`)
     }
 
-    if(searchParams.level !== user?.lastViewedStudyMapLevel) {
+    if(level !== user?.lastViewedStudyMapLevel && level !== undefined) {
       const change: Partial<UserPrivate> = {
-        lastViewedStudyMapLevel: searchParams.level
+        lastViewedStudyMapLevel: level
       }
       mutateUser(change);
-      LocalStorageManager.setItem<number>("lastViewedStudyMapLevel", searchParams.level);
+      LocalStorageManager.setItem<number>("lastViewedStudyMapLevel", level);
     }
   }, [searchParams, mutateUser, user?.lastViewedStudyMapLevel, router])
 
   return (
     <>
       {user && <NoticeBoard fetchNewNotices={true} />}
-      {user && <StudyMap courseId={user.selectedCourse.id} level={searchParams.level} lastViewedLevel={user.lastViewedStudyMapLevel ?? 0}/> }
+      {user && <StudyMap courseId={user.selectedCourse.id} level={getSearchParamsLevel()} lastViewedLevel={user.lastViewedStudyMapLevel ?? 0}/> }
       <BottomFab
         header={t("studying.study")}
         icon={icons.start}
