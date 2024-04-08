@@ -57,12 +57,7 @@ const AddLessonItemsSearchResults: React.FC<IAddLessonItemsSearchResults> = ({
                   }
                   sx={{ pr: 2 }}
                 >
-                  <ListItemButton
-                    component="a"
-                    onClick={() =>
-                      window.open(`/lesson-items/${item.id}`, "_ blank")
-                    }
-                  >
+                  <ListItemButton>
                     <ListItemAvatar>
                       <Avatar src={item.imageUrl} variant="rounded" />
                     </ListItemAvatar>

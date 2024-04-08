@@ -186,10 +186,7 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
                     }
                     sx={{ pr: 2 }}
                   >
-                    <ListItemButton
-                      component="a"
-                      onClick={() => router.push(`/lesson-items/${item.id}`)}
-                    >
+                    <ListItemButton>
                       <ListItemAvatar>
                         <Avatar src={item.imageUrl} variant="rounded" />
                       </ListItemAvatar>
