@@ -46,7 +46,7 @@ const TableQuestionAnswer: React.FC<ITableQuestionAnswer> = ({
       newArray[i] = answers[i].slice();
     }
 
-    newArray[y][x] = value;
+    newArray[y][x] = value.toLowerCase();
     setAnswers(newArray);
 
     const answerStrings: Array<string> = [];
