@@ -8,7 +8,7 @@ const base: ILessonItemCard = {
     id: "akjdnfldan",
     nameL1: "Lorem ipsum",
     nameL2: "Lorem ipsum",
-    progress: 42,
+    dateToReview: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
     imageUrl: "https://picsum.photos/id/168/1920/1080",
     audioUrl: "https://mocks.linguino.org/audio-short.mp3",
     description:

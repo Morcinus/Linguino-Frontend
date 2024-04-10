@@ -54,6 +54,26 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
     }
   }
 
+  function getLessonItemProgress(dateToReview?: Date | null) {
+    if (dateToReview === null || dateToReview === undefined) return 0;
+
+    const today = new Date();
+    const date = new Date(dateToReview);
+
+    const monthsDifference =
+      (today.getFullYear() - date.getFullYear()) * 12 +
+      (today.getMonth() - date.getMonth());
+
+    if (monthsDifference >= 3) {
+      return 0;
+    } else if (monthsDifference <= 0) {
+      return 100;
+    } else {
+      // Progress between 0 and 100 based on how much in the past the date is
+      return Math.round((1 - monthsDifference / 3) * 100);
+    }
+  }
+
   return (
     <Box sx={{ pt: desktop ? 8 : 0, width: "100%" }}>
       {lessonItem && (
@@ -78,7 +98,9 @@ const LessonItemOverview: React.FC<ILessonItemOverview> = ({
             />
           </Box>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mb: 2 }}>
-            <LevelProgressBar progress={lessonItem.progress} />
+            <LevelProgressBar
+              progress={getLessonItemProgress(lessonItem.dateToReview)}
+            />
             <LessonItemCard
               lessonItem={lessonItem}
               onFavoriteChange={handleFavoriteChange}

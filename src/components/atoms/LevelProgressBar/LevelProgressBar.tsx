@@ -7,14 +7,12 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import IconContainer from "../IconContainer/IconContainer";
 
 export interface ILevelProgressBar {
-  progress: number;
+  progress: number; // Number between 0 and 100
 }
 
 const LevelProgressBar: React.FC<ILevelProgressBar> = ({ progress }) => {
   const mobileIconSizes = ["30px", "40px", "54px", "40px", "30px"];
   const desktopIconSizes = ["40px", "50px", "64px", "50px", "40px"];
-
-  console.log("progress", progress);
 
   function fillStar(starIndex: number) {
     return (5 * progress) / 100 >= starIndex + 1;

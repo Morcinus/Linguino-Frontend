@@ -7,7 +7,7 @@ export interface LessonItem {
   favorite: boolean;
   description?: string;
   examples?: Array<ExampleSentence>;
-  progress: number;
+  dateToReview: Date | null;
 
   markAsLearned?: boolean;
 }
