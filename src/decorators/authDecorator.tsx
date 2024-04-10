@@ -24,9 +24,10 @@ export default function AuthDecorator(Story: Story) {
       streak: 114,
       accountInitialized: true,
       activeSubscription: {
-        id: "abcd",
-        subscriptionState: "PAID",
-        nextPayment: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // One week from now
+        status: "ACTIVE",
+        currentPeriodEnd: new Date(
+          new Date().getTime() + 7 * 24 * 60 * 60 * 1000
+        ), // One week from now
       },
     },
     login: () => console.log("login"),

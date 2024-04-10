@@ -17,13 +17,9 @@ import MultipleChoiceCardList from "components/atoms/lists/MultipleChoiceCardLis
 
 import common from "../../../../public/locales/cs/common.json";
 
-export interface ISubscriptionOverview {
-  subscriptionId: Id;
-}
+export interface ISubscriptionOverview {}
 
-const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
-  subscriptionId,
-}) => {
+const SubscriptionOverview: React.FC<ISubscriptionOverview> = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | undefined>(
     undefined
   );
@@ -31,19 +27,20 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
   const [page, setPage] = useState(0);
   const router = useRouter();
 
-  const { subscription, mutate } =
-    SubscriptionAPI.useSubscription(subscriptionId);
+  const { subscription, mutate } = SubscriptionAPI.useSubscription();
 
   function handleUnsubscribe() {
     const data: Subscription = {
       ...subscription,
-      subscriptionState: "CANCELLED",
-      unsubscribeReason: selectedIndex
-        ? common.manageSubscription.unsubscribeReasons[selectedIndex]
-        : undefined,
+      status: "SCHEDULED_TO_CANCEL",
     };
+
     mutate(
-      SubscriptionAPI.updateSubscription(data),
+      SubscriptionAPI.cancelSubscription({
+        unsubscribeReason: selectedIndex
+          ? common.manageSubscription.unsubscribeReasons[selectedIndex]
+          : "",
+      }),
       optimisticMutationOption(data)
     );
   }
@@ -68,12 +65,12 @@ const SubscriptionOverview: React.FC<ISubscriptionOverview> = ({
                   </Typography>
                   <Typography>
                     {`${t("manageSubscription.subscriptionState")}: ${t(
-                      `manageSubscription.subscriptionStates.${subscription.subscriptionState.toLowerCase()}`
+                      `manageSubscription.subscriptionStates.${subscription.status.toLowerCase()}`
                     )}`}
                   </Typography>
                   <Typography>
                     {`${t("manageSubscription.nextPayment")}: ${new Date(
-                      subscription.nextPayment
+                      subscription.currentPeriodEnd
                     ).toLocaleDateString()}`}
                   </Typography>
                 </CardContent>

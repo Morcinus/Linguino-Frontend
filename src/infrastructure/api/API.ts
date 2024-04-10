@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { KeyedMutator } from "swr";
 
 const API = {
@@ -32,9 +32,9 @@ const API = {
       });
   },
 
-  delete(url: string) {
+  delete(url: string, object?: AxiosRequestConfig<unknown>) {
     return axios
-      .delete(url)
+      .delete(url, object)
       .then((res) => res.data)
       .catch((res) => {
         throw res?.response?.data?.error;

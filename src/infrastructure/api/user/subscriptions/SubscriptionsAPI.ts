@@ -9,10 +9,11 @@ export interface SubscriptionParams {}
 const SubscriptionAPI = {
   URI: "user/subscription",
 
-  useSubscription(
-    id: Id
-  ): Modify<FetchHook<Subscription>, { subscription: Subscription }> {
-    const { data, ...rest } = useAPI<Subscription>(`${this.URI}/${id}`);
+  useSubscription(): Modify<
+    FetchHook<Subscription>,
+    { subscription: Subscription }
+  > {
+    const { data, ...rest } = useAPI<Subscription>(`${this.URI}`);
     return { subscription: data, ...rest };
   },
 
@@ -20,10 +21,10 @@ const SubscriptionAPI = {
     return API.post(`${this.URI}`, {});
   },
 
-  async updateSubscription(
-    subscription: Partial<Subscription>
-  ): Promise<Subscription> {
-    return API.put(`${this.URI}/${subscription.id}`, subscription);
+  async cancelSubscription(value: {
+    unsubscribeReason: string;
+  }): Promise<Subscription> {
+    return API.delete(`${this.URI}`, { data: value });
   },
 
   async startFreeTrial(): Promise<void> {

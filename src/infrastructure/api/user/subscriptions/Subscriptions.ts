@@ -1,8 +1,15 @@
 export interface Subscription {
-  id: Id;
-  nextPayment: Date;
-  subscriptionState: "ORDERED" | "PAID" | "CANCELLED" | "TRIAL";
-  unsubscribeReason?: string;
+  currentPeriodEnd: Date;
+  status:
+    | "TRIALING"
+    | "INCOMPLETE"
+    | "INCOMPLETE_EXPIRED"
+    | "ACTIVE"
+    | "PAST_DUE"
+    | "SCHEDULED_TO_CANCEL"
+    | "CANCELED"
+    | "UNPAID"
+    | "PAUSED";
 }
 
 export interface CreateSubscriptionResponseDTO {

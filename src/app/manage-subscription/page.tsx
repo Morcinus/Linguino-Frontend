@@ -17,9 +17,7 @@ const ManageSubscriptionPage: React.FC<IManageSubscriptionPage> = () => {
   return (
     <>
       {user && user.activeSubscription ? (
-        <SubscriptionOverview
-          subscriptionId={user.activeSubscription.id}
-        />
+        <SubscriptionOverview />
       ) : (
         <Typography variant="body1">
           {t("manageSubscription.notSubscribed")}

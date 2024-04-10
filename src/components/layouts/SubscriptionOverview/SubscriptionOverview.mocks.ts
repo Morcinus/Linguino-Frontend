@@ -1,8 +1,6 @@
 import { ISubscriptionOverview } from "./SubscriptionOverview";
 
-const base: ISubscriptionOverview = {
-  subscriptionId: "dfldadfsg",
-};
+const base: ISubscriptionOverview = {};
 
 export const mockSubscriptionOverviewProps = {
   base,
