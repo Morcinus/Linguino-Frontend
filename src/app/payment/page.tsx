@@ -22,11 +22,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Typography from "@mui/material/Typography";
 
-import {
-  PAYMENT_SUCCESS_URL,
-  PLAN_PRICE_ID,
-  PLAN_PRICING_OPTIONS,
-} from "./config";
+import { PAYMENT_SUCCESS_URL, PLAN_PRICING_OPTIONS } from "./config";
 
 export interface IPaymentPage {}
 
@@ -63,9 +59,7 @@ const PaymentPage: React.FC<IPaymentPage> = () => {
     }
 
     try {
-      const { type, clientSecret } = await SubscriptionAPI.createSubscription({
-        planPriceId: PLAN_PRICE_ID,
-      });
+      const { type, clientSecret } = await SubscriptionAPI.createSubscription();
       if (clientSecret) {
         const confirmIntent =
           type === "setup" ? stripe.confirmSetup : stripe.confirmPayment;

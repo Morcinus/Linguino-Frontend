@@ -16,18 +16,18 @@ const SubscriptionAPI = {
     return { subscription: data, ...rest };
   },
 
-  async createSubscription(
-    subscription:
-      | Pick<Subscription, "planPriceId">
-      | Pick<Subscription, "subscriptionState">
-  ): Promise<CreateSubscriptionResponseDTO> {
-    return API.post(`${this.URI}`, subscription);
+  async createSubscription(): Promise<CreateSubscriptionResponseDTO> {
+    return API.post(`${this.URI}`, {});
   },
 
   async updateSubscription(
     subscription: Partial<Subscription>
   ): Promise<Subscription> {
     return API.put(`${this.URI}/${subscription.id}`, subscription);
+  },
+
+  async startFreeTrial(): Promise<void> {
+    return API.post(`${this.URI}/trial`, {});
   },
 };
 

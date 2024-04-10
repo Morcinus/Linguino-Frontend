@@ -31,9 +31,7 @@ const FreeTrialOfferNotice: React.FC<IFreeTrialOfferNotice> = ({ notice }) => {
       header1={t("notices.freeTrialOfferHeader")}
       primaryButton={{
         onClick: async () => {
-          await SubscriptionAPI.createSubscription({
-            subscriptionState: "TRIAL",
-          });
+          await SubscriptionAPI.startFreeTrial();
           deleteNotice(notice.id);
           router.push("/subscription");
         },

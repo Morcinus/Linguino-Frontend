@@ -1,4 +1,3 @@
-export const PLAN_PRICE_ID = "price_1Nc45tC4N1Cw0gvFBLxcdkwX";
 export const STRIPE_PUBLIC_KEY =
   "pk_test_51Nc3x5C4N1Cw0gvFtJbbekf056EZX4wMyIAeDNtg0oMasdcENWxcPMXMmNf8UTJXiftMFHgClWqvfJB9bUyo0awh00mbvyDkss";
 
