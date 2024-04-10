@@ -102,7 +102,6 @@ const FeedPaginationPage: React.FC<IFeedPaginationPage> = ({
     let hasDivider = false;
 
     feed.forEach((feedItem, i) => {
-      console.log(feedItem);
       if (!hasDivider && displayDivider && feedItem.seenByUser === true) {
         hasDivider = true;
         onDividerDisplayed();

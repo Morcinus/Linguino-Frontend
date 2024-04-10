@@ -1,7 +1,9 @@
+import { action } from "@storybook/addon-actions";
+
 import { IKeyPress } from "./KeyPress";
 
 const base: IKeyPress = {
-  onPress: () => console.log("onPress"),
+  onPress: action("onPress"),
   keys: ["Enter"],
 };
 

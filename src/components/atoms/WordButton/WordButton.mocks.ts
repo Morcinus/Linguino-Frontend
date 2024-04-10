@@ -1,9 +1,9 @@
+import { action } from "@storybook/addon-actions";
+
 import { IWordButton } from "./WordButton";
 
 const base: IWordButton = {
-  onClick: () => {
-    console.log("Click");
-  },
+  onClick: action("onClick"),
   word: "'",
 };
 

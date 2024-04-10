@@ -1,9 +1,11 @@
+import { action } from "@storybook/addon-actions";
+
 import FillTheBlank from "../FillTheBlank/FillTheBlank";
 import { IExercise } from "./Exercise";
 
 const base: IExercise = {
   assignmentTitle: "Lorem ipsum",
-  onContinue: () => console.log("onContinue"),
+  onContinue: action("onContinue"),
   imageUrl: "https://picsum.photos/id/168/512/512",
   questionAnswers: [
     {

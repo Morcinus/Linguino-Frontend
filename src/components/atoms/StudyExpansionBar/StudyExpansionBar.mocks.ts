@@ -1,16 +1,14 @@
+import { action } from "@storybook/addon-actions";
+
 import { IStudyExpansionBar } from "./StudyExpansionBar";
 
 const opened: IStudyExpansionBar = {
-  onClick: () => {
-    console.log("Click");
-  },
+  onClick: action("onClick"),
   open: true,
 };
 
 const closed: IStudyExpansionBar = {
-  onClick: () => {
-    console.log("Click");
-  },
+  onClick: action("onClick"),
   open: false,
 };
 

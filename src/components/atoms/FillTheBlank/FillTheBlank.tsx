@@ -26,8 +26,6 @@ const FillTheBlank: React.FC<IFillTheBlank> = ({
     const answers: Array<string> = [];
     answers[index] = answer;
 
-    console.log(`Answer states: ${answerStates}`);
-
     let states: Array<AnswerState> = [];
     if (!answerStates || answerStates.length === 0) {
       // Init states
@@ -39,7 +37,6 @@ const FillTheBlank: React.FC<IFillTheBlank> = ({
 
         lastIndex = blankIndex;
       });
-      console.log("Initialized array: ", states);
     } else {
       states = [...answerStates];
     }

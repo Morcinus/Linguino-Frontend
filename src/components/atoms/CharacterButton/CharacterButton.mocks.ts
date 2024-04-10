@@ -1,9 +1,9 @@
+import { action } from "@storybook/addon-actions";
+
 import { ICharacterButton } from "./CharacterButton";
 
 const base: ICharacterButton = {
-  onClick: () => {
-    console.log("Click");
-  },
+  onClick: action("onClick"),
   character: "'",
 };
 
