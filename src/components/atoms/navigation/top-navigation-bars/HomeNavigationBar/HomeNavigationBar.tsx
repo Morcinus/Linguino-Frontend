@@ -60,12 +60,12 @@ const HomeNavigationBar: React.FC<IHomeNavigationBar & AppBarProps> = ({
             <IconContainer name={icons.menu} />
           </IconButton>
         </Box>
-        {user && user.lastViewedStudyMapLevel && (
+        {user && (
           <Typography
             variant="subtitle1"
             sx={{ pl: desktop ? `${SIDE_NAV_BAR_WIDTH}px` : undefined }}
           >
-            {t(`levels.${user.lastViewedStudyMapLevel}`)}
+            {t(`levels.${user.lastViewedStudyMapLevel ?? 0}`)}
           </Typography>
         )}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
