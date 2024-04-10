@@ -19,7 +19,7 @@ export default function AuthDecorator(Story: Story) {
       },
       username: "pepaokurka",
       balance: 999,
-      completedDailyGoal: true,
+      lastSessionDate: new Date(),
       lastViewedStudyMapLevel: 2,
       streak: 114,
       accountInitialized: true,

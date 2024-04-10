@@ -1,7 +1,6 @@
 import { QuestionAttempt } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
 import StudySessionAPI from "infrastructure/api/user/courses/study-session/StudySessionAPI";
 import { Notice, StudyStats } from "infrastructure/api/user/notices/Notices";
-import useAuth from "infrastructure/services/AuthProvider";
 import useNotices from "infrastructure/services/NoticeProvider";
 
 import { useRouter } from "next/navigation";
@@ -19,7 +18,6 @@ const LessonStudy: React.FC<ILessonStudy> = ({ courseId, lessonId }) => {
   const { exercises, isLoading } = StudySessionAPI.useStudySession(courseId, {
     lessonId,
   });
-  const { user } = useAuth();
 
   async function handleSessionFinish(
     studyStats: StudyStats,

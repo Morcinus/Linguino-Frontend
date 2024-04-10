@@ -8,7 +8,7 @@ export interface UserPrivate {
   streak: number;
   balance: number;
   accountInitialized: boolean;
-  completedDailyGoal: boolean;
+  lastSessionDate: Date | null;
   activeSubscription: Subscription | null;
   selectedCourse: Pick<Course, "id" | "name" | "language1" | "language2">;
   lastViewedStudyMapLevel: number;

@@ -27,6 +27,19 @@ const HomeNavigationBar: React.FC<IHomeNavigationBar & AppBarProps> = ({
   const { t } = useTranslation("common");
   const { user } = useAuth();
 
+  function completedTodaysStudySession(lastSessionDate?: Date | null) {
+    if (lastSessionDate === null || lastSessionDate === undefined) return false;
+
+    const today = new Date();
+    const date = new Date(lastSessionDate);
+
+    return (
+      today.getFullYear() === date.getFullYear() &&
+      today.getMonth() === date.getMonth() &&
+      today.getDate() === date.getDate()
+    );
+  }
+
   return (
     <AppBar
       position="fixed"
@@ -58,7 +71,9 @@ const HomeNavigationBar: React.FC<IHomeNavigationBar & AppBarProps> = ({
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Streak
             streak={user?.streak}
-            completedDailyGoal={user?.completedDailyGoal}
+            completedDailyGoal={completedTodaysStudySession(
+              user?.lastSessionDate
+            )}
           />
         </Box>
       </Toolbar>
