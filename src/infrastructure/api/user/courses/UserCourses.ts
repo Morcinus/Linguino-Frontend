@@ -7,8 +7,7 @@ export type UserCourse = Pick<
   "id" | "language1" | "language2" | "name" | "thumbnailUrl"
 >;
 
-export interface AddCourseDTO {
-  id: Id;
+export interface EnrollInCourseDTO {
   startingLevel: StartingLevel;
   selectedTopicIds: Array<Id>;
 }

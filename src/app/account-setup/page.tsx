@@ -1,29 +1,31 @@
 // prettier-ignore
 "use client"
 
+import AccountSetupAPI from "infrastructure/api/user/account-setup/AccountSetupAPI";
+import UserCoursesAPI from "infrastructure/api/user/courses/UserCoursesAPI";
 import { SurveyAnswer } from "infrastructure/api/user/survey-answers/SurveyAnswers";
 import SurveyAnswersAPI from "infrastructure/api/user/survey-answers/SurveyAnswersAPI";
+import { Topic } from "infrastructure/api/user/topics/Topics";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
 import { useEffect, useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 import Container from "@mui/material/Container";
 
 import NavigationBar from "components/atoms/navigation/top-navigation-bars/NavigationBar/NavigationBar";
+import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
 import InitialSurveyForm from "components/molecules/forms/InitialSurveyForm/InitialSurveyForm";
 import SelectCourseForm from "components/molecules/forms/SelectCourseForm/SelectCourseForm";
-import { GoalOption } from "components/molecules/forms/SelectGoalForm/config";
 import SelectGoalForm from "components/molecules/forms/SelectGoalForm/SelectGoalForm";
-import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
+import { GoalOption } from "components/molecules/forms/SelectGoalForm/config";
 import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLevelForm";
-import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
+import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
 import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
+import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
 import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/SelectTopicsForm";
-import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
-import AccountSetupAPI from "infrastructure/api/user/account-setup/AccountSetupAPI";
-import { Topic } from "infrastructure/api/user/topics/Topics";
-import { useRouter } from "next/navigation";
 
 export interface IAccountSetupPage {}
 
@@ -32,7 +34,8 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   const [page, setPage] = useState(0);
   const [selectedCourseId, setSelectedCourseId] = useState<Id>();
   const [selectedTopics, setSelectedTopics] = useState<Array<Topic>>();
-  const [surveyAnswer, setSurveyAnswer] = useState<Omit<SurveyAnswer, "userId">>();
+  const [surveyAnswer, setSurveyAnswer] =
+    useState<Omit<SurveyAnswer, "userId">>();
   const [selectedGoal, setSelectedGoal] = useState<GoalOption>();
   const [startOptionId, setStartOptionId] = useState<StartOptionId>();
   const [startingLevel, setStartingLevel] = useState<LanguageLevel>();
@@ -49,21 +52,19 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
   useEffect(() => {
     if (startingLevel) submitSetup();
 
-    async function submitSetup() {      
-      if (surveyAnswer)
-        SurveyAnswersAPI.createSurveyAnswer(surveyAnswer);
+    async function submitSetup() {
+      if (surveyAnswer) SurveyAnswersAPI.createSurveyAnswer(surveyAnswer);
 
       if (startingLevel && selectedCourseId && selectedGoal && selectedTopics) {
-        const accountSetupSettings = {
+        await AccountSetupAPI.setupAccount({
           dailyGoal: selectedGoal.value,
-          selectedCourse: {
-            id: selectedCourseId,
-            startingLevel: startingLevel,
-            selectedTopicIds: selectedTopics.map(topic => topic.id),
-          }
-        };
+        });
 
-        await AccountSetupAPI.setupAccount(accountSetupSettings);
+        await UserCoursesAPI.enrollInCourse(selectedCourseId, {
+          startingLevel: startingLevel,
+          selectedTopicIds: selectedTopics.map((topic) => topic.id),
+        });
+
         await revalidateUser();
         router.push("/");
       }
@@ -75,7 +76,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
     selectedTopics,
     surveyAnswer,
     revalidateUser,
-    router
+    router,
   ]);
 
   useEffect(() => {
@@ -153,7 +154,7 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
                 courseId={selectedCourseId}
                 onSubmit={(levelOption) => setStartingLevel(levelOption)}
                 onCancel={() => {
-                  decrementPage()
+                  decrementPage();
                   setStartOptionId(undefined);
                 }}
               />

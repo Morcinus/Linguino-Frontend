@@ -1,7 +1,7 @@
 // prettier-ignore
 "use client"
 
-import { AddCourseDTO } from "infrastructure/api/user/courses/UserCourses";
+import { EnrollInCourseDTO } from "infrastructure/api/user/courses/UserCourses";
 import UserCoursesAPI from "infrastructure/api/user/courses/UserCoursesAPI";
 import { Topic } from "infrastructure/api/user/topics/Topics";
 import useAuth from "infrastructure/services/AuthProvider";
@@ -11,12 +11,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import ContentContainer from "components/layouts/ContentContainer/ContentContainer";
+import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
 import SelectCourseForm from "components/molecules/forms/SelectCourseForm/SelectCourseForm";
 import SelectLevelForm from "components/molecules/forms/SelectLevelForm/SelectLevelForm";
-import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
 import SelectStartForm from "components/molecules/forms/SelectStartForm/SelectStartForm";
+import { StartOptionId } from "components/molecules/forms/SelectStartForm/config";
 import SelectTopicsForm from "components/molecules/forms/SelectTopicsForm/SelectTopicsForm";
-import PlacementTest from "components/molecules/PlacementTest/PlacementTest";
 
 export interface ISelectCoursePage {}
 
@@ -38,8 +38,8 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
     if (page > 0) setPage(page - 1);
   }
 
-  async function submitSetup(course: AddCourseDTO) {
-    await UserCoursesAPI.addUserCourse(course);
+  async function submitSetup(courseId: Id, content: EnrollInCourseDTO) {
+    await UserCoursesAPI.enrollInCourse(courseId, content);
     await revalidateUser();
     router.push("/");
   }
@@ -78,8 +78,7 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
                 setStartOptionId(startOptionId);
 
                 if (startOptionId === "startFromZero") {
-                  submitSetup({
-                    id: selectedCourseId,
+                  submitSetup(selectedCourseId, {
                     selectedTopicIds: selectedTopics.map((topic) => topic.id),
                     startingLevel: "a1",
                   });
@@ -94,15 +93,14 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
         <>
           {startOptionId === "selectLevel" && selectedCourseId && (
             <ContentContainer>
-            <SelectLevelForm
-              onSubmit={(levelOption) =>
-                submitSetup({
-                  id: selectedCourseId,
-                  selectedTopicIds: selectedTopics.map((topic) => topic.id),
-                  startingLevel: levelOption.id,
-                })
-              }
-            />
+              <SelectLevelForm
+                onSubmit={(levelOption) =>
+                  submitSetup(selectedCourseId, {
+                    selectedTopicIds: selectedTopics.map((topic) => topic.id),
+                    startingLevel: levelOption.id,
+                  })
+                }
+              />
             </ContentContainer>
           )}
 
@@ -110,8 +108,7 @@ const SelectCoursePage: React.FC<ISelectCoursePage> = () => {
             <PlacementTest
               courseId={selectedCourseId}
               onSubmit={(levelOption) =>
-                submitSetup({
-                  id: selectedCourseId,
+                submitSetup(selectedCourseId, {
                   selectedTopicIds: selectedTopics.map((topic) => topic.id),
                   startingLevel: levelOption,
                 })
