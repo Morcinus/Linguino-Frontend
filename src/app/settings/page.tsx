@@ -17,6 +17,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+import { Container } from "@mui/material";
 import BottomFab from "components/atoms/BottomFab/BottomFab";
 import AccountSettings from "components/molecules/settings/AccountSettings/AccountSettings";
 import DailyGoalSettings from "components/molecules/settings/DailyGoalSettings/DailyGoalSettings";
@@ -31,6 +32,7 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
   const [errors, setErrors] = useState<Array<string>>([]);
   const [change, setChange] = useState({});
   const { enqueueSnackbar } = useSnackbar();
+  const [changePasswordEmailSent, setChangePasswordEmailSent] = useState(false);
 
   function handleSave() {
     mutate(async () => {
@@ -78,64 +80,82 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
 
   return (
     <>
-      {settings && (
-        <Box
-          display="flex"
-          flexDirection="column"
-          gap={2}
-          sx={{ width: "100%", mb: 4 }}
-        >
-          <AccountSettings
-            username={settings.username}
-            name={settings.name}
-            email={settings.email}
-            onUsernameChange={(value) =>
-              setChange({ ...change, username: value })
-            }
-            onNameChange={(value) => setChange({ ...change, name: value })}
-            onEmailChange={(value) => setChange({ ...change, email: value })}
-            accountErrors={errors}
-          />
-          <Box display="flex" flexDirection="column" gap={2} width="100%">
-            <Typography variant="subtitle1">
-              {t("settings.courseCustomization")}
-            </Typography>
-            <Button
-              variant="outlined"
-              onClick={() =>
-                router.push(`/topic-selection`)
-              }
-              sx={{ width: "50%", alignSelf: "center" }}
+      {changePasswordEmailSent === true ? (
+        <Container maxWidth="xs" sx={{ pt: 3 }}>
+          <Typography variant="h3">
+            {t("forgotPassword.passwordSent")}
+          </Typography>
+          <Typography variant="body2">
+            {t("forgotPassword.passwordSentDescription")}
+          </Typography>
+        </Container>
+      ) : (
+        <>
+          {settings && (
+            <Box
+              display="flex"
+              flexDirection="column"
+              gap={2}
+              sx={{ width: "100%", mb: 4 }}
             >
-              {t("settings.customizeTopics")}
-            </Button>
-          </Box>
-          <DailyGoalSettings
-            dailyGoal={settings.dailyGoal}
-            onGoalChange={(value) => setChange({ ...change, dailyGoal: value })}
-          />
-          <Box display="flex" flexDirection="column" gap={2} width="100%">
-            <Typography variant="subtitle1">{t("settings.premium")}</Typography>
-            <Button
-              variant="outlined"
-              onClick={() => router.push("/manage-subscription")}
-              sx={{ width: "50%", alignSelf: "center" }}
-            >
-              {t("settings.manageSubscription")}
-            </Button>
-          </Box>
-        </Box>
-      )}
+              <AccountSettings
+                username={settings.username}
+                name={settings.name}
+                email={settings.email}
+                onUsernameChange={(value) =>
+                  setChange({ ...change, username: value })
+                }
+                onNameChange={(value) => setChange({ ...change, name: value })}
+                onEmailChange={(value) =>
+                  setChange({ ...change, email: value })
+                }
+                onPasswordChange={() => setChangePasswordEmailSent(true)}
+                accountErrors={errors}
+              />
+              <Box display="flex" flexDirection="column" gap={2} width="100%">
+                <Typography variant="subtitle1">
+                  {t("settings.courseCustomization")}
+                </Typography>
+                <Button
+                  variant="outlined"
+                  onClick={() => router.push(`/topic-selection`)}
+                  sx={{ width: "50%", alignSelf: "center" }}
+                >
+                  {t("settings.customizeTopics")}
+                </Button>
+              </Box>
+              <DailyGoalSettings
+                dailyGoal={settings.dailyGoal}
+                onGoalChange={(value) =>
+                  setChange({ ...change, dailyGoal: value })
+                }
+              />
+              <Box display="flex" flexDirection="column" gap={2} width="100%">
+                <Typography variant="subtitle1">
+                  {t("settings.premium")}
+                </Typography>
+                <Button
+                  variant="outlined"
+                  onClick={() => router.push("/manage-subscription")}
+                  sx={{ width: "50%", alignSelf: "center" }}
+                >
+                  {t("settings.manageSubscription")}
+                </Button>
+              </Box>
+            </Box>
+          )}
 
-      {displaySaveButton() && (
-        <BottomFab
-          header={t("userActions.save")}
-          icon={icons.save}
-          onClick={() => handleSave()}
-        />
+          {displaySaveButton() && (
+            <BottomFab
+              header={t("userActions.save")}
+              icon={icons.save}
+              onClick={() => handleSave()}
+            />
+          )}
+        </>
       )}
-    </>
-  );
+    
+  </>);
 };
 
 export default SettingsPage;

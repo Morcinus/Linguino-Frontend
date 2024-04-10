@@ -1,9 +1,8 @@
 import { useTranslation } from "i18n/client";
 import errorCodes from "infrastructure/api/error-codes";
+import ResetPasswordAPI from "infrastructure/api/reset-password/ResetPasswordAPI";
 
 import { useForm } from "react-hook-form";
-
-import { useRouter } from "next/navigation";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -20,6 +19,7 @@ export interface IAccountSettings {
   onUsernameChange: (value: string) => void;
   onNameChange: (value: string) => void;
   onEmailChange: (value: string) => void;
+  onPasswordChange: () => void;
 
   accountErrors: Array<string>;
 }
@@ -37,10 +37,10 @@ const AccountSettings: React.FC<IAccountSettings> = ({
   onUsernameChange,
   onEmailChange,
   onNameChange,
+  onPasswordChange,
   accountErrors,
 }) => {
   const { t } = useTranslation("form");
-  const router = useRouter();
   const {
     register,
 
@@ -124,7 +124,10 @@ const AccountSettings: React.FC<IAccountSettings> = ({
         />
         <Button
           variant="outlined"
-          onClick={() => router.push("/change-password")}
+          onClick={async () => {
+            await ResetPasswordAPI.resetPassword({ email: email });
+            onPasswordChange();
+          }}
           sx={{ width: "50%", alignSelf: "center" }}
         >
           {t("settings.changePassword")}

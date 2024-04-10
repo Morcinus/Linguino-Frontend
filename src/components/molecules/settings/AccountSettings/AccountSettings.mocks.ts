@@ -10,6 +10,7 @@ const base: IAccountSettings = {
   onEmailChange: action("onEmailChange"),
   onNameChange: action("onNameChange"),
   onUsernameChange: action("onUsernameChange"),
+  onPasswordChange: action("onPasswordChange"),
 };
 
 export const mockAccountSettingsProps = {
