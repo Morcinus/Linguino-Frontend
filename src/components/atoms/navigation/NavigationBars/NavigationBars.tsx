@@ -63,6 +63,10 @@ const Navigation: React.FC<INavigation> = () => {
         return <></>;
       case "/forgot-password":
         return <BackNavigationBar color="transparent" />;
+      case "/change-email":
+        return <></>;
+      case "/change-email-request":
+        return <BackNavigationBar />;
       case "/lessons":
         return <DrawerContainer child={{ component: LessonsNavigationBar }} />;
       case "/shop":

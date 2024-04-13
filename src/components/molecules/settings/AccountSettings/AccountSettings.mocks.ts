@@ -7,7 +7,6 @@ const base: IAccountSettings = {
   email: "pepa.okurka@pepa.cz",
   name: "Pepa Okurka",
   username: "pepik123",
-  onEmailChange: action("onEmailChange"),
   onNameChange: action("onNameChange"),
   onUsernameChange: action("onUsernameChange"),
   onPasswordChange: action("onPasswordChange"),

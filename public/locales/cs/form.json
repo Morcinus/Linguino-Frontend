@@ -28,7 +28,8 @@
     "username-taken": "Toto jméno už někdo používá!",
     "email-taken": "Tento email už někdo používá!",
     "passwords-dont-match": "Hesla se musí shodovat!",
-    "invalid-username": "Uživatelské jméno může obsahovat pouze písmena a čísla."
+    "invalid-username": "Uživatelské jméno může obsahovat pouze písmena a čísla.",
+    "emails-dont-match": "Emailové adresy se neshodují!"
   },
 
   "forgotPassword": {
@@ -43,8 +44,23 @@
     "newPassword": "Nové heslo",
     "reenterPassword": "Heslo znovu",
     "changePassword": "Změnit heslo",
-    "passwordChanged": "Heslo změněno",
-    "login": "Přihlásit"
+    "passwordChanged": "Heslo změněno"
+  },
+
+  "changeEmail": {
+    "title": "Změnit email",
+    "newEmail": "Nová emailová adresa",
+    "reenterEmail": "Nová emailová adresa znovu",
+    "changeEmail": "Změnit email",
+    "continue": "Pokračovat",
+    "emailSent": "Email odeslán!",
+    "emailSentDescription": "Odeslali jsme Vám na novou adresu email s odkazem pro potvrzení změny emailu.",
+
+    "emailChanged": "Email byl změněn!",
+    "emailChangedDescription": "Nyní je s vaším účtem spojen nový email.",
+    "login": "Přihlásit se",
+    "invalidData": "Neplatné údaje. Zkuste si změnit email znovu.",
+    "backToSettings": "Zpět do nastavení"
   },
 
   "accountSetup": {
@@ -136,7 +152,7 @@
     "accountAndProfile": "Účet a profil",
     "username": "Uživatelské jméno",
     "name": "Jméno",
-    "email": "Emailová adresa",
+    "changeEmail": "Změnit emailovou adresu",
     "changePassword": "Změnit heslo",
 
     "courseCustomization": "Přizpůsobení kurzu",
