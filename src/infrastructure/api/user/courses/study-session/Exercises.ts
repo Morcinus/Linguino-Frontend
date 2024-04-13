@@ -26,7 +26,7 @@ interface IExercise {
   isNew: boolean;
   lessonItemId: Id;
   lessonId?: Id;
-  lessonType?: LessonType;
+  lessonItemType?: LessonType;
 }
 
 export interface IQuestionAnswerComponent {

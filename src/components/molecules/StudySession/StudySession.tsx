@@ -203,10 +203,10 @@ const StudySession: React.FC<IStudySession> = ({
             {exerciseQueue[index] && !finishedSession && (
               <>
                 {exerciseQueue[index].isNew === true &&
-                exerciseQueue[index].lessonType === "GRAMMAR" ? (
+                exerciseQueue[index].lessonItemType === "GRAMMAR" ? (
                   renderNewGrammar(exerciseQueue[index], index)
                 ) : exerciseQueue[index].isNew === true &&
-                  exerciseQueue[index].lessonType === "VOCABULARY" ? (
+                  exerciseQueue[index].lessonItemType === "VOCABULARY" ? (
                   renderNewVocabulary(exerciseQueue[index], index)
                 ) : (
                   <ExerciseContainer
