@@ -1,3 +1,5 @@
+import { LanguageLevel } from "components/molecules/forms/SelectLevelForm/config";
+
 import { LessonItemSummary } from "../lesson-items/LessonItems";
 import { Feedback } from "./feedback/LessonFeedback";
 
@@ -25,6 +27,7 @@ export interface Lesson {
   author?: Id;
   icon?: string;
   type?: LessonType;
+  level?: LanguageLevel;
 
   markAsLearned?: boolean;
 }

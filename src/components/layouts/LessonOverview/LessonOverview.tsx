@@ -3,6 +3,7 @@ import { optimisticMutationOption } from "infrastructure/api/API";
 import LessonsAPI from "infrastructure/api/user/courses/lessons/LessonsAPI";
 import { Feedback } from "infrastructure/api/user/courses/lessons/feedback/LessonFeedback";
 import LessonFeedbackAPI from "infrastructure/api/user/courses/lessons/feedback/LessonFeedbackAPI";
+import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 import theme from "styles/theme";
 
@@ -31,6 +32,7 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
   const router = useRouter();
   const { lesson, mutate } = LessonsAPI.useLesson(courseId, lessonId);
   const desktop = useMediaQuery(theme.breakpoints.up("md"));
+  const { user } = useAuth();
 
   function handleFavoriteChange(value: boolean) {
     const data = {
@@ -140,11 +142,20 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
               onFeedbackChange={handleFeedbackChange}
             />
           </Box>
-          <BottomFab
-            header={t("studying.studyLesson")}
-            icon={icons.startStudy}
-            onClick={() => router.push(`/study?lessonId=${lessonId}`)}
-          />
+          {(lesson.level === "c1" || lesson.level === "c2") &&
+          user?.role !== "PREMIUM_USER" ? (
+            <BottomFab
+              header={t("studying.premiumStudying")}
+              icon={icons.lock}
+              onClick={() => router.push(`/subscription`)}
+            />
+          ) : (
+            <BottomFab
+              header={t("studying.studyLesson")}
+              icon={icons.startStudy}
+              onClick={() => router.push(`/study?lessonId=${lessonId}`)}
+            />
+          )}
         </Box>
       )}
     </ContentContainer>

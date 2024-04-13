@@ -11,6 +11,7 @@ const base: ILessonCard = {
     visible: true,
     backgroundImageUrl: "https://picsum.photos/id/168/1920/1080",
     items: [],
+    level: "a1",
   },
   onFavoriteChange: action("onFavoriteChange"),
   onVisibleChange: action("onVisibleChange"),

@@ -117,11 +117,8 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
               text={t("userLessons.removeDialogText")}
               primaryAction={{
                 text: t("userActions.delete"),
-                onClick: () => {
-                  LessonsAPI.deleteCustomLesson(courseId, {
-                    ...lesson,
-                    id: lesson.id || "",
-                  });
+                onClick: async () => {
+                  await LessonsAPI.deleteCustomLesson(courseId, lesson.id);
                   router.push("/user-lessons");
                   enqueueSnackbar(t("userLessons.lessonDeleted"), {
                     variant: "success",

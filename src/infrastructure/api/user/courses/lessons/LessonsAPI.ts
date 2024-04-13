@@ -61,8 +61,8 @@ const LessonsAPI = {
     return API.put(`${this.URI(courseId)}/${lesson.id}`, lesson);
   },
 
-  async deleteCustomLesson(courseId: Id, lesson: Lesson): Promise<Lesson> {
-    return API.delete(`${this.URI(courseId)}/${lesson.id}`);
+  async deleteCustomLesson(courseId: Id, lessonId: Id): Promise<void> {
+    return API.delete(`${this.URI(courseId)}/${lessonId}`);
   },
 };
 

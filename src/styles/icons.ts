@@ -47,6 +47,8 @@ const icons: Record<string, string> = {
 
   startStudy: "play_arrow_outlined",
   moveHere: "fmd_good_outlined",
+
+  lock: "lock",
 };
 
 export default icons;
