@@ -33,3 +33,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Local Netlify folder
+.netlify
+
+# Sentry Config File
+.sentryclirc

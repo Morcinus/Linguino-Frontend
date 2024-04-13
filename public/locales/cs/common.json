@@ -1,0 +1,335 @@
+{
+  "project-name": "Linguino",
+  "loading": "Načítání...",
+
+  "open-menu": "Otevřít menu",
+  "user-avatar-circle-tooltip": "Hurá! Splnili jste svůj denní cíl!",
+  "login": "Přihlášení",
+  "signup": "Registrace",
+
+  "menu": "Menu",
+  "groups": "Skupiny",
+  "categories": "Kategorie",
+
+  "studying": {
+    "study": "Učit se",
+    "studyLesson": "Učit se lekci",
+    "studying": "Učení",
+    "speaking": "Mluvení",
+    "pronunciation": "Výslovnost",
+    "vocabulary": "Slovíčka",
+    "grammar": "Gramatika",
+    "reading": "Čtení",
+    "listening": "Poslech",
+
+    "premiumStudying": "Učení zamknuto"
+  },
+
+  "exercise": {
+    "right": "Správně!",
+    "wrong": "Špatně!",
+    "correctAnswer": "Správná odpověď:",
+    "alternativeAnswer": "Další možná odpověď:",
+    "check": "Zkontrolovat",
+    "continue": "Pokračovat",
+    "topic": "Téma",
+
+    "newVocabulary": "Nové slovíčko!",
+    "iKnowWord": "Toto slovíčko už umím!",
+
+    "newGrammar": "Nová gramatika!",
+    "iKnowGrammar": "Tuto gramatiku už umím!"
+  },
+
+  "exercises": {
+    "textExercise": {
+      "assignmentTitle": "Přelož text!"
+    },
+    "buildTheWord": {
+      "assignmentTitle": "Sestav slovíčko z písmen!"
+    },
+    "shortListening": {
+      "assignmentTitle": "Napiš co slyšíš!"
+    },
+    "listening": {
+      "assignmentTitle": "Poslechni si nahrávku a odpověz na otázku!"
+    },
+    "fillInSentence": {
+      "assignmentTitle": "Doplň slova do věty!"
+    },
+    "reading": {
+      "assignmentTitle": "Přečti si text a odpověz na otázku!"
+    },
+    "readAloud": {
+      "assignmentTitle": "Přečti text nahlas!"
+    },
+    "repeatAudio": {
+      "assignmentTitle": "Zopakuj co slyšíš!"
+    },
+    "fillInTable": {
+      "assignmentTitle": "Doplň slova do tabulky!"
+    },
+    "speech": {
+      "assignmentTitle": "Mluv o daném tématu!"
+    },
+    "matching": {
+      "assignmentTitle": "Spoj odpovídající dvojice!"
+    }
+  },
+
+  "other": {
+    "other": "Ostatní",
+    "subscription": "Předplatné",
+    "help": "Nápověda",
+    "news": "Novinky",
+    "settings": "Nastavení",
+    "my-profile": "Můj profil",
+    "logout": "Odhlásit",
+    "readMore": "Zobrazit více",
+    "readLess": "Zobrazit méně",
+    "submit": "Odeslat"
+  },
+
+  "calendar": {
+    "calendar": "Kalendář"
+  },
+
+  "navigation": {
+    "home": "Domů",
+    "shop": "Obchod",
+    "challenges": "Výzvy",
+    "feed": "Novinky",
+    "profile": "Profil",
+    "premium": "Premium",
+
+    "levels": "Úrovně",
+    "lessons": "Lekce",
+    "favorites": "Oblíbené",
+    "myVocabulary": "Moje slovíčka",
+    "myLessons": "Moje balíčky slovíček",
+    "myCourses": "Moje kurzy",
+    "courses": "Kurzy",
+    "search": "Vyhledávání",
+    "help": "Nápověda",
+    "bugReport": "Nahlášení chyby",
+    "settings": "Nastavení",
+    "logout": "Odhlásit",
+
+    "followers": "Sledující",
+    "following": "Sleduje",
+
+    "continue": "Pokračovat",
+    "open": "Otevřít",
+
+    "topicSelection": "Výběr témat kurzu",
+    "manageSubscription": "Spravovat předplatné",
+
+    "noCollectionsCreated": "Zatím nemáte žádné vlastní balíčky slovíček."
+  },
+
+  "accountSetup": {
+    "selectCourse": "Vybrat kurz"
+  },
+
+  "levels": [
+    "Začátečník",
+    "Pokročilý začátečník",
+    "Středně pokročilý",
+    "Pokročilý",
+    "Velmi pokročilý",
+    "Expert"
+  ],
+
+  "lessons": {
+    "speaking": "Lekce mluvení",
+    "pronunciation": "Lekce výslovnosti",
+    "vocabulary": "Lekce slovíček",
+    "grammar": "Lekce gramatiky",
+    "reading": "Lekce čtení",
+    "listening": "Lekce poslechu"
+  },
+
+  "shop": {
+    "buy": "Koupit",
+    "equip": "Zapnout",
+    "unequip": "Vypnout",
+    "categories": ["Profilové obrázky"],
+    "bought": "koupeno",
+    "equipped": "zapnuto"
+  },
+
+  "feedback": {
+    "header": "Našli jste chybu? Něco vám nevyhovuje? Máte nápad na zlepšení? Dejte nám vědět! Každou zprávu si čteme :)",
+    "thanks": "Děkujeme za zpětnou vazbu!"
+  },
+
+  "manageSubscription": {
+    "current": "Momentální předplatné",
+    "nextPayment": "Další platba",
+    "cancel": "Odhlásit předplatné",
+    "whyUnsubscribe": "Proč rušíte předplatné?",
+    "continue": "Pokračovat",
+    "unsubscribeReasons": [
+      "Stačí mi účet zdarma",
+      "Předplatné je moc drahé",
+      "Nepoužívám funkce premium",
+      "Jiné"
+    ],
+    "keep": "Ponechání premium",
+    "keepPremium": "Ponechat premium",
+    "confirmCancellation": "Potvrdit zrušení",
+    "youWontHaveAccessToThese": "Po zrušení ztratíte přístup k těmto funkcím",
+    "premiumFeatures": [
+      "Učení se pokročilých slovíček",
+      "Vytváření vlastních balíčků slovíček",
+      "Dělání pokročilých lekcí",
+      "Žádné reklamy při učení"
+    ],
+    "successfullyUnsubscibed": "Předplatné bylo úspěšně zrušeno.",
+    "notSubscribed": "Nemáte žádné předplatné",
+    "subscriptionState": "Stav předplatného",
+    "subscriptionStates": {
+      "cancelled": "zrušeno",
+      "trial": "zkušební doba",
+      "ordered": "objednáno",
+      "paid": "zaplaceno"
+    }
+  },
+
+  "challenges": {
+    "monthlyChallenge": "Měsíční výzva"
+  },
+
+  "achievements": {
+    "achievements": "Ocenění",
+    "collectReward": "Sebrat odměnu"
+  },
+
+  "feed": {
+    "earlier": "dříve",
+
+    "messages": {
+      "reached_level_10": "Dosáhnul úrovně 10!",
+      "reached_level_50": "Dosáhnul úrovně 50!",
+      "reached_level_100": "Dosáhnul úrovně 100!"
+    }
+  },
+
+  "userLessons": {
+    "vocabulary": "Slovíčka",
+    "lessonName": "Název balíčku",
+    "lessonDescription": "Popis balíčku",
+    "lessonSaved": "Balíček byl uložen.",
+    "lessonCreated": "Balíček byl vytvořen.",
+    "lessonDeleted": "Balíček byl odstraněn.",
+    "removeLesson": "Odstranit balíček",
+    "removeDialogText": "Opravdu chcete smazat balíček? Tato akce se nedá vrátit.",
+    "emptyLesson": "V balíčku zatím nejsou žádná slovíčka.",
+
+    "addVocabulary": "Přidat slovíčka",
+    "searchVocabulary": "Vyhledat slovíčka",
+    "noWordsFound": "Nebyla nalezena žádná slovíčka"
+  },
+
+  "userActions": {
+    "delete": "Smazat",
+    "cancel": "Zrušit",
+    "save": "Uložit",
+    "create": "Vytvořit",
+    "continue": "Pokračovat"
+  },
+
+  "userProfile": {
+    "level": "Úroveň",
+    "followers": "Sledující",
+    "following": "Sleduje",
+    "userIsFollowing": "Sleduji",
+    "userIsNotFollowing": "Sledovat",
+
+    "stats": "Statistiky",
+
+    "streak": "Denní řada"
+  },
+
+  "topics": {
+    "main": "Hlavní témata",
+    "extra": "Další témata"
+  },
+
+  "notices": {
+    "achievementGet": "Dosáhli jste úspěchu!",
+    "freeTrialEnded": "Zkušební období předplatného skončilo",
+    "extendSubscription": "Prodloužit předplatné",
+    "continueWithFreeAccount": "Pokračovat s plánem zdarma",
+
+    "rewardGet": "Získali jste odměnu!",
+    "coins": "penízků",
+
+    "advertisementNote": "Díky reklamám můžeme poskytovat aplikaci zdarma.",
+
+    "studySessionEnded": "Dobrá práce! Učení dokončeno.",
+    "rightAnswers": "Správné odpovědi",
+    "wrongAnswers": "Špatné odpovědi",
+
+    "freeTrialOfferHeader": "Vyzkoušejte premium na 14 dní zdarma!",
+    "tryForFree": "Vyzkoušet zdarma",
+    "declineFreeTrialOffer": "Nemám zájem"
+  },
+
+  "404": {
+    "header": "Stránka nebyla nalezena",
+    "backToHome": "Zpět na hlavní stránku"
+  },
+
+  "payment": {
+    "monthlySubscription": "Měsíční předplatné",
+    "buySubscription": "Koupit předplatné",
+    "generalPaymentErrorMessage": "Při ověření karty došlo k chybě. Zkuste to prosím znovu později.",
+    "perMonth": "{{val, currency(USD)}} za měsíc",
+    "subscriptionDisclaimer": "Částka vám bude automaticky naúčtována jednou za měsíc počínaje dneškem. Předplatné můžete kdykoliv zrušit v nastavení.",
+    "iWantToReceiveInvoice": "Chci dostat fakturu"
+  },
+
+  "subscribed": {
+    "thankYou": "Děkujeme!",
+    "subscriptionActivated": "Vaše předplatné bylo aktivováno!"
+  },
+
+  "subscription": {
+    "subscriptionHeader": "Získejte premium!",
+    "valuePropositions": [
+      "Učte se pokročilá slovíčka",
+      "Vytvářejte vlastní balíčky slovíček",
+      "Dělejte pokročilé lekce",
+      "Žádné reklamy při učení"
+    ],
+    "getSubscription": "Získat premium",
+
+    "subscribedHeader": "Váš premium účet",
+    "subscribedFeaturesHeader": "Můžete naplno využívat tyto funkce",
+    "subscribedFeatures": [
+      "Učte se pokročilá slovíčka",
+      "Vytvářejte vlastní balíčky slovíček",
+      "Dělejte pokročilé lekce",
+      "Žádné reklamy při učení"
+    ],
+    "manageSubscription": "Spravovat předplatné"
+  },
+
+  "search": {
+    "title": "Vyhledávání",
+    "categories": ["Uživatelé", "Lekce", "Slovíčka"],
+    "noWordsFound": "Nebyla nalezena žádná slovíčka.",
+    "noLessonsFound": "Nebyly nalezeny žádné lekce.",
+    "noUsersFound": "Nebyli nalezeni žádní uživatelé."
+  },
+
+  "freeTrialEndNotice": {
+    "title": "Prodlužte si předplatné a užívejte si tyto výhody",
+
+    "advancedVocabulary": "Učte se pokročilá slovíčka",
+    "customVocabulary": "Vytvářejte vlastní balíčky slovíček",
+    "advancedExercises": "Dělejte pokročilé lekce",
+    "noAds": "Žádné reklamy při učení"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "artificialDelayMilliseconds": 700,
+  "keepExistingTerminalsOpen": false,
+  "runOnStartup": true,
+  "terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "storybook",
+          "commands": ["yarn storybook"],
+          "shouldRunCommands": false
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "lint",
+          "commands": ["yarn lint"],
+          "shouldRunCommands": false
+        },
+        {
+          "name": "build",
+          "commands": ["yarn build"],
+          "shouldRunCommands": false
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "client",
+          "commands": ["yarn install", "yarn dev"]
+        }
+      ]
+    }
+  ]
+}
