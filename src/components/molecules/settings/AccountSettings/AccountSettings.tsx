@@ -4,12 +4,12 @@ import ResetPasswordAPI from "infrastructure/api/reset-password/ResetPasswordAPI
 
 import { useForm } from "react-hook-form";
 
+import { useRouter } from "next/navigation";
+
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-
-import { EMAIL_REGEX } from "components/molecules/SignupForm/SignupForm";
 
 export interface IAccountSettings {
   username: string;
@@ -18,7 +18,6 @@ export interface IAccountSettings {
 
   onUsernameChange: (value: string) => void;
   onNameChange: (value: string) => void;
-  onEmailChange: (value: string) => void;
   onPasswordChange: () => void;
 
   accountErrors: Array<string>;
@@ -27,7 +26,6 @@ export interface IAccountSettings {
 interface InputTypes {
   username: string;
   name: string;
-  email: string;
 }
 
 const AccountSettings: React.FC<IAccountSettings> = ({
@@ -35,7 +33,6 @@ const AccountSettings: React.FC<IAccountSettings> = ({
   name,
   email,
   onUsernameChange,
-  onEmailChange,
   onNameChange,
   onPasswordChange,
   accountErrors,
@@ -49,10 +46,10 @@ const AccountSettings: React.FC<IAccountSettings> = ({
   } = useForm<InputTypes>({
     defaultValues: {
       username: username,
-      email: email,
       name: name,
     },
   });
+  const router = useRouter();
 
   return (
     <Box display="flex" flexDirection="column" gap={2} width="100%">
@@ -97,31 +94,13 @@ const AccountSettings: React.FC<IAccountSettings> = ({
           })}
           fullWidth
         />
-        <TextField
-          id="email"
-          type="email"
-          label={t("auth.email")}
-          helperText={
-            errors.email?.type === "required"
-              ? t("error.field-is-required")
-              : errors.email?.type === "pattern"
-              ? t("error.invalid-email-address")
-              : accountErrors.includes(errorCodes.emailAddressTaken) &&
-                getValues("email") === email &&
-                t("error.email-taken")
-          }
-          error={
-            errors.email !== undefined ||
-            (accountErrors.includes(errorCodes.emailAddressTaken) &&
-              getValues("email") === email)
-          }
-          {...register("email", {
-            required: true,
-            pattern: EMAIL_REGEX,
-            onChange: (e) => onEmailChange(e.target.value),
-          })}
-          fullWidth
-        />
+        <Button
+          variant="outlined"
+          onClick={() => router.push(`/change-email-request`)}
+          sx={{ width: "50%", alignSelf: "center" }}
+        >
+          {t("settings.changeEmail")}
+        </Button>
         <Button
           variant="outlined"
           onClick={async () => {
