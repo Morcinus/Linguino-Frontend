@@ -4,7 +4,6 @@
 import AccountSetupAPI from "infrastructure/api/user/account-setup/AccountSetupAPI";
 import UserCoursesAPI from "infrastructure/api/user/courses/UserCoursesAPI";
 import { SurveyAnswer } from "infrastructure/api/user/survey-answers/SurveyAnswers";
-import SurveyAnswersAPI from "infrastructure/api/user/survey-answers/SurveyAnswersAPI";
 import { Topic } from "infrastructure/api/user/topics/Topics";
 import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
@@ -53,7 +52,8 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
     if (startingLevel) submitSetup();
 
     async function submitSetup() {
-      if (surveyAnswer) SurveyAnswersAPI.createSurveyAnswer(surveyAnswer);
+      // Isn't implemented on backend in v1.0.0
+      // if (surveyAnswer) SurveyAnswersAPI.createSurveyAnswer(surveyAnswer);
 
       if (startingLevel && selectedCourseId && selectedGoal && selectedTopics) {
         await AccountSetupAPI.setupAccount({
