@@ -1,5 +1,6 @@
 import { useTranslation } from "i18n/client";
 import { UserProfile } from "infrastructure/api/users/Users";
+import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
@@ -36,6 +37,8 @@ const UserProfileCard: React.FC<IUserProfileCard> = ({
 }) => {
   const { t } = useTranslation("common");
   const router = useRouter();
+  const { user } = useAuth();
+
   return (
     <Card>
       <CardContent
@@ -69,21 +72,24 @@ const UserProfileCard: React.FC<IUserProfileCard> = ({
               router.push(`/users/${userId}/followers?val=following`);
             }}
           >{`${t("userProfile.following")} ${userProfile.following}`}</Button>
-          <Button
-            variant="contained"
-            startIcon={
-              userProfile.isFollowed ? (
-                <IconContainer name={icons.unfollow} />
-              ) : (
-                <IconContainer name={icons.follow} />
-              )
-            }
-            onClick={() => onFollowChange(!userProfile.isFollowed)}
-          >
-            {userProfile.isFollowed
-              ? t("userProfile.userIsFollowing")
-              : t("userProfile.userIsNotFollowing")}
-          </Button>
+
+          {user?.id !== userId && (
+            <Button
+              variant="contained"
+              startIcon={
+                userProfile.isFollowed ? (
+                  <IconContainer name={icons.unfollow} />
+                ) : (
+                  <IconContainer name={icons.follow} />
+                )
+              }
+              onClick={() => onFollowChange(!userProfile.isFollowed)}
+            >
+              {userProfile.isFollowed
+                ? t("userProfile.userIsFollowing")
+                : t("userProfile.userIsNotFollowing")}
+            </Button>
+          )}
         </Box>
       </CardContent>
     </Card>
