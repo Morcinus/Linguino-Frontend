@@ -65,6 +65,8 @@ const AccountSetupPage: React.FC<IAccountSetupPage> = () => {
           selectedTopicIds: selectedTopics.map((topic) => topic.id),
         });
 
+        await UserCoursesAPI.selectCourse(selectedCourseId);
+
         await revalidateUser();
         router.push("/");
       }
