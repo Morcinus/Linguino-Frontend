@@ -39,7 +39,7 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
       >
         <Box sx={{ display: "flex", justifyContent: "space-around" }}>
           <IconButton
-            onClick={() => onFeedbackChange({ ...feedback, state: "LIKED" })}
+            onClick={() => onFeedbackChange({ state: "LIKED", text: "" })}
           >
             {feedback && feedback.state === "LIKED" ? (
               <IconContainer name={icons.liked} />
@@ -48,7 +48,7 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
             )}
           </IconButton>
           <IconButton
-            onClick={() => onFeedbackChange({ ...feedback, state: "DISLIKED" })}
+            onClick={() => onFeedbackChange({ state: "DISLIKED", text: "" })}
           >
             {feedback && feedback.state === "DISLIKED" ? (
               <IconContainer name={icons.disliked} />
@@ -77,7 +77,7 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
               <Button
                 variant="text"
                 onClick={() => {
-                  onFeedbackChange({ ...feedback, text: value });
+                  onFeedbackChange({ state: "DISLIKED", text: value });
                   enqueueSnackbar(t("feedback.thanks"));
                 }}
               >
