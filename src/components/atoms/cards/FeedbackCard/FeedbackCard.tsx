@@ -57,7 +57,7 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
             )}
           </IconButton>
         </Box>
-        {feedback && feedback.state === "DISLIKED" && !feedback.textFeedback && (
+        {feedback && feedback.state === "DISLIKED" && !feedback.text && (
           <Box
             sx={{
               display: "flex",
@@ -77,7 +77,7 @@ const FeedbackCard: React.FC<IFeedbackCard> = ({
               <Button
                 variant="text"
                 onClick={() => {
-                  onFeedbackChange({ ...feedback, textFeedback: value });
+                  onFeedbackChange({ ...feedback, text: value });
                   enqueueSnackbar(t("feedback.thanks"));
                 }}
               >
