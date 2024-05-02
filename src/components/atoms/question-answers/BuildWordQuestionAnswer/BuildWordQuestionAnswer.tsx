@@ -16,17 +16,37 @@ export interface IBuildWordQuestionAnswer extends IQuestionAnswerComponent {
   questionAnswer: BuildWordQuestionAnswerType;
 }
 
+interface LetterAnswers {
+  character: string;
+  originalIndex: number;
+}
+
+interface LetterOption {
+  character: string;
+  used: boolean;
+}
+
 const BuildWordQuestionAnswer: React.FC<IBuildWordQuestionAnswer> = ({
   onChange,
   questionAnswer,
   answerStates,
   displayAnswers = false,
 }) => {
-  const [letters, setLetters] = useState<Array<string>>(questionAnswer.letters);
-  const [answerArray, setAnswerArray] = useState<Array<string>>([]);
+  const [letters, setLetters] = useState<Array<LetterOption>>(
+    questionAnswer.letters.map((character) => {
+      return { character: character, used: false };
+    })
+  );
+  const [answerArray, setAnswerArray] = useState<Array<LetterAnswers>>([]);
 
   function handleRemoveLetter(index: number) {
-    setLetters([...letters, answerArray[index]]);
+    const arr = [...letters];
+    arr[answerArray[index].originalIndex] = {
+      ...arr[answerArray[index].originalIndex],
+      used: false,
+    };
+    setLetters(arr);
+
     const newAnswerArray = [...answerArray];
     newAnswerArray.splice(index, 1);
     setAnswerArray(newAnswerArray);
@@ -41,10 +61,14 @@ const BuildWordQuestionAnswer: React.FC<IBuildWordQuestionAnswer> = ({
   }
 
   function handleAddLetter(index: number) {
-    const newAnswerArray = [...answerArray, letters[index]];
+    const newAnswerArray = [
+      ...answerArray,
+      { character: letters[index].character, originalIndex: index },
+    ];
+
     setAnswerArray(newAnswerArray);
     const arr = [...letters];
-    arr.splice(index, 1);
+    arr[index] = { ...arr[index], used: true };
     setLetters(arr);
 
     onChange?.(
@@ -107,10 +131,10 @@ const BuildWordQuestionAnswer: React.FC<IBuildWordQuestionAnswer> = ({
           display="flex"
           gap={0.5}
         >
-          {answerArray.map((character, i) => {
+          {answerArray.map((letter, i) => {
             return (
               <CharacterButton
-                character={character}
+                character={letter.character}
                 onClick={() => handleRemoveLetter(i)}
                 key={`answer-${i}`}
                 elevated
@@ -121,10 +145,10 @@ const BuildWordQuestionAnswer: React.FC<IBuildWordQuestionAnswer> = ({
         </Box>
       </Paper>
       <Box sx={{ my: 1 }} display="flex" gap={1}>
-        {letters.map((character, i) => {
+        {letters.map((letter, i) => {
           return (
             <CharacterButton
-              character={character}
+              character={letter.character}
               onClick={() => handleAddLetter(i)}
               key={`letters-${i}`}
               elevated
@@ -132,6 +156,7 @@ const BuildWordQuestionAnswer: React.FC<IBuildWordQuestionAnswer> = ({
                 displayAnswers ||
                 questionAnswer.answer.length === answerArray.length
               }
+              used={letter.used}
             />
           );
         })}
