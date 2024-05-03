@@ -27,16 +27,35 @@ const StudyStatsNotice: React.FC<IStudyStatsNotice> = ({ notice }) => {
     >
       <Box sx={{ width: "100%", height: "200px", mt: 4 }}>
         <ResponsivePie
+          margin={{
+            top: 15,
+            bottom: 15,
+          }}
           data={[
-            { id: t("notices.rightAnswers"), value: notice.stats.rightAnswers },
-            { id: t("notices.wrongAnswers"), value: notice.stats.wrongAnswers },
+            {
+              id: t("notices.rightAnswers"),
+              value: Math.round(
+                (notice.stats.rightAnswers /
+                  (notice.stats.rightAnswers + notice.stats.wrongAnswers)) *
+                  100
+              ),
+            },
+            {
+              id: t("notices.wrongAnswers"),
+              value: Math.round(
+                (notice.stats.wrongAnswers /
+                  (notice.stats.rightAnswers + notice.stats.wrongAnswers)) *
+                  100
+              ),
+            },
           ]}
           isInteractive={true}
+          arcLabel={(d) => `${d.value}%`}
           animate={true}
           innerRadius={0.7}
           padAngle={2}
           cornerRadius={20}
-          enableArcLabels={false}
+          enableArcLabels={true}
           enableArcLinkLabels={true}
           arcLinkLabelsDiagonalLength={8}
           arcLinkLabelsStraightLength={12}
