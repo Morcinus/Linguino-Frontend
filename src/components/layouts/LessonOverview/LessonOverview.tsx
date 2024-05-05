@@ -39,10 +39,14 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
       ...lesson,
       favorite: value,
     };
-    mutate(
-      LessonsAPI.updateLesson(courseId, data),
-      optimisticMutationOption(data)
-    );
+
+    mutate(async () => {
+      await LessonsAPI.updateLesson(courseId, {
+        id: lesson.id,
+        favorite: value,
+      });
+      return data;
+    }, optimisticMutationOption(data));
   }
 
   function handleVisibleChange(value: boolean) {
@@ -50,10 +54,14 @@ const LessonOverview: React.FC<ILessonOverview> = ({ lessonId, courseId }) => {
       ...lesson,
       visible: value,
     };
-    mutate(
-      LessonsAPI.updateLesson(courseId, data),
-      optimisticMutationOption(data)
-    );
+
+    mutate(async () => {
+      await LessonsAPI.updateLesson(courseId, {
+        id: lesson.id,
+        visible: value,
+      });
+      return data;
+    }, optimisticMutationOption(data));
   }
 
   async function handleFeedbackChange(value: Feedback) {
