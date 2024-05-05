@@ -35,7 +35,7 @@ const AuthManager = {
     }
 
     return RefreshTokenAPI.refreshIdToken({
-      refreshToken: refreshToken,
+      token: refreshToken,
     })
       .then((res) => {
         this.setAuthHeader(res.idToken);
