@@ -28,7 +28,7 @@ const UsersPage: React.FC<IUsersPage> = ({ params }) => {
   const { t } = useTranslation("common");
 
   return (
-    <Box display="flex" flexDirection="column" gap={2}>
+    <Box display="flex" flexDirection="column" gap={2} sx={{ width: "100%" }}>
       {userProfile && (
         <UserProfileCard
           userProfile={userProfile}
