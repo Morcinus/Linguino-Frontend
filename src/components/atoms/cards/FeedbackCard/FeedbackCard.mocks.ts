@@ -6,7 +6,7 @@ const base: IFeedbackCard = {
   onFeedbackChange: action("onFeedbackChange"),
   feedback: {
     text: "",
-    state: "DISLIKED",
+    state: "DISLIKE",
   },
 };
 
