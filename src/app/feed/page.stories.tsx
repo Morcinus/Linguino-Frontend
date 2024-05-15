@@ -5,7 +5,7 @@ import Feed, { IFeed } from "./page";
 import { mockFeedProps } from "./page.mocks";
 
 export default {
-  title: "templates/Feed",
+  title: "pages/Feed",
   component: Feed,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

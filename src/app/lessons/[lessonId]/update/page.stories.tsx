@@ -5,7 +5,7 @@ import UpdateLessonPage, { IUpdateLessonPage } from "./page";
 import { mockUpdateLessonPageProps } from "./page.mocks";
 
 export default {
-  title: "templates/UpdateLessonPage",
+  title: "pages/UpdateLessonPage",
   component: UpdateLessonPage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

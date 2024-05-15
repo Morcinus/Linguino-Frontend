@@ -4,7 +4,7 @@ import DailyGoalSettings, { IDailyGoalSettings } from "./DailyGoalSettings";
 import { mockDailyGoalSettingsProps } from "./DailyGoalSettings.mocks";
 
 export default {
-  title: "templates/DailyGoalSettings",
+  title: "molecules/DailyGoalSettings",
   component: DailyGoalSettings,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

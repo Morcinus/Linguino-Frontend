@@ -5,7 +5,7 @@ import SelectCoursePage, { ISelectCoursePage } from "./page";
 import { mockSelectCoursePageProps } from "./page.mocks";
 
 export default {
-  title: "templates/SelectCoursePage",
+  title: "pages/SelectCoursePage",
   component: SelectCoursePage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

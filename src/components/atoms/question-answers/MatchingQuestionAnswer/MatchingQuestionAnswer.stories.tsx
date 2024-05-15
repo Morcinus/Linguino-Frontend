@@ -6,7 +6,7 @@ import MatchingQuestionAnswer, {
 import { mockMatchingQuestionAnswerProps } from "./MatchingQuestionAnswer.mocks";
 
 export default {
-  title: "templates/MatchingQuestionAnswer",
+  title: "atoms/MatchingQuestionAnswer",
   component: MatchingQuestionAnswer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

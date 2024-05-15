@@ -4,7 +4,7 @@ import TopicsOverview, { ITopicsOverview } from "./TopicsOverview";
 import { mockTopicsOverviewProps } from "./TopicsOverview.mocks";
 
 export default {
-  title: "templates/TopicsOverview",
+  title: "layouts/TopicsOverview",
   component: TopicsOverview,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

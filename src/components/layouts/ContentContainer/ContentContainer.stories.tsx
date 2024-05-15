@@ -4,7 +4,7 @@ import ContentContainer, { IContentContainer } from "./ContentContainer";
 import { mockContentContainerProps } from "./ContentContainer.mocks";
 
 export default {
-  title: "templates/ContentContainer",
+  title: "layouts/ContentContainer",
   component: ContentContainer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

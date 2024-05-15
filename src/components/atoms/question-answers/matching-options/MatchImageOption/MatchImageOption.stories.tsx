@@ -4,7 +4,7 @@ import MatchImageOption, { IMatchImageOption } from "./MatchImageOption";
 import { mockMatchImageOptionProps } from "./MatchImageOption.mocks";
 
 export default {
-  title: "templates/MatchImageOption",
+  title: "atoms/MatchImageOption",
   component: MatchImageOption,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

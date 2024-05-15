@@ -4,7 +4,7 @@ import DrawerContainer, { IDrawerContainer } from "./DrawerContainer";
 import { mockDrawerContainerProps } from "./DrawerContainer.mocks";
 
 export default {
-  title: "templates/DrawerContainer",
+  title: "atoms/DrawerContainer",
   component: DrawerContainer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

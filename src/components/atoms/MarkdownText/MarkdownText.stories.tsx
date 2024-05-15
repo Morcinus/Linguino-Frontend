@@ -4,7 +4,7 @@ import MarkdownText, { IMarkdownText } from "./MarkdownText";
 import { mockMarkdownTextProps } from "./MarkdownText.mocks";
 
 export default {
-  title: "templates/MarkdownText",
+  title: "atoms/MarkdownText",
   component: MarkdownText,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

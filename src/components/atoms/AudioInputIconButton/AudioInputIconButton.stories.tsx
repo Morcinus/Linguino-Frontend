@@ -6,7 +6,7 @@ import AudioInputIconButton, {
 import { mockAudioInputIconButtonProps } from "./AudioInputIconButton.mocks";
 
 export default {
-  title: "templates/AudioInputIconButton",
+  title: "atoms/AudioInputIconButton",
   component: AudioInputIconButton,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
