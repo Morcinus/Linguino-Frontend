@@ -13,9 +13,11 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof ChangeEmailRequestPage> = (args) => (
-  <Layout {...args}>
-    <ChangeEmailRequestPage {...args} />
-  </Layout>
+  <div style={{ width: "100vw", height: "100vh" }}>
+    <Layout {...args}>
+      <ChangeEmailRequestPage {...args} />
+    </Layout>
+  </div>
 );
 
 export const Base = Template.bind({});
