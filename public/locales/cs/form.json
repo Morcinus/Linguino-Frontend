@@ -44,7 +44,8 @@
     "newPassword": "Nové heslo",
     "reenterPassword": "Heslo znovu",
     "changePassword": "Změnit heslo",
-    "passwordChanged": "Heslo změněno"
+    "passwordChanged": "Heslo změněno",
+    "login": "Přihlásit se"
   },
 
   "changeEmail": {
