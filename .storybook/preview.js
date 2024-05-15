@@ -1,5 +1,6 @@
 import axios from "axios";
 import i18n from "i18next";
+import { SnackbarProvider } from "notistack";
 
 import { initReactI18next } from "react-i18next";
 
@@ -11,6 +12,7 @@ import common from "../public/locales/cs/common.json";
 import form from "../public/locales/cs/form.json";
 import snack from "../public/locales/cs/snack.json";
 import AuthDecorator from "../src/decorators/authDecorator";
+import NoticeDecorator from "../src/decorators/noticeDecorator";
 import "../src/styles/globals.css";
 import theme from "../src/styles/theme";
 
@@ -19,10 +21,19 @@ axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <Story />
+      <SnackbarProvider
+        maxSnack={3}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+      >
+        <Story />
+      </SnackbarProvider>
     </ThemeProvider>
   ),
   AuthDecorator,
+  NoticeDecorator,
   (Story, Context) => {
     i18n.use(initReactI18next).init({
       lng: "cs",
