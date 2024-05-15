@@ -1,4 +1,5 @@
 import { useTranslation } from "i18n/client";
+import { isTextExercise } from "infrastructure/api/user/courses/study-session/ExercisesGuard";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import useAuth from "infrastructure/services/AuthProvider";
 import { useSnackbar } from "notistack";
@@ -178,6 +179,14 @@ const StudySession: React.FC<IStudySession> = ({
     return { rightAnswers, wrongAnswers };
   }
 
+  function hasExplanation(exercise: Exercise) {
+    if (isTextExercise(exercise)) {
+      return exercise.explanation ? true : false;
+    }
+
+    return false;
+  }
+
   return (
     <>
       <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
@@ -252,7 +261,7 @@ const StudySession: React.FC<IStudySession> = ({
           {displayExplanations &&
           exerciseQueue !== undefined &&
           exerciseQueue[index] !== undefined &&
-          "explanation" in exerciseQueue[index] ? (
+          hasExplanation(exerciseQueue[index]) ? (
             <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
           ) : (
             <></>
@@ -263,7 +272,7 @@ const StudySession: React.FC<IStudySession> = ({
         {displayExplanations &&
         exerciseQueue !== undefined &&
         exerciseQueue[index] !== undefined &&
-        "explanation" in exerciseQueue[index] ? (
+        hasExplanation(exerciseQueue[index]) ? (
           <StudyExpansionContent
             open={openExpansion}
             reference={elRef}
