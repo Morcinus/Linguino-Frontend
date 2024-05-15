@@ -24,6 +24,7 @@ const BuildWordExercise: React.FC<IBuildWordExercise> = ({
     question: exercise.wordL1,
     answer: exercise.wordL2,
     letters: exercise.letters,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

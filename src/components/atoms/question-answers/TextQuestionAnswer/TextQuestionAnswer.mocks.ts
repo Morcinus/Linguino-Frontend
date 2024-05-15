@@ -6,6 +6,7 @@ const base: ITextQuestionAnswer = {
     id: "abc",
     question: "Lorem ipsum?",
     type: "TextExercise",
+    lessonItemId: "abc",
   },
 };
 

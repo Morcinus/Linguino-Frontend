@@ -7,6 +7,7 @@ const base: IFillTheBlank = {
     id: "12345",
     question: "Lorem ipsum?",
     type: "FILL_IN_BLANK",
+    lessonItemId: "abcd",
   },
 };
 

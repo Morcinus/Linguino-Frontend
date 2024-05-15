@@ -35,6 +35,7 @@ const AudioQuestionAnswer: React.FC<IAudioQuestionAnswer> = ({
           answers: [text],
           exerciseId: questionAnswer.id,
           states: ["NONE"],
+          lessonItemId: questionAnswer.lessonItemId,
         },
         similarityRatio
       )

@@ -56,6 +56,7 @@ const BuildWordQuestionAnswer: React.FC<IBuildWordQuestionAnswer> = ({
         answers: [newAnswerArray.join("")],
         exerciseId: questionAnswer.id,
         states: ["NONE"],
+        lessonItemId: questionAnswer.lessonItemId,
       })
     );
   }
@@ -76,6 +77,7 @@ const BuildWordQuestionAnswer: React.FC<IBuildWordQuestionAnswer> = ({
         answers: [newAnswerArray.join("")],
         exerciseId: questionAnswer.id,
         states: ["NONE"],
+        lessonItemId: questionAnswer.lessonItemId,
       })
     );
   }

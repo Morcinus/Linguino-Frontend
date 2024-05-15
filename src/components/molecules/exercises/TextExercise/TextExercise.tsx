@@ -23,6 +23,7 @@ const TextExercise: React.FC<ITextExercise> = ({ exercise, onContinue }) => {
     question: exercise.textL1,
     answer: exercise.textL2,
     answerAudioUrl: exercise.textL2AudioUrl,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

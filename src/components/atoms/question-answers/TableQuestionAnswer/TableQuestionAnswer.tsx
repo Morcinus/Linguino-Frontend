@@ -69,6 +69,7 @@ const TableQuestionAnswer: React.FC<ITableQuestionAnswer> = ({
       answers: answerStrings,
       exerciseId: questionAnswer.id,
       states: answerStates,
+      lessonItemId: questionAnswer.lessonItemId,
     });
   }
 

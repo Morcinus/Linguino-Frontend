@@ -24,6 +24,7 @@ const FillInTableExercise: React.FC<IFillInTableExercise> = ({
     question: exercise.questionL2,
     tableRows: exercise.tableRows,
     blankCellCoords: exercise.blankCellCoords,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

@@ -38,6 +38,7 @@ const DailyStudy: React.FC<IDailyStudy> = ({ courseId }) => {
         return {
           answerRating,
           exerciseId: attempt.exerciseId,
+          lessonItemId: attempt.exerciseId,
         };
       })
     );

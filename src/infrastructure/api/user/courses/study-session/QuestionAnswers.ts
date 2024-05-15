@@ -15,48 +15,48 @@ export interface Question {
   blankIndexes: Array<number>;
 }
 
-export interface FillInBlankQuestionAnswer {
-  type: "FILL_IN_BLANK";
+interface IQuestionAnswer {
   id: Id;
+  type: string;
+  lessonItemId: Id;
+}
+
+export interface FillInBlankQuestionAnswer extends IQuestionAnswer {
+  type: "FILL_IN_BLANK";
   question: string;
   answer: string;
   blankIndexes: Array<number>;
 }
 
-export interface TextQuestionAnswer {
+export interface TextQuestionAnswer extends IQuestionAnswer {
   type: "TextExercise";
-  id: Id;
   question: string;
   answer: string;
   answerAudioUrl?: string;
 }
 
-export interface AudioQuestionAnswer {
+export interface AudioQuestionAnswer extends IQuestionAnswer {
   type: "AUDIO";
-  id: Id;
   question?: string;
   answer: string;
 }
 
-export interface BuildWordQuestionAnswer {
+export interface BuildWordQuestionAnswer extends IQuestionAnswer {
   type: "BuildWordExercise";
-  id: Id;
   question: string;
   answer: string;
   letters: Array<string>;
 }
 
-export interface TableQuestionAnswer {
+export interface TableQuestionAnswer extends IQuestionAnswer {
   type: "TABLE";
-  id: Id;
   question: string;
   tableRows: Array<Array<string>>;
   blankCellCoords: Array<Array<number>>;
 }
 
-export interface MatchingQuestionAnswer {
+export interface MatchingQuestionAnswer extends IQuestionAnswer {
   type: "MatchingExercise";
-  id: Id;
 
   options1: Array<MatchOption>;
   options2: Array<MatchOption>;

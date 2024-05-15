@@ -28,6 +28,7 @@ const ListeningExercise: React.FC<IListeningExercise> = ({
     id: exercise.id,
     question: exercise.questionL2,
     answer: exercise.answerL2,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

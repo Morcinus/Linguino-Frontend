@@ -25,6 +25,7 @@ const ReadingExercise: React.FC<IReadingExercise> = ({
     type: "TextExercise",
     question: exercise.questionL2,
     answer: exercise.answerL2,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

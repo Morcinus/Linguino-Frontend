@@ -23,6 +23,7 @@ const MatchingExercise: React.FC<IMatchingExercise> = ({
     type: "MatchingExercise",
     options1: exercise.options1,
     options2: exercise.options2,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

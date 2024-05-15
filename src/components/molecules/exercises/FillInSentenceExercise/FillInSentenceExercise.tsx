@@ -24,6 +24,7 @@ const FillInSentenceExercise: React.FC<IFillInSentenceExercise> = ({
     question: exercise.textL1,
     answer: exercise.textL2,
     blankIndexes: exercise.blankIndexes,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

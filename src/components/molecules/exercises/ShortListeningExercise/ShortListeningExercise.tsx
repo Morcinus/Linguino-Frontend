@@ -26,6 +26,7 @@ const ShortListeningExercise: React.FC<IShortListeningExercise> = ({
     id: exercise.id,
     question: "",
     answer: exercise.textL2,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (
