@@ -113,17 +113,6 @@ const StudySession: React.FC<IStudySession> = ({
     if (openExpansion) executeScroll();
   }, [openExpansion, executeScroll]);
 
-  function updateIsNew(index: number, value: boolean) {
-    const newArray = exerciseQueue.map((exercise, i) => {
-      if (i === index) {
-        return { ...exercise, isNew: value };
-      }
-      return exercise;
-    });
-
-    setExerciseQueue(newArray);
-  }
-
   function renderNewVocabulary(exercise: Exercise, index: number) {
     return (
       <>
@@ -132,7 +121,14 @@ const StudySession: React.FC<IStudySession> = ({
             courseId={user.selectedCourse.id}
             lessonItemId={exercise.lessonItemId}
             onContinue={() => {
-              updateIsNew(index, false);
+              const newArray = exerciseQueue.map((exercise, i) => {
+                if (i === index) {
+                  return { ...exercise, isNew: false };
+                }
+                return exercise;
+              });
+
+              setExerciseQueue(newArray);
             }}
           />
         )}
@@ -140,7 +136,7 @@ const StudySession: React.FC<IStudySession> = ({
     );
   }
 
-  function renderNewGrammar(exercise: Exercise, index: number) {
+  function renderNewGrammar(exercise: Exercise) {
     return (
       <>
         {user && exercise.lessonId && (
@@ -148,7 +144,19 @@ const StudySession: React.FC<IStudySession> = ({
             courseId={user.selectedCourse.id}
             lessonId={exercise.lessonId}
             onContinue={() => {
-              updateIsNew(index, false);
+              const newArray = exerciseQueue.map((e) => {
+                if (
+                  exercise.lessonId &&
+                  e.lessonId &&
+                  e.lessonId === exercise.lessonId
+                ) {
+                  return { ...e, isNew: false };
+                }
+
+                return e;
+              });
+
+              setExerciseQueue(newArray);
             }}
           />
         )}
@@ -224,7 +232,7 @@ const StudySession: React.FC<IStudySession> = ({
               <>
                 {exerciseQueue[index].isNew === true &&
                 exerciseQueue[index].lessonItemType === "GRAMMAR" ? (
-                  renderNewGrammar(exerciseQueue[index], index)
+                  renderNewGrammar(exerciseQueue[index])
                 ) : exerciseQueue[index].isNew === true &&
                   exerciseQueue[index].lessonItemType === "VOCABULARY" ? (
                   renderNewVocabulary(exerciseQueue[index], index)
