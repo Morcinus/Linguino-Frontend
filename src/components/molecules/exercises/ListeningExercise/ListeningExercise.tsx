@@ -24,7 +24,7 @@ const ListeningExercise: React.FC<IListeningExercise> = ({
 
   const { t } = useTranslation("common");
   const questionAnswer: TextQuestionAnswerType = {
-    type: "TEXT",
+    type: "TextExercise",
     id: exercise.id,
     question: exercise.questionL2,
     answer: exercise.answerL2,

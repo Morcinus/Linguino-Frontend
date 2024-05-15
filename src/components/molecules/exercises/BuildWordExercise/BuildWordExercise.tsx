@@ -19,7 +19,7 @@ const BuildWordExercise: React.FC<IBuildWordExercise> = ({
 }) => {
   const { t } = useTranslation("common");
   const questionAnswer: BuildWordQuestionAnswerType = {
-    type: "BUILD_WORD",
+    type: "BuildWordExercise",
     id: exercise.id,
     question: exercise.wordL1,
     answer: exercise.wordL2,

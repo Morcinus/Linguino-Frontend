@@ -6,7 +6,7 @@ const base: IBuildWordQuestionAnswer = {
     id: "afdnlksjff",
     letters: ["a", "x", "p", "l", "y", "e", "p", "z"],
     question: "jablko",
-    type: "BUILD_WORD",
+    type: "BuildWordExercise",
   },
 };
 

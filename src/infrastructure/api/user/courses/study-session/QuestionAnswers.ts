@@ -24,7 +24,7 @@ export interface FillInBlankQuestionAnswer {
 }
 
 export interface TextQuestionAnswer {
-  type: "TEXT";
+  type: "TextExercise";
   id: Id;
   question: string;
   answer: string;
@@ -39,7 +39,7 @@ export interface AudioQuestionAnswer {
 }
 
 export interface BuildWordQuestionAnswer {
-  type: "BUILD_WORD";
+  type: "BuildWordExercise";
   id: Id;
   question: string;
   answer: string;
@@ -55,7 +55,7 @@ export interface TableQuestionAnswer {
 }
 
 export interface MatchingQuestionAnswer {
-  type: "MATCHING";
+  type: "MatchingExercise";
   id: Id;
 
   options1: Array<MatchOption>;

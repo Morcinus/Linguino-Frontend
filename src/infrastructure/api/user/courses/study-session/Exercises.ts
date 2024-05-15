@@ -37,7 +37,7 @@ export interface IQuestionAnswerComponent {
 }
 
 export interface ListeningExercise extends IExercise {
-  type: "LISTENING";
+  type: "ListeningExercise";
   audioUrl: string;
   imageUrl?: string;
   questionL2: string;
@@ -45,32 +45,32 @@ export interface ListeningExercise extends IExercise {
 }
 
 export interface ShortListeningExercise extends IExercise {
-  type: "SHORT_LISTENING";
+  type: "ShortListeningExercise";
   textL2: string;
   textL2AudioUrl: string;
 }
 
 export interface RepeatAudioExercise extends IExercise {
-  type: "REPEAT_AUDIO";
+  type: "RepeatAudioExercise";
   textL2: string;
   audioUrl: string;
 }
 
 export interface ReadAloudExercise extends IExercise {
-  type: "READ_ALOUD";
+  type: "ReadAloudExercise";
   textL2: string;
   imageUrl?: string;
 }
 
 export interface SpeechExercise extends IExercise {
-  type: "SPEECH";
+  type: "SpeechExercise";
   assignmentTopicL2: string;
   timeMs: number;
   questionsL2: Array<string>;
 }
 
 export interface TextExercise extends IExercise {
-  type: "TEXT";
+  type: "TextExercise";
   textL1: string;
   textL2: string;
   imageUrl?: string;
@@ -79,7 +79,7 @@ export interface TextExercise extends IExercise {
 }
 
 export interface ReadingExercise extends IExercise {
-  type: "READING";
+  type: "ReadingExercise";
   article: string;
   questionL2: string;
   answerL2: string;
@@ -87,7 +87,7 @@ export interface ReadingExercise extends IExercise {
 }
 
 export interface BuildWordExercise extends IExercise {
-  type: "BUILD_WORD";
+  type: "BuildWordExercise";
   wordL1: string;
   wordL2: string;
   letters: Array<string>;
@@ -96,14 +96,14 @@ export interface BuildWordExercise extends IExercise {
 }
 
 export interface FillInTableExercise extends IExercise {
-  type: "FILL_TABLE";
+  type: "FillInTableExercise";
   questionL2: string;
   tableRows: Array<Array<string>>;
   blankCellCoords: Array<Array<number>>;
 }
 
 export interface FillInSentenceExercise extends IExercise {
-  type: "FILL_IN_SENTENCE";
+  type: "FillInSentenceExercise";
 
   textL1: string;
   textL2: string;
@@ -114,7 +114,7 @@ export interface FillInSentenceExercise extends IExercise {
 }
 
 export interface MatchingExercise extends IExercise {
-  type: "MATCHING";
+  type: "MatchingExercise";
 
   options1: Array<MatchOption>;
   options2: Array<MatchOption>;

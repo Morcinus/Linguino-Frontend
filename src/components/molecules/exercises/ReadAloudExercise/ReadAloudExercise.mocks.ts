@@ -5,7 +5,7 @@ const base: IReadAloudExercise = {
     id: "ifdsamlmlkafd",
     isNew: false,
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
-    type: "READ_ALOUD",
+    type: "ReadAloudExercise",
     imageUrl: "https://picsum.photos/id/168/512/512",
     textL2: "potato",
   },

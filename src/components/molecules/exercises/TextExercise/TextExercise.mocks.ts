@@ -5,7 +5,7 @@ const base: ITextExercise = {
     id: "ifdsamlmlkafd",
     isNew: false,
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
-    type: "TEXT",
+    type: "TextExercise",
     textL1: "jablko",
     textL2: "apple",
     imageUrl: "https://picsum.photos/id/168/512/512",

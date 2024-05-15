@@ -20,7 +20,7 @@ const MatchingExercise: React.FC<IMatchingExercise> = ({
   const { t } = useTranslation("common");
   const questionAnswer: MatchingQuestionAnswerType = {
     id: exercise.id,
-    type: "MATCHING",
+    type: "MatchingExercise",
     options1: exercise.options1,
     options2: exercise.options2,
   };

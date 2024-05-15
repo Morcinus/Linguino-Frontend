@@ -5,7 +5,7 @@ const base: ISpeechExercise = {
     id: "ifdsamlmlkafd",
     isNew: false,
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
-    type: "SPEECH",
+    type: "SpeechExercise",
     assignmentTopicL2: "The best holiday of my life",
     questionsL2: [
       "What did you do?",

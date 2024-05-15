@@ -5,7 +5,7 @@ const base: ITextQuestionAnswer = {
     answer: "xxx",
     id: "abc",
     question: "Lorem ipsum?",
-    type: "TEXT",
+    type: "TextExercise",
   },
 };
 
