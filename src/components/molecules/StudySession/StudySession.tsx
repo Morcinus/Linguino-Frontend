@@ -1,9 +1,13 @@
+import { useTranslation } from "i18n/client";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import useAuth from "infrastructure/services/AuthProvider";
+import { useSnackbar } from "notistack";
 import icons from "styles/icons";
 import theme from "styles/theme";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import { useRouter } from "next/navigation";
 
 import {
   IconButton,
@@ -42,6 +46,7 @@ const StudySession: React.FC<IStudySession> = ({
   displayExplanations = true,
 }) => {
   const { user } = useAuth();
+  const router = useRouter();
   const [finishedSession, setFinishedSession] = useState(false);
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
@@ -51,6 +56,21 @@ const StudySession: React.FC<IStudySession> = ({
   const [attemptArray, setAttemptArray] = useState<Array<QuestionAttempt>>([]);
   const [exerciseQueue, setExerciseQueue] =
     useState<Array<Exercise>>(exercises);
+
+  const { enqueueSnackbar } = useSnackbar();
+  const { t } = useTranslation("error-codes");
+  const redirecting = useRef(false);
+
+  // Check if study session is empty
+  useEffect(() => {
+    if (!redirecting.current && exercises && exercises.length === 0) {
+      redirecting.current = true;
+      enqueueSnackbar(t("studySessionEmpty"), {
+        variant: "success",
+      });
+      router.push("/");
+    }
+  }, [exercises, enqueueSnackbar, t, router]);
 
   function nextExercise() {
     if (index < exerciseQueue.length - 1) {
