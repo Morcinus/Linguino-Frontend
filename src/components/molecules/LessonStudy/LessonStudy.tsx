@@ -1,7 +1,11 @@
+import { useTranslation } from "i18n/client";
 import { QuestionAttempt } from "infrastructure/api/user/courses/study-session/QuestionAttempt";
 import StudySessionAPI from "infrastructure/api/user/courses/study-session/StudySessionAPI";
 import { Notice, StudyStats } from "infrastructure/api/user/notices/Notices";
 import useNotices from "infrastructure/services/NoticeProvider";
+import { useSnackbar } from "notistack";
+
+import { useEffect } from "react";
 
 import { useRouter } from "next/navigation";
 
@@ -18,6 +22,18 @@ const LessonStudy: React.FC<ILessonStudy> = ({ courseId, lessonId }) => {
   const { exercises, isLoading } = StudySessionAPI.useStudySession(courseId, {
     lessonId,
   });
+  const { enqueueSnackbar } = useSnackbar();
+  const { t } = useTranslation("error-codes");
+
+  // Check empty session errors
+  useEffect(() => {
+    if (!isLoading && !Array.isArray(exercises)) {
+      enqueueSnackbar(t("studySessionEmpty"), {
+        variant: "success",
+      });
+      router.push("/");
+    }
+  }, [exercises, isLoading, enqueueSnackbar, t, router]);
 
   async function handleSessionFinish(
     studyStats: StudyStats,
