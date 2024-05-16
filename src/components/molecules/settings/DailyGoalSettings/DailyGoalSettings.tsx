@@ -9,7 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 
-import { GOAL_OPTIONS } from "./config";
+import { goalOptions } from "components/molecules/forms/SelectGoalForm/config";
 
 export interface IDailyGoalSettings {
   dailyGoal: number;
@@ -40,11 +40,11 @@ const DailyGoalSettings: React.FC<IDailyGoalSettings> = ({
           label={t("settings.dailyGoal")}
           onChange={handleChange}
         >
-          {GOAL_OPTIONS.map((option) => (
+          {goalOptions.map((option) => (
             <MenuItem value={option.value} key={option.value}>
-              {`${t(`settings.goalOptions.${option.label}`)}: ${
-                option.value
-              } ${t("settings.exercisesPerDay")}`}
+              {`${t(`accountSetup.goalSelectOptions.${option.id}.name`)}: ${t(
+                `accountSetup.goalSelectOptions.${option.id}.description`
+              )}`}
             </MenuItem>
           ))}
         </Select>
