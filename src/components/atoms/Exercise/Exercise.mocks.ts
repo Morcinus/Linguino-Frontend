@@ -14,6 +14,7 @@ const base: IExercise = {
       blankIndexes: [0, 1],
       answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       question: "Lorem ipsum?",
+      lessonItemId: "abc",
     },
     {
       id: "asdndajdladc",
@@ -21,6 +22,7 @@ const base: IExercise = {
       blankIndexes: [2, 5],
       answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       question: "Lorem ipsum?",
+      lessonItemId: "abcd",
     },
   ],
   questionAnswerComponents: [

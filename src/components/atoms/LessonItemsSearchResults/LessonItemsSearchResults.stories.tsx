@@ -6,7 +6,7 @@ import LessonItemsSearchResults, {
 import { mockLessonItemsSearchResultsProps } from "./LessonItemsSearchResults.mocks";
 
 export default {
-  title: "templates/LessonItemsSearchResults",
+  title: "atoms/LessonItemsSearchResults",
   component: LessonItemsSearchResults,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

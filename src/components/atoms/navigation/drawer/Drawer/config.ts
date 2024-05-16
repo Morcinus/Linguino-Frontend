@@ -90,19 +90,19 @@ export const studying = [
     icon: icons.courses,
     path: "/courses",
   },
-];
-
-export const other = [
   {
     label: "navigation.search",
     icon: icons.search,
     path: "/search",
   },
-  {
+];
+
+export const other = [
+  /* Isn't implemented on backend in v1.0.0  {
     label: "navigation.help",
     icon: icons.help,
     path: "/help",
-  },
+  }, */
   {
     label: "navigation.premium",
     icon: icons.premium,

@@ -22,10 +22,11 @@ const ShortListeningExercise: React.FC<IShortListeningExercise> = ({
 }) => {
   const { t } = useTranslation("common");
   const questionAnswer: TextQuestionAnswerType = {
-    type: "TEXT",
+    type: "TextExercise",
     id: exercise.id,
     question: "",
     answer: exercise.textL2,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

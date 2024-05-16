@@ -4,7 +4,7 @@ import FullscreenDialog, { IFullscreenDialog } from "./FullscreenDialog";
 import { mockFullscreenDialogProps } from "./FullscreenDialog.mocks";
 
 export default {
-  title: "templates/FullscreenDialog",
+  title: "atoms/FullscreenDialog",
   component: FullscreenDialog,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

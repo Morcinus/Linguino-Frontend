@@ -37,7 +37,9 @@ const SelectCourseForm: React.FC<ISelectCourseForm> = ({
   const { courses } = CoursesAPI.useCourses({ language1: selectedLanguage });
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+    <Box
+      sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%" }}
+    >
       <Box>
         <Typography variant="subtitle1" mb={1}>
           {tForm("accountSetup.selectCourse")}

@@ -4,7 +4,7 @@ import MatchingExercise, { IMatchingExercise } from "./MatchingExercise";
 import { mockMatchingExerciseProps } from "./MatchingExercise.mocks";
 
 export default {
-  title: "templates/MatchingExercise",
+  title: "molecules/MatchingExercise",
   component: MatchingExercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

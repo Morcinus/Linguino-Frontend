@@ -7,7 +7,7 @@ export const startOptions: Array<StartOption> = [
     id: "selectLevel",
     imageUrl: "/images/account-setup/start_2.png",
   },
-  // Removed from production, backend endpoint isn't implemented yet
+  // Isn't implemented on backend in v1.0.0
   /* {
     id: "takeTest",
     imageUrl: "/images/account-setup/start_3.png",

@@ -75,6 +75,8 @@ const MatchAudioOption: React.FC<IMatchAudioOption> = ({
 
       setState("RUNNING");
     } else setState("PAUSED");
+
+    onClick?.();
   };
 
   return (
@@ -117,7 +119,7 @@ const MatchAudioOption: React.FC<IMatchAudioOption> = ({
         </Box>
 
         <CardActionArea
-          onClick={onClick}
+          onClick={handleButtonClick}
           disabled={disabled}
           sx={{
             height: "100%",

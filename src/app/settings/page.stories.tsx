@@ -5,7 +5,7 @@ import SettingsPage, { ISettingsPage } from "./page";
 import { mockSettingsPageProps } from "./page.mocks";
 
 export default {
-  title: "templates/SettingsPage",
+  title: "pages/SettingsPage",
   component: SettingsPage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

@@ -5,7 +5,7 @@ import SignupPage, { ISignupPage } from "./page";
 import { mockSignupPageProps } from "./page.mocks";
 
 export default {
-  title: "templates/SignupPage",
+  title: "pages/SignupPage",
   component: SignupPage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

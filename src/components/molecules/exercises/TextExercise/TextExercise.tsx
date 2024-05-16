@@ -19,10 +19,11 @@ const TextExercise: React.FC<ITextExercise> = ({ exercise, onContinue }) => {
   const { t } = useTranslation("common");
   const questionAnswer: TextQuestionAnswerType = {
     id: exercise.id,
-    type: "TEXT",
+    type: "TextExercise",
     question: exercise.textL1,
     answer: exercise.textL2,
     answerAudioUrl: exercise.textL2AudioUrl,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

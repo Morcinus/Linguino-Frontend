@@ -4,7 +4,7 @@ import HelpArticle, { IHelpArticle } from "./HelpArticle";
 import { mockHelpArticleProps } from "./HelpArticle.mocks";
 
 export default {
-  title: "templates/HelpArticle",
+  title: "molecules/HelpArticle",
   component: HelpArticle,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

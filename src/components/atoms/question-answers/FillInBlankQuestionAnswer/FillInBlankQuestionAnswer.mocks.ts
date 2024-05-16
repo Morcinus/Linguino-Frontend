@@ -8,6 +8,7 @@ const base: IFillInBlankQuestionAnswer = {
     blankIndexes: [1, 3],
     id: "asjnkfldaf",
     type: "FILL_IN_BLANK",
+    lessonItemId: "abc",
   },
 };
 

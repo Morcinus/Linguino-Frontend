@@ -5,7 +5,7 @@ import CreateLessonPage, { ICreateLessonPage } from "./page";
 import { mockCreateLessonPageProps } from "./page.mocks";
 
 export default {
-  title: "templates/CreateLessonPage",
+  title: "pages/CreateLessonPage",
   component: CreateLessonPage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

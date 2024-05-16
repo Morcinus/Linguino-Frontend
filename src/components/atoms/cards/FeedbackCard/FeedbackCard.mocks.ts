@@ -5,7 +5,8 @@ import { IFeedbackCard } from "./FeedbackCard";
 const base: IFeedbackCard = {
   onFeedbackChange: action("onFeedbackChange"),
   feedback: {
-    state: "DISLIKED",
+    text: "",
+    state: "DISLIKE",
   },
 };
 

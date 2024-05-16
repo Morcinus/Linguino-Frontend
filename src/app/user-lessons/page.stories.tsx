@@ -5,7 +5,7 @@ import UserLessonsPage, { IUserLessonsPage } from "./page";
 import { mockUserLessonsPageProps } from "./page.mocks";
 
 export default {
-  title: "templates/UserLessonsPage",
+  title: "pages/UserLessonsPage",
   component: UserLessonsPage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

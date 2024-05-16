@@ -5,6 +5,7 @@ const base: ITableQuestionAnswer = {
     id: "flsnajkadfnldfasj",
     question: "Vyčasujte správně sloveso být",
     type: "TABLE",
+    lessonItemId: "abc",
     tableRows: [
       ["I", "am"],
       ["You", "are"],

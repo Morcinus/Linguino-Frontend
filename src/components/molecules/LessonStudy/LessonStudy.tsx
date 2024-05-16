@@ -41,6 +41,7 @@ const LessonStudy: React.FC<ILessonStudy> = ({ courseId, lessonId }) => {
         return {
           answerRating,
           exerciseId: attempt.exerciseId,
+          lessonItemId: attempt.lessonItemId,
         };
       })
     );

@@ -1,4 +1,5 @@
 import { UserSummary } from "infrastructure/api/users/Users";
+import useAuth from "infrastructure/services/AuthProvider";
 import icons from "styles/icons";
 
 import { useRouter } from "next/navigation";
@@ -22,23 +23,24 @@ export interface IUsersList {
 
 const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {
   const router = useRouter();
+  const { user } = useAuth();
 
   return (
     <CardList>
       {users &&
-        users.map((user, i) => {
+        users.map((userItem, i) => {
           return (
             <ListItem
               sx={{ pr: 2 }}
               key={i}
               secondaryAction={
-                onFollow && onUnfollow ? (
-                  user.isFollowed ? (
-                    <IconButton onClick={() => onUnfollow(user.id)}>
+                userItem.id !== user?.id && onFollow && onUnfollow ? (
+                  userItem.isFollowed ? (
+                    <IconButton onClick={() => onUnfollow(userItem.id)}>
                       <IconContainer name={icons.unfollow} />
                     </IconButton>
                   ) : (
-                    <IconButton onClick={() => onFollow(user.id)}>
+                    <IconButton onClick={() => onFollow(userItem.id)}>
                       <IconContainer name={icons.follow} />
                     </IconButton>
                   )
@@ -47,16 +49,16 @@ const UsersList: React.FC<IUsersList> = ({ users, onFollow, onUnfollow }) => {
             >
               <ListItemButton
                 component="a"
-                onClick={() => router.push(`/users/${user.id}`)}
+                onClick={() => router.push(`/users/${userItem.id}`)}
               >
-                {user.profileImageUrl && (
+                {userItem.profileImageUrl && (
                   <ListItemAvatar>
-                    <Avatar src={user.profileImageUrl} variant="rounded" />
+                    <Avatar src={userItem.profileImageUrl} variant="rounded" />
                   </ListItemAvatar>
                 )}
                 <ListItemText
-                  primary={user.name}
-                  secondary={`@${user.username}`}
+                  primary={userItem.name}
+                  secondary={`@${userItem.username}`}
                 />
               </ListItemButton>
             </ListItem>

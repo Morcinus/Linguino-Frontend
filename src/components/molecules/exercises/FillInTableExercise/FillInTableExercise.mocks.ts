@@ -5,7 +5,7 @@ const base: IFillInTableExercise = {
     id: "sfdajnlsnfads",
     isNew: false,
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
-    type: "FILL_TABLE",
+    type: "FillInTableExercise",
     questionL2: "Complete the conjugation of the verb 'to be'",
     tableRows: [
       ["I", "am"],

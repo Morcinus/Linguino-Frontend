@@ -6,7 +6,7 @@ const base: IBuildWordExercise = {
     isNew: false,
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
 
-    type: "BUILD_WORD",
+    type: "BuildWordExercise",
     wordL1: "jablko",
     wordL2: "apple",
     letters: ["a", "p", "p", "l", "e", "x", "y", "z"],

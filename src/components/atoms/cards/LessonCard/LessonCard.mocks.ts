@@ -5,7 +5,7 @@ import { ILessonCard } from "./LessonCard";
 const base: ILessonCard = {
   lesson: {
     favorite: false,
-    feedback: {},
+    feedback: undefined,
     id: "akjdnfldan",
     name: "Lorem ipsum",
     visible: true,

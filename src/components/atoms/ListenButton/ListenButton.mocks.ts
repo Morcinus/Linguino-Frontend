@@ -1,7 +1,7 @@
 import { IListenButton } from "./ListenButton";
 
 const base: IListenButton = {
-  audioLink: "https://samplelib.com/lib/preview/mp3/sample-12s.mp3",
+  audioLink: "https://mocks.linguino.org/audio-short.mp3",
   displayProgress: true,
   playOnMount: false,
 };

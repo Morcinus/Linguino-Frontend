@@ -6,7 +6,7 @@ import AddVocabularyDialog, {
 import { mockAddVocabularyDialogProps } from "./AddVocabularyDialog.mocks";
 
 export default {
-  title: "templates/AddVocabularyDialog",
+  title: "molecules/AddVocabularyDialog",
   component: AddVocabularyDialog,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

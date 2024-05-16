@@ -6,7 +6,7 @@ import FillInBlankQuestionAnswer, {
 import { mockFillInBlankQuestionAnswerProps } from "./FillInBlankQuestionAnswer.mocks";
 
 export default {
-  title: "templates/FillInBlankQuestionAnswer",
+  title: "atoms/FillInBlankQuestionAnswer",
   component: FillInBlankQuestionAnswer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

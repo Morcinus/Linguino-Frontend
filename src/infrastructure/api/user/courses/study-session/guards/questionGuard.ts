@@ -14,7 +14,7 @@ export function isFillInBlankQuestionAnswer(
 export function isTextQuestionAnswer(
   questionAnswer: QuestionAnswer
 ): questionAnswer is TextQuestionAnswer {
-  return (questionAnswer as TextQuestionAnswer).type === "TEXT";
+  return (questionAnswer as TextQuestionAnswer).type === "TextExercise";
 }
 
 export function isAudioQuestionAnswer(

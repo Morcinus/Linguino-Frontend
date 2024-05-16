@@ -23,6 +23,7 @@ const ReadAloudExercise: React.FC<IReadAloudExercise> = ({
     type: "AUDIO",
     question: exercise.textL2,
     answer: exercise.textL2,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

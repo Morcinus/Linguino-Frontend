@@ -4,7 +4,7 @@ import LessonCreateUpdate, { ILessonCreateUpdate } from "./LessonCreateUpdate";
 import { mockLessonCreateUpdateProps } from "./LessonCreateUpdate.mocks";
 
 export default {
-  title: "templates/LessonCreateUpdate",
+  title: "layouts/LessonCreateUpdate",
   component: LessonCreateUpdate,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

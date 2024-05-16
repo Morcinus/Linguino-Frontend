@@ -1,9 +1,14 @@
+import { useTranslation } from "i18n/client";
+import { isTextExercise } from "infrastructure/api/user/courses/study-session/ExercisesGuard";
 import { StudyStats } from "infrastructure/api/user/notices/Notices";
 import useAuth from "infrastructure/services/AuthProvider";
+import { useSnackbar } from "notistack";
 import icons from "styles/icons";
 import theme from "styles/theme";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import { useRouter } from "next/navigation";
 
 import {
   IconButton,
@@ -42,6 +47,7 @@ const StudySession: React.FC<IStudySession> = ({
   displayExplanations = true,
 }) => {
   const { user } = useAuth();
+  const router = useRouter();
   const [finishedSession, setFinishedSession] = useState(false);
   const [index, setIndex] = useState(0);
   const [openExpansion, setOpenExpansion] = useState(false);
@@ -51,6 +57,21 @@ const StudySession: React.FC<IStudySession> = ({
   const [attemptArray, setAttemptArray] = useState<Array<QuestionAttempt>>([]);
   const [exerciseQueue, setExerciseQueue] =
     useState<Array<Exercise>>(exercises);
+
+  const { enqueueSnackbar } = useSnackbar();
+  const { t } = useTranslation("error-codes");
+  const redirecting = useRef(false);
+
+  // Check if study session is empty
+  useEffect(() => {
+    if (!redirecting.current && exercises && exercises.length === 0) {
+      redirecting.current = true;
+      enqueueSnackbar(t("studySessionEmpty"), {
+        variant: "success",
+      });
+      router.push("/");
+    }
+  }, [exercises, enqueueSnackbar, t, router]);
 
   function nextExercise() {
     if (index < exerciseQueue.length - 1) {
@@ -93,17 +114,6 @@ const StudySession: React.FC<IStudySession> = ({
     if (openExpansion) executeScroll();
   }, [openExpansion, executeScroll]);
 
-  function updateIsNew(index: number, value: boolean) {
-    const newArray = exerciseQueue.map((exercise, i) => {
-      if (i === index) {
-        return { ...exercise, isNew: value };
-      }
-      return exercise;
-    });
-
-    setExerciseQueue(newArray);
-  }
-
   function renderNewVocabulary(exercise: Exercise, index: number) {
     return (
       <>
@@ -112,7 +122,14 @@ const StudySession: React.FC<IStudySession> = ({
             courseId={user.selectedCourse.id}
             lessonItemId={exercise.lessonItemId}
             onContinue={() => {
-              updateIsNew(index, false);
+              const newArray = exerciseQueue.map((exercise, i) => {
+                if (i === index) {
+                  return { ...exercise, isNew: false };
+                }
+                return exercise;
+              });
+
+              setExerciseQueue(newArray);
             }}
           />
         )}
@@ -120,7 +137,7 @@ const StudySession: React.FC<IStudySession> = ({
     );
   }
 
-  function renderNewGrammar(exercise: Exercise, index: number) {
+  function renderNewGrammar(exercise: Exercise) {
     return (
       <>
         {user && exercise.lessonId && (
@@ -128,7 +145,19 @@ const StudySession: React.FC<IStudySession> = ({
             courseId={user.selectedCourse.id}
             lessonId={exercise.lessonId}
             onContinue={() => {
-              updateIsNew(index, false);
+              const newArray = exerciseQueue.map((e) => {
+                if (
+                  exercise.lessonId &&
+                  e.lessonId &&
+                  e.lessonId === exercise.lessonId
+                ) {
+                  return { ...e, isNew: false };
+                }
+
+                return e;
+              });
+
+              setExerciseQueue(newArray);
             }}
           />
         )}
@@ -148,6 +177,14 @@ const StudySession: React.FC<IStudySession> = ({
     });
 
     return { rightAnswers, wrongAnswers };
+  }
+
+  function hasExplanation(exercise: Exercise) {
+    if (isTextExercise(exercise)) {
+      return exercise.explanation ? true : false;
+    }
+
+    return false;
   }
 
   return (
@@ -204,7 +241,7 @@ const StudySession: React.FC<IStudySession> = ({
               <>
                 {exerciseQueue[index].isNew === true &&
                 exerciseQueue[index].lessonItemType === "GRAMMAR" ? (
-                  renderNewGrammar(exerciseQueue[index], index)
+                  renderNewGrammar(exerciseQueue[index])
                 ) : exerciseQueue[index].isNew === true &&
                   exerciseQueue[index].lessonItemType === "VOCABULARY" ? (
                   renderNewVocabulary(exerciseQueue[index], index)
@@ -224,7 +261,7 @@ const StudySession: React.FC<IStudySession> = ({
           {displayExplanations &&
           exerciseQueue !== undefined &&
           exerciseQueue[index] !== undefined &&
-          "explanation" in exerciseQueue[index] ? (
+          hasExplanation(exerciseQueue[index]) ? (
             <StudyExpansionBar onClick={toggleExpansion} open={openExpansion} />
           ) : (
             <></>
@@ -235,7 +272,7 @@ const StudySession: React.FC<IStudySession> = ({
         {displayExplanations &&
         exerciseQueue !== undefined &&
         exerciseQueue[index] !== undefined &&
-        "explanation" in exerciseQueue[index] ? (
+        hasExplanation(exerciseQueue[index]) ? (
           <StudyExpansionContent
             open={openExpansion}
             reference={elRef}

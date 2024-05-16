@@ -4,7 +4,7 @@ import AudioPlayer, { IAudioPlayer } from "./AudioPlayer";
 import { mockAudioPlayerProps } from "./AudioPlayer.mocks";
 
 export default {
-  title: "templates/AudioPlayer",
+  title: "atoms/AudioPlayer",
   component: AudioPlayer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

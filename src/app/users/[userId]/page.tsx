@@ -3,18 +3,18 @@
 
 import { useTranslation } from "i18n/client";
 import { optimisticMutationOption } from "infrastructure/api/API";
+import UserFollowingAPI from "infrastructure/api/user/following/UserFollowingAPI";
+import UsersAPI from "infrastructure/api/users/UsersAPI";
 
 import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
+import Popup, { IPopup } from "components/atoms/Popup/Popup";
 import ProgressCard from "components/atoms/cards/ProgressCard/ProgressCard";
 import UserProfileCard from "components/atoms/cards/UserProfileCard/UserProfileCard";
 import UserStatsCard from "components/atoms/cards/UserStatsCard/UserStatsCard";
-import Popup, { IPopup } from "components/atoms/Popup/Popup";
-import UserFollowingAPI from "infrastructure/api/user/following/UserFollowingAPI";
-import UsersAPI from "infrastructure/api/users/UsersAPI";
 
 export interface IUsersPage {
   params: {
@@ -28,24 +28,21 @@ const UsersPage: React.FC<IUsersPage> = ({ params }) => {
   const { t } = useTranslation("common");
 
   return (
-    <Box display="flex" flexDirection="column" gap={2}>
+    <Box display="flex" flexDirection="column" gap={2} sx={{ width: "100%" }}>
       {userProfile && (
         <UserProfileCard
           userProfile={userProfile}
           userId={params.userId}
           onFollowChange={(isFollowed) => {
-            mutate(
-              async () => {
-                if(isFollowed) {
-                  await UserFollowingAPI.followUser(params.userId);
-                } else {
-                  await UserFollowingAPI.unfollowUser(params.userId);
-                }
+            mutate(async () => {
+              if (isFollowed) {
+                await UserFollowingAPI.followUser(params.userId);
+              } else {
+                await UserFollowingAPI.unfollowUser(params.userId);
+              }
 
-                return { ...userProfile, isFollowed };
-              },
-              optimisticMutationOption({ ...userProfile, isFollowed })
-            );
+              return { ...userProfile, isFollowed };
+            }, optimisticMutationOption({ ...userProfile, isFollowed }));
           }}
         />
       )}
@@ -59,34 +56,38 @@ const UsersPage: React.FC<IUsersPage> = ({ params }) => {
       )}
 
       {popup && <Popup {...popup} open={true} onClose={() => setPopup(null)} />}
-      <Typography variant="subtitle1">
-        {t("achievements.achievements")}
-      </Typography>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-        {userProfile &&
-          userProfile.achievements.map((achievement) => {
-            return (
-              <ProgressCard
-                key={achievement.id}
-                header={achievement.title}
-                subheader={achievement.description}
-                imageUrl={achievement.imageUrl}
-                onClick={() => {
-                  setPopup({
-                    displayCloseButton: true,
-                    subheader: achievement.title,
-                    imageUrl: achievement.imageUrl,
-                    text: achievement.description,
-                  });
-                }}
-                cardHighlight={
-                  achievement.progress === 100 ? "achieved" : undefined
-                }
-                variant="small"
-              />
-            );
-          })}
-      </Box>
+
+      {userProfile && userProfile.achievements && (
+        <>
+          <Typography variant="subtitle1">
+            {t("achievements.achievements")}
+          </Typography>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            {userProfile.achievements.map((achievement) => {
+              return (
+                <ProgressCard
+                  key={achievement.id}
+                  header={achievement.title}
+                  subheader={achievement.description}
+                  imageUrl={achievement.imageUrl}
+                  onClick={() => {
+                    setPopup({
+                      displayCloseButton: true,
+                      subheader: achievement.title,
+                      imageUrl: achievement.imageUrl,
+                      text: achievement.description,
+                    });
+                  }}
+                  cardHighlight={
+                    achievement.progress === 100 ? "achieved" : undefined
+                  }
+                  variant="small"
+                />
+              );
+            })}
+          </Box>
+        </>
+      )}
     </Box>
   );
 };

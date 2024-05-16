@@ -6,7 +6,7 @@ import TableQuestionAnswer, {
 import { mockTableQuestionAnswerProps } from "./TableQuestionAnswer.mocks";
 
 export default {
-  title: "templates/TableQuestionAnswer",
+  title: "atoms/TableQuestionAnswer",
   component: TableQuestionAnswer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

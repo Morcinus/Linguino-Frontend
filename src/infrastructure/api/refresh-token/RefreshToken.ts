@@ -1,5 +1,5 @@
 export interface RefreshTokenRequestBody {
-  refreshToken: string;
+  token: string;
 }
 
 export interface RefreshTokenResponseBody {

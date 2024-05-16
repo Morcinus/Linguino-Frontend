@@ -6,6 +6,7 @@ const base: IAudioQuestionAnswer = {
     question: "Lorem ipsum?",
     answer: "Karel snědl bramboru.",
     type: "AUDIO",
+    lessonItemId: "abc",
   },
 };
 
