@@ -1,19 +1,19 @@
 export const goalOptions = [
   {
     id: "casual",
-    value: 5,
+    value: 300000,
   },
   {
     id: "medium",
-    value: 10,
+    value: 600000,
   },
   {
     id: "dedicated",
-    value: 15,
+    value: 900000,
   },
   {
     id: "intense",
-    value: 20,
+    value: 1200000,
   },
 ];
 
