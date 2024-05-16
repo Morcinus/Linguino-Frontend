@@ -4,7 +4,7 @@ import HomeNavigationBar, { IHomeNavigationBar } from "./HomeNavigationBar";
 import { mockHomeNavigationBarProps } from "./HomeNavigationBar.mocks";
 
 export default {
-  title: "templates/HomeNavigationBar",
+  title: "atoms/HomeNavigationBar",
   component: HomeNavigationBar,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

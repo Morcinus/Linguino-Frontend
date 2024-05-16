@@ -59,6 +59,7 @@ const FullWidthButton: React.FC<IFullWidthButton & ButtonProps> = ({
               sx={{
                 width: "100%",
                 borderRadius: 0,
+                height: "56px",
               }}
               color={
                 buttonVariant === "right"

@@ -158,6 +158,9 @@ const LessonCreateUpdate: React.FC<ILessonCreateUpdate> = ({
             open={searchDialogOpen}
             onItemAdd={(item) => {
               setItems([...(items || []), item]);
+              enqueueSnackbar(t("userLessons.wordAdded"), {
+                variant: "success",
+              });
             }}
             onItemRemove={(item) => {
               setItems(items.filter((e) => e.id !== item.id));

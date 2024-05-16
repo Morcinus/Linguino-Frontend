@@ -4,7 +4,7 @@ import MatchTextOption, { IMatchTextOption } from "./MatchTextOption";
 import { mockMatchTextOptionProps } from "./MatchTextOption.mocks";
 
 export default {
-  title: "templates/MatchTextOption",
+  title: "atoms/MatchTextOption",
   component: MatchTextOption,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

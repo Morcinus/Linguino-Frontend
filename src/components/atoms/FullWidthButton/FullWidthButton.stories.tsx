@@ -4,7 +4,7 @@ import FullWidthButton, { IFullWidthButton } from "./FullWidthButton";
 import { mockFullWidthButtonProps } from "./FullWidthButton.mocks";
 
 export default {
-  title: "templates/FullWidthButton",
+  title: "atoms/FullWidthButton",
   component: FullWidthButton,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

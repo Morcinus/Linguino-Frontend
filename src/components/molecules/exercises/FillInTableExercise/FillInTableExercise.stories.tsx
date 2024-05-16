@@ -6,7 +6,7 @@ import FillInTableExercise, {
 import { mockFillInTableExerciseProps } from "./FillInTableExercise.mocks";
 
 export default {
-  title: "templates/FillInTableExercise",
+  title: "molecules/FillInTableExercise",
   component: FillInTableExercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

@@ -6,7 +6,7 @@ import UnauthenticatedOnlyRoute, {
 import { mockUnauthenticatedOnlyRouteProps } from "./UnauthenticatedOnlyRoute.mocks";
 
 export default {
-  title: "templates/UnauthenticatedOnlyRoute",
+  title: "layouts/UnauthenticatedOnlyRoute",
   component: UnauthenticatedOnlyRoute,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

@@ -22,9 +22,10 @@ const ReadingExercise: React.FC<IReadingExercise> = ({
   const { t } = useTranslation("common");
   const questionAnswer: TextQuestionAnswer = {
     id: exercise.id,
-    type: "TEXT",
+    type: "TextExercise",
     question: exercise.questionL2,
     answer: exercise.answerL2,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

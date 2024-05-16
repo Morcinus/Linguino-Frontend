@@ -228,7 +228,9 @@
 
     "addVocabulary": "Přidat slovíčka",
     "searchVocabulary": "Vyhledat slovíčka",
-    "noWordsFound": "Nebyla nalezena žádná slovíčka"
+    "noWordsFound": "Nebyla nalezena žádná slovíčka",
+
+    "wordAdded": "Slovíčko přidáno"
   },
 
   "userActions": {

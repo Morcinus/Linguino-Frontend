@@ -1,8 +1,5 @@
-import FeedOutlinedIcon from "@mui/icons-material/FeedOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
 
 export const primaryNavigation = [
   {
@@ -10,21 +7,22 @@ export const primaryNavigation = [
     icon: <HomeOutlinedIcon />,
     path: "/",
   },
+  /* Isn't implemented on backend in v1.0.0
   {
     label: "navigation.shop",
     icon: <ShoppingCartOutlinedIcon />,
     path: "/shop",
-  },
-  {
+  }, */
+  /* Isn't implemented on backend in v1.0.0  {
     label: "navigation.challenges",
     icon: <WorkspacePremiumOutlinedIcon />,
     path: "/challenges",
-  },
-  {
+  }, */
+  /* Isn't implemented on backend in v1.0.0 {
     label: "navigation.feed",
     icon: <FeedOutlinedIcon />,
     path: "/feed",
-  },
+  }, */
   {
     label: "navigation.profile",
     icon: <PersonOutlineOutlinedIcon />,

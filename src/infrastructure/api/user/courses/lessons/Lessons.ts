@@ -42,7 +42,7 @@ export type LessonUpdateDTO = Partial<
 > &
   Pick<Lesson, "id">;
 
-export type FeedbackState = "LIKED" | "DISLIKED" | null;
+export type FeedbackState = "LIKE" | "DISLIKE" | null;
 
 export interface Category {
   id: Id;

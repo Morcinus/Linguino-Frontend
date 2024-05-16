@@ -39,6 +39,7 @@ const SpeechExercise: React.FC<ISpeechExercise> = ({
         exerciseId: i.toString(),
         states: ["RIGHT"],
         answers: [],
+        lessonItemId: exercise.lessonItemId,
       });
     });
 

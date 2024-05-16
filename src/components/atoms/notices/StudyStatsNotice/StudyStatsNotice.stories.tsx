@@ -4,7 +4,7 @@ import StudyStatsNotice, { IStudyStatsNotice } from "./StudyStatsNotice";
 import { mockStudyStatsNoticeProps } from "./StudyStatsNotice.mocks";
 
 export default {
-  title: "templates/StudyStatsNotice",
+  title: "atoms/StudyStatsNotice",
   component: StudyStatsNotice,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

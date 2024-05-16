@@ -5,7 +5,7 @@ const base: IFillInSentenceExercise = {
     id: "asfjnldsfnks",
     isNew: false,
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
-    type: "FILL_IN_SENTENCE",
+    type: "FillInSentenceExercise",
     textL1: "Mám rád jablka.",
     textL2: "I like apples .",
     blankIndexes: [2],

@@ -4,7 +4,7 @@ import LevelProgressBar, { ILevelProgressBar } from "./LevelProgressBar";
 import { mockLevelProgressBarProps } from "./LevelProgressBar.mocks";
 
 export default {
-  title: "templates/LevelProgressBar",
+  title: "atoms/LevelProgressBar",
   component: LevelProgressBar,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

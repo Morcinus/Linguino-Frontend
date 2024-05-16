@@ -5,7 +5,7 @@ import FavoritesPage, { IFavoritesPage } from "./page";
 import { mockFavoritesPageProps } from "./page.mocks";
 
 export default {
-  title: "templates/FavoritesPage",
+  title: "pages/FavoritesPage",
   component: FavoritesPage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

@@ -4,7 +4,7 @@ import Exercise, { IExercise } from "./Exercise";
 import { mockExerciseProps } from "./Exercise.mocks";
 
 export default {
-  title: "templates/Exercise",
+  title: "atoms/Exercise",
   component: Exercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

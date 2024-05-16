@@ -6,7 +6,7 @@ import FillInSentenceExercise, {
 import { mockFillInSentenceExerciseProps } from "./FillInSentenceExercise.mocks";
 
 export default {
-  title: "templates/FillInSentenceExercise",
+  title: "molecules/FillInSentenceExercise",
   component: FillInSentenceExercise,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

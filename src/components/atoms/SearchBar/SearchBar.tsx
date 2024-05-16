@@ -7,6 +7,7 @@ import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
 
 import IconContainer from "../IconContainer/IconContainer";
+import KeyPress from "../KeyPress/KeyPress";
 
 export interface ISearchBar {
   title: string;
@@ -38,6 +39,7 @@ const SearchBar: React.FC<ISearchBar> = ({
           ),
         }}
       />
+      <KeyPress onPress={() => onSearchClick(value)} keys={["Enter"]} />
     </Box>
   );
 };

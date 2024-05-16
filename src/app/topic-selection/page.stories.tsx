@@ -5,7 +5,7 @@ import TopicSelectionPage, { ITopicSelectionPage } from "./page";
 import { mockTopicSelectionPageProps } from "./page.mocks";
 
 export default {
-  title: "templates/TopicSelectionPage",
+  title: "pages/TopicSelectionPage",
   component: TopicSelectionPage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

@@ -5,7 +5,7 @@ const base: IMatchingExercise = {
     id: "sfdajnlsnfads",
     isNew: false,
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
-    type: "MATCHING",
+    type: "MatchingExercise",
     options1: [
       {
         imageUrl: "https://picsum.photos/id/1/512/512",

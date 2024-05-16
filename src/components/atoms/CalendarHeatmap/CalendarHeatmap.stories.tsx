@@ -4,7 +4,7 @@ import CalendarHeatmap, { ICalendarHeatmap } from "./CalendarHeatmap";
 import { mockCalendarHeatmapProps } from "./CalendarHeatmap.mocks";
 
 export default {
-  title: "templates/CalendarHeatmap",
+  title: "atoms/CalendarHeatmap",
   component: CalendarHeatmap,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

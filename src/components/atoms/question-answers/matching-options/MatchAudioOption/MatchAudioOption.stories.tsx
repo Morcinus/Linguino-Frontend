@@ -4,7 +4,7 @@ import MatchAudioOption, { IMatchAudioOption } from "./MatchAudioOption";
 import { mockMatchAudioOptionProps } from "./MatchAudioOption.mocks";
 
 export default {
-  title: "templates/MatchAudioOption",
+  title: "atoms/MatchAudioOption",
   component: MatchAudioOption,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

@@ -100,6 +100,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
         }),
         exerciseId: questionAnswer.id,
         states: answerStates,
+        lessonItemId: questionAnswer.lessonItemId,
       });
     }
   }, [
@@ -113,6 +114,7 @@ const MatchingQuestionAnswer: React.FC<IMatchingQuestionAnswer> = ({
     onChange,
     questionAnswer.id,
     questionAnswer.options1,
+    questionAnswer.lessonItemId,
     optionStates1,
   ]);
 

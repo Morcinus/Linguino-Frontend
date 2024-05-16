@@ -23,6 +23,7 @@ const RepeatAudioExercise: React.FC<IRepeatAudioExercise> = ({
     id: exercise.id,
     type: "AUDIO",
     answer: exercise.textL2,
+    lessonItemId: exercise.lessonItemId,
   };
 
   return (

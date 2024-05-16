@@ -3,7 +3,8 @@ import { IMatchingQuestionAnswer } from "./MatchingQuestionAnswer";
 const base: IMatchingQuestionAnswer = {
   questionAnswer: {
     id: "flsnajkadfnldfasj",
-    type: "MATCHING",
+    type: "MatchingExercise",
+    lessonItemId: "abc",
     options1: [
       {
         imageUrl: "https://picsum.photos/id/1/512/512",

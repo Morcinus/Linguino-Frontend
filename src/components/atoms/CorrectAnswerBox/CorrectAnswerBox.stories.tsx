@@ -4,7 +4,7 @@ import CorrectAnswerBox, { ICorrectAnswerBox } from "./CorrectAnswerBox";
 import { mockCorrectAnswerBoxProps } from "./CorrectAnswerBox.mocks";
 
 export default {
-  title: "templates/CorrectAnswerBox",
+  title: "atoms/CorrectAnswerBox",
   component: CorrectAnswerBox,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

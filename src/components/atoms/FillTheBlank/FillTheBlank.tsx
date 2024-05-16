@@ -46,6 +46,7 @@ const FillTheBlank: React.FC<IFillTheBlank> = ({
         answers,
         states,
         exerciseId: questionAnswer.id,
+        lessonItemId: questionAnswer.lessonItemId,
       })
     );
   }

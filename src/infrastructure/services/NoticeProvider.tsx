@@ -32,7 +32,9 @@ export function NoticeProvider({
   }
 
   async function fetchNotices() {
-    const newNotices = await NoticesAPI.getNotices();
+    // Isn't implemented on backend in v1.0.0
+    // const newNotices = await NoticesAPI.getNotices();
+    const newNotices: Array<Notice> = [];
 
     setNotices([...notices, ...newNotices]);
 

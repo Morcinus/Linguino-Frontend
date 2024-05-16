@@ -43,6 +43,7 @@ const TextQuestionAnswer: React.FC<ITextQuestionAnswer> = ({
         answers: [text.toLowerCase()],
         exerciseId: questionAnswer.id,
         states: ["NONE"],
+        lessonItemId: questionAnswer.lessonItemId,
       })
     );
   };

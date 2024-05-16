@@ -4,7 +4,7 @@ import KeyPress, { IKeyPress } from "./KeyPress";
 import { mockKeyPressProps } from "./KeyPress.mocks";
 
 export default {
-  title: "templates/KeyPress",
+  title: "atoms/KeyPress",
   component: KeyPress,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

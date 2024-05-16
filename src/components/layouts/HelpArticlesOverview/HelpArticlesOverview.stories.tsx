@@ -6,7 +6,7 @@ import HelpArticlesOverview, {
 import { mockHelpArticlesOverviewProps } from "./HelpArticlesOverview.mocks";
 
 export default {
-  title: "templates/HelpArticlesOverview",
+  title: "layouts/HelpArticlesOverview",
   component: HelpArticlesOverview,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

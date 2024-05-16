@@ -5,7 +5,7 @@ const base: IListeningExercise = {
     id: "ifdsamlmlkafd",
     isNew: false,
     lessonItemId: "qneOTSjAgXyMeLZEnSzG",
-    type: "LISTENING",
+    type: "ListeningExercise",
     questionL2: "What color was the T-shirt?",
     answerL2: "blue",
     audioUrl: "https://mocks.linguino.org/audio-long.mp3",

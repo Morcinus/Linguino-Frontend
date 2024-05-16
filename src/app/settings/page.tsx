@@ -106,9 +106,6 @@ const SettingsPage: React.FC<ISettingsPage> = () => {
                   setChange({ ...change, username: value })
                 }
                 onNameChange={(value) => setChange({ ...change, name: value })}
-                onEmailChange={(value) =>
-                  setChange({ ...change, email: value })
-                }
                 onPasswordChange={() => setChangePasswordEmailSent(true)}
                 accountErrors={errors}
               />

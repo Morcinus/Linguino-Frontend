@@ -4,7 +4,7 @@ import UserStatsCard, { IUserStatsCard } from "./UserStatsCard";
 import { mockUserStatsCardProps } from "./UserStatsCard.mocks";
 
 export default {
-  title: "templates/UserStatsCard",
+  title: "atoms/UserStatsCard",
   component: UserStatsCard,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
