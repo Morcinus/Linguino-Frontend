@@ -98,11 +98,11 @@ export const studying = [
 ];
 
 export const other = [
-  /* Isn't implemented on backend in v1.0.0  {
+  {
     label: "navigation.help",
     icon: icons.help,
     path: "/help",
-  }, */
+  },
   {
     label: "navigation.premium",
     icon: icons.premium,
